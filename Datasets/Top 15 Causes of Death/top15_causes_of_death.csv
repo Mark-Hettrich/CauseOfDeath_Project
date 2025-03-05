@@ -1,0 +1,16 @@
+15 Leading Causes of Death,15 Leading Causes of Death Code,Deaths,Population,Crude Rate
+"#Diseases of heart (I00-I09,I11,I13,I20-I51)",GR113-054,4090792,1984987277,206.1
+#Malignant neoplasms (C00-C97),GR113-019,3628161,1984987277,182.8
+"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)",GR113-112,1215794,1984987277,61.2
+#COVID-19 (U07.1),GR113-137,1004208,1984987277,50.6
+#Cerebrovascular diseases (I60-I69),GR113-070,949001,1984987277,47.8
+#Chronic lower respiratory diseases (J40-J47),GR113-082,904203,1984987277,45.6
+#Alzheimer disease (G30),GR113-052,731315,1984987277,36.8
+#Diabetes mellitus (E10-E14),GR113-046,574474,1984987277,28.9
+"#Nephritis, nephrotic syndrome and nephrosis (N00-N07,N17-N19,N25-N27)",GR113-097,323046,1984987277,16.3
+"#Chronic liver disease and cirrhosis (K70,K73-K74)",GR113-093,302448,1984987277,15.2
+#Influenza and pneumonia (J09-J18),GR113-076,296601,1984987277,14.9
+"#Intentional self-harm (suicide) (*U03,X60-X84,Y87.0)",GR113-124,288809,1984987277,14.5
+#Septicemia (A40-A41),GR113-010,244451,1984987277,12.3
+"#Essential hypertension and hypertensive renal disease (I10,I12,I15)",GR113-069,242749,1984987277,12.2
+#Parkinson disease (G20-G21),GR113-051,228049,1984987277,11.5
