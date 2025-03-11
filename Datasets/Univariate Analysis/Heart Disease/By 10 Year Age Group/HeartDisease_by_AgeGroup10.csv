@@ -1,0 +1,15 @@
+Notes,ICD Chapter,ICD Chapter Code,Ten-Year Age Groups,Ten-Year Age Groups Code,Deaths,Population,Crude Rate
+,Diseases of the circulatory system,I00-I99,< 1 year,1,1560,22262530,7
+,Diseases of the circulatory system,I00-I99,1-4 years,04-Jan,710,92302571,0.8
+,Diseases of the circulatory system,I00-I99,5-14 years,14-May,1103,246687153,0.4
+,Diseases of the circulatory system,I00-I99,15-24 years,15-24,5274,259530880,2
+,Diseases of the circulatory system,I00-I99,25-34 years,25-34,22458,274246662,8.2
+,Diseases of the circulatory system,I00-I99,35-44 years,35-44,69748,256563136,27.2
+,Diseases of the circulatory system,I00-I99,45-54 years,45-54,194790,244486596,79.7
+,Diseases of the circulatory system,I00-I99,55-64 years,55-64,505231,253867762,199
+,Diseases of the circulatory system,I00-I99,65-74 years,65-74,792653,196664992,403
+,Diseases of the circulatory system,I00-I99,75-84 years,75-84,1004317,99910510,1005.2
+,Diseases of the circulatory system,I00-I99,85+ years,85+,1492779,38464485,3880.9
+,Diseases of the circulatory system,I00-I99,Not Stated,NS,169,Not Applicable,Not Applicable
+Total,Diseases of the circulatory system,I00-I99,,,4090792,1984987277,206.1
+Total,,,,,4090792,1984987277,206.1
