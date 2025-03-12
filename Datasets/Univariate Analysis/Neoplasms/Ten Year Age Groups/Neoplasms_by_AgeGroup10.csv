@@ -1,0 +1,15 @@
+Notes,ICD Chapter,ICD Chapter Code,Ten-Year Age Groups,Ten-Year Age Groups Code,Deaths,Population,Crude Rate
+,Neoplasms,C00-D48,< 1 year,1,299,22262530,1.3
+,Neoplasms,C00-D48,1-4 years,04-Jan,1735,92302571,1.9
+,Neoplasms,C00-D48,5-14 years,14-May,4891,246687153,2
+,Neoplasms,C00-D48,15-24 years,15-24,8272,259530880,3.2
+,Neoplasms,C00-D48,25-34 years,25-34,21593,274246662,7.9
+,Neoplasms,C00-D48,35-44 years,35-44,65727,256563136,25.6
+,Neoplasms,C00-D48,45-54 years,45-54,207274,244486596,84.8
+,Neoplasms,C00-D48,55-64 years,55-64,650825,253867762,256.4
+,Neoplasms,C00-D48,65-74 years,65-74,1054277,196664992,536.1
+,Neoplasms,C00-D48,75-84 years,75-84,996548,99910510,997.4
+,Neoplasms,C00-D48,85+ years,85+,616681,38464485,1603.2
+,Neoplasms,C00-D48,Not Stated,NS,39,Not Applicable,Not Applicable
+Total,Neoplasms,C00-D48,,,3628161,1984987277,182.8
+Total,,,,,3628161,1984987277,182.8

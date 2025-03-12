@@ -1,0 +1,9 @@
+Notes,ICD Chapter,ICD Chapter Code,Single Race 6,Single Race 6 Code,Deaths,Population,Crude Rate,Age Adjusted Rate
+,Diseases of the circulatory system,I00-I99,American Indian or Alaska Native,1002-5,4703,25864794,18.2,24.2
+,Diseases of the circulatory system,I00-I99,Asian,A,36384,121539078,29.9,30
+,Diseases of the circulatory system,I00-I99,Black or African American,May-54,131125,268628550,48.8,54.4
+,Diseases of the circulatory system,I00-I99,Native Hawaiian or Other Pacific Islander,NHOPI,1563,5091714,30.7,41.8
+,Diseases of the circulatory system,I00-I99,White,Mar-06,770709,1506100499,51.2,37.5
+,Diseases of the circulatory system,I00-I99,More than one race,M,4517,57762642,7.8,17.8
+Total,Diseases of the circulatory system,I00-I99,,,949001,1984987277,47.8,38.7
+Total,,,,,949001,1984987277,47.8,38.7

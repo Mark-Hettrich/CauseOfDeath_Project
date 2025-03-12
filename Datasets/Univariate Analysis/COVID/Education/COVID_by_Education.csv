@@ -1,0 +1,13 @@
+Notes,ICD Chapter,ICD Chapter Code,Education,Education Code,Deaths,Population,Crude Rate,Age Adjusted Rate
+,Codes for special purposes,U00-U99,8th grade or less,1,67455,Not Applicable,Not Applicable,Not Applicable
+,Codes for special purposes,U00-U99,9th through 12th grade with no diploma,2,63712,Not Applicable,Not Applicable,Not Applicable
+,Codes for special purposes,U00-U99,High school graduate or GED completed,3,282683,Not Applicable,Not Applicable,Not Applicable
+,Codes for special purposes,U00-U99,"Some college credit, but not a degree.",4,83130,Not Applicable,Not Applicable,Not Applicable
+,Codes for special purposes,U00-U99,"Associate degree (AA,AS)",5,46471,Not Applicable,Not Applicable,Not Applicable
+,Codes for special purposes,U00-U99,"Bachelor?s degree (BA, AB, BS)",6,63972,Not Applicable,Not Applicable,Not Applicable
+,Codes for special purposes,U00-U99,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,24982,Not Applicable,Not Applicable,Not Applicable
+,Codes for special purposes,U00-U99,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,9520,Not Applicable,Not Applicable,Not Applicable
+,Codes for special purposes,U00-U99,Unknown or Not Stated,9,11452,Not Applicable,Not Applicable,Not Applicable
+,Codes for special purposes,U00-U99,Not Available,10,350831,Not Applicable,Not Applicable,Not Applicable
+Total,Codes for special purposes,U00-U99,,,1004208,Not Applicable,Not Applicable,Not Applicable
+Total,,,,,1004208,Not Applicable,Not Applicable,Not Applicable

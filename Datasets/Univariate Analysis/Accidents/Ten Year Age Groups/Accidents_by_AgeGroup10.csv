@@ -1,0 +1,15 @@
+Notes,ICD Chapter,ICD Chapter Code,Ten-Year Age Groups,Ten-Year Age Groups Code,Deaths,Population,Crude Rate
+,External causes of morbidity and mortality,V01-Y89,< 1 year,1,7579,22262530,34
+,External causes of morbidity and mortality,V01-Y89,1-4 years,04-Jan,7390,92302571,8
+,External causes of morbidity and mortality,V01-Y89,5-14 years,14-May,9476,246687153,3.8
+,External causes of morbidity and mortality,V01-Y89,15-24 years,15-24,83503,259530880,32.2
+,External causes of morbidity and mortality,V01-Y89,25-34 years,25-34,178118,274246662,64.9
+,External causes of morbidity and mortality,V01-Y89,35-44 years,35-44,187369,256563136,73
+,External causes of morbidity and mortality,V01-Y89,45-54 years,45-54,167594,244486596,68.5
+,External causes of morbidity and mortality,V01-Y89,55-64 years,55-64,178698,253867762,70.4
+,External causes of morbidity and mortality,V01-Y89,65-74 years,65-74,120558,196664992,61.3
+,External causes of morbidity and mortality,V01-Y89,75-84 years,75-84,120052,99910510,120.2
+,External causes of morbidity and mortality,V01-Y89,85+ years,85+,155349,38464485,403.9
+,External causes of morbidity and mortality,V01-Y89,Not Stated,NS,108,Not Applicable,Not Applicable
+Total,External causes of morbidity and mortality,V01-Y89,,,1215794,1984987277,61.2
+Total,,,,,1215794,1984987277,61.2

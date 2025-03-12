@@ -1,0 +1,13 @@
+Notes,ICD Chapter,ICD Chapter Code,Education,Education Code,Deaths,Population,Crude Rate,Age Adjusted Rate
+,External causes of morbidity and mortality,V01-Y89,8th grade or less,1,45408,Not Applicable,Not Applicable,Not Applicable
+,External causes of morbidity and mortality,V01-Y89,9th through 12th grade with no diploma,2,92514,Not Applicable,Not Applicable,Not Applicable
+,External causes of morbidity and mortality,V01-Y89,High school graduate or GED completed,3,307546,Not Applicable,Not Applicable,Not Applicable
+,External causes of morbidity and mortality,V01-Y89,"Some college credit, but not a degree.",4,89363,Not Applicable,Not Applicable,Not Applicable
+,External causes of morbidity and mortality,V01-Y89,"Associate degree (AA,AS)",5,39279,Not Applicable,Not Applicable,Not Applicable
+,External causes of morbidity and mortality,V01-Y89,"Bachelor?s degree (BA, AB, BS)",6,54065,Not Applicable,Not Applicable,Not Applicable
+,External causes of morbidity and mortality,V01-Y89,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,19477,Not Applicable,Not Applicable,Not Applicable
+,External causes of morbidity and mortality,V01-Y89,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,7907,Not Applicable,Not Applicable,Not Applicable
+,External causes of morbidity and mortality,V01-Y89,Unknown or Not Stated,9,19113,Not Applicable,Not Applicable,Not Applicable
+,External causes of morbidity and mortality,V01-Y89,Not Available,10,541122,Not Applicable,Not Applicable,Not Applicable
+Total,External causes of morbidity and mortality,V01-Y89,,,1215794,Not Applicable,Not Applicable,Not Applicable
+Total,,,,,1215794,Not Applicable,Not Applicable,Not Applicable

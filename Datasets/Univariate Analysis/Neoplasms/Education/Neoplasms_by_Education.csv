@@ -1,0 +1,13 @@
+Notes,ICD Chapter,ICD Chapter Code,Education,Education Code,Deaths,Population,Crude Rate,Age Adjusted Rate
+,Neoplasms,C00-D48,8th grade or less,1,110772,Not Applicable,Not Applicable,Not Applicable
+,Neoplasms,C00-D48,9th through 12th grade with no diploma,2,150015,Not Applicable,Not Applicable,Not Applicable
+,Neoplasms,C00-D48,High school graduate or GED completed,3,753500,Not Applicable,Not Applicable,Not Applicable
+,Neoplasms,C00-D48,"Some college credit, but not a degree.",4,247725,Not Applicable,Not Applicable,Not Applicable
+,Neoplasms,C00-D48,"Associate degree (AA,AS)",5,142030,Not Applicable,Not Applicable,Not Applicable
+,Neoplasms,C00-D48,"Bachelor?s degree (BA, AB, BS)",6,245338,Not Applicable,Not Applicable,Not Applicable
+,Neoplasms,C00-D48,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,109755,Not Applicable,Not Applicable,Not Applicable
+,Neoplasms,C00-D48,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,42635,Not Applicable,Not Applicable,Not Applicable
+,Neoplasms,C00-D48,Unknown or Not Stated,9,25166,Not Applicable,Not Applicable,Not Applicable
+,Neoplasms,C00-D48,Not Available,10,1801225,Not Applicable,Not Applicable,Not Applicable
+Total,Neoplasms,C00-D48,,,3628161,Not Applicable,Not Applicable,Not Applicable
+Total,,,,,3628161,Not Applicable,Not Applicable,Not Applicable
