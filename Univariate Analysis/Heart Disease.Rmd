@@ -10,14 +10,15 @@ Education
 Year & Month
 
 
+Still to-do: State age adjusted
 
 
 ```{r}
-install.packages("here")
 library(here)
 library(ggplot2)
 library(readr)
 library(dplyr)
+options(scipen=999) #normale Zahlen statt 2e+05 oder so
 ```
 
 Year
@@ -68,6 +69,7 @@ ym_df %>%
   ggplot(aes(x = Month, y = Deaths, group = 1)) +
   geom_line(color = "red", size = 1) +
   geom_point(color = "red", size = 2) +
+  geom_smooth() +
   labs(title = "Heart Disease Deaths per Month (Jan 2018 - Dec 2023)",
        x = "Month",
        y = "Number of Deaths") +
@@ -81,7 +83,9 @@ Sex
 ```{r}
 file_path <- here("Datasets", "Univariate Analysis", "Heart Disease", "By Sex", "HeartDisease_by_Sex.csv")
 sex_df <- read_csv(file_path)
+sex_df$age_adjusted_rate <- c(129.3, 201.6, 166.0, 166.0)
 sex_df
+
 sex_df %>%
   filter(!is.na(Sex)) %>%
   ggplot(aes(x = Sex, y = Deaths, fill = Sex)) +
@@ -97,6 +101,15 @@ sex_df %>%
   ggplot(aes(x = Sex, y = (Deaths / Population) * 100000, fill = Sex)) +
   geom_bar(stat = "identity") +
   labs(title = "Heart Disease Death Rate by Sex (per 100,000 Population)",
+       x = "Sex",
+       y = "Death Rate per 100,000") +
+  theme_minimal()
+
+sex_df %>%
+  filter(!is.na(Sex)) %>%
+  ggplot(aes(x = Sex, y = age_adjusted_rate, fill = Sex)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Heart Disease Death Rate by Sex, Age adjusted (per 100,000 Population)",
        x = "Sex",
        y = "Death Rate per 100,000") +
   theme_minimal()
@@ -117,7 +130,6 @@ state_df %>%
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-# Plot 2: Deaths by State Normalized with Population (Bar Plot)
 state_df %>%
   filter(!is.na(State)) %>%
   ggplot(aes(x = State, y = (Deaths / Population) * 100000)) +
@@ -133,24 +145,186 @@ state_df %>%
 
 Urbanization
 ```{r}
+file_path <- here("Datasets", "Univariate Analysis", "Heart Disease", "By Urbanization", "HeartDisease_by_Urbanization.csv")
+urban_df <- read_csv(file_path)
+urban_df
+# Percentage of people living in each Urbanization level (https://www.cdc.gov/nchs/data/series/sr_02/sr02_166.pdf)
+urbanization_data <- data.frame(
+  Urbanization_Level = c("Large central metro", "Large fringe metro", "Medium metro", 
+                         "Small metro", "Micropolitan", "Noncore"),
+  Number_of_Counties = c(68, 368, 373, 358, 641, 1335),
+  Population_Percent = c(30.5, 24.7, 20.9, 9.2, 8.7, 6.1)
+)
+urbanization_data$Deaths <- urban_df$Deaths[1:6]
+urbanization_data$Deaths_per_Pop <- urbanization_data$Deaths / urbanization_data$Population_Percent #if all levels had the same amout of people there
+urbanization_data$Urbanization_Level <- factor(urbanization_data$Urbanization_Level, 
+                                               levels = c("Large central metro", "Large fringe metro", 
+                                                          "Medium metro", "Small metro", "Micropolitan", "Noncore"))
+urbanization_data
 
+
+urbanization_data %>%
+  filter(!is.na(Urbanization_Level)) %>%
+  ggplot(aes(x = Urbanization_Level, y = Deaths, fill = Urbanization_Level)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Heart Disease Deaths by Urbanization",
+       x = "Urbanization levels",
+       y = "Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+urbanization_data %>%
+  ggplot(aes(x = Urbanization_Level, y = Population_Percent, fill = Urbanization_Level)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Percenatage of Population in Urbanization Levels",
+       x = "Urbanization levels",
+       y = "Percentage") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+urbanization_data %>%
+  ggplot(aes(x = Urbanization_Level, y = Deaths_per_Pop, fill = Urbanization_Level)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Heart Disease Deaths by Urbanization Level, normalized",
+       x = "Urbanization levels",
+       y = "Normalized Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 
 Race
 ```{r}
+file_path <- here("Datasets", "Univariate Analysis", "Heart Disease", "By Race", "HeartDisease_by_Race.csv")
+race_df <- read_csv(file_path)
+race_df$age_adjusted_rate <- c(109.1, 82.6, 210.9, 148.1, 166.0, 69.8, 166.0, 166.0)
+race_df
 
+
+race_df %>%
+  filter(!is.na(`Single Race 6`)) %>%
+  ggplot(aes(x = `Single Race 6`, y = Deaths)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Heart Disease Deaths by Race",
+       x = "Race",
+       y = "Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Plot 2: Deaths by Race Normalized with Population (Bar Plot)
+race_df %>%
+  filter(!is.na(`Single Race 6`)) %>%
+  ggplot(aes(x = `Single Race 6`, y = (Deaths / Population) * 100000)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Heart Disease Death Rate by Race (per 100,000 Population)",
+       x = "Race",
+       y = "Death Rate per 100,000") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+race_df %>%
+  filter(!is.na(`Single Race 6`)) %>%
+  ggplot(aes(x = `Single Race 6`, y = age_adjusted_rate)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Heart Disease Death Rate by Race Age adjusted (per 100,000 Population)",
+       x = "Race",
+       y = "Death Rate per 100,000") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 
 Education
 ```{r}
+file_path <- here("Datasets", "Univariate Analysis", "Heart Disease", "By Education", "HeartDisease_by_Education.csv")
+education_df <- read_csv(file_path)
+education_df
 
+education_order <- c(
+  "8th grade or less",
+  "9th through 12th grade with no diploma",
+  "High school graduate or GED completed",
+  "Some college credit, but not a degree.",
+  "Associate degree (AA,AS)",
+  "Bachelor?s degree (BA, AB, BS)",
+  "Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",
+  "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",
+  "Unknown or Not Stated"
+)
+
+education_df %>%
+  filter(!is.na(Education)) %>%
+  filter(Education != "Not Available") %>%
+  mutate(Education = factor(Education, levels = education_order)) %>%
+  ggplot(aes(x = Education, y = Deaths, fill = Education)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Heart Disease Deaths by Education Attainment Level",
+       x = "Education Attainment Level",
+       y = "Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_blank())
+
+
+education_df %>%
+  filter(!is.na(Education)) %>%
+  filter(Education != "Not Available") %>%
+  mutate(Education = factor(Education, levels = education_order)) %>%
+  ggplot(aes(x = "", y = Deaths, fill = Education)) +  
+  geom_bar(stat = "identity", width = 1) +  
+  coord_polar(theta = "y") +  
+  labs(title = "Heart Disease Deaths by Education Attainment Level") +
+  theme_minimal() +
+  theme(axis.text.x = element_blank(),  
+        axis.text.y = element_blank(),  
+        axis.ticks = element_blank(),   
+        panel.grid = element_blank(),
+        axis.title = element_blank()) 
 ```
 
 
-10 Year Age Gap
+10 Year Age Groups
 ```{r}
+file_path <- here("Datasets", "Univariate Analysis", "Heart Disease", "By 10 Year Age Group", "HeartDisease_by_AgeGroup10.csv")
+age_df <- read_csv(file_path)
+age_df$Population <- as.numeric(age_df$Population)
+age_df
+age_groups_order <- c(
+  "< 1 year",
+  "1-4 years",
+  "5-14 years",
+  "15-24 years",
+  "25-34 years",
+  "35-44 years",
+  "45-54 years",
+  "55-64 years",
+  "65-74 years",
+  "75-84 years",
+  "85+ years"
+)
 
+age_df %>%
+  filter(!is.na(`Ten-Year Age Groups`)) %>%
+    filter(`Ten-Year Age Groups` != "Not Stated") %>%
+    mutate(`Ten-Year Age Groups` = factor(`Ten-Year Age Groups`, levels = age_groups_order)) %>%
+  ggplot(aes(x = `Ten-Year Age Groups`, y = Deaths, fill = `Ten-Year Age Groups`)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Heart Disease Deaths by Age Group",
+       x = "Age Group",
+       y = "Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Plot 2: Deaths by Sex Normalized with Population (Bar Plot)
+age_df %>%
+  filter(!is.na(`Ten-Year Age Groups`)) %>%
+  filter(`Ten-Year Age Groups` != "Not Stated") %>%
+    mutate(`Ten-Year Age Groups` = factor(`Ten-Year Age Groups`, levels = age_groups_order)) %>%
+  ggplot(aes(x = `Ten-Year Age Groups`, y = (Deaths / Population) * 100000, fill = `Ten-Year Age Groups`)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Heart Disease Death Rate by Age Group (per 100,000 Population)",
+       x = "Age Group",
+       y = "Death Rate per 100,000") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
