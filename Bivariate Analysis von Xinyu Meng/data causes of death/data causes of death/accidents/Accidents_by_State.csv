@@ -1,0 +1,54 @@
+Notes,ICD Chapter,ICD Chapter Code,State,State Code,Deaths,Population,Crude Rate,Age Adjusted Rate
+,External causes of morbidity and mortality,V01-Y89,Alabama,1,19077,29935229,63.7,62.4
+,External causes of morbidity and mortality,V01-Y89,Alaska,2,3133,4399803,71.2,73.8
+,External causes of morbidity and mortality,V01-Y89,Arizona,4,32202,43938621,73.3,69
+,External causes of morbidity and mortality,V01-Y89,Arkansas,5,10932,18201411,60.1,57.5
+,External causes of morbidity and mortality,V01-Y89,California,6,110885,235669717,47.1,44.4
+,External causes of morbidity and mortality,V01-Y89,Colorado,8,22438,34791624,64.5,62.3
+,External causes of morbidity and mortality,V01-Y89,Connecticut,9,14239,21543936,66.1,60.6
+,External causes of morbidity and mortality,V01-Y89,Delaware,10,4679,5981414,78.2,76.5
+,External causes of morbidity and mortality,V01-Y89,District of Columbia,11,3263,4141845,78.8,76.8
+,External causes of morbidity and mortality,V01-Y89,Florida,12,93862,131147051,71.6,64.4
+,External causes of morbidity and mortality,V01-Y89,Georgia,13,33707,64588584,52.2,51.6
+,External causes of morbidity and mortality,V01-Y89,Hawaii,15,4088,8560256,47.8,40.6
+,External causes of morbidity and mortality,V01-Y89,Idaho,16,6368,11172868,57,55.1
+,External causes of morbidity and mortality,V01-Y89,Illinois,17,41792,75803621,55.1,51.4
+,External causes of morbidity and mortality,V01-Y89,Indiana,18,27033,40680271,66.5,65.2
+,External causes of morbidity and mortality,V01-Y89,Iowa,19,10110,19075376,53,46.3
+,External causes of morbidity and mortality,V01-Y89,Kansas,20,10488,17550902,59.8,55.6
+,External causes of morbidity and mortality,V01-Y89,Kentucky,21,22733,26961184,84.3,82.9
+,External causes of morbidity and mortality,V01-Y89,Louisiana,22,22255,27742127,80.2,80
+,External causes of morbidity and mortality,V01-Y89,Maine,23,7157,8186066,87.4,78.8
+,External causes of morbidity and mortality,V01-Y89,Maryland,24,17736,36654242,48.4,44.1
+,External causes of morbidity and mortality,V01-Y89,Massachusetts,25,25977,41656322,62.4,56.7
+,External causes of morbidity and mortality,V01-Y89,Michigan,26,36171,60071512,60.2,55.9
+,External causes of morbidity and mortality,V01-Y89,Minnesota,27,20332,34070642,59.7,53.7
+,External causes of morbidity and mortality,V01-Y89,Mississippi,28,12965,17759177,73,71
+,External causes of morbidity and mortality,V01-Y89,Missouri,29,26713,36957728,72.3,68.8
+,External causes of morbidity and mortality,V01-Y89,Montana,30,4423,6571610,67.3,61.4
+,External causes of morbidity and mortality,V01-Y89,Nebraska,31,5336,11711222,45.6,42.2
+,External causes of morbidity and mortality,V01-Y89,Nevada,32,11385,18768746,60.7,57.4
+,External causes of morbidity and mortality,V01-Y89,New Hampshire,33,5701,8268721,68.9,63
+,External causes of morbidity and mortality,V01-Y89,New Jersey,34,28834,54492751,52.9,49.7
+,External causes of morbidity and mortality,V01-Y89,New Mexico,35,11403,12642168,90.2,87.8
+,External causes of morbidity and mortality,V01-Y89,New York,36,55266,117416826,47.1,42.8
+,External causes of morbidity and mortality,V01-Y89,North Carolina,37,45052,63558153,70.9,68.3
+,External causes of morbidity and mortality,V01-Y89,North Dakota,38,2509,4625583,54.2,50.2
+,External causes of morbidity and mortality,V01-Y89,Ohio,39,54470,70393769,77.4,74.2
+,External causes of morbidity and mortality,V01-Y89,Oklahoma,40,17624,23941096,73.6,70.1
+,External causes of morbidity and mortality,V01-Y89,Oregon,41,16768,25369607,66.1,59.2
+,External causes of morbidity and mortality,V01-Y89,Pennsylvania,42,56599,77290050,73.2,67
+,External causes of morbidity and mortality,V01-Y89,Rhode Island,44,4719,6459107,73.1,64.4
+,External causes of morbidity and mortality,V01-Y89,South Carolina,45,25143,31297775,80.3,77.4
+,External causes of morbidity and mortality,V01-Y89,South Dakota,46,3271,5384129,60.8,55.9
+,External causes of morbidity and mortality,V01-Y89,Tennessee,47,36526,41639064,87.7,85.4
+,External causes of morbidity and mortality,V01-Y89,Texas,48,80137,177119299,45.2,45.7
+,External causes of morbidity and mortality,V01-Y89,Utah,49,8712,19753451,44.1,48.8
+,External causes of morbidity and mortality,V01-Y89,Vermont,50,3015,3813733,79.1,70.8
+,External causes of morbidity and mortality,V01-Y89,Virginia,51,28437,51685358,55,52
+,External causes of morbidity and mortality,V01-Y89,Washington,53,28082,46181454,60.8,56.9
+,External causes of morbidity and mortality,V01-Y89,West Virginia,54,12704,10710952,118.6,113.9
+,External causes of morbidity and mortality,V01-Y89,Wisconsin,55,27064,35168059,77,68.7
+,External causes of morbidity and mortality,V01-Y89,Wyoming,56,2279,3483065,65.4,61.7
+Total,External causes of morbidity and mortality,V01-Y89,,,1215794,1984987277,61.2,57.7
+Total,,,,,1215794,1984987277,61.2,57.7

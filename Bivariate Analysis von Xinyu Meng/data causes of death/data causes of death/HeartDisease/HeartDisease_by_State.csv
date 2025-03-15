@@ -1,0 +1,54 @@
+Notes,ICD Chapter,ICD Chapter Code,State,State Code,Deaths,Population,Crude Rate
+,Diseases of the circulatory system,I00-I99,Alabama,01,86378,29935229,288.5
+,Diseases of the circulatory system,I00-I99,Alaska,02,5515,4399803,125.3
+,Diseases of the circulatory system,I00-I99,Arizona,04,83022,43938621,188.9
+,Diseases of the circulatory system,I00-I99,Arkansas,05,51115,18201411,280.8
+,Diseases of the circulatory system,I00-I99,California,06,387463,235669717,164.4
+,Diseases of the circulatory system,I00-I99,Colorado,08,47734,34791624,137.2
+,Diseases of the circulatory system,I00-I99,Connecticut,09,41900,21543936,194.5
+,Diseases of the circulatory system,I00-I99,Delaware,10,12901,5981414,215.7
+,Diseases of the circulatory system,I00-I99,District of Columbia,11,7410,4141845,178.9
+,Diseases of the circulatory system,I00-I99,Florida,12,292930,131147051,223.4
+,Diseases of the circulatory system,I00-I99,Georgia,13,124577,64588584,192.9
+,Diseases of the circulatory system,I00-I99,Hawaii,15,15972,8560256,186.6
+,Diseases of the circulatory system,I00-I99,Idaho,16,19586,11172868,175.3
+,Diseases of the circulatory system,I00-I99,Illinois,17,157611,75803621,207.9
+,Diseases of the circulatory system,I00-I99,Indiana,18,90011,40680271,221.3
+,Diseases of the circulatory system,I00-I99,Iowa,19,45323,19075376,237.6
+,Diseases of the circulatory system,I00-I99,Kansas,20,37181,17550902,211.8
+,Diseases of the circulatory system,I00-I99,Kentucky,21,67123,26961184,249
+,Diseases of the circulatory system,I00-I99,Louisiana,22,71640,27742127,258.2
+,Diseases of the circulatory system,I00-I99,Maine,23,19364,8186066,236.5
+,Diseases of the circulatory system,I00-I99,Maryland,24,71830,36654242,196
+,Diseases of the circulatory system,I00-I99,Massachusetts,25,71911,41656322,172.6
+,Diseases of the circulatory system,I00-I99,Michigan,26,158163,60071512,263.3
+,Diseases of the circulatory system,I00-I99,Minnesota,27,51957,34070642,152.5
+,Diseases of the circulatory system,I00-I99,Mississippi,28,50700,17759177,285.5
+,Diseases of the circulatory system,I00-I99,Missouri,29,92838,36957728,251.2
+,Diseases of the circulatory system,I00-I99,Montana,30,14628,6571610,222.6
+,Diseases of the circulatory system,I00-I99,Nebraska,31,22044,11711222,188.2
+,Diseases of the circulatory system,I00-I99,Nevada,32,42220,18768746,224.9
+,Diseases of the circulatory system,I00-I99,New Hampshire,33,17091,8268721,206.7
+,Diseases of the circulatory system,I00-I99,New Jersey,34,112470,54492751,206.4
+,Diseases of the circulatory system,I00-I99,New Mexico,35,25566,12642168,202.2
+,Diseases of the circulatory system,I00-I99,New York,36,263694,117416826,224.6
+,Diseases of the circulatory system,I00-I99,North Carolina,37,123469,63558153,194.3
+,Diseases of the circulatory system,I00-I99,North Dakota,38,8814,4625583,190.5
+,Diseases of the circulatory system,I00-I99,Ohio,39,177739,70393769,252.5
+,Diseases of the circulatory system,I00-I99,Oklahoma,40,69691,23941096,291.1
+,Diseases of the circulatory system,I00-I99,Oregon,41,45126,25369607,177.9
+,Diseases of the circulatory system,I00-I99,Pennsylvania,42,193949,77290050,250.9
+,Diseases of the circulatory system,I00-I99,Rhode Island,44,14208,6459107,220
+,Diseases of the circulatory system,I00-I99,South Carolina,45,68861,31297775,220
+,Diseases of the circulatory system,I00-I99,South Dakota,46,10797,5384129,200.5
+,Diseases of the circulatory system,I00-I99,Tennessee,47,106324,41639064,255.3
+,Diseases of the circulatory system,I00-I99,Texas,48,294550,177119299,166.3
+,Diseases of the circulatory system,I00-I99,Utah,49,25126,19753451,127.2
+,Diseases of the circulatory system,I00-I99,Vermont,50,8837,3813733,231.7
+,Diseases of the circulatory system,I00-I99,Virginia,51,95383,51685358,184.5
+,Diseases of the circulatory system,I00-I99,Washington,53,74093,46181454,160.4
+,Diseases of the circulatory system,I00-I99,West Virginia,54,31409,10710952,293.2
+,Diseases of the circulatory system,I00-I99,Wisconsin,55,75861,35168059,215.7
+,Diseases of the circulatory system,I00-I99,Wyoming,56,6687,3483065,192
+Total,Diseases of the circulatory system,I00-I99,,,4090792,1984987277,206.1
+Total,,,,,4090792,1984987277,206.1

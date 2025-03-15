@@ -1,0 +1,70 @@
+Notes,15 Leading Causes of Death,15 Leading Causes of Death Code,Deaths,Population,Crude Rate
+,"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)",GR113-112,365487,530809798,68.9
+,"#Intentional self-harm (suicide) (*U03,X60-X84,Y87.0)",GR113-124,97451,530809798,18.4
+,"#Diseases of heart (I00-I09,I11,I13,I20-I51)",GR113-054,92206,530809798,17.4
+,#Malignant neoplasms (C00-C97),GR113-019,87320,530809798,16.5
+,"#Assault (homicide) (*U01-*U02,X85-Y09,Y87.1)",GR113-127,63158,530809798,11.9
+,"#Chronic liver disease and cirrhosis (K70,K73-K74)",GR113-093,36806,530809798,6.9
+,#COVID-19 (U07.1),GR113-137,36719,530809798,6.9
+,#Diabetes mellitus (E10-E14),GR113-046,22333,530809798,4.2
+,#Cerebrovascular diseases (I60-I69),GR113-070,15403,530809798,2.9
+,#Influenza and pneumonia (J09-J18),GR113-076,8696,530809798,1.6
+,#Septicemia (A40-A41),GR113-010,8169,530809798,1.5
+,#Human immunodeficiency virus (HIV) disease (B20-B24),GR113-016,7305,530809798,1.4
+,"#Nephritis, nephrotic syndrome and nephrosis (N00-N07,N17-N19,N25-N27)",GR113-097,7279,530809798,1.4
+,#Chronic lower respiratory diseases (J40-J47),GR113-082,6356,530809798,1.2
+,"#Pregnancy, childbirth and the puerperium (O00-O99)",GR113-105,6232,530809798,1.2
+---,,,,,
+"Dataset: Underlying Cause of Death, 2018-2023, Single Race",,,,,
+Query Parameters:,,,,,
+Single-Year Ages: 25 years; 26 years; 27 years; 28 years; 29 years; 30 years; 31 years; 32 years; 33 years; 34 years; 35 years;,,,,,
+36 years; 37 years; 38 years; 39 years; 40 years; 41 years; 42 years; 43 years; 44 years,,,,,
+Group By: 15 Leading Causes of Death,,,,,
+Show Totals: Disabled,,,,,
+Show Zero Values: Disabled,,,,,
+Show Suppressed: Disabled,,,,,
+"Calculate Rates Per: 100,000",,,,,
+Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups),,,,,
+---,,,,,
+Help: See http://wonder.cdc.gov/wonder/help/ucd-expanded.html for more information.,,,,,
+---,,,,,
+"Query Date: Mar 12, 2025 11:34:01 AM",,,,,
+---,,,,,
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics",,,,,
+"System, Mortality 2018-2023 on CDC WONDER Online Database, released in 2024. Data are from the Multiple Cause of Death Files,",,,,,
+"2018-2023, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative",,,,,
+"Program. Accessed at http://wonder.cdc.gov/ucd-icd10-expanded.html on Mar 12, 2025 11:34:01 AM",,,,,
+---,,,,,
+Messages:,,,,,
+"1. When you group results by 15 Leading Causes, results are initially ordered by Death counts; also, total rows, zero rows,",,,,,
+"suppressed rows, and Percent of Total are not available. Click any green up/down arrow to change the order. #Top15#",,,,,
+---,,,,,
+Caveats:,,,,,
+"1. When you group results by 15 Leading Causes, results show the top 15 rankable causes for the query criteria. Rankable causes",,,,,
+are a subset of the ICD 113 and ICD 130 (Infants) Cause Lists. More information:,,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Top15.,,,,,
+"2. Deaths of persons with Age ""Not Stated"" are included in ""All"" counts and rates, but are not distributed among age groups,",,,,,
+"so are not included in age-specific counts, age-specific rates or in any age-adjusted rates. More information:",,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Not Stated.,,,,,
+"3. The population figures for years 2023 are single-race estimates of the July 1 resident population, from the Vintage 2023",,,,,
+"postcensal series released by the Census Bureau on June 27, 2024. The 2023 series is based on the Modified Blended Base produced",,,,,
+"by the US Census Bureau in lieu of the April 1, 2020 decennial population count. The Modified Blended Base consists of the blend",,,,,
+"of Vintage 2020 postcensal population estimates for April 1, 2020, 2020 Demographic Analysis Estimates, and 2020 Census data",,,,,
+from the internal Census Edited File (CEF). The population figures for years 2022 are single-race estimates of the July 1,,,,,
+"resident population, from the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023. The 2022 series is",,,,,
+"based on the Modified Blended Base produced by the US Census Bureau in lieu of the April 1, 2020 decennial population count. The",,,,,
+"Modified Blended Base consists of the blend of Vintage 2020 postcensal population estimates for April 1, 2020, 2020 Demographic",,,,,
+"Analysis Estimates, and 2020 Census data from the internal Census Edited File (CEF). The population figures for years 2021 are",,,,,
+"single-race estimates of the July 1 resident population, based on the Blended Base produced by the US Census Bureau in lieu of",,,,,
+"the April 1, 2020 decennial population count, from the Vintage 2021 postcensal series released by the Census Bureau on June 30,",,,,,
+"2022. The population figures for year 2020 are single-race estimates of the July 1 resident population, from the Vintage 2020",,,,,
+"postcensal series based on April 2010 Census, released by the Census Bureau on July 27, 2021. The population figures for year",,,,,
+"2019 are single-race estimates of the July 1 resident population, from the Vintage 2019 postcensal series based on April 2010",,,,,
+"Census, released by the Census Bureau on June 25, 2020. The population figures for year 2018 are single-race estimates of the",,,,,
+"July 1 resident population, from the Vintage 2018 postcensal series based on April 2010 Census, released by the Census Bureau on",,,,,
+"June 20, 2019. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Population Data.",,,,,
+"4. Connecticut population estimates for 2022 and later years are reported for 9 planning regions as county equivalent areas,",,,,,
+"instead of the former 8 legacy counties in the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023,",,,,,
+"and in the Vintage 2023 postcensal series released by the Census Bureau on June 27, 2024. Populations estimates for the former",,,,,
+counties are not available for 2022 and later years. More information:,,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Connecticut-2022.,,,,,

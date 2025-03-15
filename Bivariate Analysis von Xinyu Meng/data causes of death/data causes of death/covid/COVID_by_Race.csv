@@ -1,0 +1,9 @@
+Notes,ICD Chapter,ICD Chapter Code,Single Race 6,Single Race 6 Code,Deaths,Population,Crude Rate,Age Adjusted Rate
+,Codes for special purposes,U00-U99,American Indian or Alaska Native,1002-5,11677,25864794,45.1,54
+,Codes for special purposes,U00-U99,Asian,A,33082,121539078,27.2,26.6
+,Codes for special purposes,U00-U99,Black or African American,May-54,141267,268628550,52.6,56.1
+,Codes for special purposes,U00-U99,Native Hawaiian or Other Pacific Islander,NHOPI,2245,5091714,44.1,53
+,Codes for special purposes,U00-U99,White,Mar-06,811280,1506100499,53.9,40
+,Codes for special purposes,U00-U99,More than one race,M,4657,57762642,8.1,16.7
+Total,Codes for special purposes,U00-U99,,,1004208,1984987277,50.6,41
+Total,,,,,1004208,1984987277,50.6,41

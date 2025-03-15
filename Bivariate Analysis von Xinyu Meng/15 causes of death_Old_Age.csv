@@ -1,0 +1,16 @@
+Cause of Death,ICD Code,Deaths,Population,Crude Rate
+Diseases of heart,"I00-I09,I11,I13,I20-I51",3989770,833394345,478.7
+Malignant neoplasms,C00-C97,3525605,833394345,423
+COVID-19,U07.1,964124,833394345,115.7
+Cerebrovascular diseases,I60-I69,931166,833394345,111.7
+Chronic lower respiratory diseases,J40-J47,895684,833394345,107.5
+Accidents,"V01-X59,Y85-Y86",742251,833394345,89.1
+Alzheimer disease,G30,731252,833394345,87.7
+Diabetes mellitus,E10-E14,550103,833394345,66
+"Nephritis, nephrotic syndrome and nephrosis","N00-N07,N17-N19,N25-N27",314974,833394345,37.8
+Influenza and pneumonia,J09-J18,284710,833394345,34.2
+Chronic liver disease and cirrhosis,"K70,K73-K74",265310,833394345,31.8
+Essential hypertension and hypertensive renal disease,"I10,I12,I15",238215,833394345,28.6
+Septicemia,A40-A41,234160,833394345,28.1
+Parkinson disease,G20-G21,227953,833394345,27.4
+Intentional self-harm (suicide),"X60-X84,Y87.0",151265,833394345,18.2

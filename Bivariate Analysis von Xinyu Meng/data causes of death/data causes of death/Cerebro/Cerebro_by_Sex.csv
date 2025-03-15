@@ -1,0 +1,5 @@
+Notes,ICD Chapter,ICD Chapter Code,Sex,Sex Code,Deaths,Population,Crude Rate,Age Adjusted Rate
+,Diseases of the circulatory system,I00-I99,Female,F,538582,1004527377,53.6,37.6
+,Diseases of the circulatory system,I00-I99,Male,M,410419,980459900,41.9,39.3
+Total,Diseases of the circulatory system,I00-I99,,,949001,1984987277,47.8,38.7
+Total,,,,,949001,1984987277,47.8,38.7

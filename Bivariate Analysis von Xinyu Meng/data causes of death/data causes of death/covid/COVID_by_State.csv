@@ -1,0 +1,54 @@
+Notes,ICD Chapter,ICD Chapter Code,State,State Code,Deaths,Population,Crude Rate,Age Adjusted Rate
+,Codes for special purposes,U00-U99,Alabama,1,20537,29935229,68.6,54.5
+,Codes for special purposes,U00-U99,Alaska,2,1313,4399803,29.8,32.2
+,Codes for special purposes,U00-U99,Arizona,4,26718,43938621,60.8,47.4
+,Codes for special purposes,U00-U99,Arkansas,5,10881,18201411,59.8,47.6
+,Codes for special purposes,U00-U99,California,6,98270,235669717,41.7,36.1
+,Codes for special purposes,U00-U99,Colorado,8,12501,34791624,35.9,33.2
+,Codes for special purposes,U00-U99,Connecticut,9,11080,21543936,51.4,36.8
+,Codes for special purposes,U00-U99,Delaware,10,2903,5981414,48.5,35.6
+,Codes for special purposes,U00-U99,District of Columbia,11,1582,4141845,38.2,38.4
+,Codes for special purposes,U00-U99,Florida,12,69637,131147051,53.1,35.5
+,Codes for special purposes,U00-U99,Georgia,13,32262,64588584,50,46.3
+,Codes for special purposes,U00-U99,Hawaii,15,1642,8560256,19.2,13.6
+,Codes for special purposes,U00-U99,Idaho,16,4788,11172868,42.9,37.2
+,Codes for special purposes,U00-U99,Illinois,17,35978,75803621,47.5,38.1
+,Codes for special purposes,U00-U99,Indiana,18,22810,40680271,56.1,46.5
+,Codes for special purposes,U00-U99,Iowa,19,9673,19075376,50.7,37.7
+,Codes for special purposes,U00-U99,Kansas,20,9506,17550902,54.2,43.9
+,Codes for special purposes,U00-U99,Kentucky,21,16725,26961184,62,50.6
+,Codes for special purposes,U00-U99,Louisiana,22,15800,27742127,57,48.3
+,Codes for special purposes,U00-U99,Maine,23,2865,8186066,35,23
+,Codes for special purposes,U00-U99,Maryland,24,15257,36654242,41.6,34.2
+,Codes for special purposes,U00-U99,Massachusetts,25,18545,41656322,44.5,33.6
+,Codes for special purposes,U00-U99,Michigan,26,32628,60071512,54.3,41.7
+,Codes for special purposes,U00-U99,Minnesota,27,12845,34070642,37.7,29.9
+,Codes for special purposes,U00-U99,Mississippi,28,12404,17759177,69.8,58.2
+,Codes for special purposes,U00-U99,Missouri,29,20322,36957728,55,42.6
+,Codes for special purposes,U00-U99,Montana,30,3386,6571610,51.5,38.3
+,Codes for special purposes,U00-U99,Nebraska,31,4791,11711222,40.9,33.4
+,Codes for special purposes,U00-U99,Nevada,32,10998,18768746,58.6,50.3
+,Codes for special purposes,U00-U99,New Hampshire,33,2758,8268721,33.4,24.1
+,Codes for special purposes,U00-U99,New Jersey,34,31179,54492751,57.2,44.1
+,Codes for special purposes,U00-U99,New Mexico,35,8440,12642168,66.8,53.5
+,Codes for special purposes,U00-U99,New York,36,71578,117416826,61,45.9
+,Codes for special purposes,U00-U99,North Carolina,37,29539,63558153,46.5,38.2
+,Codes for special purposes,U00-U99,North Dakota,38,2286,4625583,49.4,39.7
+,Codes for special purposes,U00-U99,Ohio,39,43398,70393769,61.7,47.3
+,Codes for special purposes,U00-U99,Oklahoma,40,16256,23941096,67.9,57.7
+,Codes for special purposes,U00-U99,Oregon,41,7658,25369607,30.2,23.5
+,Codes for special purposes,U00-U99,Pennsylvania,42,45961,77290050,59.5,41.8
+,Codes for special purposes,U00-U99,Rhode Island,44,3238,6459107,50.1,35.8
+,Codes for special purposes,U00-U99,South Carolina,45,18814,31297775,60.1,47.1
+,Codes for special purposes,U00-U99,South Dakota,46,2879,5384129,53.5,41.9
+,Codes for special purposes,U00-U99,Tennessee,47,25555,41639064,61.4,50.5
+,Codes for special purposes,U00-U99,Texas,48,93168,177119299,52.6,52.8
+,Codes for special purposes,U00-U99,Utah,49,4840,19753451,24.5,28.4
+,Codes for special purposes,U00-U99,Vermont,50,764,3813733,20,14.1
+,Codes for special purposes,U00-U99,Virginia,51,20914,51685358,40.5,33.8
+,Codes for special purposes,U00-U99,Washington,53,12622,46181454,27.3,23.5
+,Codes for special purposes,U00-U99,West Virginia,54,7451,10710952,69.6,48.7
+,Codes for special purposes,U00-U99,Wisconsin,55,14391,35168059,40.9,31.4
+,Codes for special purposes,U00-U99,Wyoming,56,1872,3483065,53.7,43
+Total,Codes for special purposes,U00-U99,,,1004208,1984987277,50.6,41
+Total,,,,,1004208,1984987277,50.6,41

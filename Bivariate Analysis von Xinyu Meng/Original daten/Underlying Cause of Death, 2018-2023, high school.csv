@@ -1,0 +1,52 @@
+﻿Notes,15 Leading Causes of Death,15 Leading Causes of Death Code,Deaths,Population,Crude Rate
+,"#Diseases of heart (I00-I09,I11,I13,I20-I51)",GR113-054,1171899,Not Applicable,Not Applicable
+,#Malignant neoplasms (C00-C97),GR113-019,1001225,Not Applicable,Not Applicable
+,"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)",GR113-112,396909,Not Applicable,Not Applicable
+,#COVID-19 (U07.1),GR113-137,365813,Not Applicable,Not Applicable
+,#Cerebrovascular diseases (I60-I69),GR113-070,269443,Not Applicable,Not Applicable
+,#Chronic lower respiratory diseases (J40-J47),GR113-082,261284,Not Applicable,Not Applicable
+,#Alzheimer disease (G30),GR113-052,188976,Not Applicable,Not Applicable
+,#Diabetes mellitus (E10-E14),GR113-046,169879,Not Applicable,Not Applicable
+,"#Chronic liver disease and cirrhosis (K70,K73-K74)",GR113-093,94939,Not Applicable,Not Applicable
+,"#Nephritis, nephrotic syndrome and nephrosis (N00-N07,N17-N19,N25-N27)",GR113-097,94398,Not Applicable,Not Applicable
+,"#Intentional self-harm (suicide) (*U03,X60-X84,Y87.0)",GR113-124,84421,Not Applicable,Not Applicable
+,#Influenza and pneumonia (J09-J18),GR113-076,72823,Not Applicable,Not Applicable
+,"#Essential hypertension and hypertensive renal disease (I10,I12,I15)",GR113-069,71191,Not Applicable,Not Applicable
+,#Septicemia (A40-A41),GR113-010,70210,Not Applicable,Not Applicable
+,#Parkinson disease (G20-G21),GR113-051,57392,Not Applicable,Not Applicable
+---,,,,,
+"Dataset: Underlying Cause of Death, 2018-2023, Single Race",,,,,
+Query Parameters:,,,,,
+"Education: High school graduate or GED completed; Some college credit, but not a degree.",,,,,
+Group By: 15 Leading Causes of Death,,,,,
+Show Totals: Disabled,,,,,
+Show Zero Values: Disabled,,,,,
+Show Suppressed: Disabled,,,,,
+"Calculate Rates Per: 100,000",,,,,
+Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups),,,,,
+---,,,,,
+Help: See http://wonder.cdc.gov/wonder/help/ucd-expanded.html for more information.,,,,,
+---,,,,,
+"Query Date: Mar 13, 2025 7:32:51 AM",,,,,
+---,,,,,
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics",,,,,
+"System, Mortality 2018-2023 on CDC WONDER Online Database, released in 2024. Data are from the Multiple Cause of Death Files,",,,,,
+"2018-2023, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative",,,,,
+"Program. Accessed at http://wonder.cdc.gov/ucd-icd10-expanded.html on Mar 13, 2025 7:32:51 AM",,,,,
+---,,,,,
+Messages:,,,,,
+"1. When you group results by 15 Leading Causes, results are initially ordered by Death counts; also, total rows, zero rows,",,,,,
+"suppressed rows, and Percent of Total are not available. Click any green up/down arrow to change the order. #Top15#",,,,,
+---,,,,,
+Caveats:,,,,,
+"1. When you group results by 15 Leading Causes, results show the top 15 rankable causes for the query criteria. Rankable causes",,,,,
+are a subset of the ICD 113 and ICD 130 (Infants) Cause Lists. More information:,,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Top15.,,,,,
+"2. Population and rates are labeled 'Not Applicable' when Autopsy, Place of Death, Education, Industry, Usual Occupation,",,,,,
+"Weekday or Month are grouped by or limited, due to lack of a valid population. More information:",,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#NotApplicableRates.,,,,,
+"3. Connecticut population estimates for 2022 and later years are reported for 9 planning regions as county equivalent areas,",,,,,
+"instead of the former 8 legacy counties in the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023,",,,,,
+"and in the Vintage 2023 postcensal series released by the Census Bureau on June 27, 2024. Populations estimates for the former",,,,,
+counties are not available for 2022 and later years. More information:,,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Connecticut-2022.,,,,,

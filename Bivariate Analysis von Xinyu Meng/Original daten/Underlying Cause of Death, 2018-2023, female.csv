@@ -1,0 +1,69 @@
+﻿Notes,15 Leading Causes of Death,15 Leading Causes of Death Code,Deaths,Population,Crude Rate
+,"#Diseases of heart (I00-I09,I11,I13,I20-I51)",GR113-054,1848188,1004527377,184
+,#Malignant neoplasms (C00-C97),GR113-019,1718903,1004527377,171.1
+,#Cerebrovascular diseases (I60-I69),GR113-070,538582,1004527377,53.6
+,#Alzheimer disease (G30),GR113-052,503592,1004527377,50.1
+,#Chronic lower respiratory diseases (J40-J47),GR113-082,478261,1004527377,47.6
+,#COVID-19 (U07.1),GR113-137,446398,1004527377,44.4
+,"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)",GR113-112,412103,1004527377,41
+,#Diabetes mellitus (E10-E14),GR113-046,249029,1004527377,24.8
+,"#Nephritis, nephrotic syndrome and nephrosis (N00-N07,N17-N19,N25-N27)",GR113-097,154893,1004527377,15.4
+,#Influenza and pneumonia (J09-J18),GR113-076,145917,1004527377,14.5
+,"#Essential hypertension and hypertensive renal disease (I10,I12,I15)",GR113-069,130564,1004527377,13
+,#Septicemia (A40-A41),GR113-010,123792,1004527377,12.3
+,"#Chronic liver disease and cirrhosis (K70,K73-K74)",GR113-093,112058,1004527377,11.2
+,#Parkinson disease (G20-G21),GR113-051,88639,1004527377,8.8
+,#Nutritional deficiencies (E40-E64),GR113-047,60811,1004527377,6.1
+---,,,,,
+"Dataset: Underlying Cause of Death, 2018-2023, Single Race",,,,,
+Query Parameters:,,,,,
+Sex: Female,,,,,
+Group By: 15 Leading Causes of Death,,,,,
+Show Totals: Disabled,,,,,
+Show Zero Values: Disabled,,,,,
+Show Suppressed: Disabled,,,,,
+"Calculate Rates Per: 100,000",,,,,
+Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups),,,,,
+---,,,,,
+Help: See http://wonder.cdc.gov/wonder/help/ucd-expanded.html for more information.,,,,,
+---,,,,,
+"Query Date: Mar 12, 2025 3:02:56 AM",,,,,
+---,,,,,
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics",,,,,
+"System, Mortality 2018-2023 on CDC WONDER Online Database, released in 2024. Data are from the Multiple Cause of Death Files,",,,,,
+"2018-2023, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative",,,,,
+"Program. Accessed at http://wonder.cdc.gov/ucd-icd10-expanded.html on Mar 12, 2025 3:02:56 AM",,,,,
+---,,,,,
+Messages:,,,,,
+"1. When you group results by 15 Leading Causes, results are initially ordered by Death counts; also, total rows, zero rows,",,,,,
+"suppressed rows, and Percent of Total are not available. Click any green up/down arrow to change the order. #Top15#",,,,,
+---,,,,,
+Caveats:,,,,,
+"1. When you group results by 15 Leading Causes, results show the top 15 rankable causes for the query criteria. Rankable causes",,,,,
+are a subset of the ICD 113 and ICD 130 (Infants) Cause Lists. More information:,,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Top15.,,,,,
+"2. The population figures for years 2023 are single-race estimates of the July 1 resident population, from the Vintage 2023",,,,,
+"postcensal series released by the Census Bureau on June 27, 2024. The 2023 series is based on the Modified Blended Base produced",,,,,
+"by the US Census Bureau in lieu of the April 1, 2020 decennial population count. The Modified Blended Base consists of the blend",,,,,
+"of Vintage 2020 postcensal population estimates for April 1, 2020, 2020 Demographic Analysis Estimates, and 2020 Census data",,,,,
+from the internal Census Edited File (CEF). The population figures for years 2022 are single-race estimates of the July 1,,,,,
+"resident population, from the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023. The 2022 series is",,,,,
+"based on the Modified Blended Base produced by the US Census Bureau in lieu of the April 1, 2020 decennial population count. The",,,,,
+"Modified Blended Base consists of the blend of Vintage 2020 postcensal population estimates for April 1, 2020, 2020 Demographic",,,,,
+"Analysis Estimates, and 2020 Census data from the internal Census Edited File (CEF). The population figures for years 2021 are",,,,,
+"single-race estimates of the July 1 resident population, based on the Blended Base produced by the US Census Bureau in lieu of",,,,,
+"the April 1, 2020 decennial population count, from the Vintage 2021 postcensal series released by the Census Bureau on June 30,",,,,,
+"2022. The population figures for year 2020 are single-race estimates of the July 1 resident population, from the Vintage 2020",,,,,
+"postcensal series based on April 2010 Census, released by the Census Bureau on July 27, 2021. The population figures for year",,,,,
+"2019 are single-race estimates of the July 1 resident population, from the Vintage 2019 postcensal series based on April 2010",,,,,
+"Census, released by the Census Bureau on June 25, 2020. The population figures for year 2018 are single-race estimates of the",,,,,
+"July 1 resident population, from the Vintage 2018 postcensal series based on April 2010 Census, released by the Census Bureau on",,,,,
+"June 20, 2019. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Population Data.",,,,,
+3. The population figures used in the calculation of death rates for the age group 'under 1 year' are the estimates of the,,,,,
+resident population that is under one year of age. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Age,,,,,
+Group.,,,,,
+"4. Connecticut population estimates for 2022 and later years are reported for 9 planning regions as county equivalent areas,",,,,,
+"instead of the former 8 legacy counties in the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023,",,,,,
+"and in the Vintage 2023 postcensal series released by the Census Bureau on June 27, 2024. Populations estimates for the former",,,,,
+counties are not available for 2022 and later years. More information:,,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Connecticut-2022.,,,,,

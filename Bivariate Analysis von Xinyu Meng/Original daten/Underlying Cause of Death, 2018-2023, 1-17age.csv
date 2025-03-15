@@ -1,0 +1,73 @@
+Notes,15 Leading Causes of Death,15 Leading Causes of Death Code,Deaths,Population,Crude Rate
+,#Certain conditions originating in the perinatal period (P00-P96),GR113-108,60376,438109726,13.8
+,"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)",GR113-112,35140,438109726,8
+,"#Congenital malformations, deformations and chromosomal abnormalities (Q00-Q99)",GR113-109,30191,438109726,6.9
+,"#Assault (homicide) (*U01-*U02,X85-Y09,Y87.1)",GR113-127,12170,438109726,2.8
+,"#Intentional self-harm (suicide) (*U03,X60-X84,Y87.0)",GR113-124,10112,438109726,2.3
+,#Malignant neoplasms (C00-C97),GR113-019,9016,438109726,2.1
+,"#Diseases of heart (I00-I09,I11,I13,I20-I51)",GR113-054,4217,438109726,1
+,#Influenza and pneumonia (J09-J18),GR113-076,2369,438109726,0.5
+,#Cerebrovascular diseases (I60-I69),GR113-070,1619,438109726,0.4
+,#Septicemia (A40-A41),GR113-010,1569,438109726,0.4
+,#Chronic lower respiratory diseases (J40-J47),GR113-082,1249,438109726,0.3
+,#COVID-19 (U07.1),GR113-137,1216,438109726,0.3
+,"#In situ neoplasms, benign neoplasms and neoplasms of uncertain or unknown behavior (D00-D48)",GR113-044,888,438109726,0.2
+,#Diabetes mellitus (E10-E14),GR113-046,491,438109726,0.1
+,"#Meningitis (G00,G03)",GR113-050,475,438109726,0.1
+---,,,,,
+"Dataset: Underlying Cause of Death, 2018-2023, Single Race",,,,,
+Query Parameters:,,,,,
+Single-Year Ages: < 1 year; 1 year; 2 years; 3 years; 4 years; 5 years; 6 years; 7 years; 8 years; 9 years; 10 years; 11 years;,,,,,
+12 years; 13 years; 14 years; 15 years; 16 years; 17 years,,,,,
+Group By: 15 Leading Causes of Death,,,,,
+Show Totals: Disabled,,,,,
+Show Zero Values: Disabled,,,,,
+Show Suppressed: Disabled,,,,,
+"Calculate Rates Per: 100,000",,,,,
+Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups),,,,,
+---,,,,,
+Help: See http://wonder.cdc.gov/wonder/help/ucd-expanded.html for more information.,,,,,
+---,,,,,
+"Query Date: Mar 12, 2025 11:27:32 AM",,,,,
+---,,,,,
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics",,,,,
+"System, Mortality 2018-2023 on CDC WONDER Online Database, released in 2024. Data are from the Multiple Cause of Death Files,",,,,,
+"2018-2023, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative",,,,,
+"Program. Accessed at http://wonder.cdc.gov/ucd-icd10-expanded.html on Mar 12, 2025 11:27:32 AM",,,,,
+---,,,,,
+Messages:,,,,,
+"1. When you group results by 15 Leading Causes, results are initially ordered by Death counts; also, total rows, zero rows,",,,,,
+"suppressed rows, and Percent of Total are not available. Click any green up/down arrow to change the order. #Top15#",,,,,
+---,,,,,
+Caveats:,,,,,
+"1. When you group results by 15 Leading Causes, results show the top 15 rankable causes for the query criteria. Rankable causes",,,,,
+are a subset of the ICD 113 and ICD 130 (Infants) Cause Lists. More information:,,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Top15.,,,,,
+"2. Deaths of persons with Age ""Not Stated"" are included in ""All"" counts and rates, but are not distributed among age groups,",,,,,
+"so are not included in age-specific counts, age-specific rates or in any age-adjusted rates. More information:",,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Not Stated.,,,,,
+"3. The population figures for years 2023 are single-race estimates of the July 1 resident population, from the Vintage 2023",,,,,
+"postcensal series released by the Census Bureau on June 27, 2024. The 2023 series is based on the Modified Blended Base produced",,,,,
+"by the US Census Bureau in lieu of the April 1, 2020 decennial population count. The Modified Blended Base consists of the blend",,,,,
+"of Vintage 2020 postcensal population estimates for April 1, 2020, 2020 Demographic Analysis Estimates, and 2020 Census data",,,,,
+from the internal Census Edited File (CEF). The population figures for years 2022 are single-race estimates of the July 1,,,,,
+"resident population, from the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023. The 2022 series is",,,,,
+"based on the Modified Blended Base produced by the US Census Bureau in lieu of the April 1, 2020 decennial population count. The",,,,,
+"Modified Blended Base consists of the blend of Vintage 2020 postcensal population estimates for April 1, 2020, 2020 Demographic",,,,,
+"Analysis Estimates, and 2020 Census data from the internal Census Edited File (CEF). The population figures for years 2021 are",,,,,
+"single-race estimates of the July 1 resident population, based on the Blended Base produced by the US Census Bureau in lieu of",,,,,
+"the April 1, 2020 decennial population count, from the Vintage 2021 postcensal series released by the Census Bureau on June 30,",,,,,
+"2022. The population figures for year 2020 are single-race estimates of the July 1 resident population, from the Vintage 2020",,,,,
+"postcensal series based on April 2010 Census, released by the Census Bureau on July 27, 2021. The population figures for year",,,,,
+"2019 are single-race estimates of the July 1 resident population, from the Vintage 2019 postcensal series based on April 2010",,,,,
+"Census, released by the Census Bureau on June 25, 2020. The population figures for year 2018 are single-race estimates of the",,,,,
+"July 1 resident population, from the Vintage 2018 postcensal series based on April 2010 Census, released by the Census Bureau on",,,,,
+"June 20, 2019. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Population Data.",,,,,
+4. The population figures used in the calculation of death rates for the age group 'under 1 year' are the estimates of the,,,,,
+resident population that is under one year of age. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Age,,,,,
+Group.,,,,,
+"5. Connecticut population estimates for 2022 and later years are reported for 9 planning regions as county equivalent areas,",,,,,
+"instead of the former 8 legacy counties in the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023,",,,,,
+"and in the Vintage 2023 postcensal series released by the Census Bureau on June 27, 2024. Populations estimates for the former",,,,,
+counties are not available for 2022 and later years. More information:,,,,,
+http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Connecticut-2022.,,,,,

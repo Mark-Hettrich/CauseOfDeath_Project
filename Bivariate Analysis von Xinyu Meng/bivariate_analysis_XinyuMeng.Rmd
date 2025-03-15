@@ -1,0 +1,357 @@
+---
+title: "Bivariate Analysis_ 15 Causes of death"
+author: "Xinyu Meng"
+date: "2025-03-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+library(haven)
+library(dplyr)
+library(tidyverse)
+library(stats)
+library(cluster)
+library(factoextra)
+library(dynamicTreeCut)
+library(fastDummies)
+library(lubridate)
+library(ggplot2)
+theme_set(theme_minimal())
+
+```
+
+```{r}
+#Sort by Crude Rate and Select the Top 10
+top_10 <- df.15.causes %>%
+  filter(!is.na(Cause.of.death)) %>%
+  arrange(desc(Crude.Rate)) %>%
+  head(5)
+
+#Sort by Crude Rate and Select the Top 10
+ggplot(top_10, aes(x = reorder(Cause.of.death, Crude.Rate), y = Crude.Rate)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Top 10 Diseases by Crude Mortality Rate",
+    x = "Cause of Death",
+    y = "Crude Rate (per 1000 population)"
+  ) +
+  theme_minimal()
+
+```
+
+```{r}
+# read data
+male_data <- read.csv("15 causes of death_Male.csv")
+female_data <- read.csv("15 causes of death_Female.csv")
+
+#Add Gender Column
+male_data$Gender <- "Male"
+female_data$Gender <- "Female"
+
+#rbind
+data_combined <- rbind(male_data, female_data)
+
+#Compare Male vs. Female Death Counts
+p1 <- ggplot(data_combined, aes(x = reorder(Cause.of.Death, -Deaths), y = Deaths, fill = Gender)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Comparison of Death Causes by Gender", x = "Cause of Death", y = "Number of Deaths")
+
+print(p1)
+
+#Male vs. Female Mortality Rate Trends
+p2 <- ggplot(data_combined, aes(x = Cause.of.Death, y = Crude.Rate, group = Gender, color = Gender)) +
+  geom_line(aes(linetype = Gender)) +
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Crude Death Rate Comparison", x = "Cause of Death", y = "Crude Rate")
+
+print(p2)
+# Calculate correlation（Pearson & Spearman）
+pearson_correlation <- cor(male_data$Crude.Rate, female_data$Crude.Rate, use = "complete.obs", method = "pearson")
+spearman_correlation <- cor(male_data$Crude.Rate, female_data$Crude.Rate, use = "complete.obs", method = "spearman")
+
+#Correlation of Male vs. Female Mortality Rates
+p3 <- ggplot(data.frame(Male = male_data$Crude.Rate, Female = female_data$Crude.Rate), aes(x = Male, y = Female)) +
+  geom_point(color = "blue") +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = paste("Correlation between Male and Female Crude Rates:\nPearson: ", round(pearson_correlation, 2), ", Spearman: ", round(spearman_correlation, 2)), 
+       x = "Male Crude Rate", y = "Female Crude Rate")
+
+print(p3)
+```
+
+
+
+```{r cars}
+#Age group and 15 causes of death
+#read data
+children_data <- read.csv("15 causes of death_Children.csv")
+young_adults_data <- read.csv("15 causes of deatha__Young_Adults.csv")
+adults_data <- read.csv("15 causes of death_Adults.csv")
+old_age_data <- read.csv("15 causes of death_Old_Age.csv")
+
+#Add Age Group Column
+children_data$Age_Group <- "Children"
+young_adults_data$Age_Group <- "Young Adults"
+adults_data$Age_Group <- "Adults"
+old_age_data$Age_Group <- "Old Age"
+
+#rbind
+data_combined <- rbind(children_data, young_adults_data, adults_data, old_age_data)
+
+#Apply logarithmic transformation to avoid excessively large values in certain groups.
+data_combined$Log_Crude_Rate <- log1p(data_combined$Crude.Rate)
+
+#Filter causes of death that appear in at least two age groups.
+cause_counts <- data_combined %>% group_by(Cause.of.Death) %>% summarise(Age_Group_Count = n_distinct(Age_Group))
+valid_causes <- cause_counts %>% filter(Age_Group_Count > 1) %>% pull(Cause.of.Death)
+data_filtered <- data_combined %>% filter(Cause.of.Death %in% valid_causes)
+
+#Comparison of All Filtered Causes of Death (Log Scale)
+p1 <- ggplot(data_filtered, aes(x = reorder(Cause.of.Death, -Log_Crude_Rate), y = Log_Crude_Rate, fill = Age_Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Comparison of Common Death Causes by Age Group (Log Scale)", x = "Cause of Death", y = "Log Transformed Crude Death Rate")
+
+print(p1)
+
+#Calculate Pearson & Spearman Correlation Between Different Age Groups
+age_groups <- unique(data_filtered$Age_Group)
+correlation_results <- data.frame(Age_Group_1 = character(), Age_Group_2 = character(), Pearson_Correlation = numeric(), Spearman_Correlation = numeric())
+
+for (i in 1:(length(age_groups) - 1)) {
+  for (j in (i + 1):length(age_groups)) {
+    group1 <- subset(data_filtered, Age_Group == age_groups[i])
+    group2 <- subset(data_filtered, Age_Group == age_groups[j])
+    merged_df <- merge(group1, group2, by = "Cause.of.Death", suffixes = c("_Group1", "_Group2"))
+    if (nrow(merged_df) > 1) {
+      pearson_corr <- cor(merged_df$Crude.Rate_Group1, merged_df$Crude.Rate_Group2, use = "complete.obs", method = "pearson")
+      spearman_corr <- cor(merged_df$Crude.Rate_Group1, merged_df$Crude.Rate_Group2, use = "complete.obs", method = "spearman")
+      
+      correlation_results <- rbind(correlation_results, data.frame(
+        Age_Group_1 = age_groups[i],
+        Age_Group_2 = age_groups[j],
+        Pearson_Correlation = pearson_corr,
+        Spearman_Correlation = spearman_corr
+      ))
+    }
+  }
+}
+
+print(correlation_results)
+
+#Calculate Pearson & Spearman Correlation Between Adjacent Age Groups
+age_group_pairs <- list(c("Children", "Young Adults"), c("Young Adults", "Adults"), c("Adults", "Old Age"))
+correlation_results <- data.frame(Age_Group_1 = character(), Age_Group_2 = character(), Pearson_Correlation = numeric(), Spearman_Correlation = numeric())
+
+for (pair in age_group_pairs) {
+  group1 <- subset(data_filtered, Age_Group == pair[1])
+  group2 <- subset(data_filtered, Age_Group == pair[2])
+  merged_df <- merge(group1, group2, by = "Cause.of.Death", suffixes = c("_Group1", "_Group2"))
+  if (nrow(merged_df) > 1) {
+    pearson_corr <- cor(merged_df$Crude.Rate_Group1, merged_df$Crude.Rate_Group2, use = "complete.obs", method = "pearson")
+    spearman_corr <- cor(merged_df$Crude.Rate_Group1, merged_df$Crude.Rate_Group2, use = "complete.obs", method = "spearman")
+    
+    correlation_results <- rbind(correlation_results, data.frame(
+      Age_Group_1 = pair[1],
+      Age_Group_2 = pair[2],
+      Pearson_Correlation = round(pearson_corr, 4),
+      Spearman_Correlation = round(spearman_corr, 4)
+    ))
+  }
+}
+
+distinct_correlation_results <- distinct(correlation_results)
+
+print(distinct_correlation_results)
+
+```
+```{r cars}
+df_covid <- read.csv("data causes of death/data causes of death/covid/COVID_by_AgeGroup10.csv", stringsAsFactors = FALSE)
+df_heart <- read.csv("data causes of death/data causes of death/HeartDisease/HeartDisease_by_AgeGroup10.csv", stringsAsFactors = FALSE)
+df_cerebro <- read.csv("data causes of death/data causes of death/Cerebro/Cerebro_by_AgeGroup10.csv", stringsAsFactors = FALSE)
+
+
+df_covid <- rename(df_covid, AgeGroup = `Ten.Year.Age.Groups`)
+df_heart <- rename(df_heart, AgeGroup = `Ten.Year.Age.Groups`)
+df_cerebro <- rename(df_cerebro, AgeGroup = `Ten.Year.Age.Groups`)
+
+# Crude rate as numeric
+df_covid$Crude.Rate <- as.numeric(df_covid$Crude.Rate)
+df_heart$Crude.Rate <- as.numeric(df_heart$Crude.Rate)
+df_cerebro$Crude.Rate <- as.numeric(df_cerebro$Crude.Rate)
+
+#rbind
+df_merged <- df_covid %>% 
+  select(AgeGroup, Crude.Rate) %>% 
+  rename(Crude_Rate_COVID = Crude.Rate) %>%
+  inner_join(df_heart %>% select(AgeGroup, Crude.Rate) %>% rename(Crude_Rate_Heart = Crude.Rate), by = "AgeGroup") %>%
+  inner_join(df_cerebro %>% select(AgeGroup, Crude.Rate) %>% rename(Crude_Rate_Cerebro = Crude.Rate), by = "AgeGroup")
+
+#Calculate Correlation Matrix
+cor_matrix <- cor(df_merged[, 2:4], use = "complete.obs")
+print(cor_matrix)
+
+#Visualize Correlation Matrix
+library(corrplot)
+corrplot(cor_matrix, method = "color", type = "upper", tl.col = "black", tl.srt = 45)
+
+#Plot Scatterplot Matrix
+pairs(df_merged[, 2:4], main = "Bivariate Analysis: COVID-19, Heart Disease, and Cerebrovascular Disease by Age Group")
+
+#Convert Data to Long Format for Visualization
+df_long <- df_merged %>% 
+  pivot_longer(cols = starts_with("Crude_Rate"), 
+               names_to = "Disease", 
+               values_to = "Crude_Rate")
+
+df_long$Disease <- gsub("Crude_Rate_", "", df_long$Disease)
+
+#Display Mortality Rates of Three Diseases by Age Group
+ggplot(df_long, aes(x = AgeGroup, y = Crude_Rate, fill = Disease)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_y_log10() +
+  theme_minimal() +
+  labs(title = "Crude Rate of Diseases by Age Group (Log Scale)",
+       x = "Age Group",
+       y = "Log(Crude Rate)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
+
+```{r cars}
+#Compare by different education
+college_higher <- read.csv("15 causes of death_College_Higher.csv", stringsAsFactors = FALSE)
+high_school <- read.csv("15 causes of death_high school.csv", stringsAsFactors = FALSE)
+under_12_grade <- read.csv("15 causes of death_under 12 grade.csv", stringsAsFactors = FALSE)
+
+college_higher <- college_higher %>% select(Cause.of.Death, Deaths)
+high_school <- high_school %>% select(Cause.of.Death, Deaths)
+under_12_grade <- under_12_grade %>% select(Cause.of.Death, Deaths)
+
+colnames(college_higher)[2] <- "College_Higher"
+colnames(high_school)[2] <- "High_School"
+colnames(under_12_grade)[2] <- "Under_12_Grade"
+
+df_combined <- reduce(list(college_higher, high_school, under_12_grade), full_join, by = "Cause.of.Death")
+
+df_long <- df_combined %>% pivot_longer(cols = -Cause.of.Death, names_to = "Education_Level", values_to = "Deaths")
+
+#Plot a Bar Chart for Comparison
+ggplot(df_long, aes(x = Cause.of.Death, y = Deaths, fill = Education_Level)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_minimal() +
+  labs(title = "Comparison of Death Causes by Education Level",
+       x = "Cause of Death",
+       y = "Number of Deaths") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r cars}
+college_higher <- read.csv("15 causes of death_College_Higher.csv", stringsAsFactors = FALSE)
+high_school <- read.csv("15 causes of death_high school.csv", stringsAsFactors = FALSE)
+under_12_grade <- read.csv("15 causes of death_under 12 grade.csv", stringsAsFactors = FALSE)
+
+college_higher <- college_higher %>%
+  select(Cause.of.Death, Deaths) %>%
+  mutate(Deaths = as.numeric(Deaths), Education_Level = "College_Higher") %>%
+  slice_max(order_by = Deaths, n = 5)
+
+high_school <- high_school %>%
+  select(Cause.of.Death, Deaths) %>%
+  mutate(Deaths = as.numeric(Deaths), Education_Level = "High_School") %>%
+  slice_max(order_by = Deaths, n = 5)
+
+under_12_grade <- under_12_grade %>%
+  select(Cause.of.Death, Deaths) %>%
+  mutate(Deaths = as.numeric(Deaths), Education_Level = "Under_12_Grade") %>%
+  slice_max(order_by = Deaths, n = 5)
+
+df_long <- bind_rows(college_higher, high_school, under_12_grade)
+
+df_long$Education_Level <- factor(df_long$Education_Level, levels = c("Under_12_Grade", "High_School", "College_Higher"))
+
+#Plot a Grouped Bar Chart, Displaying the Top 5 Causes of Death for Each Education Level Separately.
+ggplot(df_long, aes(x = Education_Level, y = Deaths, fill = Cause.of.Death)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_minimal() +
+  labs(title = "Top 5 Causes of Death for Each Education Level",
+       x = "Education Level",
+       y = "Number of Deaths",
+       fill = "Cause of Death") +
+  theme(axis.text.x = element_text(angle = 0, hjust = 0.5))
+```
+
+```{r cars}
+#compare by different state
+df_covid <- read.csv("data causes of death/data causes of death/covid/COVID_by_State.csv", stringsAsFactors = FALSE)
+df_heart <- read.csv("data causes of death/data causes of death/HeartDisease/HeartDisease_by_State.csv", stringsAsFactors = FALSE)
+df_cerebro <- read.csv("data causes of death/data causes of death/Cerebro/Cerebro_by_State.csv", stringsAsFactors = FALSE)
+
+df_covid$Crude.Rate <- as.numeric(df_covid$Crude.Rate)
+df_heart$Crude.Rate <- as.numeric(df_heart$Crude.Rate)
+df_cerebro$Crude.Rate <- as.numeric(df_cerebro$Crude.Rate)
+
+df_merged <- df_covid %>% 
+  select(State, Crude.Rate) %>% 
+  rename(Crude_Rate_COVID = Crude.Rate) %>%
+  inner_join(df_heart %>% select(State, Crude.Rate) %>% rename(Crude_Rate_Heart = Crude.Rate), by = "State") %>%
+  inner_join(df_cerebro %>% select(State, Crude.Rate) %>% rename(Crude_Rate_Cerebro = Crude.Rate), by = "State")
+
+cor_matrix <- cor(df_merged[, 2:4], use = "complete.obs")
+print(cor_matrix)
+
+library(corrplot)
+corrplot(cor_matrix, method = "color", type = "upper", tl.col = "black", tl.srt = 45)
+
+#plot
+pairs(df_merged[, 2:4], main = "Bivariate Analysis: COVID-19, Heart Disease, and Cerebrovascular Disease")
+
+df_long <- df_merged %>% 
+  pivot_longer(cols = starts_with("Crude_Rate"), 
+               names_to = "Disease", 
+               values_to = "Crude_Rate")
+
+df_long$Disease <- gsub("Crude_Rate_", "", df_long$Disease)
+
+#
+ggplot(df_long, aes(x = State, y = Crude_Rate, group = Disease, color = Disease)) +
+  geom_line(size = 1) +
+  geom_point(size = 2) +
+  theme_minimal() +
+  labs(title = "Crude Rate of Diseases by State",
+       x = "State",
+       y = "Crude Rate",
+       color = "Disease") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+```
+
+

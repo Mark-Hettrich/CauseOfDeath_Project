@@ -1,0 +1,16 @@
+Cause of Death,ICD Code,Deaths,Population,Crude Rate
+Certain conditions originating in the perinatal period,P00-P96,60376,438109726,13.8
+Accidents,"V01-X59,Y85-Y86",35140,438109726,8
+Congenital malformations,Q00-Q99,30191,438109726,6.9
+Assault (homicide),"X85-Y09,Y87.1",12170,438109726,2.8
+Intentional self-harm (suicide),"X60-X84,Y87.0",10112,438109726,2.3
+Malignant neoplasms,C00-C97,9016,438109726,2.1
+Diseases of heart,"I00-I09,I11,I13,I20-I51",4217,438109726,1
+Influenza and pneumonia,J09-J18,2369,438109726,0.5
+Cerebrovascular diseases,I60-I69,1619,438109726,0.4
+Septicemia,A40-A41,1569,438109726,0.4
+Chronic lower respiratory diseases,J40-J47,1249,438109726,0.3
+COVID-19,U07.1,1216,438109726,0.3
+"In situ neoplasms, benign neoplasms and neoplasms of uncertain behavior",D00-D48,888,438109726,0.2
+Diabetes mellitus,E10-E14,491,438109726,0.1
+Meningitis,"G00,G03",475,438109726,0.1

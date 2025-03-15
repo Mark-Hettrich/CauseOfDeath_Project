@@ -1,0 +1,16 @@
+Cause of Death,ICD Code,Deaths,Population,Crude Rate
+Accidents,"V01-X59,Y85-Y86",72808,182673408,39.9
+Intentional self-harm (suicide),"X60-X84,Y87.0",29967,182673408,16.4
+Assault (homicide),"X85-Y09,Y87.1",28385,182673408,15.5
+Malignant neoplasms,C00-C97,6181,182673408,3.4
+Diseases of heart,"I00-I09,I11,I13,I20-I51",4430,182673408,2.4
+COVID-19,U07.1,2140,182673408,1.2
+Congenital malformations,Q00-Q99,1700,182673408,0.9
+Diabetes mellitus,E10-E14,1532,182673408,0.8
+"Pregnancy, childbirth and the puerperium",O00-O99,962,182673408,0.5
+Chronic lower respiratory diseases,J40-J47,894,182673408,0.5
+Influenza and pneumonia,J09-J18,817,182673408,0.4
+Cerebrovascular diseases,I60-I69,799,182673408,0.4
+Legal intervention,"Y35,Y89.0",585,182673408,0.3
+Septicemia,A40-A41,545,182673408,0.3
+"Nephritis, nephrotic syndrome and nephrosis","N00-N07,N17-N19,N25-N27",333,182673408,0.2

@@ -1,0 +1,9 @@
+Notes,ICD Chapter,ICD Chapter Code,Single Race 6,Single Race 6 Code,Deaths,Population,Crude Rate,Age Adjusted Rate
+,External causes of morbidity and mortality,V01-Y89,American Indian or Alaska Native,1002-5,17026,25864794,65.8,69.6
+,External causes of morbidity and mortality,V01-Y89,Asian,A,22160,121539078,18.2,17.9
+,External causes of morbidity and mortality,V01-Y89,Black or African American,May-54,178605,268628550,66.5,66.2
+,External causes of morbidity and mortality,V01-Y89,Native Hawaiian or Other Pacific Islander,NHOPI,1981,5091714,38.9,41
+,External causes of morbidity and mortality,V01-Y89,White,Mar-06,982420,1506100499,65.2,59.7
+,External causes of morbidity and mortality,V01-Y89,More than one race,M,13602,57762642,23.5,31.2
+Total,External causes of morbidity and mortality,V01-Y89,,,1215794,1984987277,61.2,57.7
+Total,,,,,1215794,1984987277,61.2,57.7

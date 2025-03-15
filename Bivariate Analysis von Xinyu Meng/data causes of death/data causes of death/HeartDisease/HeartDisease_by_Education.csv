@@ -1,0 +1,13 @@
+Notes,ICD Chapter,ICD Chapter Code,Education,Education Code,Deaths,Population,Crude Rate
+,Diseases of the circulatory system,I00-I99,8th grade or less,1,160433,Not Applicable,Not Applicable
+,Diseases of the circulatory system,I00-I99,9th through 12th grade with no diploma,2,187920,Not Applicable,Not Applicable
+,Diseases of the circulatory system,I00-I99,High school graduate or GED completed,3,908265,Not Applicable,Not Applicable
+,Diseases of the circulatory system,I00-I99,"Some college credit, but not a degree.",4,263634,Not Applicable,Not Applicable
+,Diseases of the circulatory system,I00-I99,"Associate degree (AA,AS)",5,137779,Not Applicable,Not Applicable
+,Diseases of the circulatory system,I00-I99,"Bachelor?s degree (BA, AB, BS)",6,235014,Not Applicable,Not Applicable
+,Diseases of the circulatory system,I00-I99,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,100628,Not Applicable,Not Applicable
+,Diseases of the circulatory system,I00-I99,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,41738,Not Applicable,Not Applicable
+,Diseases of the circulatory system,I00-I99,Unknown or Not Stated,9,43997,Not Applicable,Not Applicable
+,Diseases of the circulatory system,I00-I99,Not Available,10,2011384,Not Applicable,Not Applicable
+Total,Diseases of the circulatory system,I00-I99,,,4090792,Not Applicable,Not Applicable
+Total,,,,,4090792,Not Applicable,Not Applicable
