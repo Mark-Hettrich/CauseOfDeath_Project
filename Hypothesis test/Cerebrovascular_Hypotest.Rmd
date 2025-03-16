@@ -1,0 +1,393 @@
+---
+title: "Cerebrovascular Hypothsis Testing"
+output: html_document
+date: "2025-03-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readxl)
+library(dplyr)
+library(ggplot2)
+```
+### 1. Race
+```{r}
+# Set file path
+file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by 6 Race.xlsx"
+
+# Load dataset
+Cerebrovascular_by_6_Race <- read_excel(file_path)
+```
+
+```{r}
+df <- Cerebrovascular_by_6_Race
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Ensure factor and numeric types
+df$Single.Race.6 <- as.factor(df$Single.Race.6)
+df$Deaths <- as.numeric(df$Deaths)
+
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Single.Race.6, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Single.Race.6)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+plot(tukey_result, las = 1)
+
+
+```
+
+
+
+
+### 2. Urbanization
+From excel ---- Rename "2013 Urbanization" to "Urbanization" for convenience
+```{r}
+file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Urbanization.xlsx"
+
+# Load dataset
+Cerebrovascular_by_Urbanization<- read_excel(file_path)
+```
+
+```{r}
+df <- Cerebrovascular_by_Urbanization
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Ensure factor and numeric types
+df$Urbanization <- as.factor(df$Urbanization)
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Urbanization, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Urbanization)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+
+```
+
+
+
+
+
+
+### 3. Education
+```{r}
+# Set file path
+file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Education.xlsx"
+
+# Load dataset
+Cerebrovascular_by_Education <- read_excel(file_path)
+```
+
+```{r}
+df <- Cerebrovascular_by_Education
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Rename Education Levels for Simplicity
+df$Education <- recode(df$Education,
+  "8th grade or less" = "≤8th grade",
+  "9th through 12th grade with no diploma" = "9-12th no diploma",
+  "High school graduate or GED completed" = "HS Grad/GED",
+  "Some college credit, but not a degree." = "Some College",
+  "Associate degree (AA,AS)" = "Associate",
+  "Bachelor’s degree (BA, AB, BS)" = "Bachelor’s",
+  "Master’s degree (MA, MS, MEng, MEd, MSW, MBA)" = "Master’s",
+  "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)" = "Doctorate/Prof Degree",
+  "Unknown or Not Stated" = "Unknown"
+)
+
+# Remove "Not Available" education level
+df <- df %>% filter(Education != "Not Available")
+
+# Ensure factor and numeric types
+df$Education <- as.factor(df$Education)  
+df$Deaths <- as.numeric(df$Deaths)
+
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Education, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Education)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+```
+
+
+
+
+### 4. Ten_Year_Age_Group
+```{r}
+# Set file path
+file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Ten_Year_Age_Group.xlsx"
+
+# Load dataset
+Cerebrovascular_by_Ten_Year_Age_Group <- read_excel(file_path)
+```
+
+```{r}
+df <- Cerebrovascular_by_Ten_Year_Age_Group
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Ensure factor and numeric types
+df$Ten.Year.Age.Groups <- as.factor(df$Ten.Year.Age.Groups)
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Ten.Year.Age.Groups, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Ten.Year.Age.Groups)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+```
+
+
+
+
+### 5. sex
+```{r}
+file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Sex.xlsx"
+
+# Load dataset
+Cerebrovascular_by_Sex <- read_excel(file_path)
+```
+
+```{r}
+df <- Cerebrovascular_by_Sex
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Ensure factor and numeric types
+df$Sex <- as.factor(df$Sex)
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Sex, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Sex)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+```
+
+
+
+
+
+### 6. reigon
+```{r}
+file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Region.xlsx"
+
+# Load dataset
+Cerebrovascular_by_Region<- read_excel(file_path)
+```
+
+```{r}
+df <- Cerebrovascular_by_Region
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Remove 'Total' rows (these are aggregated values for each month)
+df <- df %>% filter(!is.na(Census.Region))
+
+# Ensure Region is a factor variable and Deaths is numeric
+df$Census.Region <- as.factor(df$Census.Region)
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Census.Region, data = df)
+summary(anova_model)
+
+# Perform Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Census.Region)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+```
+
+
+
+
+### 7. month
+```{r}
+# Set file path
+file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Month.xlsx"
+
+# Load dataset
+Cerebrovascular_by_Month <- read_excel(file_path)
+```
+
+```{r}
+df <- Cerebrovascular_by_Month
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Extract only the month (remove year information)
+df$Month <- gsub(",.*", "", df$Month)  # Removes everything after the comma (keeps only "Jan.", "Feb.", etc.)
+df$Month <- factor(df$Month, levels = c("Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."))
+
+# Ensure numeric type for Deaths
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Month, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Month)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+```

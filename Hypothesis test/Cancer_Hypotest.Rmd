@@ -1,0 +1,616 @@
+---
+title: "Hypothesis Testing"
+author: "Yicheng"
+date: "2025-03-14"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readxl)
+library(dplyr)
+library(ggplot2)
+```
+
+
+### 1. Race
+```{r}
+# Set file path
+file_path <- "C:/Users/qq328/Desktop/Cancer by 6 Race.xlsx"
+
+# Load dataset
+Cancer_by_6_Race <- read_excel(file_path)
+```
+
+```{r}
+
+df <- Cancer_by_6_Race
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Ensure factor and numeric types
+df$Single.Race.6 <- as.factor(df$Single.Race.6)
+df$Deaths <- as.numeric(df$Deaths)
+
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Single.Race.6, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Single.Race.6)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+plot(tukey_result, las = 1)
+
+
+```
+
+### Test the main ANOVA hypothesis：         
+
+H0: The mean number of deaths is the same across all racial groups, $\mu_1 = \mu_2 = \mu_3 = \mu_4 = \mu_5 = \mu_6$.        
+H1: At least one racial group has a different mean number of deaths.      
+
+Decision rule:         
+If $F > F(0.95, 5, 426)$, we reject $H_0$. The critical value for $F(0.95, 5, 426)$ from the F-distribution table is approximately 2.21.
+
+F-value 60457 > 2.21, we reject the null hypothesis $H_0$.
+
+Conclusion:         
+At a 5% level of significance, there is strong statistical evidence that the mean number of deaths is not the same across different racial groups.
+This suggests that race has a significant impact on the number of deaths.
+
+
+### Tukey HSD Test for Race and Deaths:       
+Since the one-way ANOVA test indicated a statistically significant effect of race on the number of deaths (p<2e−16), we conducted a Tukey Honest Significant Difference (HSD) test to determine which specific racial groups differ significantly in terms of mean deaths.
+
+Non-Significant Differences (p > 0.05, Not Significant):       
+- More than one race vs. American Indian or Alaska Native: No significant difference in deaths.  
+- Native Hawaiian or Other Pacific Islander vs. American Indian or Alaska Native: No significant difference.  
+- Native Hawaiian or Other Pacific Islander vs. Black or African American: No significant difference.  
+
+Conclusion:       
+The Tukey HSD test confirms that race significantly affects mortality. White individuals exhibit the highest mean number of deaths, followed by Black and Asian individuals. More than one race and Native Hawaiian or Other Pacific Islander groups show significantly lower mortality rates compared to other races.
+
+
+
+
+### 2. Urbanization
+From excel ---- Rename "2013 Urbanization" to "Urbanization" for convenience
+```{r}
+file_path <- "C:/Users/qq328/Desktop/Cancer by Urbanization.xlsx"
+
+# Load dataset
+Cancer_by_Urbanization <- read_excel(file_path)
+```
+
+```{r}
+
+df <- Cancer_by_Urbanization
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Ensure factor and numeric types
+df$Urbanization <- as.factor(df$Urbanization)
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Urbanization, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Urbanization)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+
+```
+
+### Test the main ANOVA hypothesis：         
+
+H0: The mean number of deaths is the same across all urbanization levels.        
+H1: At least one urbanization level has a different mean number of deaths.      
+
+Decision rule:         
+If $F > F(0.95, 5, 426)$, we reject $H_0$. The critical value for $F(0.95, 5, 426)$ from the F-distribution table is approximately 2.21.
+
+F-value 10668 > 2.21, so we reject the null hypothesis $H_0$.
+
+Conclusion:         
+At a 5% level of significance, there is strong statistical evidence that the mean number of deaths is not the same across different urbanization levels.
+This suggests that urbanization significantly impacts the number of deaths.
+
+### Tukey HSD Test for Urbanization and Deaths:       
+Since the one-way ANOVA test indicated a statistically significant effect of urbanization on the number of deaths (p < 2e−16), we conducted a Tukey Honest Significant Difference (HSD) test to determine which specific urbanization groups differ significantly in terms of mean deaths.  
+
+Non-Significant Differences (p > 0.05, Not Significant):  
+- Small Metro vs. Micropolitan (Nonmetro): No significant difference in deaths.  
+
+Conclusion:  
+The Tukey HSD test confirms that urbanization significantly affects mortality.  
+Large metropolitan areas show significantly higher death rates, while rural and nonmetro regions have much lower mortality rates. However, there is no significant difference between Small Metro and Micropolitan (Nonmetro) areas in terms of mortality rates.  
+
+
+
+
+### 3. Education
+```{r}
+# Set file path
+file_path <- "C:/Users/qq328/Desktop/Cancer by Education.xlsx"
+
+# Load dataset
+Cancer_by_Education <- read_excel(file_path)
+```
+
+
+```{r}
+df <- Cancer_by_Education
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Rename Education Levels for Simplicity
+df$Education <- recode(df$Education,
+  "8th grade or less" = "≤8th grade",
+  "9th through 12th grade with no diploma" = "9-12th no diploma",
+  "High school graduate or GED completed" = "HS Grad/GED",
+  "Some college credit, but not a degree." = "Some College",
+  "Associate degree (AA,AS)" = "Associate",
+  "Bachelor’s degree (BA, AB, BS)" = "Bachelor’s",
+  "Master’s degree (MA, MS, MEng, MEd, MSW, MBA)" = "Master’s",
+  "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)" = "Doctorate/Prof Degree",
+  "Unknown or Not Stated" = "Unknown"
+)
+
+# Remove "Not Available" education level
+df <- df %>% filter(Education != "Not Available")
+
+# Ensure factor and numeric types
+df$Education <- as.factor(df$Education)  
+df$Deaths <- as.numeric(df$Deaths)
+
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Education, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Education)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+```
+
+
+### Test the main ANOVA hypothesis:
+
+H0: The mean number of deaths is the same across all education levels.  
+H1: At least one education level has a different mean number of deaths.
+
+Decision rule:  
+If $F > F(0.95, 8, 315)$, we reject $H_0$. The critical value for $F(0.95, 8, 315)$ from the F-distribution table is approximately 2.01.
+
+Since our calculated F-value 17038 > 2.01, we reject the null hypothesis $H_0$.
+
+Conclusion:  
+At a 5% level of significance, there is strong statistical evidence that the mean number of deaths is not the same across different education levels.  
+This suggests that education level significantly impacts the number of deaths.
+
+
+
+### Tukey HSD Test for Education and Deaths:
+
+Since the one-way ANOVA test indicated a statistically significant effect of education on the number of deaths (p < 2e−16), we conducted a Tukey Honest Significant Difference (HSD) test to determine which specific education levels differ significantly in terms of mean deaths.
+
+Non-Significant Differences (p > 0.05, Not Significant):  
+- Master’s degree vs. 8th grade or less: No statistically significant difference in mortality rates.
+- Some college (no degree) vs. Master’s degree: No significant difference in mortality.
+
+
+Conclusion:
+The Tukey HSD test confirms that education level significantly affects mortality. Individuals with higher education levels (Bachelor’s, Doctorate/Professional Degree) exhibit significantly different death rates compared to those with lower education levels (8th grade or less).
+
+However, some intermediate education levels, such as having a master’s degree or attending some college without completing a degree, do not show significant differences in mortality compared to lower education levels.
+
+
+### 4. Cancer_by_Ten_Year_Age_Group
+```{r}
+# Set file path
+file_path <- "C:/Users/qq328/Desktop/Cancer by Ten_Year_Age_Group.xlsx"
+
+# Load dataset
+Cancer_by_Ten_Year_Age_Group <- read_excel(file_path)
+```
+
+```{r}
+df <- Cancer_by_Ten_Year_Age_Group
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Ensure factor and numeric types
+df$Ten.Year.Age.Groups <- as.factor(df$Ten.Year.Age.Groups)
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Ten.Year.Age.Groups, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Ten.Year.Age.Groups)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+```
+
+### Test the main ANOVA hypothesis:
+
+H0: The mean number of deaths is the same across all ten-year age groups,  
+$\mu_1 = \mu_2 = \mu_3 = ... = \mu_{11}$.  
+
+H1: At least one ten-year age group has a different mean number of deaths.  
+
+Decision rule:  
+If $F > F(0.95, 10, 723)$, we reject $H_0$.  
+The critical value for $F(0.95, 10, 723)$ from the F-distribution table is approximately 1.83.  
+
+Since the calculated F-value is 18971, which is greater than 1.83, we reject the null hypothesis $H_0$.  
+
+Conclusion:  
+At a 5% level of significance, there is strong statistical evidence that the mean number of deaths is not the same across different ten-year age groups.  
+This suggests that age group significantly impacts the number of deaths.  
+
+### Tukey HSD Test for Age Groups and Deaths:
+
+Since the one-way ANOVA test indicated a statistically significant effect of age group on the number of deaths (p < 2e−16), we conducted a Tukey Honest Significant Difference (HSD) test to determine which specific age groups differ significantly in terms of mean deaths.
+
+Non-Significant Differences (p > 0.05, Not Significant):  
+- 1-4 years vs. < 1 year: No significant difference in mortality.  
+- 5-14 years vs. < 1 year: No significant difference in deaths.  
+- 15-24 years vs. < 1 year: No significant difference observed.  
+- 45-54 years vs. 35-44 years: No statistically significant difference.  
+- 75-84 years vs. 65-74 years: No significant mortality difference.  
+- 85+ years vs. 75-84 years: No statistically significant difference.  
+
+Conclusion:  
+The Tukey HSD test confirms that age significantly affects mortality.  
+As age increases, mortality rates rise significantly, with the 85+ years group experiencing the highest number of deaths, while younger age groups (below 25 years) show minimal differences in mortality.
+
+
+
+### 5. sex
+```{r}
+file_path <- "C:/Users/qq328/Desktop/Cancer by Sex.xlsx"
+
+# Load dataset
+Cancer_by_Sex<- read_excel(file_path)
+```
+
+```{r}
+df <- Cancer_by_Sex
+
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Ensure factor and numeric types
+df$Sex <- as.factor(df$Sex)
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Sex, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Sex)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+```
+
+### Test the main ANOVA hypothesis:
+
+H0: The mean number of deaths is the same across both sexes,  
+$\mu_{Male} = \mu_{Female}$.  
+
+H1: At least one sex has a different mean number of deaths.  
+
+Decision rule:  
+If $F > F(0.95, 1, 142)$, we reject $H_0$.  
+The critical value for $F(0.95, 1, 142)$ from the F-distribution table is approximately 3.91.  
+
+F-value 357.8 > 3.91, so we reject the null hypothesis $H_0$.  
+
+Conclusion:  
+At a 5% level of significance, there is strong statistical evidence that the mean number of deaths is not the same across sexes.  
+This suggests that sex significantly impacts the number of deaths.  
+
+### Tukey HSD Test for Sex and Deaths:
+
+Since the one-way ANOVA test indicated a statistically significant effect of sex on the number of deaths (p < 2e−16), we conducted a Tukey Honest Significant Difference (HSD) test to determine whether male and female mortality rates differ significantly.
+
+Significant Differences (p < 0.05, Statistically Significant):  
+- Male vs. Female: Males have significantly higher mortality compared to females.
+
+Conclusion:  
+The Tukey HSD test confirms that sex significantly affects mortality.  
+Males exhibit a significantly higher number of deaths compared to females.
+
+
+
+
+
+### 6. reigon
+```{r}
+file_path <- "C:/Users/qq328/Desktop/Cancer by Region.xlsx"
+
+# Load dataset
+Cancer_by_Region<- read_excel(file_path)
+```
+
+```{r}
+
+df <- Cancer_by_Region
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Remove 'Total' rows (these are aggregated values for each month)
+df <- df %>% filter(!is.na(Census.Region))
+
+# Ensure Region is a factor variable and Deaths is numeric
+df$Census.Region <- as.factor(df$Census.Region)
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Census.Region, data = df)
+summary(anova_model)
+
+# Perform Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Census.Region)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+```
+
+### Test the main ANOVA hypothesis:
+
+H0: The mean number of deaths is the same across all census regions,  
+$\mu_1 = \mu_2 = \mu_3 = \mu_4$.  
+
+H1: At least one census region has a different mean number of deaths.  
+
+Decision rule:  
+If $F > F(0.95, 3, 284)$, we reject $H_0$.  
+The critical value for $F(0.95, 3, 284)$ from the F-distribution table is approximately 2.64.  
+
+F-value 7777 > 2.64, so we reject the null hypothesis $H_0$.  
+
+Conclusion:  
+At a 5% level of significance, there is strong statistical evidence that the mean number of deaths is not the same across different census regions.  
+This suggests that census region significantly impacts the number of deaths.  
+
+### Tukey HSD Test for Census Region and Deaths:
+
+Since the one-way ANOVA test indicated a statistically significant effect of census region on the number of deaths (p < 2e−16), we conducted a Tukey Honest Significant Difference (HSD) test to determine which specific census regions differ significantly in terms of mean deaths.
+
+Significant Differences (p < 0.05, Statistically Significant):  
+- Midwest vs. Northeast: The Midwest has significantly higher mortality than the Northeast.  
+- South vs. Northeast: The South has significantly higher mortality than the Northeast.  
+- West vs. Northeast: The West has significantly higher mortality than the Northeast.  
+- South vs. Midwest: The South has significantly higher mortality than the Midwest.  
+- West vs. Midwest: The West has significantly lower mortality than the Midwest.  
+- West vs. South: The West has significantly lower mortality than the South.  
+
+Conclusion:  
+The Tukey HSD test confirms that census region significantly affects mortality.  
+The South exhibits the highest number of deaths, followed by the Midwest, while the West and Northeast have comparatively lower mortality rates.
+
+
+
+
+### 7. month\
+```{r}
+# Set file path
+file_path <- "C:/Users/qq328/Desktop/Cancer by Month.xlsx"
+
+# Load dataset
+Cancer_by_Month <- read_excel(file_path)
+
+```
+
+```{r}
+df <- Cancer_by_Month
+# Clean column names (remove spaces)
+colnames(df) <- make.names(colnames(df))
+
+# Extract only the month (remove year information)
+df$Month <- gsub(",.*", "", df$Month)  # Removes everything after the comma (keeps only "Jan.", "Feb.", etc.)
+df$Month <- factor(df$Month, levels = c("Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."))
+
+# Ensure numeric type for Deaths
+df$Deaths <- as.numeric(df$Deaths)
+
+# Perform One-Way ANOVA
+anova_model <- aov(Deaths ~ Month, data = df)
+summary(anova_model)
+
+# Tukey HSD Test
+tukey_result <- TukeyHSD(anova_model)
+
+# Convert Tukey HSD result to data frame
+tukey_df <- as.data.frame(tukey_result$Month)
+tukey_df$Comparison <- rownames(tukey_df)
+
+# Select and rename columns
+tukey_df <- tukey_df %>%
+  select(Comparison, diff, lwr, upr, `p adj`) %>%
+  rename(
+    Mean_Difference = diff,
+    Lower_CI = lwr,
+    Upper_CI = upr,
+    P_Value = `p adj`
+  )
+
+# Print neatly formatted table
+print(tukey_df, row.names = FALSE)
+
+# Plot Tukey HSD results
+plot(tukey_result, las = 1)
+
+
+```
+
+### Test the main ANOVA hypothesis:
+
+H0: The mean number of deaths is the same across all months,  
+$\mu_{Jan} = \mu_{Feb} = \mu_{Mar} = ... = \mu_{Dec}$.  
+
+H1: At least one month has a different mean number of deaths.  
+
+Decision rule:  
+If $F > F(0.95, 11, 60)$, we reject $H_0$.  
+The critical value for $F(0.95, 11, 60)$ from the F-distribution table is approximately 2.14  
+
+F-value 29.47 > 2.14, so we reject the null hypothesis $H_0$.  
+
+Conclusion:  
+At a 5% level of significance, there is strong statistical evidence that the mean number of deaths is not the same across different months.  
+This suggests that the month significantly impacts the number of deaths.  
+
+### Tukey HSD Test for Month and Deaths:
+
+Since the one-way ANOVA test indicated a statistically significant effect of the month on the number of deaths (p < 2e−16), we conducted a Tukey Honest Significant Difference (HSD) test to determine which specific months differ significantly in terms of mean deaths.
+
+Non-Significant Differences (p > 0.05, Not Significant):  
+- Mar. vs. Jan.: No significant difference in deaths.  
+- Jul. vs. Jan.: No significant difference in deaths.  
+- Nov. vs. Jan.: No significant difference in deaths.  
+- May vs. Feb.: No significant difference in deaths.  
+- Sep. vs. Feb.: No significant difference in deaths.  
+- Apr. vs. Mar.: No significant difference in deaths.  
+- Jul. vs. Jun.: No significant difference in deaths.  
+- Nov. vs. Jun.: No significant difference in deaths.  
+- Oct. vs. Jul.: No significant difference in deaths.  
+- Nov. vs. Sep.: No significant difference in deaths.  
+- Dec. vs. Nov.: No significant difference in deaths.  
+
+Conclusion:  
+The Tukey HSD test confirms that the month significantly affects mortality.  
+There are statistically significant differences in mortality across different months, with some months exhibiting significantly higher or lower deaths than others. However, certain consecutive months do not show significant differences in mortality rates.
+
+
+
+
+
+
+
+
