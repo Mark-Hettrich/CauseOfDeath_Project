@@ -20,6 +20,7 @@ library(here)
 library(ggplot2)
 library(readr)
 library(dplyr)
+library(patchwork)
 options(scipen=999) #normale Zahlen statt 2e+05 oder so
 ```
 
