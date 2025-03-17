@@ -1,15 +1,32 @@
-Variables controlled for Accidents (unintentional injuries) (V01-X59,Y85-Y86) Death
+---
+title: "Cause of Death anaylsis"
+author:
+- 'Projektpartner: xyz'
+- 'Betreuer: xyz'
+date: "2025-03-19"
+output:
+  html_document:
+    df_print: paged
+  ioslides_presentation: default
+  slidy_presentation: default
+---
 
-Year
-Year & Month
-Ten Year Age Groups
-Sex
-Single Race 6
-Education
-2013 Urbanization
-State
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-```{r}
+## Variables controlled for Accidents (unintentional injuries) (V01-X59,Y85-Y86) Death
+
+- Year
+- Year & Month
+- Ten Year Age Groups
+- Sex
+- Single Race 6
+- Education
+- 2013 Urbanization
+- State
+
+```{r, include=FALSE}
 library(here)
 library(ggplot2)
 library(readr)
@@ -19,7 +36,7 @@ options(scipen=999) #normale Zahlen statt 2e+05 oder so
 
 
 
-Year
+## Year
 ```{r}
 file_path <- here("Datasets", "Univariate Analysis", "Accidents", "Year", "Accidents_by_Year.csv")
 year_df <- read_csv(file_path, show_col_types = FALSE)
@@ -144,7 +161,6 @@ Sex
 ```{r}
 file_path <- here("Datasets", "Univariate Analysis", "Accidents", "Sex", "Accidents_by_Sex.csv")
 sex_df <- read_csv(file_path, show_col_types = FALSE)
-sex_df$age_adjusted_rate <- c(129.3, 201.6, 166.0, 166.0)
 sex_df
 
 sex_df %>%
@@ -168,7 +184,7 @@ sex_df %>%
 
 sex_df %>%
   filter(!is.na(Sex)) %>%
-  ggplot(aes(x = Sex, y = age_adjusted_rate, fill = Sex)) +
+  ggplot(aes(x = Sex, y = `Age Adjusted Rate`, fill = Sex)) +
   geom_bar(stat = "identity") +
   labs(title = "Accident Death Rate by Sex, Age adjusted (per 100,000 Population)",
        x = "Sex",
@@ -181,7 +197,6 @@ Race
 ```{r}
 file_path <- here("Datasets", "Univariate Analysis", "Accidents", "Race", "Accidents_by_Race.csv")
 race_df <- read_csv(file_path, show_col_types = FALSE)
-race_df$age_adjusted_rate <- c(109.1, 82.6, 210.9, 148.1, 166.0, 69.8, 166.0, 166.0)
 race_df
 
 
@@ -208,7 +223,7 @@ race_df %>%
 
 race_df %>%
   filter(!is.na(`Single Race 6`)) %>%
-  ggplot(aes(x = `Single Race 6`, y = age_adjusted_rate)) +
+  ggplot(aes(x = `Single Race 6`, y = `Age Adjusted Rate`)) +
   geom_bar(stat = "identity") +
   labs(title = "Accident Death Rate by Race Age adjusted (per 100,000 Population)",
        x = "Race",

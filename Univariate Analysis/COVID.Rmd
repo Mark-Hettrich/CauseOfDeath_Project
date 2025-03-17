@@ -1,4 +1,4 @@
-Variables controlled for Malignant Neoplasms (C00-C97) Deaths:
+Variables controlled for Covid U07.1 Deaths:
 
 Year 
 Year & Month
@@ -152,7 +152,6 @@ Sex
 ```{r}
 file_path <- here("Datasets", "Univariate Analysis", "COVID", "Sex", "COVID_by_Sex.csv")
 sex_df <- read_csv(file_path, show_col_types = FALSE)
-sex_df$age_adjusted_rate <- c(129.3, 201.6, 166.0, 166.0)
 sex_df
 
 sex_df %>%
@@ -176,7 +175,7 @@ sex_df %>%
 
 sex_df %>%
   filter(!is.na(Sex)) %>%
-  ggplot(aes(x = Sex, y = age_adjusted_rate, fill = Sex)) +
+  ggplot(aes(x = Sex, y = `Age Adjusted Rate`, fill = Sex)) +
   geom_bar(stat = "identity") +
   labs(title = "COVID Death Rate by Sex, Age adjusted (per 100,000 Population)",
        x = "Sex",
@@ -189,7 +188,6 @@ Race
 ```{r}
 file_path <- here("Datasets", "Univariate Analysis", "COVID", "Race", "COVID_by_Race.csv")
 race_df <- read_csv(file_path, show_col_types = FALSE)
-race_df$age_adjusted_rate <- c(109.1, 82.6, 210.9, 148.1, 166.0, 69.8, 166.0, 166.0)
 race_df
 
 
@@ -216,7 +214,7 @@ race_df %>%
 
 race_df %>%
   filter(!is.na(`Single Race 6`)) %>%
-  ggplot(aes(x = `Single Race 6`, y = age_adjusted_rate)) +
+  ggplot(aes(x = `Single Race 6`, y = `Age Adjusted Rate`)) +
   geom_bar(stat = "identity") +
   labs(title = "COVID Death Rate by Race Age adjusted (per 100,000 Population)",
        x = "Race",
