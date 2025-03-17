@@ -1,0 +1,60 @@
+---
+title: "Cause of Death anaylsis"
+author:
+- 'Projektpartner: xyz'
+- 'Betreuer: xyz'
+date: "2025-03-19"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Packages, include=FALSE}
+library(here)
+library(ggplot2)
+library(readr)
+library(dplyr)
+options(scipen=999) #normale Zahlen statt 2e+05 oder so
+```
+
+```{r Univariate Analysis, include=FALSE}
+plot1 <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  labs(title = "Sepal Length vs Sepal Width in Iris Dataset")
+```
+
+```{r Bivariate Analysis, include=FALSE}
+
+```
+
+```{r Hypothesis Tests, include=FALSE}
+
+```
+
+```{r Model, include=FALSE}
+
+```
+
+## General Informations 
+- What is the Question
+- Where does the Data come from?
+- What Datatype do we have?
+- What Methodology do we use?
+
+## Univariate Analysis
+- Gliederung
+
+## Topics & PLots...
+
+##
+```{r Plot1, echo=FALSE}
+plot1
+```
+
+
