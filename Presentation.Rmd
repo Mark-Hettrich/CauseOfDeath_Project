@@ -43,10 +43,20 @@ plot1 <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
 ```
 
+## Outline
+- Research Question
+- About our Data
+- Methodology
+- Univariate Analysis --> Data Overview
+- Bivariate Analysis --> Methods & Interactions ()
+- Hypothesis tests --> Questions & Answers / Methodology  --> One Way Anova, Tukey HSD tests (one example)
+- Model Ideas and early implementation  --> Methodology & (maybe some early results)
+
 
 ## Research Question
+- Epidemological Studies / Sociologigac Sceince --> which field are we in ??
 - Exploratory Role
-- main question is the influence of the socioeconomic status on the mortality rate of certain diseases
+- Main question is the influence of the socioeconomic status on the mortality rate of certain diseases
 - Goal: build, if possible, one model that returns the probability of dying from a disease given socioeconomic status and other variables that may have an influence on the mortality.
 
 
@@ -66,12 +76,28 @@ plot1 <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 - Hypothesis Tests
 - Creation of a Model
 
+
 ## Univariate Analysis
 - Exploring Variables across Top 5 Cause of Deaths & Total Deaths one at a time
 - Variables: Year, Year&Month, Age Groups, Sex, Single Race 6, Education, Urbanization level, States
 
-## Example slide / Chosen Plots...
+## PLot 1 to Explain Data: Total Deaths
 ```{r Plot1, echo=FALSE}
 plot1
 ```
+
+## Plot 2 To Explain Datastructure: Top 5 Cause of Deaths
+
+## Bivariate Analysis: Quick overview of what is being done
+- Education levels & Deathcause plot as example
+
+## Hypothisis testing
+- One Way Anova 
+- Tukey HSD
+
+## Hypthosis Test example
+
+## Model Overview
+
+##???
 
