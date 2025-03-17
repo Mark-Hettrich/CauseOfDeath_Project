@@ -1,8 +1,8 @@
 ---
 title: "Cause of Death anaylsis"
 author:
-- 'Projektpartner: xyz'
-- 'Betreuer: xyz'
+- 'Projektpartner: Prof. Dr. Li'
+- 'Betreuer: Helen Alber'
 date: "2025-03-19"
 output:
   slidy_presentation: default
@@ -26,7 +26,8 @@ options(scipen=999) #normale Zahlen statt 2e+05 oder so
 ```{r Univariate Analysis, include=FALSE}
 plot1 <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
   geom_point() +
-  labs(title = "Sepal Length vs Sepal Width in Iris Dataset")
+  labs(title = "Sepal Length vs Sepal Width in Iris Dataset") +
+  theme_minimal()
 ```
 
 ```{r Bivariate Analysis, include=FALSE}
@@ -41,20 +42,35 @@ plot1 <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
 ```
 
-## General Informations 
-- What is the Question
-- Where does the Data come from?
-- What Datatype do we have?
-- What Methodology do we use?
+
+## Research Question
+- Exploratory Role
+- main question is the influence of the socioeconomic status on the mortality rate of certain diseases
+- Goal: build, if possible, one model that returns the probability of dying from a disease given socioeconomic status and other variables that may have an influence on the mortality.
+
+
+## About our Data
+- Data is provided through data querying system run by the CDC (Centers for Disease Control and Prevention): wonder.cdc.gov
+- We use the dataset from 2018-2023 focused on the underlying causes of death
+- datasets are provided pre-grouped
+- The underlying causes of death are defined and operationalised according to ICD-10 and are to be analysed as mortality rates as a variable of geographical areas
+- The socioeconomic status is operationalised by the highest attained education
+- Population size is mostly, but not always given
+- Varibales of Interest: Year, Year&Month, Age Groups, Sex, Single Race 6, Education, Urbanization level, States
+
+
+## What Methodology are we using?
+- Univariate Analysis
+- Bivariate Analysis
+- Hypothesis Tests
+- Creation of a Model
 
 ## Univariate Analysis
-- Gliederung
+- Exploring Variables across Top 5 Cause of Deaths & Total Deaths one at a time
+- Variables: Year, Year&Month, Age Groups, Sex, Single Race 6, Education, Urbanization level, States
 
-## Topics & PLots...
-
-##
+## Example slide / Chosen Plots...
 ```{r Plot1, echo=FALSE}
 plot1
 ```
-
 
