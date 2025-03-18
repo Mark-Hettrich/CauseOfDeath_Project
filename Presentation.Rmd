@@ -50,7 +50,7 @@ plot1 <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 - Univariate Analysis --> Data Overview
 - Bivariate Analysis --> Methods & Interactions ()
 - Hypothesis tests --> Questions & Answers / Methodology  --> One Way Anova, Tukey HSD tests (one example)
-- Model Ideas and early implementation  --> Methodology & (maybe some early results)
+- Model Ideas and early implementation  --> Methodology
 
 
 ## Research Question
@@ -105,7 +105,7 @@ plot1
 $$
 P(Y_i = r) = \frac{exp(\textbf{x}_i\textbf{ß}_r)}{1 + \sum_{s=1}^{c}exp(\textbf{x}_i\textbf{ß}_s)}, r= 1,...,c
 $$
-- The covariates we want to control for are (amonst others) age, region, gender, seasonality
+- The covariates we want to control for are (amongst others) age, region, gender, seasonality
 - Caveat: Our data source restricts the download of too large datasets,
 - Caveat: We have access to aggregated data only
 
