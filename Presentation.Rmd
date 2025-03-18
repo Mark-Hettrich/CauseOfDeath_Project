@@ -106,7 +106,7 @@ $$
 P(Y_i = r) = \frac{exp(\textbf{x}_i\textbf{ß}_r)}{1 + \sum_{s=1}^{c}exp(\textbf{x}_i\textbf{ß}_s)}, r= 1,...,c
 $$
 - The covariates we want to control for are (amongst others) age, region, gender, seasonality
-- Caveat: Our data source restricts the download of too large datasets,
+- Caveat: Our data source restricts the download of too large datasets
 - Caveat: We have access to aggregated data only
 
 ## 
