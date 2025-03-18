@@ -98,6 +98,16 @@ plot1
 ## Hypthosis Test example
 
 ## Model Overview
+- Our task was to build a model that returns a probability for every relevant cause of death
+- The regression framework can be used here
+- (Leading) Causes of Death is a nominal scaled variable.
+- So we chose a multinomial logit regression model:
+$$
+P(Y_i = r) = \frac{exp(\textbf{x}_i\textbf{ß}_r)}{1 + \sum_{s=1}^{c}exp(\textbf{x}_i\textbf{ß}_s)}, r= 1,...,c
+$$
+- The covariates we want to control for are (amonst others) age, region, gender, seasonality
+- Caveat: Our data source restricts the download of too large datasets,
+- Caveat: We have access to aggregated data only
 
 ## 
 
