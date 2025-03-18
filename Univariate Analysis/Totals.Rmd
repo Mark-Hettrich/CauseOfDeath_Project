@@ -232,7 +232,7 @@ education_df
 
 #Education Attainment for 25 or older: https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_educational_attainment
 #Nich Bachelor oder mehr /Percentage - Bachelor or Higher/Percentage
-sum(education_df$Deaths[1:3])/0.484 - sum(education_df$Deaths[4:8])/0.516
+sum(education_df$Deaths[1:4])/0.484 - sum(education_df$Deaths[5:8])/0.516
 
 
 

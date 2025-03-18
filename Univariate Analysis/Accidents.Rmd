@@ -1,20 +1,3 @@
----
-title: "Cause of Death anaylsis"
-author:
-- 'Projektpartner: xyz'
-- 'Betreuer: xyz'
-date: "2025-03-19"
-output:
-  html_document:
-    df_print: paged
-  ioslides_presentation: default
-  slidy_presentation: default
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Variables controlled for Accidents (unintentional injuries) (V01-X59,Y85-Y86) Death
 
 - Year
