@@ -17,6 +17,23 @@ library(readr)
 library(dplyr)
 options(scipen=999) #normale Zahlen statt 2e+05 oder so
 ```
+Top 5 Deaths
+```{r}
+file_path <- here("Datasets", "TOP 15 Causes of Death", "top15_causes_of_death.csv")
+top15 <- read_csv(file_path)
+top5 <- top15[1:5, ]
+top5
+
+top5 %>%
+  ggplot(aes(x = `15 Leading Causes of Death` , y = Deaths )) +
+  geom_bar(stat = "identity") +
+  labs(title = "Top 5 Causes of Death",
+       x = "Causes",
+       y = "Death Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme_minimal()
+```
+
 
 Year
 ```{r}
