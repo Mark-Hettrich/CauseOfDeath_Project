@@ -147,16 +147,16 @@ cox.zph(cox_model2) # problematic
 
 # Possible Solutions: still have to look into it more / havent tested
 cox_model3 <- coxph(Surv(age, status) ~ Sex + strata(ICD_Chapter), data = expanded_deaths) # Stratify by Violation prone Variables
-cox.zph(cox_model3)
+cox.zph(cox_model3) #immernoch problematisch
 
 
-cox_model4 <- coxph(Surv(age, status) ~ Sex + ICD_Chapter + tt(Sex), 
+cox_model4 <- coxph(Surv(age, status) ~ Sex + ICD_Chapter + tt(Sex),  #untested
       data = expanded_deaths,
       tt = function(x, t, ...) x * log(t)) #Time Varying Covariates
 cox.zph(cox_model4)
 
 
 df$age_group <- cut(df$age, breaks = c(0, 15, 30, 45, 60, 75, 90, 110)) #Split Age into Groups
-cox_model5 <- coxph(Surv(age, status) ~ Sex * ICD_Chapter + strata(age_group), data = df)
+cox_model5 <- coxph(Surv(age, status) ~ Sex * ICD_Chapter + strata(age_group), data = df) #untested
 cox.zph(cox_model5)
 # Use other models: idk which
