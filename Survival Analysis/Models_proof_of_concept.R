@@ -111,8 +111,12 @@ ggplot(df, aes(y = Deaths, x = age, fill = Sex)) +
   ) ## :( 
   
   # --> Cox Model doenst include death counts, only counts
-  # --> Split up Deathcount into rows, each row = 1 Death
-expanded_deaths <- df %>%
+  # --> Split up Deathcount into rows, each row = 100 Deaths for easier computation
+  reduced_deaths <- df %>%
+    mutate(Deaths = Deaths / 100) %>%
+    mutate(Deaths = round(Deaths))
+  
+expanded_deaths <- reduced_deaths %>%
   filter(Deaths > 0) %>%
   rowwise() %>%
   do(data.frame(
@@ -121,6 +125,7 @@ expanded_deaths <- df %>%
     ICD_Chapter = rep(.$ICD_Chapter, .$Deaths),
     status = 1
   ))
+expanded_deaths$Sex_num <- ifelse(expanded_deaths$Sex == "Male", 1, 0)
 
 cox_model <- coxph(Surv(age, status) ~ Sex + ICD_Chapter, data = expanded_deaths)
 summary(cox_model) #decent, not great
@@ -147,16 +152,52 @@ cox.zph(cox_model2) # problematic
 
 # Possible Solutions: still have to look into it more / havent tested
 cox_model3 <- coxph(Surv(age, status) ~ Sex + strata(ICD_Chapter), data = expanded_deaths) # Stratify by Violation prone Variables
-cox.zph(cox_model3) #immernoch problematisch
+cox.zph(cox_model3) #still problematic
 
 
-cox_model4 <- coxph(Surv(age, status) ~ Sex + ICD_Chapter + tt(Sex),  #untested
+cox_model4 <- coxph(Surv(age, status) ~ Sex + ICD_Chapter + tt(Sex),  #doesnt work becasue of log(0) for age = 0
       data = expanded_deaths,
-      tt = function(x, t, ...) x * log(t)) #Time Varying Covariates
-cox.zph(cox_model4)
+      tt = function(x, t, ...) x * log(t)) #Time Varying Effect / Time variying covariates
+
+expanded_deaths_wo_0 <- expanded_deaths %>% filter(age > 0) 
+cox_model4 <- coxph(Surv(age, status) ~ Sex + ICD_Chapter + tt(Sex_num),
+                    data = expanded_deaths_wo_0,
+                    tt = function(x, t, ...) x * log(t))
 
 
-df$age_group <- cut(df$age, breaks = c(0, 15, 30, 45, 60, 75, 90, 110)) #Split Age into Groups
-cox_model5 <- coxph(Surv(age, status) ~ Sex * ICD_Chapter + strata(age_group), data = df) #untested
-cox.zph(cox_model5)
+expanded_deaths$age_group <- cut(expanded_deaths$age, breaks = c(0, 15, 30, 45, 60, 75, 90, 110)) #Split Age into Groups
+cox_model5 <- coxph(Surv(age, status) ~ Sex * ICD_Chapter + strata(age_group), data = expanded_deaths) 
+cox.zph(cox_model5)#still problematic
+
+
+
+## Accelerated Failure Time
+
+aft_data <- expanded_deaths %>%
+  filter(!is.na(age) & age > 0)
+# Weibull
+aft_weibull <- survreg(Surv(age, status) ~ Sex * ICD_Chapter, data = aft_data, dist = "weibull")
+
+# Log-normal
+aft_lognormal <- survreg(Surv(age, status) ~ Sex * ICD_Chapter, data = aft_data, dist = "lognormal")
+
+# Log-logistic
+aft_loglogistic <- survreg(Surv(age, status) ~ Sex * ICD_Chapter, data = aft_data, dist = "loglogistic")
+
+# Exponential
+aft_exponential <- survreg(Surv(age, status) ~ Sex * ICD_Chapter, data = aft_data, dist = "exponential")
+
+#compare with AIC
+AIC(aft_weibull, aft_lognormal, aft_loglogistic, aft_exponential)
+
+#compare log.likelihoods
+logLik(aft_weibull)
+logLik(aft_lognormal)
+logLik(aft_loglogistic)
+logLik(aft_exponential)
+
+# interpret coefficients
+summary(aft_weibull)
+exp(coef(aft_weibull))  # Time ratios
+
 # Use other models: idk which
