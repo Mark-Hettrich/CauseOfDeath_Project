@@ -1,0 +1,885 @@
+"Notes"	"ICD Chapter"	"ICD Chapter Code"	"Single-Year Ages"	"Single-Year Ages Code"	"Sex"	"Sex Code"	Deaths	Population	Crude Rate
+	"Neoplasms"	"C00-D48"	"< 1 year"	"0"	"Female"	"F"	256	10881890	2.4
+	"Neoplasms"	"C00-D48"	"< 1 year"	"0"	"Male"	"M"	252	11380640	2.2
+	"Neoplasms"	"C00-D48"	"1 year"	"1"	"Female"	"F"	199	11000322	1.8
+	"Neoplasms"	"C00-D48"	"1 year"	"1"	"Male"	"M"	232	11502036	2.0
+	"Neoplasms"	"C00-D48"	"2 years"	"2"	"Female"	"F"	248	11165751	2.2
+	"Neoplasms"	"C00-D48"	"2 years"	"2"	"Male"	"M"	258	11673428	2.2
+	"Neoplasms"	"C00-D48"	"3 years"	"3"	"Female"	"F"	227	11393552	2.0
+	"Neoplasms"	"C00-D48"	"3 years"	"3"	"Male"	"M"	281	11910587	2.4
+	"Neoplasms"	"C00-D48"	"4 years"	"4"	"Female"	"F"	251	11562174	2.2
+	"Neoplasms"	"C00-D48"	"4 years"	"4"	"Male"	"M"	275	12094721	2.3
+	"Neoplasms"	"C00-D48"	"5 years"	"5"	"Female"	"F"	256	11697386	2.2
+	"Neoplasms"	"C00-D48"	"5 years"	"5"	"Male"	"M"	269	12238877	2.2
+	"Neoplasms"	"C00-D48"	"6 years"	"6"	"Female"	"F"	221	11794606	1.9
+	"Neoplasms"	"C00-D48"	"6 years"	"6"	"Male"	"M"	266	12336573	2.2
+	"Neoplasms"	"C00-D48"	"7 years"	"7"	"Female"	"F"	229	11874672	1.9
+	"Neoplasms"	"C00-D48"	"7 years"	"7"	"Male"	"M"	256	12420646	2.1
+	"Neoplasms"	"C00-D48"	"8 years"	"8"	"Female"	"F"	228	11904261	1.9
+	"Neoplasms"	"C00-D48"	"8 years"	"8"	"Male"	"M"	249	12445736	2.0
+	"Neoplasms"	"C00-D48"	"9 years"	"9"	"Female"	"F"	211	11913494	1.8
+	"Neoplasms"	"C00-D48"	"9 years"	"9"	"Male"	"M"	228	12456497	1.8
+	"Neoplasms"	"C00-D48"	"10 years"	"10"	"Female"	"F"	223	11993008	1.9
+	"Neoplasms"	"C00-D48"	"10 years"	"10"	"Male"	"M"	257	12537662	2.0
+	"Neoplasms"	"C00-D48"	"11 years"	"11"	"Female"	"F"	240	12124081	2.0
+	"Neoplasms"	"C00-D48"	"11 years"	"11"	"Male"	"M"	266	12688960	2.1
+	"Neoplasms"	"C00-D48"	"12 years"	"12"	"Female"	"F"	261	12281497	2.1
+	"Neoplasms"	"C00-D48"	"12 years"	"12"	"Male"	"M"	302	12862502	2.3
+	"Neoplasms"	"C00-D48"	"13 years"	"13"	"Female"	"F"	284	12435756	2.3
+	"Neoplasms"	"C00-D48"	"13 years"	"13"	"Male"	"M"	336	13018752	2.6
+	"Neoplasms"	"C00-D48"	"14 years"	"14"	"Female"	"F"	274	12540000	2.2
+	"Neoplasms"	"C00-D48"	"14 years"	"14"	"Male"	"M"	354	13122187	2.7
+	"Neoplasms"	"C00-D48"	"15 years"	"15"	"Female"	"F"	315	12572638	2.5
+	"Neoplasms"	"C00-D48"	"15 years"	"15"	"Male"	"M"	430	13144843	3.3
+	"Neoplasms"	"C00-D48"	"16 years"	"16"	"Female"	"F"	300	12505287	2.4
+	"Neoplasms"	"C00-D48"	"16 years"	"16"	"Male"	"M"	409	13065961	3.1
+	"Neoplasms"	"C00-D48"	"17 years"	"17"	"Female"	"F"	288	12505549	2.3
+	"Neoplasms"	"C00-D48"	"17 years"	"17"	"Male"	"M"	473	13063194	3.6
+	"Neoplasms"	"C00-D48"	"18 years"	"18"	"Female"	"F"	339	12570162	2.7
+	"Neoplasms"	"C00-D48"	"18 years"	"18"	"Male"	"M"	495	13142151	3.8
+	"Neoplasms"	"C00-D48"	"19 years"	"19"	"Female"	"F"	297	12618256	2.4
+	"Neoplasms"	"C00-D48"	"19 years"	"19"	"Male"	"M"	510	13200617	3.9
+	"Neoplasms"	"C00-D48"	"20 years"	"20"	"Female"	"F"	339	12728180	2.7
+	"Neoplasms"	"C00-D48"	"20 years"	"20"	"Male"	"M"	483	13288474	3.6
+	"Neoplasms"	"C00-D48"	"21 years"	"21"	"Female"	"F"	345	12846890	2.7
+	"Neoplasms"	"C00-D48"	"21 years"	"21"	"Male"	"M"	571	13400775	4.3
+	"Neoplasms"	"C00-D48"	"22 years"	"22"	"Female"	"F"	375	12850599	2.9
+	"Neoplasms"	"C00-D48"	"22 years"	"22"	"Male"	"M"	611	13420686	4.6
+	"Neoplasms"	"C00-D48"	"23 years"	"23"	"Female"	"F"	412	12836552	3.2
+	"Neoplasms"	"C00-D48"	"23 years"	"23"	"Male"	"M"	621	13419214	4.6
+	"Neoplasms"	"C00-D48"	"24 years"	"24"	"Female"	"F"	444	12878819	3.4
+	"Neoplasms"	"C00-D48"	"24 years"	"24"	"Male"	"M"	652	13472033	4.8
+	"Neoplasms"	"C00-D48"	"25 years"	"25"	"Female"	"F"	509	12994621	3.9
+	"Neoplasms"	"C00-D48"	"25 years"	"25"	"Male"	"M"	752	13597273	5.5
+	"Neoplasms"	"C00-D48"	"26 years"	"26"	"Female"	"F"	627	13192612	4.8
+	"Neoplasms"	"C00-D48"	"26 years"	"26"	"Male"	"M"	729	13781823	5.3
+	"Neoplasms"	"C00-D48"	"27 years"	"27"	"Female"	"F"	699	13443340	5.2
+	"Neoplasms"	"C00-D48"	"27 years"	"27"	"Male"	"M"	823	14002483	5.9
+	"Neoplasms"	"C00-D48"	"28 years"	"28"	"Female"	"F"	859	13684361	6.3
+	"Neoplasms"	"C00-D48"	"28 years"	"28"	"Male"	"M"	888	14189343	6.3
+	"Neoplasms"	"C00-D48"	"29 years"	"29"	"Female"	"F"	967	13784850	7.0
+	"Neoplasms"	"C00-D48"	"29 years"	"29"	"Male"	"M"	1085	14235310	7.6
+	"Neoplasms"	"C00-D48"	"30 years"	"30"	"Female"	"F"	1153	13772904	8.4
+	"Neoplasms"	"C00-D48"	"30 years"	"30"	"Male"	"M"	1137	14174449	8.0
+	"Neoplasms"	"C00-D48"	"31 years"	"31"	"Female"	"F"	1247	13692655	9.1
+	"Neoplasms"	"C00-D48"	"31 years"	"31"	"Male"	"M"	1200	14051811	8.5
+	"Neoplasms"	"C00-D48"	"32 years"	"32"	"Female"	"F"	1530	13586822	11.3
+	"Neoplasms"	"C00-D48"	"32 years"	"32"	"Male"	"M"	1332	13922530	9.6
+	"Neoplasms"	"C00-D48"	"33 years"	"33"	"Female"	"F"	1802	13475511	13.4
+	"Neoplasms"	"C00-D48"	"33 years"	"33"	"Male"	"M"	1481	13782823	10.7
+	"Neoplasms"	"C00-D48"	"34 years"	"34"	"Female"	"F"	1960	13302607	14.7
+	"Neoplasms"	"C00-D48"	"34 years"	"34"	"Male"	"M"	1523	13578534	11.2
+	"Neoplasms"	"C00-D48"	"35 years"	"35"	"Female"	"F"	2201	13224856	16.6
+	"Neoplasms"	"C00-D48"	"35 years"	"35"	"Male"	"M"	1748	13466180	13.0
+	"Neoplasms"	"C00-D48"	"36 years"	"36"	"Female"	"F"	2556	13166791	19.4
+	"Neoplasms"	"C00-D48"	"36 years"	"36"	"Male"	"M"	1856	13374356	13.9
+	"Neoplasms"	"C00-D48"	"37 years"	"37"	"Female"	"F"	2901	13135772	22.1
+	"Neoplasms"	"C00-D48"	"37 years"	"37"	"Male"	"M"	2157	13304127	16.2
+	"Neoplasms"	"C00-D48"	"38 years"	"38"	"Female"	"F"	3108	13133562	23.7
+	"Neoplasms"	"C00-D48"	"38 years"	"38"	"Male"	"M"	2335	13280504	17.6
+	"Neoplasms"	"C00-D48"	"39 years"	"39"	"Female"	"F"	3646	12999410	28.0
+	"Neoplasms"	"C00-D48"	"39 years"	"39"	"Male"	"M"	2633	13117765	20.1
+	"Neoplasms"	"C00-D48"	"40 years"	"40"	"Female"	"F"	3884	12860939	30.2
+	"Neoplasms"	"C00-D48"	"40 years"	"40"	"Male"	"M"	2997	12957832	23.1
+	"Neoplasms"	"C00-D48"	"41 years"	"41"	"Female"	"F"	4295	12634168	34.0
+	"Neoplasms"	"C00-D48"	"41 years"	"41"	"Male"	"M"	3302	12681022	26.0
+	"Neoplasms"	"C00-D48"	"42 years"	"42"	"Female"	"F"	4742	12393911	38.3
+	"Neoplasms"	"C00-D48"	"42 years"	"42"	"Male"	"M"	3574	12403672	28.8
+	"Neoplasms"	"C00-D48"	"43 years"	"43"	"Female"	"F"	5163	12231053	42.2
+	"Neoplasms"	"C00-D48"	"43 years"	"43"	"Male"	"M"	3957	12215326	32.4
+	"Neoplasms"	"C00-D48"	"44 years"	"44"	"Female"	"F"	5618	12017088	46.8
+	"Neoplasms"	"C00-D48"	"44 years"	"44"	"Male"	"M"	4472	11964802	37.4
+	"Neoplasms"	"C00-D48"	"45 years"	"45"	"Female"	"F"	6256	11909978	52.5
+	"Neoplasms"	"C00-D48"	"45 years"	"45"	"Male"	"M"	5118	11818911	43.3
+	"Neoplasms"	"C00-D48"	"46 years"	"46"	"Female"	"F"	6969	11901078	58.6
+	"Neoplasms"	"C00-D48"	"46 years"	"46"	"Male"	"M"	5629	11770153	47.8
+	"Neoplasms"	"C00-D48"	"47 years"	"47"	"Female"	"F"	7913	12047631	65.7
+	"Neoplasms"	"C00-D48"	"47 years"	"47"	"Male"	"M"	6597	11895789	55.5
+	"Neoplasms"	"C00-D48"	"48 years"	"48"	"Female"	"F"	8816	12274765	71.8
+	"Neoplasms"	"C00-D48"	"48 years"	"48"	"Male"	"M"	7725	12122899	63.7
+	"Neoplasms"	"C00-D48"	"49 years"	"49"	"Female"	"F"	9870	12375303	79.8
+	"Neoplasms"	"C00-D48"	"49 years"	"49"	"Male"	"M"	8806	12221603	72.1
+	"Neoplasms"	"C00-D48"	"50 years"	"50"	"Female"	"F"	11221	12469211	90.0
+	"Neoplasms"	"C00-D48"	"50 years"	"50"	"Male"	"M"	10051	12329587	81.5
+	"Neoplasms"	"C00-D48"	"51 years"	"51"	"Female"	"F"	12442	12490387	99.6
+	"Neoplasms"	"C00-D48"	"51 years"	"51"	"Male"	"M"	11533	12337703	93.5
+	"Neoplasms"	"C00-D48"	"52 years"	"52"	"Female"	"F"	13747	12492675	110.0
+	"Neoplasms"	"C00-D48"	"52 years"	"52"	"Male"	"M"	13108	12318334	106.4
+	"Neoplasms"	"C00-D48"	"53 years"	"53"	"Female"	"F"	15356	12504771	122.8
+	"Neoplasms"	"C00-D48"	"53 years"	"53"	"Male"	"M"	14806	12283967	120.5
+	"Neoplasms"	"C00-D48"	"54 years"	"54"	"Female"	"F"	17091	12604239	135.6
+	"Neoplasms"	"C00-D48"	"54 years"	"54"	"Male"	"M"	17324	12317612	140.6
+	"Neoplasms"	"C00-D48"	"55 years"	"55"	"Female"	"F"	19267	12775626	150.8
+	"Neoplasms"	"C00-D48"	"55 years"	"55"	"Male"	"M"	20358	12414135	164.0
+	"Neoplasms"	"C00-D48"	"56 years"	"56"	"Female"	"F"	21591	12950667	166.7
+	"Neoplasms"	"C00-D48"	"56 years"	"56"	"Male"	"M"	23065	12498822	184.5
+	"Neoplasms"	"C00-D48"	"57 years"	"57"	"Female"	"F"	24370	13147054	185.4
+	"Neoplasms"	"C00-D48"	"57 years"	"57"	"Male"	"M"	26364	12623177	208.9
+	"Neoplasms"	"C00-D48"	"58 years"	"58"	"Female"	"F"	26394	13329200	198.0
+	"Neoplasms"	"C00-D48"	"58 years"	"58"	"Male"	"M"	29948	12740067	235.1
+	"Neoplasms"	"C00-D48"	"59 years"	"59"	"Female"	"F"	29534	13365396	221.0
+	"Neoplasms"	"C00-D48"	"59 years"	"59"	"Male"	"M"	33605	12717916	264.2
+	"Neoplasms"	"C00-D48"	"60 years"	"60"	"Female"	"F"	32021	13306282	240.6
+	"Neoplasms"	"C00-D48"	"60 years"	"60"	"Male"	"M"	37185	12602246	295.1
+	"Neoplasms"	"C00-D48"	"61 years"	"61"	"Female"	"F"	34658	13170579	263.1
+	"Neoplasms"	"C00-D48"	"61 years"	"61"	"Male"	"M"	41443	12395769	334.3
+	"Neoplasms"	"C00-D48"	"62 years"	"62"	"Female"	"F"	37006	12986650	285.0
+	"Neoplasms"	"C00-D48"	"62 years"	"62"	"Male"	"M"	44267	12138684	364.7
+	"Neoplasms"	"C00-D48"	"63 years"	"63"	"Female"	"F"	39174	12782636	306.5
+	"Neoplasms"	"C00-D48"	"63 years"	"63"	"Male"	"M"	47978	11865381	404.4
+	"Neoplasms"	"C00-D48"	"64 years"	"64"	"Female"	"F"	41013	12527090	327.4
+	"Neoplasms"	"C00-D48"	"64 years"	"64"	"Male"	"M"	50377	11530385	436.9
+	"Neoplasms"	"C00-D48"	"65 years"	"65"	"Female"	"F"	42538	12218213	348.2
+	"Neoplasms"	"C00-D48"	"65 years"	"65"	"Male"	"M"	52326	11149199	469.3
+	"Neoplasms"	"C00-D48"	"66 years"	"66"	"Female"	"F"	43682	11823154	369.5
+	"Neoplasms"	"C00-D48"	"66 years"	"66"	"Male"	"M"	54658	10692476	511.2
+	"Neoplasms"	"C00-D48"	"67 years"	"67"	"Female"	"F"	45141	11423999	395.1
+	"Neoplasms"	"C00-D48"	"67 years"	"67"	"Male"	"M"	56000	10241055	546.8
+	"Neoplasms"	"C00-D48"	"68 years"	"68"	"Female"	"F"	45959	11061359	415.5
+	"Neoplasms"	"C00-D48"	"68 years"	"68"	"Male"	"M"	57727	9843337	586.5
+	"Neoplasms"	"C00-D48"	"69 years"	"69"	"Female"	"F"	47806	10692995	447.1
+	"Neoplasms"	"C00-D48"	"69 years"	"69"	"Male"	"M"	59189	9446244	626.6
+	"Neoplasms"	"C00-D48"	"70 years"	"70"	"Female"	"F"	49181	10338731	475.7
+	"Neoplasms"	"C00-D48"	"70 years"	"70"	"Male"	"M"	60682	9074042	668.7
+	"Neoplasms"	"C00-D48"	"71 years"	"71"	"Female"	"F"	51315	10095552	508.3
+	"Neoplasms"	"C00-D48"	"71 years"	"71"	"Male"	"M"	63210	8804525	717.9
+	"Neoplasms"	"C00-D48"	"72 years"	"72"	"Female"	"F"	51440	9475690	542.9
+	"Neoplasms"	"C00-D48"	"72 years"	"72"	"Male"	"M"	62878	8195866	767.2
+	"Neoplasms"	"C00-D48"	"73 years"	"73"	"Female"	"F"	51739	8904206	581.1
+	"Neoplasms"	"C00-D48"	"73 years"	"73"	"Male"	"M"	63232	7642269	827.4
+	"Neoplasms"	"C00-D48"	"74 years"	"74"	"Female"	"F"	52334	8387051	624.0
+	"Neoplasms"	"C00-D48"	"74 years"	"74"	"Male"	"M"	62967	7155029	880.0
+	"Neoplasms"	"C00-D48"	"75 years"	"75"	"Female"	"F"	52775	7909133	667.3
+	"Neoplasms"	"C00-D48"	"75 years"	"75"	"Male"	"M"	63169	6673655	946.5
+	"Neoplasms"	"C00-D48"	"76 years"	"76"	"Female"	"F"	51635	7287896	708.5
+	"Neoplasms"	"C00-D48"	"76 years"	"76"	"Male"	"M"	60932	6064474	1004.7
+	"Neoplasms"	"C00-D48"	"77 years"	"77"	"Female"	"F"	49809	6522835	763.6
+	"Neoplasms"	"C00-D48"	"77 years"	"77"	"Male"	"M"	58657	5314236	1103.8
+	"Neoplasms"	"C00-D48"	"78 years"	"78"	"Female"	"F"	49818	6132963	812.3
+	"Neoplasms"	"C00-D48"	"78 years"	"78"	"Male"	"M"	57876	4917504	1176.9
+	"Neoplasms"	"C00-D48"	"79 years"	"79"	"Female"	"F"	49095	5721947	858.0
+	"Neoplasms"	"C00-D48"	"79 years"	"79"	"Male"	"M"	56968	4515107	1261.7
+	"Neoplasms"	"C00-D48"	"80 years"	"80"	"Female"	"F"	48434	5299302	914.0
+	"Neoplasms"	"C00-D48"	"80 years"	"80"	"Male"	"M"	55475	4106344	1351.0
+	"Neoplasms"	"C00-D48"	"81 years"	"81"	"Female"	"F"	45753	4796928	953.8
+	"Neoplasms"	"C00-D48"	"81 years"	"81"	"Male"	"M"	52219	3633522	1437.1
+	"Neoplasms"	"C00-D48"	"82 years"	"82"	"Female"	"F"	44946	4411198	1018.9
+	"Neoplasms"	"C00-D48"	"82 years"	"82"	"Male"	"M"	50099	3259236	1537.1
+	"Neoplasms"	"C00-D48"	"83 years"	"83"	"Female"	"F"	43461	4077554	1065.9
+	"Neoplasms"	"C00-D48"	"83 years"	"83"	"Male"	"M"	48071	2931758	1639.7
+	"Neoplasms"	"C00-D48"	"84 years"	"84"	"Female"	"F"	41790	3728358	1120.9
+	"Neoplasms"	"C00-D48"	"84 years"	"84"	"Male"	"M"	45790	2606560	1756.7
+	"Neoplasms"	"C00-D48"	"85 years"	"85"	"Female"	"F"	40254	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"85 years"	"85"	"Male"	"M"	43197	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"86 years"	"86"	"Female"	"F"	37748	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"86 years"	"86"	"Male"	"M"	40078	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"87 years"	"87"	"Female"	"F"	36103	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"87 years"	"87"	"Male"	"M"	37387	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"88 years"	"88"	"Female"	"F"	33530	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"88 years"	"88"	"Male"	"M"	34345	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"89 years"	"89"	"Female"	"F"	31200	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"89 years"	"89"	"Male"	"M"	30817	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"90 years"	"90"	"Female"	"F"	28481	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"90 years"	"90"	"Male"	"M"	26965	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"91 years"	"91"	"Female"	"F"	24988	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"91 years"	"91"	"Male"	"M"	23283	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"92 years"	"92"	"Female"	"F"	22116	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"92 years"	"92"	"Male"	"M"	19573	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"93 years"	"93"	"Female"	"F"	19024	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"93 years"	"93"	"Male"	"M"	16076	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"94 years"	"94"	"Female"	"F"	15616	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"94 years"	"94"	"Male"	"M"	12411	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"95 years"	"95"	"Female"	"F"	12667	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"95 years"	"95"	"Male"	"M"	9627	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"96 years"	"96"	"Female"	"F"	9674	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"96 years"	"96"	"Male"	"M"	6878	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"97 years"	"97"	"Female"	"F"	7330	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"97 years"	"97"	"Male"	"M"	4918	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"98 years"	"98"	"Female"	"F"	5262	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"98 years"	"98"	"Male"	"M"	3367	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"99 years"	"99"	"Female"	"F"	3527	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"99 years"	"99"	"Male"	"M"	2023	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"100+ years"	"100"	"Female"	"F"	6080	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"100+ years"	"100"	"Male"	"M"	2828	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"Not Stated"	"NS"	"Female"	"F"	13	Not Applicable	Not Applicable
+	"Neoplasms"	"C00-D48"	"Not Stated"	"NS"	"Male"	"M"	26	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"< 1 year"	"0"	"Female"	"F"	1087	10881890	10.0
+	"Diseases of the circulatory system"	"I00-I99"	"< 1 year"	"0"	"Male"	"M"	1247	11380640	11.0
+	"Diseases of the circulatory system"	"I00-I99"	"1 year"	"1"	"Female"	"F"	235	11000322	2.1
+	"Diseases of the circulatory system"	"I00-I99"	"1 year"	"1"	"Male"	"M"	266	11502036	2.3
+	"Diseases of the circulatory system"	"I00-I99"	"2 years"	"2"	"Female"	"F"	105	11165751	0.9
+	"Diseases of the circulatory system"	"I00-I99"	"2 years"	"2"	"Male"	"M"	145	11673428	1.2
+	"Diseases of the circulatory system"	"I00-I99"	"3 years"	"3"	"Female"	"F"	84	11393552	0.7
+	"Diseases of the circulatory system"	"I00-I99"	"3 years"	"3"	"Male"	"M"	82	11910587	0.7
+	"Diseases of the circulatory system"	"I00-I99"	"4 years"	"4"	"Female"	"F"	65	11562174	0.6
+	"Diseases of the circulatory system"	"I00-I99"	"4 years"	"4"	"Male"	"M"	78	12094721	0.6
+	"Diseases of the circulatory system"	"I00-I99"	"5 years"	"5"	"Female"	"F"	77	11697386	0.7
+	"Diseases of the circulatory system"	"I00-I99"	"5 years"	"5"	"Male"	"M"	68	12238877	0.6
+	"Diseases of the circulatory system"	"I00-I99"	"6 years"	"6"	"Female"	"F"	67	11794606	0.6
+	"Diseases of the circulatory system"	"I00-I99"	"6 years"	"6"	"Male"	"M"	68	12336573	0.6
+	"Diseases of the circulatory system"	"I00-I99"	"7 years"	"7"	"Female"	"F"	66	11874672	0.6
+	"Diseases of the circulatory system"	"I00-I99"	"7 years"	"7"	"Male"	"M"	74	12420646	0.6
+	"Diseases of the circulatory system"	"I00-I99"	"8 years"	"8"	"Female"	"F"	60	11904261	0.5
+	"Diseases of the circulatory system"	"I00-I99"	"8 years"	"8"	"Male"	"M"	74	12445736	0.6
+	"Diseases of the circulatory system"	"I00-I99"	"9 years"	"9"	"Female"	"F"	58	11913494	0.5
+	"Diseases of the circulatory system"	"I00-I99"	"9 years"	"9"	"Male"	"M"	64	12456497	0.5
+	"Diseases of the circulatory system"	"I00-I99"	"10 years"	"10"	"Female"	"F"	65	11993008	0.5
+	"Diseases of the circulatory system"	"I00-I99"	"10 years"	"10"	"Male"	"M"	81	12537662	0.6
+	"Diseases of the circulatory system"	"I00-I99"	"11 years"	"11"	"Female"	"F"	96	12124081	0.8
+	"Diseases of the circulatory system"	"I00-I99"	"11 years"	"11"	"Male"	"M"	100	12688960	0.8
+	"Diseases of the circulatory system"	"I00-I99"	"12 years"	"12"	"Female"	"F"	95	12281497	0.8
+	"Diseases of the circulatory system"	"I00-I99"	"12 years"	"12"	"Male"	"M"	113	12862502	0.9
+	"Diseases of the circulatory system"	"I00-I99"	"13 years"	"13"	"Female"	"F"	91	12435756	0.7
+	"Diseases of the circulatory system"	"I00-I99"	"13 years"	"13"	"Male"	"M"	133	13018752	1.0
+	"Diseases of the circulatory system"	"I00-I99"	"14 years"	"14"	"Female"	"F"	131	12540000	1.0
+	"Diseases of the circulatory system"	"I00-I99"	"14 years"	"14"	"Male"	"M"	162	13122187	1.2
+	"Diseases of the circulatory system"	"I00-I99"	"15 years"	"15"	"Female"	"F"	139	12572638	1.1
+	"Diseases of the circulatory system"	"I00-I99"	"15 years"	"15"	"Male"	"M"	207	13144843	1.6
+	"Diseases of the circulatory system"	"I00-I99"	"16 years"	"16"	"Female"	"F"	146	12505287	1.2
+	"Diseases of the circulatory system"	"I00-I99"	"16 years"	"16"	"Male"	"M"	225	13065961	1.7
+	"Diseases of the circulatory system"	"I00-I99"	"17 years"	"17"	"Female"	"F"	171	12505549	1.4
+	"Diseases of the circulatory system"	"I00-I99"	"17 years"	"17"	"Male"	"M"	268	13063194	2.1
+	"Diseases of the circulatory system"	"I00-I99"	"18 years"	"18"	"Female"	"F"	226	12570162	1.8
+	"Diseases of the circulatory system"	"I00-I99"	"18 years"	"18"	"Male"	"M"	348	13142151	2.6
+	"Diseases of the circulatory system"	"I00-I99"	"19 years"	"19"	"Female"	"F"	261	12618256	2.1
+	"Diseases of the circulatory system"	"I00-I99"	"19 years"	"19"	"Male"	"M"	385	13200617	2.9
+	"Diseases of the circulatory system"	"I00-I99"	"20 years"	"20"	"Female"	"F"	270	12728180	2.1
+	"Diseases of the circulatory system"	"I00-I99"	"20 years"	"20"	"Male"	"M"	414	13288474	3.1
+	"Diseases of the circulatory system"	"I00-I99"	"21 years"	"21"	"Female"	"F"	304	12846890	2.4
+	"Diseases of the circulatory system"	"I00-I99"	"21 years"	"21"	"Male"	"M"	515	13400775	3.8
+	"Diseases of the circulatory system"	"I00-I99"	"22 years"	"22"	"Female"	"F"	301	12850599	2.3
+	"Diseases of the circulatory system"	"I00-I99"	"22 years"	"22"	"Male"	"M"	606	13420686	4.5
+	"Diseases of the circulatory system"	"I00-I99"	"23 years"	"23"	"Female"	"F"	433	12836552	3.4
+	"Diseases of the circulatory system"	"I00-I99"	"23 years"	"23"	"Male"	"M"	679	13419214	5.1
+	"Diseases of the circulatory system"	"I00-I99"	"24 years"	"24"	"Female"	"F"	396	12878819	3.1
+	"Diseases of the circulatory system"	"I00-I99"	"24 years"	"24"	"Male"	"M"	747	13472033	5.5
+	"Diseases of the circulatory system"	"I00-I99"	"25 years"	"25"	"Female"	"F"	511	12994621	3.9
+	"Diseases of the circulatory system"	"I00-I99"	"25 years"	"25"	"Male"	"M"	925	13597273	6.8
+	"Diseases of the circulatory system"	"I00-I99"	"26 years"	"26"	"Female"	"F"	590	13192612	4.5
+	"Diseases of the circulatory system"	"I00-I99"	"26 years"	"26"	"Male"	"M"	1088	13781823	7.9
+	"Diseases of the circulatory system"	"I00-I99"	"27 years"	"27"	"Female"	"F"	686	13443340	5.1
+	"Diseases of the circulatory system"	"I00-I99"	"27 years"	"27"	"Male"	"M"	1252	14002483	8.9
+	"Diseases of the circulatory system"	"I00-I99"	"28 years"	"28"	"Female"	"F"	799	13684361	5.8
+	"Diseases of the circulatory system"	"I00-I99"	"28 years"	"28"	"Male"	"M"	1505	14189343	10.6
+	"Diseases of the circulatory system"	"I00-I99"	"29 years"	"29"	"Female"	"F"	926	13784850	6.7
+	"Diseases of the circulatory system"	"I00-I99"	"29 years"	"29"	"Male"	"M"	1675	14235310	11.8
+	"Diseases of the circulatory system"	"I00-I99"	"30 years"	"30"	"Female"	"F"	1080	13772904	7.8
+	"Diseases of the circulatory system"	"I00-I99"	"30 years"	"30"	"Male"	"M"	1944	14174449	13.7
+	"Diseases of the circulatory system"	"I00-I99"	"31 years"	"31"	"Female"	"F"	1196	13692655	8.7
+	"Diseases of the circulatory system"	"I00-I99"	"31 years"	"31"	"Male"	"M"	2234	14051811	15.9
+	"Diseases of the circulatory system"	"I00-I99"	"32 years"	"32"	"Female"	"F"	1342	13586822	9.9
+	"Diseases of the circulatory system"	"I00-I99"	"32 years"	"32"	"Male"	"M"	2442	13922530	17.5
+	"Diseases of the circulatory system"	"I00-I99"	"33 years"	"33"	"Female"	"F"	1428	13475511	10.6
+	"Diseases of the circulatory system"	"I00-I99"	"33 years"	"33"	"Male"	"M"	2771	13782823	20.1
+	"Diseases of the circulatory system"	"I00-I99"	"34 years"	"34"	"Female"	"F"	1682	13302607	12.6
+	"Diseases of the circulatory system"	"I00-I99"	"34 years"	"34"	"Male"	"M"	3168	13578534	23.3
+	"Diseases of the circulatory system"	"I00-I99"	"35 years"	"35"	"Female"	"F"	1889	13224856	14.3
+	"Diseases of the circulatory system"	"I00-I99"	"35 years"	"35"	"Male"	"M"	3463	13466180	25.7
+	"Diseases of the circulatory system"	"I00-I99"	"36 years"	"36"	"Female"	"F"	1952	13166791	14.8
+	"Diseases of the circulatory system"	"I00-I99"	"36 years"	"36"	"Male"	"M"	3964	13374356	29.6
+	"Diseases of the circulatory system"	"I00-I99"	"37 years"	"37"	"Female"	"F"	2218	13135772	16.9
+	"Diseases of the circulatory system"	"I00-I99"	"37 years"	"37"	"Male"	"M"	4521	13304127	34.0
+	"Diseases of the circulatory system"	"I00-I99"	"38 years"	"38"	"Female"	"F"	2497	13133562	19.0
+	"Diseases of the circulatory system"	"I00-I99"	"38 years"	"38"	"Male"	"M"	5095	13280504	38.4
+	"Diseases of the circulatory system"	"I00-I99"	"39 years"	"39"	"Female"	"F"	2848	12999410	21.9
+	"Diseases of the circulatory system"	"I00-I99"	"39 years"	"39"	"Male"	"M"	5547	13117765	42.3
+	"Diseases of the circulatory system"	"I00-I99"	"40 years"	"40"	"Female"	"F"	3186	12860939	24.8
+	"Diseases of the circulatory system"	"I00-I99"	"40 years"	"40"	"Male"	"M"	6301	12957832	48.6
+	"Diseases of the circulatory system"	"I00-I99"	"41 years"	"41"	"Female"	"F"	3477	12634168	27.5
+	"Diseases of the circulatory system"	"I00-I99"	"41 years"	"41"	"Male"	"M"	6881	12681022	54.3
+	"Diseases of the circulatory system"	"I00-I99"	"42 years"	"42"	"Female"	"F"	3758	12393911	30.3
+	"Diseases of the circulatory system"	"I00-I99"	"42 years"	"42"	"Male"	"M"	7639	12403672	61.6
+	"Diseases of the circulatory system"	"I00-I99"	"43 years"	"43"	"Female"	"F"	4088	12231053	33.4
+	"Diseases of the circulatory system"	"I00-I99"	"43 years"	"43"	"Male"	"M"	8309	12215326	68.0
+	"Diseases of the circulatory system"	"I00-I99"	"44 years"	"44"	"Female"	"F"	4487	12017088	37.3
+	"Diseases of the circulatory system"	"I00-I99"	"44 years"	"44"	"Male"	"M"	8908	11964802	74.5
+	"Diseases of the circulatory system"	"I00-I99"	"45 years"	"45"	"Female"	"F"	4986	11909978	41.9
+	"Diseases of the circulatory system"	"I00-I99"	"45 years"	"45"	"Male"	"M"	9795	11818911	82.9
+	"Diseases of the circulatory system"	"I00-I99"	"46 years"	"46"	"Female"	"F"	5370	11901078	45.1
+	"Diseases of the circulatory system"	"I00-I99"	"46 years"	"46"	"Male"	"M"	11071	11770153	94.1
+	"Diseases of the circulatory system"	"I00-I99"	"47 years"	"47"	"Female"	"F"	6021	12047631	50.0
+	"Diseases of the circulatory system"	"I00-I99"	"47 years"	"47"	"Male"	"M"	12370	11895789	104.0
+	"Diseases of the circulatory system"	"I00-I99"	"48 years"	"48"	"Female"	"F"	6481	12274765	52.8
+	"Diseases of the circulatory system"	"I00-I99"	"48 years"	"48"	"Male"	"M"	13836	12122899	114.1
+	"Diseases of the circulatory system"	"I00-I99"	"49 years"	"49"	"Female"	"F"	7060	12375303	57.0
+	"Diseases of the circulatory system"	"I00-I99"	"49 years"	"49"	"Male"	"M"	15505	12221603	126.9
+	"Diseases of the circulatory system"	"I00-I99"	"50 years"	"50"	"Female"	"F"	8097	12469211	64.9
+	"Diseases of the circulatory system"	"I00-I99"	"50 years"	"50"	"Male"	"M"	17656	12329587	143.2
+	"Diseases of the circulatory system"	"I00-I99"	"51 years"	"51"	"Female"	"F"	9008	12490387	72.1
+	"Diseases of the circulatory system"	"I00-I99"	"51 years"	"51"	"Male"	"M"	19335	12337703	156.7
+	"Diseases of the circulatory system"	"I00-I99"	"52 years"	"52"	"Female"	"F"	9716	12492675	77.8
+	"Diseases of the circulatory system"	"I00-I99"	"52 years"	"52"	"Male"	"M"	21309	12318334	173.0
+	"Diseases of the circulatory system"	"I00-I99"	"53 years"	"53"	"Female"	"F"	10465	12504771	83.7
+	"Diseases of the circulatory system"	"I00-I99"	"53 years"	"53"	"Male"	"M"	23319	12283967	189.8
+	"Diseases of the circulatory system"	"I00-I99"	"54 years"	"54"	"Female"	"F"	11521	12604239	91.4
+	"Diseases of the circulatory system"	"I00-I99"	"54 years"	"54"	"Male"	"M"	26073	12317612	211.7
+	"Diseases of the circulatory system"	"I00-I99"	"55 years"	"55"	"Female"	"F"	13052	12775626	102.2
+	"Diseases of the circulatory system"	"I00-I99"	"55 years"	"55"	"Male"	"M"	28380	12414135	228.6
+	"Diseases of the circulatory system"	"I00-I99"	"56 years"	"56"	"Female"	"F"	14562	12950667	112.4
+	"Diseases of the circulatory system"	"I00-I99"	"56 years"	"56"	"Male"	"M"	31790	12498822	254.3
+	"Diseases of the circulatory system"	"I00-I99"	"57 years"	"57"	"Female"	"F"	16355	13147054	124.4
+	"Diseases of the circulatory system"	"I00-I99"	"57 years"	"57"	"Male"	"M"	35053	12623177	277.7
+	"Diseases of the circulatory system"	"I00-I99"	"58 years"	"58"	"Female"	"F"	17847	13329200	133.9
+	"Diseases of the circulatory system"	"I00-I99"	"58 years"	"58"	"Male"	"M"	38717	12740067	303.9
+	"Diseases of the circulatory system"	"I00-I99"	"59 years"	"59"	"Female"	"F"	19559	13365396	146.3
+	"Diseases of the circulatory system"	"I00-I99"	"59 years"	"59"	"Male"	"M"	41612	12717916	327.2
+	"Diseases of the circulatory system"	"I00-I99"	"60 years"	"60"	"Female"	"F"	21572	13306282	162.1
+	"Diseases of the circulatory system"	"I00-I99"	"60 years"	"60"	"Male"	"M"	45362	12602246	360.0
+	"Diseases of the circulatory system"	"I00-I99"	"61 years"	"61"	"Female"	"F"	23239	13170579	176.4
+	"Diseases of the circulatory system"	"I00-I99"	"61 years"	"61"	"Male"	"M"	48094	12395769	388.0
+	"Diseases of the circulatory system"	"I00-I99"	"62 years"	"62"	"Female"	"F"	25512	12986650	196.4
+	"Diseases of the circulatory system"	"I00-I99"	"62 years"	"62"	"Male"	"M"	51522	12138684	424.4
+	"Diseases of the circulatory system"	"I00-I99"	"63 years"	"63"	"Female"	"F"	27064	12782636	211.7
+	"Diseases of the circulatory system"	"I00-I99"	"63 years"	"63"	"Male"	"M"	54202	11865381	456.8
+	"Diseases of the circulatory system"	"I00-I99"	"64 years"	"64"	"Female"	"F"	28396	12527090	226.7
+	"Diseases of the circulatory system"	"I00-I99"	"64 years"	"64"	"Male"	"M"	57158	11530385	495.7
+	"Diseases of the circulatory system"	"I00-I99"	"65 years"	"65"	"Female"	"F"	30179	12218213	247.0
+	"Diseases of the circulatory system"	"I00-I99"	"65 years"	"65"	"Male"	"M"	58110	11149199	521.2
+	"Diseases of the circulatory system"	"I00-I99"	"66 years"	"66"	"Female"	"F"	31750	11823154	268.5
+	"Diseases of the circulatory system"	"I00-I99"	"66 years"	"66"	"Male"	"M"	59793	10692476	559.2
+	"Diseases of the circulatory system"	"I00-I99"	"67 years"	"67"	"Female"	"F"	32960	11423999	288.5
+	"Diseases of the circulatory system"	"I00-I99"	"67 years"	"67"	"Male"	"M"	60510	10241055	590.9
+	"Diseases of the circulatory system"	"I00-I99"	"68 years"	"68"	"Female"	"F"	34655	11061359	313.3
+	"Diseases of the circulatory system"	"I00-I99"	"68 years"	"68"	"Male"	"M"	61791	9843337	627.7
+	"Diseases of the circulatory system"	"I00-I99"	"69 years"	"69"	"Female"	"F"	36901	10692995	345.1
+	"Diseases of the circulatory system"	"I00-I99"	"69 years"	"69"	"Male"	"M"	62916	9446244	666.0
+	"Diseases of the circulatory system"	"I00-I99"	"70 years"	"70"	"Female"	"F"	39408	10338731	381.2
+	"Diseases of the circulatory system"	"I00-I99"	"70 years"	"70"	"Male"	"M"	65451	9074042	721.3
+	"Diseases of the circulatory system"	"I00-I99"	"71 years"	"71"	"Female"	"F"	42750	10095552	423.5
+	"Diseases of the circulatory system"	"I00-I99"	"71 years"	"71"	"Male"	"M"	67558	8804525	767.3
+	"Diseases of the circulatory system"	"I00-I99"	"72 years"	"72"	"Female"	"F"	44690	9475690	471.6
+	"Diseases of the circulatory system"	"I00-I99"	"72 years"	"72"	"Male"	"M"	68375	8195866	834.3
+	"Diseases of the circulatory system"	"I00-I99"	"73 years"	"73"	"Female"	"F"	47091	8904206	528.9
+	"Diseases of the circulatory system"	"I00-I99"	"73 years"	"73"	"Male"	"M"	69109	7642269	904.3
+	"Diseases of the circulatory system"	"I00-I99"	"74 years"	"74"	"Female"	"F"	49609	8387051	591.5
+	"Diseases of the circulatory system"	"I00-I99"	"74 years"	"74"	"Male"	"M"	70507	7155029	985.4
+	"Diseases of the circulatory system"	"I00-I99"	"75 years"	"75"	"Female"	"F"	52442	7909133	663.1
+	"Diseases of the circulatory system"	"I00-I99"	"75 years"	"75"	"Male"	"M"	71422	6673655	1070.2
+	"Diseases of the circulatory system"	"I00-I99"	"76 years"	"76"	"Female"	"F"	54181	7287896	743.4
+	"Diseases of the circulatory system"	"I00-I99"	"76 years"	"76"	"Male"	"M"	71964	6064474	1186.6
+	"Diseases of the circulatory system"	"I00-I99"	"77 years"	"77"	"Female"	"F"	54875	6522835	841.3
+	"Diseases of the circulatory system"	"I00-I99"	"77 years"	"77"	"Male"	"M"	70680	5314236	1330.0
+	"Diseases of the circulatory system"	"I00-I99"	"78 years"	"78"	"Female"	"F"	58066	6132963	946.8
+	"Diseases of the circulatory system"	"I00-I99"	"78 years"	"78"	"Male"	"M"	71524	4917504	1454.5
+	"Diseases of the circulatory system"	"I00-I99"	"79 years"	"79"	"Female"	"F"	61623	5721947	1077.0
+	"Diseases of the circulatory system"	"I00-I99"	"79 years"	"79"	"Male"	"M"	73419	4515107	1626.1
+	"Diseases of the circulatory system"	"I00-I99"	"80 years"	"80"	"Female"	"F"	64933	5299302	1225.3
+	"Diseases of the circulatory system"	"I00-I99"	"80 years"	"80"	"Male"	"M"	74002	4106344	1802.1
+	"Diseases of the circulatory system"	"I00-I99"	"81 years"	"81"	"Female"	"F"	67520	4796928	1407.6
+	"Diseases of the circulatory system"	"I00-I99"	"81 years"	"81"	"Male"	"M"	73947	3633522	2035.1
+	"Diseases of the circulatory system"	"I00-I99"	"82 years"	"82"	"Female"	"F"	70429	4411198	1596.6
+	"Diseases of the circulatory system"	"I00-I99"	"82 years"	"82"	"Male"	"M"	74143	3259236	2274.9
+	"Diseases of the circulatory system"	"I00-I99"	"83 years"	"83"	"Female"	"F"	74592	4077554	1829.3
+	"Diseases of the circulatory system"	"I00-I99"	"83 years"	"83"	"Male"	"M"	75329	2931758	2569.4
+	"Diseases of the circulatory system"	"I00-I99"	"84 years"	"84"	"Female"	"F"	78138	3728358	2095.8
+	"Diseases of the circulatory system"	"I00-I99"	"84 years"	"84"	"Male"	"M"	75486	2606560	2896.0
+	"Diseases of the circulatory system"	"I00-I99"	"85 years"	"85"	"Female"	"F"	82496	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"85 years"	"85"	"Male"	"M"	75905	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"86 years"	"86"	"Female"	"F"	86009	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"86 years"	"86"	"Male"	"M"	75351	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"87 years"	"87"	"Female"	"F"	89910	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"87 years"	"87"	"Male"	"M"	75293	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"88 years"	"88"	"Female"	"F"	93281	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"88 years"	"88"	"Male"	"M"	74397	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"89 years"	"89"	"Female"	"F"	96150	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"89 years"	"89"	"Male"	"M"	71538	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"90 years"	"90"	"Female"	"F"	98603	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"90 years"	"90"	"Male"	"M"	69017	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"91 years"	"91"	"Female"	"F"	98170	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"91 years"	"91"	"Male"	"M"	64972	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"92 years"	"92"	"Female"	"F"	95482	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"92 years"	"92"	"Male"	"M"	58648	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"93 years"	"93"	"Female"	"F"	89354	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"93 years"	"93"	"Male"	"M"	51839	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"94 years"	"94"	"Female"	"F"	82774	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"94 years"	"94"	"Male"	"M"	44163	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"95 years"	"95"	"Female"	"F"	73993	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"95 years"	"95"	"Male"	"M"	36503	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"96 years"	"96"	"Female"	"F"	63806	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"96 years"	"96"	"Male"	"M"	29001	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"97 years"	"97"	"Female"	"F"	52713	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"97 years"	"97"	"Male"	"M"	22107	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"98 years"	"98"	"Female"	"F"	41795	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"98 years"	"98"	"Male"	"M"	15996	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"99 years"	"99"	"Female"	"F"	31380	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"99 years"	"99"	"Male"	"M"	10959	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"100+ years"	"100"	"Female"	"F"	68100	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"100+ years"	"100"	"Male"	"M"	18001	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"Not Stated"	"NS"	"Female"	"F"	43	Not Applicable	Not Applicable
+	"Diseases of the circulatory system"	"I00-I99"	"Not Stated"	"NS"	"Male"	"M"	150	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"< 1 year"	"0"	"Female"	"F"	144	10881890	1.3
+	"Codes for special purposes"	"U00-U99"	"< 1 year"	"0"	"Male"	"M"	183	11380640	1.6
+	"Codes for special purposes"	"U00-U99"	"1 year"	"1"	"Female"	"F"	40	11000322	0.4
+	"Codes for special purposes"	"U00-U99"	"1 year"	"1"	"Male"	"M"	62	11502036	0.5
+	"Codes for special purposes"	"U00-U99"	"2 years"	"2"	"Female"	"F"	17	11165751	Unreliable
+	"Codes for special purposes"	"U00-U99"	"2 years"	"2"	"Male"	"M"	24	11673428	0.2
+	"Codes for special purposes"	"U00-U99"	"3 years"	"3"	"Female"	"F"	13	11393552	Unreliable
+	"Codes for special purposes"	"U00-U99"	"3 years"	"3"	"Male"	"M"	26	11910587	0.2
+	"Codes for special purposes"	"U00-U99"	"4 years"	"4"	"Female"	"F"	24	11562174	0.2
+	"Codes for special purposes"	"U00-U99"	"4 years"	"4"	"Male"	"M"	12	12094721	Unreliable
+	"Codes for special purposes"	"U00-U99"	"5 years"	"5"	"Male"	"M"	18	12238877	Unreliable
+	"Codes for special purposes"	"U00-U99"	"6 years"	"6"	"Female"	"F"	16	11794606	Unreliable
+	"Codes for special purposes"	"U00-U99"	"6 years"	"6"	"Male"	"M"	20	12336573	0.2
+	"Codes for special purposes"	"U00-U99"	"7 years"	"7"	"Female"	"F"	12	11874672	Unreliable
+	"Codes for special purposes"	"U00-U99"	"7 years"	"7"	"Male"	"M"	18	12420646	Unreliable
+	"Codes for special purposes"	"U00-U99"	"8 years"	"8"	"Female"	"F"	11	11904261	Unreliable
+	"Codes for special purposes"	"U00-U99"	"8 years"	"8"	"Male"	"M"	19	12445736	Unreliable
+	"Codes for special purposes"	"U00-U99"	"9 years"	"9"	"Female"	"F"	22	11913494	0.2
+	"Codes for special purposes"	"U00-U99"	"9 years"	"9"	"Male"	"M"	24	12456497	0.2
+	"Codes for special purposes"	"U00-U99"	"10 years"	"10"	"Female"	"F"	16	11993008	Unreliable
+	"Codes for special purposes"	"U00-U99"	"10 years"	"10"	"Male"	"M"	20	12537662	0.2
+	"Codes for special purposes"	"U00-U99"	"11 years"	"11"	"Female"	"F"	14	12124081	Unreliable
+	"Codes for special purposes"	"U00-U99"	"11 years"	"11"	"Male"	"M"	18	12688960	Unreliable
+	"Codes for special purposes"	"U00-U99"	"12 years"	"12"	"Female"	"F"	13	12281497	Unreliable
+	"Codes for special purposes"	"U00-U99"	"12 years"	"12"	"Male"	"M"	25	12862502	0.2
+	"Codes for special purposes"	"U00-U99"	"13 years"	"13"	"Female"	"F"	26	12435756	0.2
+	"Codes for special purposes"	"U00-U99"	"13 years"	"13"	"Male"	"M"	25	13018752	0.2
+	"Codes for special purposes"	"U00-U99"	"14 years"	"14"	"Female"	"F"	27	12540000	0.2
+	"Codes for special purposes"	"U00-U99"	"14 years"	"14"	"Male"	"M"	22	13122187	0.2
+	"Codes for special purposes"	"U00-U99"	"15 years"	"15"	"Female"	"F"	44	12572638	0.3
+	"Codes for special purposes"	"U00-U99"	"15 years"	"15"	"Male"	"M"	49	13144843	0.4
+	"Codes for special purposes"	"U00-U99"	"16 years"	"16"	"Female"	"F"	30	12505287	0.2
+	"Codes for special purposes"	"U00-U99"	"16 years"	"16"	"Male"	"M"	57	13065961	0.4
+	"Codes for special purposes"	"U00-U99"	"17 years"	"17"	"Female"	"F"	55	12505549	0.4
+	"Codes for special purposes"	"U00-U99"	"17 years"	"17"	"Male"	"M"	70	13063194	0.5
+	"Codes for special purposes"	"U00-U99"	"18 years"	"18"	"Female"	"F"	59	12570162	0.5
+	"Codes for special purposes"	"U00-U99"	"18 years"	"18"	"Male"	"M"	99	13142151	0.8
+	"Codes for special purposes"	"U00-U99"	"19 years"	"19"	"Female"	"F"	87	12618256	0.7
+	"Codes for special purposes"	"U00-U99"	"19 years"	"19"	"Male"	"M"	121	13200617	0.9
+	"Codes for special purposes"	"U00-U99"	"20 years"	"20"	"Female"	"F"	103	12728180	0.8
+	"Codes for special purposes"	"U00-U99"	"20 years"	"20"	"Male"	"M"	145	13288474	1.1
+	"Codes for special purposes"	"U00-U99"	"21 years"	"21"	"Female"	"F"	102	12846890	0.8
+	"Codes for special purposes"	"U00-U99"	"21 years"	"21"	"Male"	"M"	183	13400775	1.4
+	"Codes for special purposes"	"U00-U99"	"22 years"	"22"	"Female"	"F"	158	12850599	1.2
+	"Codes for special purposes"	"U00-U99"	"22 years"	"22"	"Male"	"M"	201	13420686	1.5
+	"Codes for special purposes"	"U00-U99"	"23 years"	"23"	"Female"	"F"	157	12836552	1.2
+	"Codes for special purposes"	"U00-U99"	"23 years"	"23"	"Male"	"M"	246	13419214	1.8
+	"Codes for special purposes"	"U00-U99"	"24 years"	"24"	"Female"	"F"	176	12878819	1.4
+	"Codes for special purposes"	"U00-U99"	"24 years"	"24"	"Male"	"M"	318	13472033	2.4
+	"Codes for special purposes"	"U00-U99"	"25 years"	"25"	"Female"	"F"	204	12994621	1.6
+	"Codes for special purposes"	"U00-U99"	"25 years"	"25"	"Male"	"M"	316	13597273	2.3
+	"Codes for special purposes"	"U00-U99"	"26 years"	"26"	"Female"	"F"	225	13192612	1.7
+	"Codes for special purposes"	"U00-U99"	"26 years"	"26"	"Male"	"M"	383	13781823	2.8
+	"Codes for special purposes"	"U00-U99"	"27 years"	"27"	"Female"	"F"	259	13443340	1.9
+	"Codes for special purposes"	"U00-U99"	"27 years"	"27"	"Male"	"M"	443	14002483	3.2
+	"Codes for special purposes"	"U00-U99"	"28 years"	"28"	"Female"	"F"	283	13684361	2.1
+	"Codes for special purposes"	"U00-U99"	"28 years"	"28"	"Male"	"M"	530	14189343	3.7
+	"Codes for special purposes"	"U00-U99"	"29 years"	"29"	"Female"	"F"	330	13784850	2.4
+	"Codes for special purposes"	"U00-U99"	"29 years"	"29"	"Male"	"M"	633	14235310	4.4
+	"Codes for special purposes"	"U00-U99"	"30 years"	"30"	"Female"	"F"	423	13772904	3.1
+	"Codes for special purposes"	"U00-U99"	"30 years"	"30"	"Male"	"M"	677	14174449	4.8
+	"Codes for special purposes"	"U00-U99"	"31 years"	"31"	"Female"	"F"	475	13692655	3.5
+	"Codes for special purposes"	"U00-U99"	"31 years"	"31"	"Male"	"M"	772	14051811	5.5
+	"Codes for special purposes"	"U00-U99"	"32 years"	"32"	"Female"	"F"	495	13586822	3.6
+	"Codes for special purposes"	"U00-U99"	"32 years"	"32"	"Male"	"M"	823	13922530	5.9
+	"Codes for special purposes"	"U00-U99"	"33 years"	"33"	"Female"	"F"	528	13475511	3.9
+	"Codes for special purposes"	"U00-U99"	"33 years"	"33"	"Male"	"M"	900	13782823	6.5
+	"Codes for special purposes"	"U00-U99"	"34 years"	"34"	"Female"	"F"	564	13302607	4.2
+	"Codes for special purposes"	"U00-U99"	"34 years"	"34"	"Male"	"M"	1021	13578534	7.5
+	"Codes for special purposes"	"U00-U99"	"35 years"	"35"	"Female"	"F"	600	13224856	4.5
+	"Codes for special purposes"	"U00-U99"	"35 years"	"35"	"Male"	"M"	1078	13466180	8.0
+	"Codes for special purposes"	"U00-U99"	"36 years"	"36"	"Female"	"F"	673	13166791	5.1
+	"Codes for special purposes"	"U00-U99"	"36 years"	"36"	"Male"	"M"	1162	13374356	8.7
+	"Codes for special purposes"	"U00-U99"	"37 years"	"37"	"Female"	"F"	718	13135772	5.5
+	"Codes for special purposes"	"U00-U99"	"37 years"	"37"	"Male"	"M"	1331	13304127	10.0
+	"Codes for special purposes"	"U00-U99"	"38 years"	"38"	"Female"	"F"	854	13133562	6.5
+	"Codes for special purposes"	"U00-U99"	"38 years"	"38"	"Male"	"M"	1362	13280504	10.3
+	"Codes for special purposes"	"U00-U99"	"39 years"	"39"	"Female"	"F"	917	12999410	7.1
+	"Codes for special purposes"	"U00-U99"	"39 years"	"39"	"Male"	"M"	1560	13117765	11.9
+	"Codes for special purposes"	"U00-U99"	"40 years"	"40"	"Female"	"F"	1059	12860939	8.2
+	"Codes for special purposes"	"U00-U99"	"40 years"	"40"	"Male"	"M"	1624	12957832	12.5
+	"Codes for special purposes"	"U00-U99"	"41 years"	"41"	"Female"	"F"	1091	12634168	8.6
+	"Codes for special purposes"	"U00-U99"	"41 years"	"41"	"Male"	"M"	1868	12681022	14.7
+	"Codes for special purposes"	"U00-U99"	"42 years"	"42"	"Female"	"F"	1227	12393911	9.9
+	"Codes for special purposes"	"U00-U99"	"42 years"	"42"	"Male"	"M"	1995	12403672	16.1
+	"Codes for special purposes"	"U00-U99"	"43 years"	"43"	"Female"	"F"	1347	12231053	11.0
+	"Codes for special purposes"	"U00-U99"	"43 years"	"43"	"Male"	"M"	2101	12215326	17.2
+	"Codes for special purposes"	"U00-U99"	"44 years"	"44"	"Female"	"F"	1428	12017088	11.9
+	"Codes for special purposes"	"U00-U99"	"44 years"	"44"	"Male"	"M"	2468	11964802	20.6
+	"Codes for special purposes"	"U00-U99"	"45 years"	"45"	"Female"	"F"	1516	11909978	12.7
+	"Codes for special purposes"	"U00-U99"	"45 years"	"45"	"Male"	"M"	2644	11818911	22.4
+	"Codes for special purposes"	"U00-U99"	"46 years"	"46"	"Female"	"F"	1714	11901078	14.4
+	"Codes for special purposes"	"U00-U99"	"46 years"	"46"	"Male"	"M"	2853	11770153	24.2
+	"Codes for special purposes"	"U00-U99"	"47 years"	"47"	"Female"	"F"	1767	12047631	14.7
+	"Codes for special purposes"	"U00-U99"	"47 years"	"47"	"Male"	"M"	3104	11895789	26.1
+	"Codes for special purposes"	"U00-U99"	"48 years"	"48"	"Female"	"F"	2065	12274765	16.8
+	"Codes for special purposes"	"U00-U99"	"48 years"	"48"	"Male"	"M"	3564	12122899	29.4
+	"Codes for special purposes"	"U00-U99"	"49 years"	"49"	"Female"	"F"	2321	12375303	18.8
+	"Codes for special purposes"	"U00-U99"	"49 years"	"49"	"Male"	"M"	3901	12221603	31.9
+	"Codes for special purposes"	"U00-U99"	"50 years"	"50"	"Female"	"F"	2544	12469211	20.4
+	"Codes for special purposes"	"U00-U99"	"50 years"	"50"	"Male"	"M"	4478	12329587	36.3
+	"Codes for special purposes"	"U00-U99"	"51 years"	"51"	"Female"	"F"	2600	12490387	20.8
+	"Codes for special purposes"	"U00-U99"	"51 years"	"51"	"Male"	"M"	4699	12337703	38.1
+	"Codes for special purposes"	"U00-U99"	"52 years"	"52"	"Female"	"F"	2795	12492675	22.4
+	"Codes for special purposes"	"U00-U99"	"52 years"	"52"	"Male"	"M"	5122	12318334	41.6
+	"Codes for special purposes"	"U00-U99"	"53 years"	"53"	"Female"	"F"	2960	12504771	23.7
+	"Codes for special purposes"	"U00-U99"	"53 years"	"53"	"Male"	"M"	5181	12283967	42.2
+	"Codes for special purposes"	"U00-U99"	"54 years"	"54"	"Female"	"F"	3258	12604239	25.8
+	"Codes for special purposes"	"U00-U99"	"54 years"	"54"	"Male"	"M"	5593	12317612	45.4
+	"Codes for special purposes"	"U00-U99"	"55 years"	"55"	"Female"	"F"	3583	12775626	28.0
+	"Codes for special purposes"	"U00-U99"	"55 years"	"55"	"Male"	"M"	6118	12414135	49.3
+	"Codes for special purposes"	"U00-U99"	"56 years"	"56"	"Female"	"F"	4061	12950667	31.4
+	"Codes for special purposes"	"U00-U99"	"56 years"	"56"	"Male"	"M"	6900	12498822	55.2
+	"Codes for special purposes"	"U00-U99"	"57 years"	"57"	"Female"	"F"	4380	13147054	33.3
+	"Codes for special purposes"	"U00-U99"	"57 years"	"57"	"Male"	"M"	7229	12623177	57.3
+	"Codes for special purposes"	"U00-U99"	"58 years"	"58"	"Female"	"F"	4930	13329200	37.0
+	"Codes for special purposes"	"U00-U99"	"58 years"	"58"	"Male"	"M"	7782	12740067	61.1
+	"Codes for special purposes"	"U00-U99"	"59 years"	"59"	"Female"	"F"	5336	13365396	39.9
+	"Codes for special purposes"	"U00-U99"	"59 years"	"59"	"Male"	"M"	8582	12717916	67.5
+	"Codes for special purposes"	"U00-U99"	"60 years"	"60"	"Female"	"F"	5733	13306282	43.1
+	"Codes for special purposes"	"U00-U99"	"60 years"	"60"	"Male"	"M"	9247	12602246	73.4
+	"Codes for special purposes"	"U00-U99"	"61 years"	"61"	"Female"	"F"	6200	13170579	47.1
+	"Codes for special purposes"	"U00-U99"	"61 years"	"61"	"Male"	"M"	9670	12395769	78.0
+	"Codes for special purposes"	"U00-U99"	"62 years"	"62"	"Female"	"F"	6682	12986650	51.5
+	"Codes for special purposes"	"U00-U99"	"62 years"	"62"	"Male"	"M"	10352	12138684	85.3
+	"Codes for special purposes"	"U00-U99"	"63 years"	"63"	"Female"	"F"	7216	12782636	56.5
+	"Codes for special purposes"	"U00-U99"	"63 years"	"63"	"Male"	"M"	10872	11865381	91.6
+	"Codes for special purposes"	"U00-U99"	"64 years"	"64"	"Female"	"F"	7632	12527090	60.9
+	"Codes for special purposes"	"U00-U99"	"64 years"	"64"	"Male"	"M"	11289	11530385	97.9
+	"Codes for special purposes"	"U00-U99"	"65 years"	"65"	"Female"	"F"	7909	12218213	64.7
+	"Codes for special purposes"	"U00-U99"	"65 years"	"65"	"Male"	"M"	11815	11149199	106.0
+	"Codes for special purposes"	"U00-U99"	"66 years"	"66"	"Female"	"F"	7993	11823154	67.6
+	"Codes for special purposes"	"U00-U99"	"66 years"	"66"	"Male"	"M"	12080	10692476	113.0
+	"Codes for special purposes"	"U00-U99"	"67 years"	"67"	"Female"	"F"	8261	11423999	72.3
+	"Codes for special purposes"	"U00-U99"	"67 years"	"67"	"Male"	"M"	12234	10241055	119.5
+	"Codes for special purposes"	"U00-U99"	"68 years"	"68"	"Female"	"F"	8688	11061359	78.5
+	"Codes for special purposes"	"U00-U99"	"68 years"	"68"	"Male"	"M"	12884	9843337	130.9
+	"Codes for special purposes"	"U00-U99"	"69 years"	"69"	"Female"	"F"	9003	10692995	84.2
+	"Codes for special purposes"	"U00-U99"	"69 years"	"69"	"Male"	"M"	13153	9446244	139.2
+	"Codes for special purposes"	"U00-U99"	"70 years"	"70"	"Female"	"F"	9228	10338731	89.3
+	"Codes for special purposes"	"U00-U99"	"70 years"	"70"	"Male"	"M"	13797	9074042	152.0
+	"Codes for special purposes"	"U00-U99"	"71 years"	"71"	"Female"	"F"	9864	10095552	97.7
+	"Codes for special purposes"	"U00-U99"	"71 years"	"71"	"Male"	"M"	13998	8804525	159.0
+	"Codes for special purposes"	"U00-U99"	"72 years"	"72"	"Female"	"F"	10354	9475690	109.3
+	"Codes for special purposes"	"U00-U99"	"72 years"	"72"	"Male"	"M"	14861	8195866	181.3
+	"Codes for special purposes"	"U00-U99"	"73 years"	"73"	"Female"	"F"	10934	8904206	122.8
+	"Codes for special purposes"	"U00-U99"	"73 years"	"73"	"Male"	"M"	15846	7642269	207.3
+	"Codes for special purposes"	"U00-U99"	"74 years"	"74"	"Female"	"F"	11329	8387051	135.1
+	"Codes for special purposes"	"U00-U99"	"74 years"	"74"	"Male"	"M"	15750	7155029	220.1
+	"Codes for special purposes"	"U00-U99"	"75 years"	"75"	"Female"	"F"	10536	7909133	133.2
+	"Codes for special purposes"	"U00-U99"	"75 years"	"75"	"Male"	"M"	14768	6673655	221.3
+	"Codes for special purposes"	"U00-U99"	"76 years"	"76"	"Female"	"F"	10717	7287896	147.1
+	"Codes for special purposes"	"U00-U99"	"76 years"	"76"	"Male"	"M"	14687	6064474	242.2
+	"Codes for special purposes"	"U00-U99"	"77 years"	"77"	"Female"	"F"	11312	6522835	173.4
+	"Codes for special purposes"	"U00-U99"	"77 years"	"77"	"Male"	"M"	15320	5314236	288.3
+	"Codes for special purposes"	"U00-U99"	"78 years"	"78"	"Female"	"F"	11653	6132963	190.0
+	"Codes for special purposes"	"U00-U99"	"78 years"	"78"	"Male"	"M"	15781	4917504	320.9
+	"Codes for special purposes"	"U00-U99"	"79 years"	"79"	"Female"	"F"	11495	5721947	200.9
+	"Codes for special purposes"	"U00-U99"	"79 years"	"79"	"Male"	"M"	15378	4515107	340.6
+	"Codes for special purposes"	"U00-U99"	"80 years"	"80"	"Female"	"F"	11402	5299302	215.2
+	"Codes for special purposes"	"U00-U99"	"80 years"	"80"	"Male"	"M"	15103	4106344	367.8
+	"Codes for special purposes"	"U00-U99"	"81 years"	"81"	"Female"	"F"	11461	4796928	238.9
+	"Codes for special purposes"	"U00-U99"	"81 years"	"81"	"Male"	"M"	14586	3633522	401.4
+	"Codes for special purposes"	"U00-U99"	"82 years"	"82"	"Female"	"F"	11826	4411198	268.1
+	"Codes for special purposes"	"U00-U99"	"82 years"	"82"	"Male"	"M"	14368	3259236	440.8
+	"Codes for special purposes"	"U00-U99"	"83 years"	"83"	"Female"	"F"	11840	4077554	290.4
+	"Codes for special purposes"	"U00-U99"	"83 years"	"83"	"Male"	"M"	14392	2931758	490.9
+	"Codes for special purposes"	"U00-U99"	"84 years"	"84"	"Female"	"F"	11933	3728358	320.1
+	"Codes for special purposes"	"U00-U99"	"84 years"	"84"	"Male"	"M"	13913	2606560	533.8
+	"Codes for special purposes"	"U00-U99"	"85 years"	"85"	"Female"	"F"	12226	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"85 years"	"85"	"Male"	"M"	13625	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"86 years"	"86"	"Female"	"F"	12163	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"86 years"	"86"	"Male"	"M"	13031	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"87 years"	"87"	"Female"	"F"	11852	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"87 years"	"87"	"Male"	"M"	12360	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"88 years"	"88"	"Female"	"F"	12068	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"88 years"	"88"	"Male"	"M"	11797	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"89 years"	"89"	"Female"	"F"	11869	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"89 years"	"89"	"Male"	"M"	11293	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"90 years"	"90"	"Female"	"F"	11613	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"90 years"	"90"	"Male"	"M"	10246	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"91 years"	"91"	"Female"	"F"	11109	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"91 years"	"91"	"Male"	"M"	9320	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"92 years"	"92"	"Female"	"F"	10329	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"92 years"	"92"	"Male"	"M"	8187	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"93 years"	"93"	"Female"	"F"	9796	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"93 years"	"93"	"Male"	"M"	7213	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"94 years"	"94"	"Female"	"F"	8651	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"94 years"	"94"	"Male"	"M"	5773	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"95 years"	"95"	"Female"	"F"	7542	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"95 years"	"95"	"Male"	"M"	4613	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"96 years"	"96"	"Female"	"F"	6370	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"96 years"	"96"	"Male"	"M"	3588	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"97 years"	"97"	"Female"	"F"	5258	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"97 years"	"97"	"Male"	"M"	2680	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"98 years"	"98"	"Female"	"F"	4133	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"98 years"	"98"	"Male"	"M"	1911	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"99 years"	"99"	"Female"	"F"	3087	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"99 years"	"99"	"Male"	"M"	1323	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"100+ years"	"100"	"Female"	"F"	6310	Not Applicable	Not Applicable
+	"Codes for special purposes"	"U00-U99"	"100+ years"	"100"	"Male"	"M"	2014	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"< 1 year"	"0"	"Female"	"F"	4159	10881890	38.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"< 1 year"	"0"	"Male"	"M"	5699	11380640	50.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"1 year"	"1"	"Female"	"F"	1454	11000322	13.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"1 year"	"1"	"Male"	"M"	1927	11502036	16.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"2 years"	"2"	"Female"	"F"	1047	11165751	9.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"2 years"	"2"	"Male"	"M"	1774	11673428	15.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"3 years"	"3"	"Female"	"F"	832	11393552	7.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"3 years"	"3"	"Male"	"M"	1294	11910587	10.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"4 years"	"4"	"Female"	"F"	631	11562174	5.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"4 years"	"4"	"Male"	"M"	1010	12094721	8.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"5 years"	"5"	"Female"	"F"	569	11697386	4.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"5 years"	"5"	"Male"	"M"	884	12238877	7.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"6 years"	"6"	"Female"	"F"	498	11794606	4.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"6 years"	"6"	"Male"	"M"	722	12336573	5.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"7 years"	"7"	"Female"	"F"	428	11874672	3.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"7 years"	"7"	"Male"	"M"	608	12420646	4.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"8 years"	"8"	"Female"	"F"	415	11904261	3.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"8 years"	"8"	"Male"	"M"	596	12445736	4.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"9 years"	"9"	"Female"	"F"	408	11913494	3.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"9 years"	"9"	"Male"	"M"	590	12456497	4.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"10 years"	"10"	"Female"	"F"	425	11993008	3.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"10 years"	"10"	"Male"	"M"	669	12537662	5.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"11 years"	"11"	"Female"	"F"	496	12124081	4.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"11 years"	"11"	"Male"	"M"	816	12688960	6.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"12 years"	"12"	"Female"	"F"	686	12281497	5.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"12 years"	"12"	"Male"	"M"	1026	12862502	8.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"13 years"	"13"	"Female"	"F"	912	12435756	7.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"13 years"	"13"	"Male"	"M"	1598	13018752	12.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"14 years"	"14"	"Female"	"F"	1173	12540000	9.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"14 years"	"14"	"Male"	"M"	2617	13122187	19.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"15 years"	"15"	"Female"	"F"	1510	12572638	12.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"15 years"	"15"	"Male"	"M"	3930	13144843	29.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"16 years"	"16"	"Female"	"F"	2076	12505287	16.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"16 years"	"16"	"Male"	"M"	5865	13065961	44.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"17 years"	"17"	"Female"	"F"	2620	12505549	21.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"17 years"	"17"	"Male"	"M"	8103	13063194	62.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"18 years"	"18"	"Female"	"F"	3432	12570162	27.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"18 years"	"18"	"Male"	"M"	11323	13142151	86.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"19 years"	"19"	"Female"	"F"	3719	12618256	29.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"19 years"	"19"	"Male"	"M"	13047	13200617	98.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"20 years"	"20"	"Female"	"F"	4009	12728180	31.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"20 years"	"20"	"Male"	"M"	13896	13288474	104.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"21 years"	"21"	"Female"	"F"	4438	12846890	34.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"21 years"	"21"	"Male"	"M"	15589	13400775	116.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"22 years"	"22"	"Female"	"F"	4534	12850599	35.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"22 years"	"22"	"Male"	"M"	16245	13420686	121.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"23 years"	"23"	"Female"	"F"	4943	12836552	38.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"23 years"	"23"	"Male"	"M"	16640	13419214	124.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"24 years"	"24"	"Female"	"F"	5067	12878819	39.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"24 years"	"24"	"Male"	"M"	17397	13472033	129.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"25 years"	"25"	"Female"	"F"	5398	12994621	41.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"25 years"	"25"	"Male"	"M"	18314	13597273	134.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"26 years"	"26"	"Female"	"F"	5588	13192612	42.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"26 years"	"26"	"Male"	"M"	19070	13781823	138.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"27 years"	"27"	"Female"	"F"	5871	13443340	43.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"27 years"	"27"	"Male"	"M"	20203	14002483	144.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"28 years"	"28"	"Female"	"F"	6201	13684361	45.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"28 years"	"28"	"Male"	"M"	20976	14189343	147.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"29 years"	"29"	"Female"	"F"	6650	13784850	48.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"29 years"	"29"	"Male"	"M"	21578	14235310	151.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"30 years"	"30"	"Female"	"F"	6895	13772904	50.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"30 years"	"30"	"Male"	"M"	22082	14174449	155.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"31 years"	"31"	"Female"	"F"	6848	13692655	50.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"31 years"	"31"	"Male"	"M"	22223	14051811	158.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"32 years"	"32"	"Female"	"F"	7086	13586822	52.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"32 years"	"32"	"Male"	"M"	22146	13922530	159.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"33 years"	"33"	"Female"	"F"	7345	13475511	54.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"33 years"	"33"	"Male"	"M"	21971	13782823	159.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"34 years"	"34"	"Female"	"F"	7065	13302607	53.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"34 years"	"34"	"Male"	"M"	21375	13578534	157.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"35 years"	"35"	"Female"	"F"	7134	13224856	53.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"35 years"	"35"	"Male"	"M"	21392	13466180	158.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"36 years"	"36"	"Female"	"F"	7065	13166791	53.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"36 years"	"36"	"Male"	"M"	21237	13374356	158.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"37 years"	"37"	"Female"	"F"	7228	13135772	55.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"37 years"	"37"	"Male"	"M"	21025	13304127	158.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"38 years"	"38"	"Female"	"F"	7263	13133562	55.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"38 years"	"38"	"Male"	"M"	20758	13280504	156.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"39 years"	"39"	"Female"	"F"	7121	12999410	54.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"39 years"	"39"	"Male"	"M"	20975	13117765	159.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"40 years"	"40"	"Female"	"F"	7042	12860939	54.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"40 years"	"40"	"Male"	"M"	20289	12957832	156.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"41 years"	"41"	"Female"	"F"	6951	12634168	55.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"41 years"	"41"	"Male"	"M"	19602	12681022	154.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"42 years"	"42"	"Female"	"F"	6636	12393911	53.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"42 years"	"42"	"Male"	"M"	18659	12403672	150.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"43 years"	"43"	"Female"	"F"	6436	12231053	52.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"43 years"	"43"	"Male"	"M"	18166	12215326	148.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"44 years"	"44"	"Female"	"F"	6300	12017088	52.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"44 years"	"44"	"Male"	"M"	17554	11964802	146.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"45 years"	"45"	"Female"	"F"	6179	11909978	51.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"45 years"	"45"	"Male"	"M"	16830	11818911	142.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"46 years"	"46"	"Female"	"F"	6164	11901078	51.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"46 years"	"46"	"Male"	"M"	16589	11770153	140.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"47 years"	"47"	"Female"	"F"	6202	12047631	51.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"47 years"	"47"	"Male"	"M"	16662	11895789	140.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"48 years"	"48"	"Female"	"F"	6406	12274765	52.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"48 years"	"48"	"Male"	"M"	16889	12122899	139.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"49 years"	"49"	"Female"	"F"	6706	12375303	54.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"49 years"	"49"	"Male"	"M"	17274	12221603	141.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"50 years"	"50"	"Female"	"F"	6630	12469211	53.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"50 years"	"50"	"Male"	"M"	17315	12329587	140.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"51 years"	"51"	"Female"	"F"	6679	12490387	53.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"51 years"	"51"	"Male"	"M"	17350	12337703	140.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"52 years"	"52"	"Female"	"F"	6890	12492675	55.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"52 years"	"52"	"Male"	"M"	17747	12318334	144.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"53 years"	"53"	"Female"	"F"	6956	12504771	55.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"53 years"	"53"	"Male"	"M"	17688	12283967	144.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"54 years"	"54"	"Female"	"F"	7039	12604239	55.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"54 years"	"54"	"Male"	"M"	17960	12317612	145.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"55 years"	"55"	"Female"	"F"	7258	12775626	56.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"55 years"	"55"	"Male"	"M"	18359	12414135	147.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"56 years"	"56"	"Female"	"F"	7176	12950667	55.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"56 years"	"56"	"Male"	"M"	18646	12498822	149.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"57 years"	"57"	"Female"	"F"	7367	13147054	56.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"57 years"	"57"	"Male"	"M"	19093	12623177	151.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"58 years"	"58"	"Female"	"F"	7315	13329200	54.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"58 years"	"58"	"Male"	"M"	19356	12740067	151.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"59 years"	"59"	"Female"	"F"	7218	13365396	54.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"59 years"	"59"	"Male"	"M"	18812	12717916	147.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"60 years"	"60"	"Female"	"F"	6981	13306282	52.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"60 years"	"60"	"Male"	"M"	18263	12602246	144.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"61 years"	"61"	"Female"	"F"	6848	13170579	52.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"61 years"	"61"	"Male"	"M"	17500	12395769	141.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"62 years"	"62"	"Female"	"F"	6410	12986650	49.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"62 years"	"62"	"Male"	"M"	16908	12138684	139.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"63 years"	"63"	"Female"	"F"	6251	12782636	48.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"63 years"	"63"	"Male"	"M"	16159	11865381	136.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"64 years"	"64"	"Female"	"F"	5893	12527090	47.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"64 years"	"64"	"Male"	"M"	15338	11530385	133.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"65 years"	"65"	"Female"	"F"	5735	12218213	46.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"65 years"	"65"	"Male"	"M"	14355	11149199	128.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"66 years"	"66"	"Female"	"F"	5407	11823154	45.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"66 years"	"66"	"Male"	"M"	13282	10692476	124.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"67 years"	"67"	"Female"	"F"	5182	11423999	45.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"67 years"	"67"	"Male"	"M"	12771	10241055	124.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"68 years"	"68"	"Female"	"F"	5111	11061359	46.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"68 years"	"68"	"Male"	"M"	11925	9843337	121.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"69 years"	"69"	"Female"	"F"	4924	10692995	46.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"69 years"	"69"	"Male"	"M"	11425	9446244	120.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"70 years"	"70"	"Female"	"F"	4903	10338731	47.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"70 years"	"70"	"Male"	"M"	10798	9074042	119.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"71 years"	"71"	"Female"	"F"	4982	10095552	49.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"71 years"	"71"	"Male"	"M"	10452	8804525	118.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"72 years"	"72"	"Female"	"F"	4984	9475690	52.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"72 years"	"72"	"Male"	"M"	10118	8195866	123.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"73 years"	"73"	"Female"	"F"	5105	8904206	57.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"73 years"	"73"	"Male"	"M"	9775	7642269	127.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"74 years"	"74"	"Female"	"F"	5320	8387051	63.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"74 years"	"74"	"Male"	"M"	9629	7155029	134.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"75 years"	"75"	"Female"	"F"	5263	7909133	66.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"75 years"	"75"	"Male"	"M"	9736	6673655	145.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"76 years"	"76"	"Female"	"F"	5453	7287896	74.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"76 years"	"76"	"Male"	"M"	9501	6064474	156.7
+	"External causes of morbidity and mortality"	"V01-Y89"	"77 years"	"77"	"Female"	"F"	5521	6522835	84.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"77 years"	"77"	"Male"	"M"	8917	5314236	167.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"78 years"	"78"	"Female"	"F"	5542	6132963	90.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"78 years"	"78"	"Male"	"M"	8981	4917504	182.6
+	"External causes of morbidity and mortality"	"V01-Y89"	"79 years"	"79"	"Female"	"F"	5925	5721947	103.5
+	"External causes of morbidity and mortality"	"V01-Y89"	"79 years"	"79"	"Male"	"M"	9213	4515107	204.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"80 years"	"80"	"Female"	"F"	6046	5299302	114.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"80 years"	"80"	"Male"	"M"	8927	4106344	217.4
+	"External causes of morbidity and mortality"	"V01-Y89"	"81 years"	"81"	"Female"	"F"	6138	4796928	128.0
+	"External causes of morbidity and mortality"	"V01-Y89"	"81 years"	"81"	"Male"	"M"	8622	3633522	237.3
+	"External causes of morbidity and mortality"	"V01-Y89"	"82 years"	"82"	"Female"	"F"	6305	4411198	142.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"82 years"	"82"	"Male"	"M"	8542	3259236	262.1
+	"External causes of morbidity and mortality"	"V01-Y89"	"83 years"	"83"	"Female"	"F"	6694	4077554	164.2
+	"External causes of morbidity and mortality"	"V01-Y89"	"83 years"	"83"	"Male"	"M"	8441	2931758	287.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"84 years"	"84"	"Female"	"F"	6892	3728358	184.9
+	"External causes of morbidity and mortality"	"V01-Y89"	"84 years"	"84"	"Male"	"M"	8258	2606560	316.8
+	"External causes of morbidity and mortality"	"V01-Y89"	"85 years"	"85"	"Female"	"F"	7318	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"85 years"	"85"	"Male"	"M"	8303	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"86 years"	"86"	"Female"	"F"	7300	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"86 years"	"86"	"Male"	"M"	8076	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"87 years"	"87"	"Female"	"F"	7428	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"87 years"	"87"	"Male"	"M"	7927	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"88 years"	"88"	"Female"	"F"	7752	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"88 years"	"88"	"Male"	"M"	7726	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"89 years"	"89"	"Female"	"F"	7693	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"89 years"	"89"	"Male"	"M"	6975	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"90 years"	"90"	"Female"	"F"	7591	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"90 years"	"90"	"Male"	"M"	6560	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"91 years"	"91"	"Female"	"F"	7506	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"91 years"	"91"	"Male"	"M"	6056	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"92 years"	"92"	"Female"	"F"	7183	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"92 years"	"92"	"Male"	"M"	5254	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"93 years"	"93"	"Female"	"F"	6745	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"93 years"	"93"	"Male"	"M"	4526	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"94 years"	"94"	"Female"	"F"	5851	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"94 years"	"94"	"Male"	"M"	3778	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"95 years"	"95"	"Female"	"F"	5082	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"95 years"	"95"	"Male"	"M"	2963	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"96 years"	"96"	"Female"	"F"	4321	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"96 years"	"96"	"Male"	"M"	2247	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"97 years"	"97"	"Female"	"F"	3537	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"97 years"	"97"	"Male"	"M"	1639	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"98 years"	"98"	"Female"	"F"	2774	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"98 years"	"98"	"Male"	"M"	1137	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"99 years"	"99"	"Female"	"F"	1977	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"99 years"	"99"	"Male"	"M"	826	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"100+ years"	"100"	"Female"	"F"	3918	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"100+ years"	"100"	"Male"	"M"	1161	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"Not Stated"	"NS"	"Female"	"F"	30	Not Applicable	Not Applicable
+	"External causes of morbidity and mortality"	"V01-Y89"	"Not Stated"	"NS"	"Male"	"M"	117	Not Applicable	Not Applicable
+"---"
+"Dataset: Underlying Cause of Death, 2018-2023, Single Race"
+"Query Parameters:"
+"ICD-10 Codes: C00-D48 (Neoplasms); I00-I99 (Diseases of the circulatory system); U00-U99 (Codes for special purposes); V01-Y89"
+"(External causes of morbidity and mortality)"
+"Group By: ICD Chapter; Single-Year Ages; Sex"
+"Show Totals: Disabled"
+"Show Zero Values: False"
+"Show Suppressed: False"
+"Calculate Rates Per: 100,000"
+"Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups)"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/ucd-expanded.html for more information."
+"---"
+"Query Date: Mar 22, 2025 5:00:18 PM"
+"---"
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics"
+"System, Mortality 2018-2023 on CDC WONDER Online Database, released in 2024. Data are from the Multiple Cause of Death Files,"
+"2018-2023, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative"
+"Program. Accessed at http://wonder.cdc.gov/ucd-icd10-expanded.html on Mar 22, 2025 5:00:18 PM"
+"---"
+Messages:
+"1. Totals are not available for these results due to suppression constraints. More Information:"
+"http://wonder.cdc.gov/wonder/help/faq.html#Privacy."
+"2. Rows with suppressed Deaths are hidden. Use Quick Options above to show suppressed rows."
+"---"
+Caveats:
+"1. Population and rates are labeled 'Not Applicable' when they include a subset of ages 85-100+ because populations are not"
+"available for those ages. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Ages 85-100."
+"2. Data are Suppressed when the data meet the criteria for confidentiality constraints. More information:"
+"http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Assurance of Confidentiality."
+"3. Death rates are flagged as Unreliable when the rate is calculated with a numerator of 20 or less. More information:"
+"http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Unreliable."
+"4. Deaths of persons with Age ""Not Stated"" are included in ""All"" counts and rates, but are not distributed among age groups,"
+"so are not included in age-specific counts, age-specific rates or in any age-adjusted rates. More information:"
+"http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Not Stated."
+"5. The population figures for years 2023 are single-race estimates of the July 1 resident population, from the Vintage 2023"
+"postcensal series released by the Census Bureau on June 27, 2024. The 2023 series is based on the Modified Blended Base produced"
+"by the US Census Bureau in lieu of the April 1, 2020 decennial population count. The Modified Blended Base consists of the blend"
+"of Vintage 2020 postcensal population estimates for April 1, 2020, 2020 Demographic Analysis Estimates, and 2020 Census data"
+"from the internal Census Edited File (CEF). The population figures for years 2022 are single-race estimates of the July 1"
+"resident population, from the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023. The 2022 series is"
+"based on the Modified Blended Base produced by the US Census Bureau in lieu of the April 1, 2020 decennial population count. The"
+"Modified Blended Base consists of the blend of Vintage 2020 postcensal population estimates for April 1, 2020, 2020 Demographic"
+"Analysis Estimates, and 2020 Census data from the internal Census Edited File (CEF). The population figures for years 2021 are"
+"single-race estimates of the July 1 resident population, based on the Blended Base produced by the US Census Bureau in lieu of"
+"the April 1, 2020 decennial population count, from the Vintage 2021 postcensal series released by the Census Bureau on June 30,"
+"2022. The population figures for year 2020 are single-race estimates of the July 1 resident population, from the Vintage 2020"
+"postcensal series based on April 2010 Census, released by the Census Bureau on July 27, 2021. The population figures for year"
+"2019 are single-race estimates of the July 1 resident population, from the Vintage 2019 postcensal series based on April 2010"
+"Census, released by the Census Bureau on June 25, 2020. The population figures for year 2018 are single-race estimates of the"
+"July 1 resident population, from the Vintage 2018 postcensal series based on April 2010 Census, released by the Census Bureau on"
+"June 20, 2019. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Population Data."
+"6. The population figures used in the calculation of death rates for the age group 'under 1 year' are the estimates of the"
+"resident population that is under one year of age. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Age"
+"Group."
+"7. Beginning with the 2018 data, changes have been implemented that affect the counts for ICD-10 cause of death codes O00-O99"
+"compared to previous practice. In addition, data for the cause of death codes O00-O99 for 2003 through 2017 reflect differences"
+"in information available to individual states and probable errors. Caution should be used in interpreting these data. More"
+"information can be found at: https://www.cdc.gov/nchs/maternal-mortality/."
+"8. On March 11, 2021, the 2019 mortality data on CDC WONDER was updated with the 2019 mortality data updated by NCHS on March 4,"
+"2021 to include corrected information for residents of Texas affecting 5 records previously coded to cause code *U01.4,"
+"Terrorism involving firearms (homicide). The underlying and multiple cause of death codes for 5 records were corrected in the"
+"2019 data. Underlying and multiple cause of death codes for those 5 records were recoded to Assault (homicide) by other and"
+"unspecified firearm discharge, ICD-10 code X95. The corrected final death records replaces the data released on December 22,"
+"2020."
+"9. Connecticut population estimates for 2022 and later years are reported for 9 planning regions as county equivalent areas,"
+"instead of the former 8 legacy counties in the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023,"
+"and in the Vintage 2023 postcensal series released by the Census Bureau on June 27, 2024. Populations estimates for the former"
+"counties are not available for 2022 and later years. More information:"
+"http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Connecticut-2022."

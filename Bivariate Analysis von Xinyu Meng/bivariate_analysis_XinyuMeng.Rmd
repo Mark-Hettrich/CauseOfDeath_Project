@@ -44,19 +44,20 @@ theme_set(theme_minimal())
 ```
 
 ```{r}
+df.15.causes <- read.csv("data causes of death/15 causes of death.csv")
 #Sort by Crude Rate and Select the Top 10
-top_10 <- df.15.causes %>%
-  filter(!is.na(Cause.of.death)) %>%
+top_5 <- df.15.causes %>%
+  filter(!is.na(Causes.of.Death)) %>%
   arrange(desc(Crude.Rate)) %>%
   head(5)
 
 #Sort by Crude Rate and Select the Top 10
-ggplot(top_10, aes(x = reorder(Cause.of.death, Crude.Rate), y = Crude.Rate)) +
+ggplot(top_5, aes(x = reorder(Causes.of.Death, Crude.Rate), y = Crude.Rate)) +
   geom_col(fill = "steelblue") +
   coord_flip() +
   labs(
-    title = "Top 10 Diseases by Crude Mortality Rate",
-    x = "Cause of Death",
+    title = "Top 5 Diseases by Crude Mortality Rate",
+    x = "Causes of Death",
     y = "Crude Rate (per 1000 population)"
   ) +
   theme_minimal()
@@ -65,8 +66,8 @@ ggplot(top_10, aes(x = reorder(Cause.of.death, Crude.Rate), y = Crude.Rate)) +
 
 ```{r}
 # read data
-male_data <- read.csv("15 causes of death_Male.csv")
-female_data <- read.csv("15 causes of death_Female.csv")
+male_data <- read.csv("data causes of death/15 causes of death_Male.csv")
+female_data <- read.csv("data causes of death/15 causes of death_Female.csv")
 
 #Add Gender Column
 male_data$Gender <- "Male"
@@ -110,10 +111,10 @@ print(p3)
 ```{r cars}
 #Age group and 15 causes of death
 #read data
-children_data <- read.csv("15 causes of death_Children.csv")
-young_adults_data <- read.csv("15 causes of deatha__Young_Adults.csv")
-adults_data <- read.csv("15 causes of death_Adults.csv")
-old_age_data <- read.csv("15 causes of death_Old_Age.csv")
+children_data <- read.csv("data causes of death/15 causes of death_Children.csv")
+young_adults_data <- read.csv("data causes of death/15 causes of deatha__Young_Adults.csv")
+adults_data <- read.csv("data causes of death/15 causes of death_Adults.csv")
+old_age_data <- read.csv("data causes of death/15 causes of death_Old_Age.csv")
 
 #Add Age Group Column
 children_data$Age_Group <- "Children"
@@ -247,9 +248,9 @@ ggplot(df_long, aes(x = AgeGroup, y = Crude_Rate, fill = Disease)) +
 
 ```{r cars}
 #Compare by different education
-college_higher <- read.csv("15 causes of death_College_Higher.csv", stringsAsFactors = FALSE)
-high_school <- read.csv("15 causes of death_high school.csv", stringsAsFactors = FALSE)
-under_12_grade <- read.csv("15 causes of death_under 12 grade.csv", stringsAsFactors = FALSE)
+college_higher <- read.csv("data causes of death/15 causes of death_College_Higher.csv", stringsAsFactors = FALSE)
+high_school <- read.csv("data causes of death/15 causes of death_high school.csv", stringsAsFactors = FALSE)
+under_12_grade <- read.csv("data causes of death/15 causes of death_under 12 grade.csv", stringsAsFactors = FALSE)
 
 college_higher <- college_higher %>% select(Cause.of.Death, Deaths)
 high_school <- high_school %>% select(Cause.of.Death, Deaths)
@@ -274,9 +275,9 @@ ggplot(df_long, aes(x = Cause.of.Death, y = Deaths, fill = Education_Level)) +
 ```
 
 ```{r cars}
-college_higher <- read.csv("15 causes of death_College_Higher.csv", stringsAsFactors = FALSE)
-high_school <- read.csv("15 causes of death_high school.csv", stringsAsFactors = FALSE)
-under_12_grade <- read.csv("15 causes of death_under 12 grade.csv", stringsAsFactors = FALSE)
+college_higher <- read.csv("data causes of death/15 causes of death_College_Higher.csv", stringsAsFactors = FALSE)
+high_school <- read.csv("data causes of death/15 causes of death_high school.csv", stringsAsFactors = FALSE)
+under_12_grade <- read.csv("data causes of death/15 causes of death_under 12 grade.csv", stringsAsFactors = FALSE)
 
 college_higher <- college_higher %>%
   select(Cause.of.Death, Deaths) %>%

@@ -1,0 +1,113 @@
+---
+title: "Cause of Death anaylsis"
+author:
+- 'Projektpartner: Prof. Dr. Li'
+- 'Betreuer: Helen Alber'
+date: "2025-03-19"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Packages, include=FALSE}
+library(here)
+library(ggplot2)
+library(readr)
+library(dplyr)
+library(patchwork)
+options(scipen=999) #normale Zahlen statt 2e+05 oder so
+```
+
+```{r Univariate Analysis, include=FALSE}
+plot1 <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  labs(title = "Sepal Length vs Sepal Width in Iris Dataset") +
+  theme_minimal()
+```
+
+```{r Bivariate Analysis, include=FALSE}
+
+```
+
+```{r Hypothesis Tests, include=FALSE}
+
+```
+
+```{r Model, include=FALSE}
+
+```
+
+## Outline
+- Research Question
+- About our Data
+- Methodology
+- Univariate Analysis --> Data Overview
+- Bivariate Analysis --> Methods & Interactions ()
+- Hypothesis tests --> Questions & Answers / Methodology  --> One Way Anova, Tukey HSD tests (one example)
+- Model Ideas and early implementation  --> Methodology
+
+
+## Research Question
+- Epidemological Studies / Sociologigac Sceince --> which field are we in ??
+- Exploratory Role
+- Main question is the influence of the socioeconomic status on the mortality rate of certain diseases
+- Goal: build, if possible, one model that returns the probability of dying from a disease given socioeconomic status and other variables that may have an influence on the mortality.
+
+
+## About our Data
+- Data is provided through data querying system run by the CDC (Centers for Disease Control and Prevention): wonder.cdc.gov
+- We use the dataset from 2018-2023 focused on the underlying causes of death
+- datasets are provided pre-grouped
+- The underlying causes of death are defined and operationalised according to ICD-10 and are to be analysed as mortality rates as a variable of geographical areas
+- The socioeconomic status is operationalised by the highest attained education
+- Population size is mostly, but not always given
+- Varibales of Interest: Year, Year&Month, Age Groups, Sex, Single Race 6, Education, Urbanization level, States
+
+
+## What Methodology are we using?
+- Univariate Analysis
+- Bivariate Analysis
+- Hypothesis Tests
+- Creation of a Model
+
+
+## Univariate Analysis
+- Exploring Variables across Top 5 Cause of Deaths & Total Deaths one at a time
+- Variables: Year, Year&Month, Age Groups, Sex, Single Race 6, Education, Urbanization level, States
+
+## PLot 1 to Explain Data: Total Deaths
+```{r Plot1, echo=FALSE}
+plot1
+```
+
+## Plot 2 To Explain Datastructure: Top 5 Cause of Deaths
+
+## Bivariate Analysis: Quick overview of what is being done
+- Education levels & Deathcause plot as example
+
+## Hypothisis testing
+- One Way Anova 
+- Tukey HSD
+
+## Hypthosis Test example
+
+## Model Overview
+- Our task was to build a model that returns a probability for every relevant cause of death
+- The regression framework can be used here
+- (Leading) Causes of Death is a nominal scaled variable.
+- So we chose a multinomial logit regression model:
+$$
+P(Y_i = r) = \frac{exp(\textbf{x}_i\textbf{ß}_r)}{1 + \sum_{s=1}^{c}exp(\textbf{x}_i\textbf{ß}_s)}, r= 1,...,c
+$$
+- The covariates we want to control for are (amongst others) age, region, gender, seasonality
+- Caveat: Our data source restricts the download of too large datasets
+- Caveat: We have access to aggregated data only
+
+## 
+
