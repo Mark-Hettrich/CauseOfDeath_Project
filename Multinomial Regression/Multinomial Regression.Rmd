@@ -1,0 +1,81 @@
+---
+title: "Mortality Multinomial Regression"
+author: "Lennart Gerle"
+date: "2025-03-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+library(ggplot2)
+library(readr)
+library(dplyr)
+library(stringr)
+library(nnet)
+options(scipen=999) #normale Zahlen statt wissenschaftlicher Notation
+rm(list = ls())
+
+```
+
+
+```{r mortality others}
+mortality_education_raw <- read.delim("Overall_Death_Education.txt")
+mortality_education <- mortality_education_raw %>% 
+  select(ICD.10.113.Cause.List, Education, Deaths) %>%
+  filter(str_starts(ICD.10.113.Cause.List, "#")) #Only keep rankable cause of deaths...Total?
+
+all_causes <- sort(unique(mortality_education$ICD.10.113.Cause.List))
+all_causes 
+main_causes <- c("#Diseases of heart (I00-I09,I11,I13,I20-I51)", 
+                "#Malignant neoplasms (C00-C97)", "#COVID-19 (U07.1)",
+                "#Cerebrovascular diseases (I60-I69)",
+                "#Accidents (unintentional injuries) (V01-X59,Y85-Y86)") 
+
+mortality_education <- mortality_education %>%
+   mutate(ICD.10.113.Cause.List = if_else(ICD.10.113.Cause.List %in% main_causes, ICD.10.113.Cause.List, "Others")) %>%
+  group_by(ICD.10.113.Cause.List, Education) %>%
+  summarise(Deaths = sum(Deaths))
+
+mortality_education <- mortality_education %>%
+  mutate(Deaths_rel = Deaths / sum(Deaths))
+
+mortality_education <- mortality_education %>%
+  mutate(ICD.10.113.Cause.List = factor(ICD.10.113.Cause.List))
+
+model <- multinom(ICD.10.113.Cause.List ~ Education, data = mortality_education)
+model
+```
+
+
+```{r leading causes and education}
+causes_education_raw <- read.delim("Causes and Education.txt")
+causes_education <- causes_education_raw %>%
+  filter(complete.cases(.)) %>%
+  select(ICD.10.113.Cause.List, Education, Deaths, Education.Code) %>% 
+  rename(cause_of_death = ICD.10.113.Cause.List,
+         education = Education,
+         education_code = Education.Code,
+         deaths = Deaths) %>%
+  filter(!str_detect(education, "Available")) %>%
+  filter(!str_detect(education, "Unknown")) %>%
+  mutate(education = recode(education,
+                      "9th through 12th grade with no diploma" = "9th through 12th grade",
+                      "High school graduate or GED completed" = "High school degree",
+                      "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)" = "Doctorate"
+)) %>%
+    mutate(education = case_when(
+    grepl("Master", education) ~ "Master",
+    grepl("Bachelor", education) ~ "Bachelor",
+    TRUE ~ education
+  )) %>%
+  mutate(cause_of_death = factor(cause_of_death),
+         education_code = factor(education_code))
+
+model <- multinom(cause_of_death ~ education_code, data = causes_education, weights = deaths)
+
+summary(model)
+
+exp(coef(model))
+```
+
