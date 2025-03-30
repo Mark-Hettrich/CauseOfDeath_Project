@@ -1,0 +1,92 @@
+"Notes"	"Education"	"Education Code"	"ICD-10 113 Cause List"	"ICD-10 113 Cause List Code"	Deaths	Population	Crude Rate
+	"8th grade or less"	"1"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	110772	Not Applicable	Not Applicable
+	"8th grade or less"	"1"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	160433	Not Applicable	Not Applicable
+	"8th grade or less"	"1"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	43413	Not Applicable	Not Applicable
+	"8th grade or less"	"1"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	45408	Not Applicable	Not Applicable
+	"8th grade or less"	"1"	"#COVID-19 (U07.1)"	"GR113-137"	67455	Not Applicable	Not Applicable
+	"9th through 12th grade with no diploma"	"2"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	150015	Not Applicable	Not Applicable
+	"9th through 12th grade with no diploma"	"2"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	187920	Not Applicable	Not Applicable
+	"9th through 12th grade with no diploma"	"2"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	41689	Not Applicable	Not Applicable
+	"9th through 12th grade with no diploma"	"2"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	92514	Not Applicable	Not Applicable
+	"9th through 12th grade with no diploma"	"2"	"#COVID-19 (U07.1)"	"GR113-137"	63712	Not Applicable	Not Applicable
+	"High school graduate or GED completed"	"3"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	753500	Not Applicable	Not Applicable
+	"High school graduate or GED completed"	"3"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	908265	Not Applicable	Not Applicable
+	"High school graduate or GED completed"	"3"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	209232	Not Applicable	Not Applicable
+	"High school graduate or GED completed"	"3"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	307546	Not Applicable	Not Applicable
+	"High school graduate or GED completed"	"3"	"#COVID-19 (U07.1)"	"GR113-137"	282683	Not Applicable	Not Applicable
+	"Some college credit, but not a degree."	"4"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	247725	Not Applicable	Not Applicable
+	"Some college credit, but not a degree."	"4"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	263634	Not Applicable	Not Applicable
+	"Some college credit, but not a degree."	"4"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	60211	Not Applicable	Not Applicable
+	"Some college credit, but not a degree."	"4"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	89363	Not Applicable	Not Applicable
+	"Some college credit, but not a degree."	"4"	"#COVID-19 (U07.1)"	"GR113-137"	83130	Not Applicable	Not Applicable
+	"Associate degree (AA,AS)"	"5"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	142030	Not Applicable	Not Applicable
+	"Associate degree (AA,AS)"	"5"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	137779	Not Applicable	Not Applicable
+	"Associate degree (AA,AS)"	"5"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	32748	Not Applicable	Not Applicable
+	"Associate degree (AA,AS)"	"5"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	39279	Not Applicable	Not Applicable
+	"Associate degree (AA,AS)"	"5"	"#COVID-19 (U07.1)"	"GR113-137"	46471	Not Applicable	Not Applicable
+	"Bachelor?s degree (BA, AB, BS)"	"6"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	245338	Not Applicable	Not Applicable
+	"Bachelor?s degree (BA, AB, BS)"	"6"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	235014	Not Applicable	Not Applicable
+	"Bachelor?s degree (BA, AB, BS)"	"6"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	58521	Not Applicable	Not Applicable
+	"Bachelor?s degree (BA, AB, BS)"	"6"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	54065	Not Applicable	Not Applicable
+	"Bachelor?s degree (BA, AB, BS)"	"6"	"#COVID-19 (U07.1)"	"GR113-137"	63972	Not Applicable	Not Applicable
+	"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)"	"7"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	109755	Not Applicable	Not Applicable
+	"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)"	"7"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	100628	Not Applicable	Not Applicable
+	"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)"	"7"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	26019	Not Applicable	Not Applicable
+	"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)"	"7"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	19477	Not Applicable	Not Applicable
+	"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)"	"7"	"#COVID-19 (U07.1)"	"GR113-137"	24982	Not Applicable	Not Applicable
+	"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"	"8"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	42635	Not Applicable	Not Applicable
+	"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"	"8"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	41738	Not Applicable	Not Applicable
+	"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"	"8"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	10731	Not Applicable	Not Applicable
+	"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"	"8"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	7907	Not Applicable	Not Applicable
+	"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"	"8"	"#COVID-19 (U07.1)"	"GR113-137"	9520	Not Applicable	Not Applicable
+	"Unknown or Not Stated"	"9"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	25166	Not Applicable	Not Applicable
+	"Unknown or Not Stated"	"9"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	43997	Not Applicable	Not Applicable
+	"Unknown or Not Stated"	"9"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	8358	Not Applicable	Not Applicable
+	"Unknown or Not Stated"	"9"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	19113	Not Applicable	Not Applicable
+	"Unknown or Not Stated"	"9"	"#COVID-19 (U07.1)"	"GR113-137"	11452	Not Applicable	Not Applicable
+	"Not Available"	"10"	"#Malignant neoplasms (C00-C97)"	"GR113-019"	1801225	Not Applicable	Not Applicable
+	"Not Available"	"10"	"#Diseases of heart (I00-I09,I11,I13,I20-I51)"	"GR113-054"	2011384	Not Applicable	Not Applicable
+	"Not Available"	"10"	"#Cerebrovascular diseases (I60-I69)"	"GR113-070"	458079	Not Applicable	Not Applicable
+	"Not Available"	"10"	"#Accidents (unintentional injuries) (V01-X59,Y85-Y86)"	"GR113-112"	541122	Not Applicable	Not Applicable
+	"Not Available"	"10"	"#COVID-19 (U07.1)"	"GR113-137"	350831	Not Applicable	Not Applicable
+"---"
+"Dataset: Underlying Cause of Death, 2018-2023, Single Race"
+"Query Parameters:"
+"ICD-10 113 Cause List: #Malignant neoplasms (C00-C97); #Diseases of heart (I00-I09,I11,I13,I20-I51); #Cerebrovascular diseases"
+"(I60-I69); #Accidents (unintentional injuries) (V01-X59,Y85-Y86); #COVID-19 (U07.1)"
+"Group By: Education; ICD-10 113 Cause List"
+"Show Totals: Disabled"
+"Show Zero Values: False"
+"Show Suppressed: False"
+"Calculate Rates Per: 100,000"
+"Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups)"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/ucd-expanded.html for more information."
+"---"
+"Query Date: Mar 18, 2025 6:53:43 PM"
+"---"
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics"
+"System, Mortality 2018-2023 on CDC WONDER Online Database, released in 2024. Data are from the Multiple Cause of Death Files,"
+"2018-2023, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative"
+"Program. Accessed at http://wonder.cdc.gov/ucd-icd10-expanded.html on Mar 18, 2025 6:53:43 PM"
+"---"
+Messages:
+"1. Totals and Percent of Total are disabled when data are grouped by 113 or 130 Cause Lists. Check Caveats below for more"
+"information."
+"---"
+Caveats:
+"1. Totals and Percent of Total are disabled when data are grouped by a 113 or 130 Cause List because both aggregate and detailed"
+"values are displayed in the table. Also be aware that charts and maps containing both aggregate and detail data could be"
+"misleading."
+"2. Population and rates are labeled 'Not Applicable' when Autopsy, Place of Death, Education, Industry, Usual Occupation,"
+"Weekday or Month are grouped by or limited, due to lack of a valid population. More information:"
+"http://wonder.cdc.gov/wonder/help/ucd-expanded.html#NotApplicableRates."
+"3. Beginning with the 2018 data, changes have been implemented that affect the counts for ICD-10 cause of death codes O00-O99"
+"compared to previous practice. In addition, data for the cause of death codes O00-O99 for 2003 through 2017 reflect differences"
+"in information available to individual states and probable errors. Caution should be used in interpreting these data. More"
+"information can be found at: https://www.cdc.gov/nchs/maternal-mortality/."
+"4. Connecticut population estimates for 2022 and later years are reported for 9 planning regions as county equivalent areas,"
+"instead of the former 8 legacy counties in the Vintage 2022 postcensal series released by the Census Bureau on June 22, 2023,"
+"and in the Vintage 2023 postcensal series released by the Census Bureau on June 27, 2024. Populations estimates for the former"
+"counties are not available for 2022 and later years. More information:"
+"http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Connecticut-2022."
