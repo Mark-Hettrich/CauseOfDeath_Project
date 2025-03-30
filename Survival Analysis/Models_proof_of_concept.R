@@ -14,18 +14,17 @@ library(cmprsk)
 library(broom)
 library(splines)
 library(purrr)
+options(scipen = 999)
 
 
 file_path <- here("Survival Analysis", "test_data2.csv")
 df <- read_csv(file_path)
 df <- df[-1]
 df
-View(df)
-
+summary(df) #keine Population Anzahl über 85
 
 # Prep data
 df <- df %>%
-  filter(!is.na(Deaths), !is.na(Population)) %>%
   mutate(
     age = as.numeric(`Single-Year Ages Code`),                        
     Sex = factor(Sex),
@@ -40,10 +39,10 @@ ref_rate <- agg$DeathRate[agg$ICD_Chapter == "Codes for special purposes"]
 agg$RateRatio_vs_Special <- agg$DeathRate / ref_rate
 
 
-# Piecewise Exponential Model / Poisson Regression for Grouped Survival Data, maybe with age groups?
+## Piecewise Exponential Model / Poisson Regression for Grouped Survival Data, maybe with age groups?
 model1 <- glm(Deaths ~ Sex + ICD_Chapter + age, 
     family = poisson(link = "log"), 
-    offset = log(as.numeric(Population)),
+    offset = log(as.numeric(Population)), #problem with using Population as offset: we dont have the population for ages 85-100+
     data = df)
 summary(model1) # Very high Dispersion (overdispersion), --> we switch to negative binomial model
 
@@ -89,7 +88,7 @@ total_deaths <- sum(cause_totals$Deaths)
 cause_totals$Probability <- cause_totals$Deaths / total_deaths
 
 #Model:
-multi_model <- multinom(ICD_Chapter ~ Sex + age, data = df, weights = Deaths)
+multi_model <- nnet::multinom(ICD_Chapter ~ Sex + age, data = df, weights = Deaths)
 
 # Predict for values
 newdata <- data.frame(Sex = "Male", age = 65)

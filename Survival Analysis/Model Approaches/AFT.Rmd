@@ -1,0 +1,448 @@
+```{r Packages}
+library(dplyr)
+library(readxl)
+library(tidyr)
+library(broom)
+library(survival)
+library(ggplot2)
+```
+
+
+What we need in the future:
+- A Population so that we can model individual Risk instead of the Counts which are heavily influenced by Population size
+- Deaths per 100k Population column which we use for our models
+- Add "other" to make it the reference category
+```{r load Data}
+#load Top_5_Death dataset first
+df <- Top_5_Death
+```
+
+We need individual data points for AFT Models
+--> We split up the death count into individual data points, so that a data point represents 100 Deaths, remove the reduction for final model
+- Then we modify the Data, so that it is compatible with AFT Models
+```{r prepare Data}
+reduced_deaths <- df %>%
+    mutate(Deaths = Deaths / 100) %>%
+    mutate(Deaths = round(Deaths))
+
+expanded_deaths <- reduced_deaths %>%
+  rename(
+    Age = `Single-Year Ages Code`,
+    CoD = `Cause of Death`
+  ) %>%
+  mutate(
+    Urbanization = as.factor(Urbanization),
+    CoD = as.factor(CoD),
+    Sex = as.factor(Sex)
+  ) %>%
+  uncount(weights = Deaths) %>%
+  mutate(status = 1)
+
+aft_data <- expanded_deaths %>%
+  filter(!is.na(Age) & Age > 0)
+```
+
+```{r Models, all interactions}
+# Weibull
+aft_weibull <- survreg(Surv(Age) ~ Sex * CoD + Sex * Urbanization + CoD*Urbanization, data = aft_data, dist = "weibull")
+
+# Log-normal
+aft_lognormal <- survreg(Surv(Age) ~ Sex * CoD + Sex * Urbanization + CoD*Urbanization, data = aft_data, dist = "lognormal")
+
+# Log-logistic
+aft_loglogistic <- survreg(Surv(Age) ~ Sex * CoD + Sex * Urbanization + CoD*Urbanization, data = aft_data, dist = "loglogistic")
+
+# Exponential
+aft_exponential <- survreg(Surv(Age) ~ Sex * CoD + Sex * Urbanization + CoD*Urbanization, data = aft_data, dist = "exponential")
+
+#show the reference Category
+levels(aft_data$Sex)[1]
+levels(aft_data$CoD)[1]
+levels(aft_data$Urbanization)[1]
+
+#lognormal has the correct intercept
+```
+```{r Best Model}
+#compare with AIC
+AIC(aft_weibull, aft_lognormal, aft_loglogistic, aft_exponential)
+
+#compare log.likelihoods
+logLik(aft_weibull)
+logLik(aft_lognormal)
+logLik(aft_loglogistic)
+logLik(aft_exponential)
+
+#Weibull is best
+```
+
+later: do this for every distribution
+```{r Other Weibull Models}
+# aft_weibull <- survreg(Surv(Age) ~ Sex * CoD + Sex * Urbanization + CoD*Urbanization, data = aft_data, dist = "weibull")
+aft_weibull2 <- survreg(Surv(Age) ~ Sex + CoD + Urbanization, data = aft_data, dist = "weibull")
+aft_weibull3 <- survreg(Surv(Age) ~ Sex * CoD + CoD*Urbanization, data = aft_data, dist = "weibull")
+aft_weibull4 <- survreg(Surv(Age) ~ Sex * Urbanization, data = aft_data, dist = "weibull")
+
+AIC(aft_weibull, aft_weibull2, aft_weibull3, aft_weibull4) #aft_weibull3 might be the best due to lower risk of overfitting and little difference in AIC
+```
+
+
+```{r Coefficients & Numbers}
+summary(aft_weibull3)
+exp(coef(summary(aft_weibull3)))
+
+#To analyse differences between predictions
+predict_diff <- function(sex1, sex2, cod, urb) {
+  predict(aft_weibull3, newdata = data.frame(Sex = sex1, CoD = cod, Urbanization = urb)) -
+    predict(aft_weibull3, newdata = data.frame(Sex = sex2, CoD = cod, Urbanization = urb))
+}
+# Example:
+predict_diff("Male", "Female", "Malignant neoplasms", "Small Metro")
+
+#Get expected Age:
+predicted_age <- function(sex, cod, urb, data = aft_data) {
+predict(aft_weibull3, newdata = data.frame(
+  Sex = "Female",
+  CoD = "Diseases of heart",
+  Urbanization = "Large Central Metro"
+))
+}
+#Validate on actual data:
+get_observed_age_summary <- function(sex, cod, urb, data = aft_data) {
+  data %>%
+    filter(
+      Sex == sex,
+      CoD == cod,
+      Urbanization == urb
+    ) %>%
+    summarise(
+      mean_age = mean(Age),
+      median_age = median(Age),
+      count = n()
+    )
+}
+predicted_age(sex, cod, urb, data = aft_data)
+get_observed_age_summary(sex = "Female", cod = "Malignant neoplasms", urb = "Small Metro")
+#not that great, test with other distributions and adjusted Population
+```
+
+
+
+```{r Residual Plots}
+#Deviance residuals
+plot(residuals(aft_weibull3), main = "Deviance Residuals")
+abline(h = 0, col = "red", lty = 2)
+
+#Standardized Lg Residuals:
+my_resid <- log(aft_data$Age) - aft_weibull3$linear.predictors
+scale_param <- aft_weibull3$scale  # Extracts the scale (σ) from the model
+my_std_resid <- my_resid / scale_param
+plot(my_std_resid, main = "Standardized Log-Residuals")
+abline(h = 0, col = "red", lty = 2)
+
+
+#QQ Plot of Residuals
+qqnorm(my_resid, main = "QQ Plot of Log-Residuals")
+qqline(my_resid)
+qqnorm(residuals(aft_weibull3), main = "QQ Plot of Deviance Residuals")
+qqline(residuals(aft_weibull3))
+
+
+#Predicted vs Observed
+pred <- predict(aft_weibull3, type = "response")  # Predicted Age
+obs <- aft_data$Age
+plot(pred, obs, xlab = "Predicted Age", ylab = "Observed Age", main = "Predicted vs. Observed")
+abline(0, 1, col = "red")
+
+#Residuals by Group
+aft_data$resid <- residuals(aft_weibull3)
+ggplot(aft_data, aes(x = 1:nrow(aft_data), y = resid, color = Sex)) +
+  geom_point(alpha = 0.5, size = 0.3) +
+  theme_minimal() +
+  labs(title = "Residuals by Sex", x = "Observation", y = "Residual")
+
+#Histogram of Residuals
+hist(my_resid, breaks = 100, main = "Histogram of Log-Residuals", xlab = "Residual")
+
+#Deviance Residual Plot, showing grouped residuals
+aft_data$resid <- residuals(aft_weibull3)
+ggplot(aft_data, aes(x = 1:nrow(aft_data), y = resid, color = CoD)) +
+  geom_point(alpha = 0.5, size = 0.3) +
+  theme_minimal() +
+  labs(title = "Residuals by Cause of Death", x = "Observation", y = "Residual")
+
+#big problems with multiple death causes, makes sense, as different death causes are affected differently by socio-demographic factors
+# => Split them up
+```
+```{r Residuals for loglogistic}
+#Deviance residuals
+plot(residuals(aft_loglogistic), main = "Deviance Residuals")
+abline(h = 0, col = "red", lty = 2)
+
+#Raw Lg Residuals:
+my_resid <- log(aft_data$Age) - aft_loglogistic$linear.predictors
+plot(my_resid, main = "Raw Log-Residuals")
+abline(h = 0, col = "red", lty = 2)
+
+#QQ Plot of Residuals
+qqnorm(my_resid, main = "QQ Plot of Log-Residuals")
+qqline(my_resid)
+qqnorm(residuals(aft_loglogistic), main = "QQ Plot of Deviance Residuals")
+qqline(residuals(aft_loglogistic))
+
+
+#Predicted vs Observed
+pred <- predict(aft_loglogistic, type = "response")  # Predicted Age
+obs <- aft_data$Age
+plot(pred, obs, xlab = "Predicted Age", ylab = "Observed Age", main = "Predicted vs. Observed")
+abline(0, 1, col = "red")
+
+#Residuals by Group
+aft_data$resid <- residuals(aft_loglogistic)
+ggplot(aft_data, aes(x = 1:nrow(aft_data), y = resid, color = Sex)) +
+  geom_point(alpha = 0.5, size = 0.3) +
+  theme_minimal() +
+  labs(title = "Residuals by Sex", x = "Observation", y = "Residual")
+
+#Histogram of Residuals
+hist(my_resid, breaks = 100, main = "Histogram of Log-Residuals", xlab = "Residual")
+
+#Deviance Residual Plot, showing grouped residuals
+aft_data$resid <- residuals(aft_loglogistic)
+ggplot(aft_data, aes(x = 1:nrow(aft_data), y = resid, color = CoD)) +
+  geom_point(alpha = 0.5, size = 0.3) +
+  theme_minimal() +
+  labs(title = "Residuals by Cause of Death", x = "Observation", y = "Residual")
+```
+
+```{r Can we fix it by splitting up death groups into multiple models?}
+#Accidents
+aft_accidents_weibull <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Accidents (unintentional injuries)"),
+  dist = "weibull"
+)
+aft_accidents_exponential <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Accidents (unintentional injuries)"),
+  dist = "exponential"
+)
+aft_accidents_lognormal <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Accidents (unintentional injuries)"),
+  dist = "lognormal"
+)
+aft_accidents_loglogistic <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Accidents (unintentional injuries)"),
+  dist = "loglogistic"
+)
+
+# Cerebro
+aft_cerebro_weibull <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Cerebrovascular diseases"),
+  dist = "weibull"
+)
+aft_cerebro_exponential <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Cerebrovascular diseases"),
+  dist = "exponential"
+)
+aft_cerebro_lognormal <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Cerebrovascular diseases"),
+  dist = "lognormal"
+)
+aft_cerebro_loglogistic <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Cerebrovascular diseases"),
+  dist = "loglogistic"
+)
+
+#Covid
+aft_covid_weibull <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "COVID-19"),
+  dist = "weibull"
+)
+aft_covid_exponential <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "COVID-19"),
+  dist = "exponential"
+)
+aft_covid_lognormal <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "COVID-19"),
+  dist = "lognormal"
+)
+aft_covid_loglogistic <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "COVID-19"),
+  dist = "loglogistic"
+)
+
+#Heart Disease
+aft_heart_weibull <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Diseases of heart"),
+  dist = "weibull"
+)
+aft_heart_exponential <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Diseases of heart"),
+  dist = "exponential"
+)
+aft_heart_lognormal <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Diseases of heart"),
+  dist = "lognormal"
+)
+aft_heart_loglogistic <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Diseases of heart"),
+  dist = "loglogistic"
+)
+
+#Malignant Neoplasms
+aft_neoplasms_weibull <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Malignant neoplasms"),
+  dist = "weibull"
+)
+aft_neoplasms_exponential <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Malignant neoplasms"),
+  dist = "exponential"
+)
+aft_neoplasms_lognormal <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Malignant neoplasms"),
+  dist = "lognormal"
+)
+aft_neoplasms_loglogistic <- survreg(
+  Surv(Age) ~ Sex * Urbanization,
+  data = aft_data %>% filter(CoD == "Malignant neoplasms"),
+  dist = "loglogistic"
+)
+```
+
+```{r best Models}
+AIC(aft_accidents_weibull, aft_accidents_exponential, aft_accidents_lognormal, aft_accidents_loglogistic)
+AIC(aft_cerebro_weibull, aft_cerebro_exponential, aft_cerebro_lognormal, aft_cerebro_loglogistic)
+AIC(aft_covid_weibull, aft_covid_exponential, aft_covid_lognormal, aft_covid_loglogistic)
+AIC(aft_heart_weibull, aft_heart_exponential, aft_heart_lognormal, aft_heart_loglogistic)
+AIC(aft_neoplasms_weibull, aft_neoplasms_exponential, aft_neoplasms_lognormal, aft_neoplasms_loglogistic)
+#Weibull is best for everyone
+```
+
+```{r Coefficients}
+summary(aft_accidents_weibull)
+summary(aft_cerebro_weibull)
+summary(aft_covid_weibull)
+summary(aft_heart_weibull)
+summary(aft_neoplasms_weibull)
+
+exp(coef(aft_accidents_weibull))
+exp(coef(aft_cerebro_weibull))
+exp(coef(aft_covid_weibull))
+exp(coef(aft_heart_weibull))
+exp(coef(aft_neoplasms_weibull))
+```
+```{r Compare with actual Values, example Heart Disease}
+#To analyse differences between predictions
+predict_diff <- function(sex1, sex2, urb) {
+  predict(aft_heart_weibull, newdata = data.frame(Sex = sex1,  Urbanization = urb)) -
+    predict(aft_heart_weibull, newdata = data.frame(Sex = sex2, Urbanization = urb))
+}
+# Example:
+predict_diff("Male", "Female", "Small Metro")
+
+#Get expected Age:
+predicted_age <- function(sex, urb, data = aft_data) {
+predict(aft_heart_weibull, newdata = data.frame(
+  Sex = "Female",
+  Urbanization = "Large Central Metro"
+))
+}
+#Validate on actual data:
+get_observed_age_summary <- function(sex, urb, data = aft_data) {
+  data %>%
+    filter(
+      Sex == sex,
+      Urbanization == urb
+    ) %>%
+    summarise(
+      mean_age = mean(Age),
+      median_age = median(Age),
+      count = n()
+    )
+}
+predicted_age(sex, urb, data = aft_data)
+get_observed_age_summary(sex = "Female", urb = "Small Metro")
+
+#not that great, test with other distributions and adjusted Population
+```
+
+```{r Residuals}
+# Define models using new variable names
+models <- list(
+  "Accidents (unintentional injuries)" = aft_accidents_weibull,
+  "Cerebrovascular diseases" = aft_cerebro_weibull,
+  "COVID-19" = aft_covid_weibull,
+  "Diseases of heart" = aft_heart_weibull,
+  "Malignant neoplasms" = aft_neoplasms_weibull
+)
+
+# Loop through each model and generate diagnostic plots
+for (cod in names(models)) {
+  model <- models[[cod]]
+  data_subset <- aft_data %>% filter(CoD == cod)
+  
+  # Residuals
+  raw_log_resid <- log(data_subset$Age) - model$linear.predictors
+  std_log_resid <- raw_log_resid / model$scale
+  dev_resid <- residuals(model)
+  pred_age <- predict(model, type = "response")
+  obs_age <- data_subset$Age
+
+  # Plot layout
+  par(mfrow = c(2, 3))
+  
+  # 1. Deviance residuals
+  plot(dev_resid, main = paste("Deviance Residuals -", cod), ylab = "Residual")
+  abline(h = 0, col = "red", lty = 2)
+  
+  # 2. Standardized log-residuals
+  plot(std_log_resid, main = paste("Standardized Log-Residuals -", cod), ylab = "Residual")
+  abline(h = 0, col = "red", lty = 2)
+  
+  # 3. QQ Plot of Log-Residuals
+  qqnorm(raw_log_resid, main = paste("QQ Plot of Log-Residuals -", cod))
+  qqline(raw_log_resid)
+  
+  # 4. QQ Plot of Deviance Residuals
+  qqnorm(dev_resid, main = paste("QQ Plot of Deviance Residuals -", cod))
+  qqline(dev_resid)
+  
+  # 5. Predicted vs Observed
+  plot(pred_age, obs_age,
+       xlab = "Predicted Age", ylab = "Observed Age",
+       main = paste("Predicted vs Observed -", cod))
+  abline(0, 1, col = "red")
+  
+  # 6. Histogram of Log-Residuals
+  hist(raw_log_resid, breaks = 50, main = paste("Histogram -", cod), xlab = "Log-Residual")
+  
+  # Pause between plots
+  readline(prompt = paste0("Press [Enter] to continue to ", cod, "..."))
+}
+#couldnt fix it, still bad. Even with other distributions
+```
+
+
+
+
+
+
+
+
