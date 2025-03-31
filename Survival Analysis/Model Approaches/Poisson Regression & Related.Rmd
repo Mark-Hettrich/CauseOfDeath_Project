@@ -29,15 +29,11 @@ df <- df %>%
     CoD = factor(`Cause of Death`),
     urb = factor(Urbanization)
   )
-#zero Inflated Data?
-ggplot(df, aes(x = Deaths)) +
-  geom_histogram(binwidth = 1, fill = "skyblue", color = "black") +
-  scale_x_continuous(breaks = 0:max(df$Deaths)) +
-  labs(title = "Histogram of Death Counts",
-       x = "Deaths",
-       y = "Frequency") +
-  theme_minimal()
-#yes, data is Zero Inflated
+df <- df %>% 
+  filter(!is.na(age))
+summary(df)
+
+
 ```
 ```{r Poisson regression & Dispersion Calculation}
 poisson_model <- glm(Deaths ~ age + Urbanization + Sex+  CoD,
@@ -55,43 +51,89 @@ Negative Binomial Model
 ```{r}
 nb_model <- glm.nb(Deaths ~ age + Sex + CoD + Urbanization, data = df)
 summary(nb_model)
+
+# Compare predicted zeros from NB vs observed zeros
+mean(df$Deaths == 0)                        # Observed zero rate
+mean(predict(nb_model, type = "response") < 0.5)  # Predicted near-zero rate
+
+# Plot
+hist(predict(nb_model, type = "response"), breaks = 100,
+     main = "Predicted Death Counts (NB model)", xlab = "Predicted count")
+#yes, data is Zero Inflated
 ```
 Zero Inflated Negative Binomial
 ```{r}
-zinb_model <- zeroinfl(Deaths ~ age + Sex + CoD + Urbanization, link = "logit", dist = "negbin", data = df)
+zinb_model <- zeroinfl(Deaths ~ age + Sex + CoD + Urbanization, link = "logit", dist = "negbin", data = df %>% filter(!is.na("Age")))
 summary(zinb_model)
+exp(coefficients(zinb_model))
 ```
 
-Split up by Death Causes
+```{r Advanced Models}
+zinb_full = zeroinfl(
+  Deaths ~ ns(age, 3) + Sex * CoD + CoD * Urbanization |
+  Sex + Urbanization,
+  data = df, dist = "negbin"
+)
+zinb_stable <- zeroinfl(
+  Deaths ~ ns(age, 3) * Sex * CoD + CoD * Urbanization |
+  age + Sex + Urbanization,
+  data = df, dist = "negbin",
+  control = zeroinfl.control(method = "BFGS", maxit = 1000)
+)
+zinb_final <- zeroinfl(
+  Deaths ~ ns(age, 3) * Sex * CoD + CoD * Urbanization |
+  age + Sex + Urbanization + CoD,
+  data = df, dist = "negbin",
+)
+zinb_final2 <- zeroinfl(
+  Deaths ~ ns(age, 3) * Sex * CoD + CoD * Urbanization |
+  age + Sex + Urbanization,
+  data = df, dist = "negbin",
+)
+model <- CoD ~ 
+```
+
 ```{r}
-
+AIC(zinb_full, zinb_stable, zinb_final, zinb_final2)
 ```
+
+```{r}
+summary(zinb_final)
+exp(coefficients(zinb_model))
+```
+
 
 Residual PLots
 ```{r}
-# --- Fit ZINB Model ---
-zinb_model <- zeroinfl(Deaths ~ age + Sex + CoD + Urbanization | 1,
-                       data = df,
-                       dist = "negbin",
-                       link = "logit")
-
-# --- Extract model data and outputs ---
-model_data <- zinb_model$model  # Only the rows used by the model
+# --- Extract model predictions and residuals ---
+model_data <- zinb_final$model
 model_results <- data.frame(
   row_id = as.numeric(rownames(model_data)),
-  predicted = predict(zinb_model, type = "response"),
-  resid = residuals(zinb_model, type = "pearson")
+  predicted = predict(zinb_final, type = "response"),
+  resid = residuals(zinb_final, type = "pearson")
 )
 
-# --- Add a row_id to original df ---
+# --- Merge with original data ---
 df$row_id <- as.numeric(rownames(df))
-
-# --- Merge model results back to full data safely ---
 df_with_results <- left_join(df, model_results, by = "row_id")
 
-# --- Plot: Predicted vs Observed ---
-plot(df_with_results$predicted, df_with_results$Deaths,
-     xlab = "Predicted Deaths", ylab = "Observed Deaths",
+# --- Add standardized residuals, flags, and sorted indices ---
+df_with_results <- df_with_results %>%
+  mutate(
+    std_resid = resid / sqrt(predicted),
+    outlier = abs(resid) > 4
+  ) %>%
+  arrange(predicted) %>%
+  mutate(index = row_number()) %>%
+  group_by(CoD) %>%
+  mutate(index_within_CoD = row_number()) %>%
+  ungroup()
+
+# --- Predicted vs Observed (log-log) ---
+log_plot_data <- df_with_results %>% filter(predicted > 0, Deaths > 0)
+plot(log_plot_data$predicted, log_plot_data$Deaths,
+     log = "xy",
+     xlab = "Predicted Deaths (log scale)", ylab = "Observed Deaths (log scale)",
      main = "Predicted vs. Observed Deaths")
 abline(0, 1, col = "red")
 
@@ -99,33 +141,38 @@ abline(0, 1, col = "red")
 qqnorm(df_with_results$resid, main = "QQ Plot of Pearson Residuals")
 qqline(df_with_results$resid)
 
-# --- Standardized Residuals ---
-df_with_results$std_resid <- df_with_results$resid / sqrt(df_with_results$predicted)
-
-# --- Plot: Standardized Residuals ---
-plot(df_with_results$std_resid,
+# --- Standardized Residuals vs Sorted Index ---
+plot(df_with_results$index, df_with_results$std_resid,
      main = "Standardized Pearson Residuals",
-     ylab = "Standardized Residuals", xlab = "Observation Index")
+     ylab = "Standardized Residuals", xlab = "Sorted Observation Index", pch = 20, cex = 0.5)
 abline(h = 0, col = "red", lty = 2)
+abline(h = c(-2, 2), col = "gray", lty = 3)
 
-# --- Plot: Residuals by Sex ---
-ggplot(df_with_results, aes(x = row_id, y = resid, color = Sex)) +
-  geom_point(alpha = 0.5, size = 0.3) +
+# --- Residuals by Sex ---
+ggplot(df_with_results, aes(x = index, y = resid, color = Sex)) +
+  geom_point(alpha = 0.4, size = 0.6) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
   theme_minimal() +
-  labs(title = "Residuals by Sex", x = "Observation", y = "Pearson Residual")
+  labs(title = "Pearson Residuals by Sex", x = "Sorted Observation Index", y = "Residual")
 
-# --- Plot: Residuals by Cause of Death ---
-ggplot(df_with_results, aes(x = row_id, y = resid, color = CoD)) +
-  geom_point(alpha = 0.5, size = 0.3) +
+# --- Residuals by CoD (mixed on one axis) ---
+ggplot(df_with_results, aes(x = index, y = resid, color = CoD)) +
+  geom_point(alpha = 0.4, size = 0.6) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
   theme_minimal() +
-  labs(title = "Residuals by Cause of Death", x = "Observation", y = "Pearson Residual")
+  labs(title = "Pearson Residuals by Cause of Death (Shared X)", x = "Sorted Observation Index", y = "Residual")
+
+# --- Residuals by CoD (faceted per group) ---
+ggplot(df_with_results, aes(x = index_within_CoD, y = resid)) +
+  geom_point(alpha = 0.4, size = 0.6, color = "steelblue") +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  facet_wrap(~ CoD, scales = "free_x") +
+  theme_minimal() +
+  labs(title = "Pearson Residuals Faceted by Cause of Death", x = "Index (within CoD)", y = "Residual")
 
 # --- Histogram of Residuals ---
 hist(df_with_results$resid, breaks = 50,
      main = "Histogram of Pearson Residuals", xlab = "Residual")
 
 ```
-To Do:
-- readjust Models by adding interactions & stratification & splines
-- model by CoD individually
-- Readjust residuals
+
