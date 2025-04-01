@@ -263,6 +263,45 @@ ggplot(df_with_results, aes(x = index_within_CoD, y = resid)) +
 hist(df_with_results$resid, breaks = 50,
      main = "Histogram of Pearson Residuals", xlab = "Residual")
 ```
+!!!! this does not tell us, how does education affect wheather you die? But tells us: How does Education affect what you die of?  Whats the most likely cause of death?
+```{r Multinomial Model}
+
+model <- nnet::multinom(Cause ~ Education + Sex + AGE, data = df, weights = Deaths)
+
+newdata <- data.frame(
+  Sex = "Male",
+  AGE = 65,
+  Education = unique(df$Education)
+)
+
+predicted_probs <- predict(multi_model, newdata = newdata, type = "probs")
+prediction_output <- cbind(newdata, as.data.frame(predicted_probs))
+
+# Step 2: Observed proportions for 65-year-old males
+observed_65M <- df %>%
+  filter(Sex == "Male", AGE == 65) %>%
+  group_by(Cause) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(Observed_Prob = Deaths / sum(Deaths))
+
+# Step 3: Comparison for a single education level (e.g., "High school graduate or GED completed")
+edu_focus <- "High school graduate or GED completed"
+
+# Extract predicted row
+pred_row <- prediction_output %>%
+  filter(Education == edu_focus) %>%
+  dplyr::select(-Sex, -AGE, -Education) %>%
+  pivot_longer(cols = everything(), names_to = "Cause", values_to = "Predicted_Prob")
+
+# Merge predicted and observed
+comparison <- observed_65M %>%
+  left_join(pred_row, by = "Cause")
+
+# View result
+print(comparison)
+
+summary(model)
+```
 
 
 
