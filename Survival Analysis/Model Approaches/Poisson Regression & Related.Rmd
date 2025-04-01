@@ -35,6 +35,7 @@ summary(df)
 
 
 ```
+
 ```{r Poisson regression & Dispersion Calculation}
 poisson_model <- glm(Deaths ~ age + Urbanization + Sex+  CoD,
                      data = df,
