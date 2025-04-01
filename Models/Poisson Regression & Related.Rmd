@@ -1,0 +1,114 @@
+```{r Packages, echo = FALSE}
+library(ggplot2)
+library(here)
+library(dplyr)
+```
+
+```{r Loading Data & Adjusting}
+file_path <- here("Datasets", "Population Data Merge", "All_Causes_Combined.csv")
+df <- read.csv(file_path)
+df <- df[, c("Cause", "AGE", "Sex", "Education", "Deaths", "population")]
+df <- df %>%
+  mutate(Cause = as.factor(Cause)) %>%
+  mutate(Sex = as.factor(Sex)) %>%
+  mutate(Education = as.factor(Education)) %>%
+  mutate(Deaths = as.numeric(Deaths)) %>%
+  mutate(population = round(population))
+df %>% filter(is.na(population))
+df$Education <- factor(df$Education, levels = c(
+  "8th grade or less",
+  "9th through 12th grade with no diploma",
+  "High school graduate or GED completed",
+  "Some college credit, but not a degree",
+  "Associate degree (AA,AS)",
+  "Bachelor’s degree (BA, AB, BS)",
+  "Master’s degree (MA, MS, MEng, MEd, MSW, MBA)",
+  "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"
+), ordered = TRUE)
+
+```
+#Problem: There are Deaths for Groups without a Population. This happens primarily in groups which we can expect to be quite rare. (Young People with above average Education level)
+# However, due to our research Goal: analysing Mortality by Educational Goal we can remove People under 25 anyways, becasue they would just bias our results due to the fact, that we cannot assume future highest educational attainment for people presumably in the midst of their education
+```{r}
+df <- df %>% filter(AGE > 24)
+```
+
+```{r Deaths per Age & Education level}
+causes <- unique(df$Cause)
+for (cause in causes) {
+  p <- ggplot(subset(df, Cause == cause), aes(x = AGE, y = Deaths, color = Education)) +
+    geom_point(alpha = 0.7) +
+    labs(title = paste("Deaths by Age and Sex –", cause),
+         x = "Age",
+         y = "Number of Deaths") +
+    theme_minimal()
+  
+  print(p)
+}
+```
+
+```{r Deaths per Education per Capita}
+for (cause in unique(df$Cause)) {
+  df_cause <- subset(df, Cause == cause & population > 0)
+  
+  p <- ggplot(df_cause, aes(x = Education, y = Deaths / population, fill = Sex)) +
+    geom_bar(stat = "identity", position = "dodge") +
+    labs(
+      title = paste("Normalized Death Rate by Education and Sex –", cause),
+      x = "Education Level",
+      y = "Deaths per Capita"
+    ) +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))  # improves x-axis readability
+  
+  print(p)
+}
+```
+
+```{r Deaths per Capita over Age & Education level}
+
+for (cause in causes) {
+  df_cause <- subset(df, Cause == cause & population > 0)
+  
+  p <- ggplot(df_cause, aes(x = AGE, y = Deaths / population, color = Education)) +
+    geom_point(alpha = 0.7) +
+    labs(
+      title = paste("Normalized Death Rate by Age and Education –", cause),
+      x = "Age",
+      y = "Deaths per Capita"
+    ) +
+    theme_minimal()
+  
+  print(p)
+}
+```
+
+```{r Deaths per Capita over Age & Education level, seperated by Sex}
+for (cause in unique(df$Cause)) {
+  df_cause <- subset(df, Cause == cause & population > 0)
+  
+  p <- ggplot(df_cause, aes(x = AGE, y = Deaths / population, color = Education)) +
+    geom_point(alpha = 0.7) +
+    facet_wrap(~ Sex) +
+    labs(
+      title = paste("Normalized Death Rate by Age, Education, and Sex –", cause),
+      x = "Age",
+      y = "Deaths per Capita"
+    ) +
+    theme_minimal()
+  
+  print(p)
+}
+```
+From the plots we can read that Higher Educational Attainment correlates with lower Death rates. 
+
+```{r Poisson Regression}
+
+```
+
+
+
+
+
+
+
