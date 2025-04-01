@@ -1,0 +1,240 @@
+---
+title: "CRM_Fine_Gray_XinyuMeng"
+author: "Xinyu Meng"
+date: "2025-03-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+
+
+```{r library}
+library(readxl)
+library(dplyr)
+library(readr)
+library(cmprsk)
+library(tidyr)
+library(readr)
+library(stringr)
+```
+
+```{r read top5}
+Death_Data_ICD_Age_Sex_Urban_ <- read_excel("Death Data(ICD_Age_Sex_Urban).xlsx",na = c("NS", "Not Applicable"))
+
+df <- Death_Data_ICD_Age_Sex_Urban_
+
+df_Diseases_of_heart <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("I05-I09", "I11", "I13", "I20-I25", "I26-I28", "I30-I51")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Diseases of heart")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_Malignant_neoplasms <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("C00-C97")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Malignant neoplasms")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_Accidents <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("V01-V99", "W00-X59")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Accidents (unintentional injuries)")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_COVID <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("U00-U49")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "COVID-19")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_Cerebrovascular <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("I60-I69")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Cerebrovascular diseases")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+Top_5_Death <- rbind(df_Diseases_of_heart, df_Malignant_neoplasms, df_Accidents, df_COVID, df_Cerebrovascular)
+
+
+# Entferne Zeilen mit "NS" oder fehlenden Werten in Alters- oder Geschlechtsfeldern
+
+Top_5_Death <- Top_5_Death %>%
+  filter(!(`Single-Year Ages Code` %in% c("NS") | is.na(`Single-Year Ages Code`))) %>%
+  filter(!(`Sex` %in% c("Not Stated") | is.na(Sex)))
+
+
+# Optional: Alter als numerischen Wert behandeln (falls nötig)
+Top_5_Death <- Top_5_Death %>%
+  mutate(`Single-Year Ages Code` = as.numeric(`Single-Year Ages Code`))
+
+head(Top_5_Death)
+
+```
+
+```{r read population}
+library(dplyr)
+library(readr)
+
+
+# CSV-Datei mit Sterbedaten einlesen
+df <- read_csv("Underlying Cause of Death, 2018-2023, Single Race-9.csv")
+
+
+# Daten für die erste Todesursache (ICD-Kapitel) herausfiltern
+first_cause <- df$`ICD Chapter`[1]
+df_filtered <- df %>%
+  filter(`ICD Chapter` == first_cause)
+
+
+# Populationsspalte bereinigen, nur numerische Einträge behalten
+df_filtered <- df_filtered %>%
+  filter(!is.na(Population), grepl("^[0-9]+$", Population)) %>%
+  mutate(Population = as.numeric(Population))
+
+
+# Neue numerische Altersvariable erstellen: "<1 Jahr" → 0, "100 Jahre und älter" → 100, sonst Zahlen extrahieren
+df_filtered <- df_filtered %>%
+  mutate(
+    age_numeric = case_when(
+      `Single-Year Ages` == "< 1 year" ~ 0,
+      `Single-Year Ages` == "100 years and over" ~ 100,
+      TRUE ~ as.numeric(gsub("[^0-9]", "", `Single-Year Ages`))
+    )
+  )
+
+
+# Alter und Geschlecht auswählen und sortieren, zur Anzeige vorbereiten
+population_data <- df_filtered %>%
+  select(age_numeric, `Single-Year Ages`, Sex, Population) %>%
+  arrange(age_numeric, Sex)
+
+
+# Zeige die ersten Zeilen des Ergebnisses
+head(population_data)
+
+```
+
+```{r urbanization_pct}
+
+# Datensatz mit Urbanisierungsstufen und Bevölkerungsanteilen
+urbanization_pct <- data.frame(
+  Urbanization_Level = c(
+    "Large Central Metro",  #  Große zentrale Metropolregion
+    "Large Fringe Metro",   #  Große Randmetropolregion
+    "Medium Metro",         #  Mittelgroße Metropolregion
+    "Small Metro",          #  Kleine Metropolregion
+    "Micropolitan (Nonmetro)",         #  Mikropolitane Region
+    "NonCore (Nonmetro)"               #  Nichtkern-Region
+  ),
+  Percent = c(
+    29.6,  #  Prozent
+    20.9,
+    26.2,
+    8.5,
+    8.7,
+    6.1
+  )
+)
+
+
+# Prozentwerte in Anteile (0-1) umwandeln, um Bevölkerung zu berechnen
+library(dplyr)
+urbanization_pct <- urbanization_pct %>%
+  mutate(Proportion = Percent / 100)
+
+
+# Ergebnis anzeigen
+print(urbanization_pct)
+```
+
+```{r full_population}
+
+# Kombiniere Urbanisierungsstufen mit Alters-Geschlecht-Population
+full_population <- population_data %>%
+ 
+  # Für jede Zeile alle Urbanisierungsstufen anhängen (kartesisches Produkt)
+  tidyr::crossing(urbanization_pct) %>%
+  
+  
+  # Bevölkerung für jede Kombination berechnen
+  mutate(
+    Est_Population = Population * Proportion  # 估算人口 / Geschätzte Bevölkerung
+  ) %>%
+  
+ 
+  # Nach Alter, Geschlecht und Urbanisierung sortieren
+  arrange(age_numeric, Sex, Urbanization_Level)
+
+
+# Zeige die ersten Zeilen
+head(full_population)
+
+```
+
+```{r}
+
+
+Top_5_Death <- Top_5_Death %>%
+  mutate(`Single-Year Ages Code` = as.numeric(`Single-Year Ages Code`))
+
+full_population <- full_population %>%
+  mutate(age_numeric = as.numeric(age_numeric))
+
+
+
+# Führe die Datensätze Top_5_Death und full_population zusammen  
+merged_data <- Top_5_Death %>%
+  left_join(full_population, by = c("Single-Year Ages Code" = "age_numeric", 
+                                    "Sex" = "Sex", 
+                                    "Urbanization" = "Urbanization_Level"))
+
+
+# Überprüfe die Struktur der zusammengeführten Daten  
+head(merged_data)
+
+
+# Berechne die Sterberate (Anzahl der Todesfälle / Gesamtbevölkerung)  
+merged_data <- merged_data %>%
+  mutate(death_rate = Deaths / Est_Population)
+
+
+# Überprüfe, ob die Berechnung der Sterberate korrekt ist  
+head(merged_data)
+
+```
+
+
+
+```{r}
+
+
+
+# Führe eine Poisson-Regression durch  
+  
+# Verwende Urbanisierungsgrad, Geschlecht und Alter als Prädiktoren  
+poisson_model <- glm(Deaths ~ Urbanization + Sex + `Single-Year Ages Code`, 
+                     family = poisson(), data = merged_data)
+
+
+# Zeige die Zusammenfassung des Modells an  
+summary(poisson_model)
+```
+
