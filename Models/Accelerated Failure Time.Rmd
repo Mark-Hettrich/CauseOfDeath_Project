@@ -1,0 +1,333 @@
+```{r Packages, echo = FALSE}
+library(survival)
+library(survminer)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(here)
+library(nnet)
+library(ggplot2)
+library(MASS)
+library(flexsurv)
+library(timereg)
+library(mgcv)
+library(cmprsk)
+library(broom)
+library(splines)
+library(purrr)
+library(pscl)
+options(scipen = 999)
+```
+
+```{r Loading Data & Adjusting}
+file_path <- here("Datasets", "Population Data Merge", "All_Causes_Combined.csv")
+df <- read.csv(file_path)
+df <- df[, c("Cause", "AGE", "Sex", "Education", "Deaths", "population")]
+df <- df %>%
+  mutate(Cause = as.factor(Cause)) %>%
+  mutate(Sex = as.factor(Sex)) %>%
+  mutate(Education = as.factor(Education)) %>%
+  mutate(Deaths = as.numeric(Deaths)) %>%
+  mutate(population = round(population))
+df %>% filter(is.na(population))
+df$Education <- factor(df$Education, levels = c(
+  "8th grade or less",
+  "9th through 12th grade with no diploma",
+  "High school graduate or GED completed",
+  "Some college credit, but not a degree",
+  "Associate degree (AA,AS)",
+  "Bachelor’s degree (BA, AB, BS)",
+  "Master’s degree (MA, MS, MEng, MEd, MSW, MBA)",
+  "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"
+), ordered = FALSE)
+df$Cause <- relevel(df$Cause, ref = "Others")
+```
+#Problem: There are Deaths for Groups without a Population. This happens primarily in groups which we can expect to be quite rare. (Young People with above average Education level)
+# However, due to our research Goal: analysing Mortality by Educational Goal we can remove People under 25 anyways, becasue they would just bias our results due to the fact, that we cannot assume future highest educational attainment for people presumably in the midst of their education
+Keep in Mind, we are also not analysing People over 79 due to coding issues from the IPUMS Dataset
+The bigger issue is however, that we do not have a Population number over 79 years old.
+```{r}
+data <- df %>% filter(!is.na(population))
+aft_maybe <- data %>%
+  filter(AGE > 0) %>%
+  mutate(
+    deaths = Deaths,
+    censored = population - Deaths
+  ) %>%
+  pivot_longer(cols = c(deaths, censored), names_to = "type", values_to = "count") %>%
+  mutate(
+    event = ifelse(type == "deaths", 1, 0)
+  ) %>%
+  filter(count > 0)
+```
+
+```{r}
+
+aft_model <- survreg(
+  Surv(AGE, event) ~ Sex + Education + Cause,
+  data = aft_maybe,
+  weights = count,
+  dist = "weibull",
+  control = list(maxiter = 1000)
+)
+#Approach doesnt work, becasue population size is massively overestimated by model. Due to the fact we have the Population represented 6 Times due to multiple Death Causes.
+# Also cant use weibull becasue we run out of iterations. Fixing the population size solves this
+
+summary(aft_model)
+exp(coef(aft_model))
+```
+
+```{r Attempt at fixing popuation inflation}
+# 1. Cause-specific death rows (event = 1)
+events <- data %>%
+  filter(Deaths > 0, AGE > 0) %>%
+  mutate(
+    event = 1,
+    count = Deaths
+  ) %>%
+  dplyr::select(AGE, Sex, Education, Cause, event, count)
+
+# 2. Total deaths and population per (AGE, Sex, Education)
+total_deaths <- data %>%
+  group_by(AGE, Sex, Education) %>%
+  summarise(
+    deaths_total = sum(Deaths),
+    population = first(population),
+    .groups = "drop"
+  )
+
+# 3. Censored rows (event = 0), one per stratum
+censored <- total_deaths %>%
+  mutate(
+    count = population - deaths_total,
+    event = 0,
+    Cause = NA
+  ) %>%
+  filter(count > 0, AGE > 0) %>%
+  dplyr::select(AGE, Sex, Education, Cause, event, count)
+
+# 4. Combine deaths and censored into final AFT-ready dataset
+aft_data <- bind_rows(events, censored)
+
+```
+
+```{r retry model}
+aft_model <- survreg(
+  Surv(AGE, event) ~ Sex + Education + Cause,
+  data = aft_data,
+  weights = count,
+  dist = "weibull",
+  model = TRUE)
+
+#Approach doesnt work, becasue population size is massively overestimated by model. Due to the fact we have the Population represented 6 Times due to multiple Death Causes.
+
+
+summary(aft_model)
+exp(coef(aft_model)) #good model start, but shit in shit out. Model estimates Women with 8th Grade or lower Education dying from other Causes to die at 69. Maybe we can solve it by estimating a death and population count for people above
+```
+
+
+
+
+```{r modeling Death rates, everybody dies}
+scale_factor <- 100000
+reduced_deaths <- df %>%
+    mutate(Deaths = (Deaths / population)*scale_factor) %>%
+    mutate(Deaths = round(Deaths)) %>%
+    filter(!is.na(Deaths))
+
+expanded_deaths <- reduced_deaths %>%
+  uncount(weights = Deaths) %>%
+  mutate(status = 1)
+
+aft_data2 <- expanded_deaths %>%
+  filter(!is.na(AGE) & AGE > 0)
+```
+
+```{r Models, all interactions}
+# Weibull
+aft_weibull <- survreg(Surv(AGE) ~ Sex * Cause + Sex * Education + Cause*Education, data = aft_data, dist = "weibull")
+
+# Log-normal
+aft_lognormal <- survreg(Surv(AGE) ~ Sex * Cause + Sex * Education + Cause*Education, data = aft_data, dist = "lognormal")
+
+# Log-logistic
+aft_loglogistic <- survreg(Surv(AGE) ~ Sex * Cause + Sex * Education + Cause*Education, data = aft_data, dist = "loglogistic")
+
+# Exponential
+aft_exponential <- survreg(Surv(AGE) ~ Sex * Cause + Sex * Education + Cause*Education, data = aft_data, dist = "exponential")
+
+#show the reference Category
+levels(aft_data$Sex)[1]
+levels(aft_data$Cause)[1]
+levels(aft_data$Education)[1]
+
+#lognormal has the correct intercept
+```
+
+```{r Best Model}
+#compare with AIC
+AIC(aft_weibull, aft_lognormal, aft_loglogistic, aft_exponential)
+
+#compare log.likelihoods
+logLik(aft_weibull)
+logLik(aft_lognormal)
+logLik(aft_loglogistic)
+logLik(aft_exponential)
+
+#Weibull is best
+```
+
+```{r best Model}
+aft_weibull2 <- survreg(Surv(AGE) ~ Sex * Education + Cause * Education, data = aft_data2, dist = "weibull")
+```
+
+```{r Summary}
+summary(aft_weibull2)
+exp(coef(summary(aft_weibull2)))
+```
+
+```{r Residuals}
+# --- Extract model predictions and residuals ---
+model_data <- aft_weibull2$model
+
+model_results <- aft_data %>%
+  mutate(
+    predicted = predict(aft_weibull2, type = "response"),
+    resid = residuals(aft_weibull2, type = "response"),
+    std_resid = resid / sqrt(predicted),
+    outlier = abs(std_resid) > 4
+  ) %>%
+  arrange(predicted) %>%
+  mutate(index = row_number()) %>%
+  group_by(Cause) %>%
+  mutate(index_within_CoD = row_number()) %>%
+  ungroup()
+
+
+# --- Merge with original data ---
+aft_data$row_id <- as.numeric(rownames(aft_data))
+
+df_with_results <- aft_data %>%
+  mutate(
+    predicted = predict(aft_weibull2, type = "response"),
+    resid = residuals(aft_weibull2, type = "response"),
+    std_resid = resid / sqrt(predicted),
+    outlier = abs(std_resid) > 4
+  ) %>%
+  arrange(predicted) %>%
+  mutate(index = row_number()) %>%
+  group_by(Cause) %>%
+  mutate(index_within_CoD = row_number()) %>%
+  ungroup()
+
+# --- Add standardized residuals, flags, and sorted indices ---
+df_with_results <- df_with_results %>%
+  mutate(
+    std_resid = resid / sqrt(predicted),
+    outlier = abs(resid) > 4
+  ) %>%
+  arrange(predicted) %>%
+  mutate(index = row_number()) %>%
+  group_by(Cause) %>%
+  mutate(index_within_CoD = row_number()) %>%
+  ungroup()
+
+
+# --- QQ Plot of Pearson Residuals ---
+qqnorm(df_with_results$resid, main = "QQ Plot of Pearson Residuals")
+qqline(df_with_results$resid)
+
+# --- Standardized Residuals vs Sorted Index ---
+plot(df_with_results$index, df_with_results$std_resid,
+     main = "Standardized Pearson Residuals",
+     ylab = "Standardized Residuals", xlab = "Sorted Observation Index", pch = 20, cex = 0.5)
+abline(h = 0, col = "red", lty = 2)
+abline(h = c(-2, 2), col = "gray", lty = 3)
+
+# --- Residuals by Sex ---
+ggplot(df_with_results, aes(x = index, y = resid, color = Sex)) +
+  geom_point(alpha = 0.4, size = 0.6) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal() +
+  labs(title = "Pearson Residuals by Sex", x = "Sorted Observation Index", y = "Residual")
+
+# --- Residuals by Cause (shared axis) ---
+ggplot(df_with_results, aes(x = index, y = resid, color = Cause)) +
+  geom_point(alpha = 0.4, size = 0.6) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal() +
+  labs(title = "Pearson Residuals by Cause of Death (Shared X)", x = "Sorted Observation Index", y = "Residual")
+
+# --- Residuals by Cause (faceted) ---
+ggplot(df_with_results, aes(x = index_within_CoD, y = resid)) +
+  geom_point(alpha = 0.4, size = 0.6, color = "steelblue") +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  facet_wrap(~ Cause, scales = "free_x") +
+  theme_minimal() +
+  labs(title = "Pearson Residuals Faceted by Cause of Death", x = "Index (within Cause)", y = "Residual")
+
+# --- Histogram of Residuals ---
+hist(df_with_results$resid, breaks = 50,
+     main = "Histogram of Pearson Residuals", xlab = "Residual")
+
+```
+
+```{r Residuals for Model with adjusted Population}
+# --- Add predictions and residuals ---
+model_data <- aft_model$model
+
+# Add predictions and residuals
+df_with_results <- model_data %>%
+  mutate(
+    predicted = predict(aft_model, type = "response"),  # no newdata needed
+    resid = residuals(aft_model, type = "response"),
+    std_resid = resid / sqrt(predicted),
+    outlier = abs(std_resid) > 4
+  ) %>%
+  arrange(predicted) %>%
+  mutate(index = row_number()) %>%
+  group_by(Cause) %>%
+  mutate(index_within_CoD = row_number()) %>%
+  ungroup()
+
+# --- QQ Plot of Residuals ---
+qqnorm(df_with_results$resid, main = "QQ Plot of Residuals")
+qqline(df_with_results$resid)
+
+# --- Standardized Residuals vs Sorted Index ---
+plot(df_with_results$index, df_with_results$std_resid,
+     main = "Standardized Residuals",
+     ylab = "Standardized Residuals", xlab = "Sorted Observation Index", pch = 20, cex = 0.5)
+abline(h = 0, col = "red", lty = 2)
+abline(h = c(-2, 2), col = "gray", lty = 3)
+
+# --- Residuals by Sex ---
+ggplot(df_with_results, aes(x = index, y = resid, color = Sex)) +
+  geom_point(alpha = 0.4, size = 0.6) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal() +
+  labs(title = "Residuals by Sex", x = "Sorted Observation Index", y = "Residual")
+
+# --- Residuals by Cause (shared axis) ---
+ggplot(df_with_results, aes(x = index, y = resid, color = Cause)) +
+  geom_point(alpha = 0.4, size = 0.6) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal() +
+  labs(title = "Residuals by Cause of Death (Shared X)", x = "Sorted Observation Index", y = "Residual")
+
+# --- Residuals by Cause (faceted) ---
+ggplot(df_with_results, aes(x = index_within_CoD, y = resid)) +
+  geom_point(alpha = 0.4, size = 0.6, color = "steelblue") +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  facet_wrap(~ Cause, scales = "free_x") +
+  theme_minimal() +
+  labs(title = "Residuals Faceted by Cause of Death", x = "Index (within Cause)", y = "Residual")
+
+# --- Histogram of Residuals ---
+hist(df_with_results$resid, breaks = 50,
+     main = "Histogram of Residuals", xlab = "Residual")
+```
+
+
+

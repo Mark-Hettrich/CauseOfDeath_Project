@@ -1,0 +1,309 @@
+Notes,Single-Year Ages,Single-Year Ages Code,Sex,Sex Code,Deaths,Population,Crude Rate
+,< 1 year,0,Female,F,27231,5327383,511.2
+,< 1 year,0,Male,M,33387,5568877,599.5
+Total,< 1 year,0,,,60618,10896260,556.3
+,1 year,1,Female,F,2107,5370565,39.2
+,1 year,1,Male,M,2588,5615410,46.1
+Total,1 year,1,,,4695,10985975,42.7
+,2 years,2,Female,F,1292,5413405,23.9
+,2 years,2,Male,M,1769,5659268,31.3
+Total,2 years,2,,,3061,11072673,27.6
+,3 years,3,Female,F,1022,5548879,18.4
+,3 years,3,Male,M,1358,5798507,23.4
+Total,3 years,3,,,2380,11347386,21
+,4 years,4,Female,F,823,5657773,14.5
+,4 years,4,Male,M,1072,5916784,18.1
+Total,4 years,4,,,1895,11574557,16.4
+,5 years,5,Female,F,766,5787753,13.2
+,5 years,5,Male,M,1004,6055775,16.6
+Total,5 years,5,,,1770,11843528,14.9
+,6 years,6,Female,F,668,5894337,11.3
+,6 years,6,Male,M,879,6164187,14.3
+Total,6 years,6,,,1547,12058524,12.8
+,7 years,7,Female,F,628,5954383,10.5
+,7 years,7,Male,M,773,6229500,12.4
+Total,7 years,7,,,1401,12183883,11.5
+,8 years,8,Female,F,619,5958957,10.4
+,8 years,8,Male,M,761,6234437,12.2
+Total,8 years,8,,,1380,12193394,11.3
+,9 years,9,Female,F,601,5945246,10.1
+,9 years,9,Male,M,776,6228925,12.5
+Total,9 years,9,,,1377,12174171,11.3
+,10 years,10,Female,F,619,5959700,10.4
+,10 years,10,Male,M,816,6251780,13.1
+Total,10 years,10,,,1435,12211480,11.8
+,11 years,11,Female,F,689,6021427,11.4
+,11 years,11,Male,M,925,6326352,14.6
+Total,11 years,11,,,1614,12347779,13.1
+,12 years,12,Female,F,813,6127019,13.3
+,12 years,12,Male,M,1047,6439131,16.3
+Total,12 years,12,,,1860,12566150,14.8
+,13 years,13,Female,F,992,6294191,15.8
+,13 years,13,Male,M,1503,6608288,22.7
+Total,13 years,13,,,2495,12902479,19.3
+,14 years,14,Female,F,1225,6411856,19.1
+,14 years,14,Male,M,2115,6732443,31.4
+Total,14 years,14,,,3340,13144299,25.4
+,15 years,15,Female,F,1428,6452771,22.1
+,15 years,15,Male,M,2984,6772113,44.1
+Total,15 years,15,,,4412,13224884,33.4
+,16 years,16,Female,F,1769,6395312,27.7
+,16 years,16,Male,M,4133,6706898,61.6
+Total,16 years,16,,,5902,13102210,45
+,17 years,17,Female,F,2144,6358282,33.7
+,17 years,17,Male,M,5494,6661207,82.5
+Total,17 years,17,,,7638,13019489,58.7
+,18 years,18,Female,F,2614,6338944,41.2
+,18 years,18,Male,M,7253,6637963,109.3
+Total,18 years,18,,,9867,12976907,76
+,19 years,19,Female,F,2820,6328975,44.6
+,19 years,19,Male,M,8290,6623473,125.2
+Total,19 years,19,,,11110,12952448,85.8
+,20 years,20,Female,F,3144,6431287,48.9
+,20 years,20,Male,M,8641,6697290,129
+Total,20 years,20,,,11785,13128577,89.8
+,21 years,21,Female,F,3405,6562427,51.9
+,21 years,21,Male,M,9611,6831251,140.7
+Total,21 years,21,,,13016,13393678,97.2
+,22 years,22,Female,F,3628,6531917,55.5
+,22 years,22,Male,M,10229,6812833,150.1
+Total,22 years,22,,,13857,13344750,103.8
+,23 years,23,Female,F,3909,6440675,60.7
+,23 years,23,Male,M,10513,6719503,156.5
+Total,23 years,23,,,14422,13160178,109.6
+,24 years,24,Female,F,4173,6372605,65.5
+,24 years,24,Male,M,11068,6641160,166.7
+Total,24 years,24,,,15241,13013765,117.1
+,25 years,25,Female,F,4426,6363126,69.6
+,25 years,25,Male,M,11859,6622423,179.1
+Total,25 years,25,,,16285,12985549,125.4
+,26 years,26,Female,F,4753,6416090,74.1
+,26 years,26,Male,M,12595,6662900,189
+Total,26 years,26,,,17348,13078990,132.6
+,27 years,27,Female,F,5135,6512661,78.8
+,27 years,27,Male,M,13516,6756695,200
+Total,27 years,27,,,18651,13269356,140.6
+,28 years,28,Female,F,5601,6632361,84.4
+,28 years,28,Male,M,14451,6869906,210.4
+Total,28 years,28,,,20052,13502267,148.5
+,29 years,29,Female,F,6319,6772065,93.3
+,29 years,29,Male,M,15610,6995774,223.1
+Total,29 years,29,,,21929,13767839,159.3
+,30 years,30,Female,F,6874,6905370,99.5
+,30 years,30,Male,M,16637,7105236,234.2
+Total,30 years,30,,,23511,14010606,167.8
+,31 years,31,Female,F,7439,7009881,106.1
+,31 years,31,Male,M,17574,7183385,244.6
+Total,31 years,31,,,25013,14193266,176.2
+,32 years,32,Female,F,7963,6988556,113.9
+,32 years,32,Male,M,18388,7150806,257.1
+Total,32 years,32,,,26351,14139362,186.4
+,33 years,33,Female,F,8518,6888062,123.7
+,33 years,33,Male,M,18849,7043354,267.6
+Total,33 years,33,,,27367,13931416,196.4
+,34 years,34,Female,F,8810,6748638,130.5
+,34 years,34,Male,M,18775,6911632,271.6
+Total,34 years,34,,,27585,13660270,201.9
+,35 years,35,Female,F,9082,6679878,136
+,35 years,35,Male,M,19330,6852144,282.1
+Total,35 years,35,,,28412,13532022,210
+,36 years,36,Female,F,9430,6653060,141.7
+,36 years,36,Male,M,19990,6829359,292.7
+Total,36 years,36,,,29420,13482419,218.2
+,37 years,37,Female,F,10082,6613612,152.4
+,37 years,37,Male,M,20605,6777474,304
+Total,37 years,37,,,30687,13391086,229.2
+,38 years,38,Female,F,10768,6604715,163
+,38 years,38,Male,M,21062,6749707,312
+Total,38 years,38,,,31830,13354422,238.3
+,39 years,39,Female,F,11327,6592433,171.8
+,39 years,39,Male,M,22182,6721529,330
+Total,39 years,39,,,33509,13313962,251.7
+,40 years,40,Female,F,12241,6593010,185.7
+,40 years,40,Male,M,23016,6710177,343
+Total,40 years,40,,,35257,13303187,265
+,41 years,41,Female,F,12706,6551646,193.9
+,41 years,41,Male,M,23867,6656984,358.5
+Total,41 years,41,,,36573,13208630,276.9
+,42 years,42,Female,F,13411,6429134,208.6
+,42 years,42,Male,M,24293,6513354,373
+Total,42 years,42,,,37704,12942488,291.3
+,43 years,43,Female,F,13715,6291018,218
+,43 years,43,Male,M,24932,6353902,392.4
+Total,43 years,43,,,38647,12644920,305.6
+,44 years,44,Female,F,14229,6141368,231.7
+,44 years,44,Male,M,25612,6175408,414.7
+Total,44 years,44,,,39841,12316776,323.5
+,45 years,45,Female,F,14576,6005187,242.7
+,45 years,45,Male,M,25920,6023780,430.3
+Total,45 years,45,,,40496,12028967,336.7
+,46 years,46,Female,F,15548,5938314,261.8
+,46 years,46,Male,M,26771,5942392,450.5
+Total,46 years,46,,,42319,11880706,356.2
+,47 years,47,Female,F,16327,5854166,278.9
+,47 years,47,Male,M,27996,5852975,478.3
+Total,47 years,47,,,44323,11707141,378.6
+,48 years,48,Female,F,17632,5867690,300.5
+,48 years,48,Male,M,29796,5854155,509
+Total,48 years,48,,,47428,11721845,404.6
+,49 years,49,Female,F,19332,5950160,324.9
+,49 years,49,Male,M,32660,5933799,550.4
+Total,49 years,49,,,51992,11883959,437.5
+,50 years,50,Female,F,21813,6184650,352.7
+,50 years,50,Male,M,36398,6180432,588.9
+Total,50 years,50,,,58211,12365082,470.8
+,51 years,51,Female,F,23841,6356717,375.1
+,51 years,51,Male,M,39793,6365527,625.1
+Total,51 years,51,,,63634,12722244,500.2
+,52 years,52,Female,F,25735,6362479,404.5
+,52 years,52,Male,M,42965,6368942,674.6
+Total,52 years,52,,,68700,12731421,539.6
+,53 years,53,Female,F,27007,6210342,434.9
+,53 years,53,Male,M,45202,6196208,729.5
+Total,53 years,53,,,72209,12406550,582
+,54 years,54,Female,F,28782,6105459,471.4
+,54 years,54,Male,M,48000,6060488,792
+Total,54 years,54,,,76782,12165947,631.1
+,55 years,55,Female,F,31620,6109015,517.6
+,55 years,55,Male,M,51736,6034342,857.4
+Total,55 years,55,,,83356,12143357,686.4
+,56 years,56,Female,F,34994,6244904,560.4
+,56 years,56,Male,M,57123,6122558,933
+Total,56 years,56,,,92117,12367462,744.8
+,57 years,57,Female,F,39391,6418661,613.7
+,57 years,57,Male,M,63339,6258513,1012
+Total,57 years,57,,,102730,12677174,810.4
+,58 years,58,Female,F,43081,6565316,656.2
+,58 years,58,Male,M,70143,6358728,1103.1
+Total,58 years,58,,,113224,12924044,876.1
+,59 years,59,Female,F,47802,6632316,720.7
+,59 years,59,Male,M,75302,6396232,1177.3
+Total,59 years,59,,,123104,13028548,944.9
+,60 years,60,Female,F,51502,6646006,774.9
+,60 years,60,Male,M,81815,6378403,1282.7
+Total,60 years,60,,,133317,13024409,1023.6
+,61 years,61,Female,F,55960,6616488,845.8
+,61 years,61,Male,M,86656,6322818,1370.5
+Total,61 years,61,,,142616,12939306,1102.2
+,62 years,62,Female,F,59993,6542849,916.9
+,62 years,62,Male,M,92065,6214011,1481.6
+Total,62 years,62,,,152058,12756860,1192
+,63 years,63,Female,F,63874,6455015,989.5
+,63 years,63,Male,M,96954,6090187,1592
+Total,63 years,63,,,160828,12545202,1282
+,64 years,64,Female,F,67146,6373276,1053.6
+,64 years,64,Male,M,101750,5963274,1706.3
+Total,64 years,64,,,168896,12336550,1369.1
+,65 years,65,Female,F,70324,6240693,1126.9
+,65 years,65,Male,M,104550,5785102,1807.2
+Total,65 years,65,,,174874,12025795,1454.2
+,66 years,66,Female,F,73102,6081146,1202.1
+,66 years,66,Male,M,107145,5579569,1920.3
+Total,66 years,66,,,180247,11660715,1545.8
+,67 years,67,Female,F,75245,5892015,1277.1
+,67 years,67,Male,M,109503,5347611,2047.7
+Total,67 years,67,,,184748,11239626,1643.7
+,68 years,68,Female,F,78218,5711093,1369.6
+,68 years,68,Male,M,112212,5133213,2186
+Total,68 years,68,,,190430,10844306,1756
+,69 years,69,Female,F,81920,5504149,1488.3
+,69 years,69,Male,M,113926,4901879,2324.1
+Total,69 years,69,,,195846,10406028,1882
+,70 years,70,Female,F,85101,5282490,1611
+,70 years,70,Male,M,116308,4657084,2497.4
+Total,70 years,70,,,201409,9939574,2026.3
+,71 years,71,Female,F,88758,5061164,1753.7
+,71 years,71,Male,M,118604,4420546,2683
+Total,71 years,71,,,207362,9481710,2187
+,72 years,72,Female,F,93643,4863484,1925.4
+,72 years,72,Male,M,121399,4207568,2885.3
+Total,72 years,72,,,215042,9071052,2370.6
+,73 years,73,Female,F,99980,4702736,2126
+,73 years,73,Male,M,126893,4047288,3135.3
+Total,73 years,73,,,226873,8750024,2592.8
+,74 years,74,Female,F,108993,4686037,2325.9
+,74 years,74,Male,M,134703,4034978,3338.4
+Total,74 years,74,,,243696,8721015,2794.4
+,75 years,75,Female,F,109094,4247986,2568.1
+,75 years,75,Male,M,132785,3623347,3664.7
+Total,75 years,75,,,241879,7871333,3072.9
+,76 years,76,Female,F,108833,3813227,2854.1
+,76 years,76,Male,M,127992,3208312,3989.4
+Total,76 years,76,,,236825,7021539,3372.8
+,77 years,77,Female,F,106929,3291523,3248.6
+,77 years,77,Male,M,123000,2701009,4553.9
+Total,77 years,77,,,229929,5992532,3836.9
+,78 years,78,Female,F,115073,3219548,3574.2
+,78 years,78,Male,M,129524,2603872,4974.3
+Total,78 years,78,,,244597,5823420,4200.2
+,79 years,79,Female,F,119993,3032783,3956.5
+,79 years,79,Male,M,133027,2411579,5516.2
+Total,79 years,79,,,253020,5444362,4647.4
+,80 years,80,Female,F,122959,2782550,4418.9
+,80 years,80,Male,M,131514,2169278,6062.6
+Total,80 years,80,,,254473,4951828,5139
+,81 years,81,Female,F,121132,2463851,4916.4
+,81 years,81,Male,M,126256,1873078,6740.6
+Total,81 years,81,,,247388,4336929,5704.2
+,82 years,82,Female,F,122600,2238797,5476.2
+,82 years,82,Male,M,123786,1662322,7446.6
+Total,82 years,82,,,246386,3901119,6315.8
+,83 years,83,Female,F,125776,2060557,6104
+,83 years,83,Male,M,122955,1490647,8248.4
+Total,83 years,83,,,248731,3551204,7004.1
+,84 years,84,Female,F,128743,1878037,6855.2
+,84 years,84,Male,M,120773,1322414,9132.8
+Total,84 years,84,,,249516,3200451,7796.3
+,85 years,85,Female,F,131477,Not Applicable,Not Applicable
+,85 years,85,Male,M,118993,Not Applicable,Not Applicable
+Total,85 years,85,,,250470,Not Applicable,Not Applicable
+,86 years,86,Female,F,132711,Not Applicable,Not Applicable
+,86 years,86,Male,M,115744,Not Applicable,Not Applicable
+Total,86 years,86,,,248455,Not Applicable,Not Applicable
+,87 years,87,Female,F,132744,Not Applicable,Not Applicable
+,87 years,87,Male,M,111530,Not Applicable,Not Applicable
+Total,87 years,87,,,244274,Not Applicable,Not Applicable
+,88 years,88,Female,F,133075,Not Applicable,Not Applicable
+,88 years,88,Male,M,105971,Not Applicable,Not Applicable
+Total,88 years,88,,,239046,Not Applicable,Not Applicable
+,89 years,89,Female,F,131419,Not Applicable,Not Applicable
+,89 years,89,Male,M,99589,Not Applicable,Not Applicable
+Total,89 years,89,,,231008,Not Applicable,Not Applicable
+,90 years,90,Female,F,131451,Not Applicable,Not Applicable
+,90 years,90,Male,M,94024,Not Applicable,Not Applicable
+Total,90 years,90,,,225475,Not Applicable,Not Applicable
+,91 years,91,Female,F,128453,Not Applicable,Not Applicable
+,91 years,91,Male,M,86696,Not Applicable,Not Applicable
+Total,91 years,91,,,215149,Not Applicable,Not Applicable
+,92 years,92,Female,F,122844,Not Applicable,Not Applicable
+,92 years,92,Male,M,77162,Not Applicable,Not Applicable
+Total,92 years,92,,,200006,Not Applicable,Not Applicable
+,93 years,93,Female,F,113864,Not Applicable,Not Applicable
+,93 years,93,Male,M,67050,Not Applicable,Not Applicable
+Total,93 years,93,,,180914,Not Applicable,Not Applicable
+,94 years,94,Female,F,103764,Not Applicable,Not Applicable
+,94 years,94,Male,M,55667,Not Applicable,Not Applicable
+Total,94 years,94,,,159431,Not Applicable,Not Applicable
+,95 years,95,Female,F,91579,Not Applicable,Not Applicable
+,95 years,95,Male,M,45262,Not Applicable,Not Applicable
+Total,95 years,95,,,136841,Not Applicable,Not Applicable
+,96 years,96,Female,F,77919,Not Applicable,Not Applicable
+,96 years,96,Male,M,34941,Not Applicable,Not Applicable
+Total,96 years,96,,,112860,Not Applicable,Not Applicable
+,97 years,97,Female,F,64230,Not Applicable,Not Applicable
+,97 years,97,Male,M,26552,Not Applicable,Not Applicable
+Total,97 years,97,,,90782,Not Applicable,Not Applicable
+,98 years,98,Female,F,50656,Not Applicable,Not Applicable
+,98 years,98,Male,M,19241,Not Applicable,Not Applicable
+Total,98 years,98,,,69897,Not Applicable,Not Applicable
+,99 years,99,Female,F,38726,Not Applicable,Not Applicable
+,99 years,99,Male,M,13113,Not Applicable,Not Applicable
+Total,99 years,99,,,51839,Not Applicable,Not Applicable
+,100+ years,100,Female,F,81303,Not Applicable,Not Applicable
+,100+ years,100,Male,M,21325,Not Applicable,Not Applicable
+Total,100+ years,100,,,102628,Not Applicable,Not Applicable
+,Not Stated,NS,Female,F,64,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,212,Not Applicable,Not Applicable
+Total,Not Stated,NS,,,276,Not Applicable,Not Applicable
+Total,,,,,9835052,1000096197,983.4
+,,,,,,,

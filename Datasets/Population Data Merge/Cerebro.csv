@@ -1,0 +1,1777 @@
+Notes,Single-Year Ages,Single-Year Ages Code,Sex,Sex Code,Education,Education Code,Deaths,Population,Crude Rate
+,< 1 year,0,Female,F,8th grade or less,1,113,Not Applicable,Not Applicable
+,< 1 year,0,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,< 1 year,0,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,< 1 year,0,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,< 1 year,0,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,< 1 year,0,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,< 1 year,0,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,< 1 year,0,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,< 1 year,0,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,8th grade or less,1,133,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,Unknown or Not Stated,9,10,Not Applicable,Not Applicable
+,< 1 year,0,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,1 year,1,Female,F,8th grade or less,1,26,Not Applicable,Not Applicable
+,1 year,1,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,1 year,1,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,1 year,1,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,1 year,1,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,1 year,1,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,1 year,1,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,1 year,1,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,1 year,1,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,1 year,1,Male,M,8th grade or less,1,23,Not Applicable,Not Applicable
+,1 year,1,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,1 year,1,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,1 year,1,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,1 year,1,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,1 year,1,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,1 year,1,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,1 year,1,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,1 year,1,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,2 years,2,Female,F,8th grade or less,1,17,Not Applicable,Not Applicable
+,2 years,2,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,2 years,2,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,2 years,2,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,2 years,2,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,2 years,2,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,2 years,2,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,2 years,2,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,2 years,2,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,2 years,2,Male,M,8th grade or less,1,26,Not Applicable,Not Applicable
+,2 years,2,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,2 years,2,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,2 years,2,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,2 years,2,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,2 years,2,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,2 years,2,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,2 years,2,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,2 years,2,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,3 years,3,Female,F,8th grade or less,1,10,Not Applicable,Not Applicable
+,3 years,3,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,3 years,3,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,3 years,3,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,3 years,3,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,3 years,3,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,3 years,3,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,3 years,3,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,3 years,3,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,3 years,3,Male,M,8th grade or less,1,13,Not Applicable,Not Applicable
+,3 years,3,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,3 years,3,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,3 years,3,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,3 years,3,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,3 years,3,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,3 years,3,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,3 years,3,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,3 years,3,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,4 years,4,Female,F,8th grade or less,1,10,Not Applicable,Not Applicable
+,4 years,4,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,4 years,4,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,4 years,4,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,4 years,4,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,4 years,4,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,4 years,4,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,4 years,4,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,4 years,4,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,4 years,4,Male,M,8th grade or less,1,11,Not Applicable,Not Applicable
+,4 years,4,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,4 years,4,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,4 years,4,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,4 years,4,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,4 years,4,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,4 years,4,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,4 years,4,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,4 years,4,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,4 years,4,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,5 years,5,Female,F,8th grade or less,1,12,Not Applicable,Not Applicable
+,5 years,5,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,5 years,5,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,5 years,5,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,5 years,5,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,5 years,5,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,5 years,5,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,5 years,5,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,5 years,5,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,5 years,5,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,5 years,5,Male,M,8th grade or less,1,12,Not Applicable,Not Applicable
+,5 years,5,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,5 years,5,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,5 years,5,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,5 years,5,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,5 years,5,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,5 years,5,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,5 years,5,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,5 years,5,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,6 years,6,Female,F,8th grade or less,1,10,Not Applicable,Not Applicable
+,6 years,6,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,6 years,6,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,6 years,6,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,6 years,6,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,6 years,6,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,6 years,6,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,6 years,6,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,6 years,6,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,6 years,6,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,6 years,6,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,6 years,6,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,6 years,6,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,6 years,6,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,6 years,6,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,6 years,6,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,6 years,6,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,6 years,6,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,6 years,6,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,7 years,7,Female,F,8th grade or less,1,11,Not Applicable,Not Applicable
+,7 years,7,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,7 years,7,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,7 years,7,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,7 years,7,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,7 years,7,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,7 years,7,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,7 years,7,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,7 years,7,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,7 years,7,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,7 years,7,Male,M,8th grade or less,1,14,Not Applicable,Not Applicable
+,7 years,7,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,7 years,7,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,7 years,7,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,7 years,7,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,7 years,7,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,7 years,7,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,7 years,7,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,7 years,7,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,7 years,7,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,8 years,8,Female,F,8th grade or less,1,10,Not Applicable,Not Applicable
+,8 years,8,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,8 years,8,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,8 years,8,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,8 years,8,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,8 years,8,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,8 years,8,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,8 years,8,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,8 years,8,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,8 years,8,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,8 years,8,Male,M,8th grade or less,1,14,Not Applicable,Not Applicable
+,8 years,8,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,8 years,8,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,8 years,8,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,8 years,8,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,8 years,8,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,8 years,8,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,8 years,8,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,8 years,8,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,8 years,8,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,9 years,9,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,9 years,9,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,9 years,9,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,9 years,9,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,9 years,9,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,9 years,9,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,9 years,9,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,9 years,9,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,9 years,9,Male,M,8th grade or less,1,15,Not Applicable,Not Applicable
+,9 years,9,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,9 years,9,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,9 years,9,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,9 years,9,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,9 years,9,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,9 years,9,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,9 years,9,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,9 years,9,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,10 years,10,Female,F,8th grade or less,1,11,Not Applicable,Not Applicable
+,10 years,10,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,10 years,10,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,10 years,10,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,10 years,10,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,10 years,10,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,10 years,10,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,10 years,10,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,10 years,10,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,10 years,10,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,10 years,10,Male,M,8th grade or less,1,14,Not Applicable,Not Applicable
+,10 years,10,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,10 years,10,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,10 years,10,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,10 years,10,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,10 years,10,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,10 years,10,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,10 years,10,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,10 years,10,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,10 years,10,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,11 years,11,Female,F,8th grade or less,1,16,Not Applicable,Not Applicable
+,11 years,11,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,11 years,11,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,11 years,11,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,11 years,11,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,11 years,11,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,11 years,11,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,11 years,11,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,11 years,11,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,11 years,11,Male,M,8th grade or less,1,21,Not Applicable,Not Applicable
+,11 years,11,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,11 years,11,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,11 years,11,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,11 years,11,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,11 years,11,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,11 years,11,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,11 years,11,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,11 years,11,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,12 years,12,Female,F,8th grade or less,1,15,Not Applicable,Not Applicable
+,12 years,12,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,12 years,12,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,12 years,12,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,12 years,12,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,12 years,12,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,12 years,12,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,12 years,12,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,12 years,12,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,12 years,12,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,12 years,12,Male,M,8th grade or less,1,14,Not Applicable,Not Applicable
+,12 years,12,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,12 years,12,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,12 years,12,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,12 years,12,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,12 years,12,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,12 years,12,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,12 years,12,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,12 years,12,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,12 years,12,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,13 years,13,Female,F,8th grade or less,1,19,Not Applicable,Not Applicable
+,13 years,13,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,13 years,13,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,13 years,13,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,13 years,13,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,13 years,13,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,13 years,13,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,13 years,13,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,13 years,13,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,13 years,13,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,13 years,13,Male,M,8th grade or less,1,22,Not Applicable,Not Applicable
+,13 years,13,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,13 years,13,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,13 years,13,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,13 years,13,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,13 years,13,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,13 years,13,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,13 years,13,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,13 years,13,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,13 years,13,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,14 years,14,Female,F,8th grade or less,1,14,Not Applicable,Not Applicable
+,14 years,14,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,14 years,14,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,14 years,14,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,14 years,14,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,14 years,14,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,14 years,14,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,14 years,14,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,14 years,14,Male,M,8th grade or less,1,12,Not Applicable,Not Applicable
+,14 years,14,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,14 years,14,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,14 years,14,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,14 years,14,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,14 years,14,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,14 years,14,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,14 years,14,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,14 years,14,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,15 years,15,Female,F,9th through 12th grade with no diploma,2,14,Not Applicable,Not Applicable
+,15 years,15,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,15 years,15,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,15 years,15,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,15 years,15,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,15 years,15,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,15 years,15,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,15 years,15,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,15 years,15,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,15 years,15,Male,M,9th through 12th grade with no diploma,2,16,Not Applicable,Not Applicable
+,15 years,15,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,15 years,15,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,15 years,15,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,15 years,15,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,15 years,15,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,15 years,15,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,15 years,15,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,15 years,15,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,16 years,16,Female,F,9th through 12th grade with no diploma,2,12,Not Applicable,Not Applicable
+,16 years,16,Female,F,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,16 years,16,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,16 years,16,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,16 years,16,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,16 years,16,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,16 years,16,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,16 years,16,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,16 years,16,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,16 years,16,Male,M,9th through 12th grade with no diploma,2,15,Not Applicable,Not Applicable
+,16 years,16,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,16 years,16,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,16 years,16,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,16 years,16,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,16 years,16,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,16 years,16,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,16 years,16,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,16 years,16,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,17 years,17,Female,F,9th through 12th grade with no diploma,2,14,Not Applicable,Not Applicable
+,17 years,17,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,17 years,17,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,17 years,17,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,17 years,17,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,17 years,17,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,17 years,17,Male,M,8th grade or less,1,0,Not Applicable,Not Applicable
+,17 years,17,Male,M,9th through 12th grade with no diploma,2,15,Not Applicable,Not Applicable
+,17 years,17,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,17 years,17,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,17 years,17,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,17 years,17,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,17 years,17,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,17 years,17,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,17 years,17,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,18 years,18,Female,F,8th grade or less,1,0,Not Applicable,Not Applicable
+,18 years,18,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,18 years,18,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,18 years,18,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,18 years,18,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,18 years,18,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,18 years,18,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,18 years,18,Male,M,High school graduate or GED completed,3,17,Not Applicable,Not Applicable
+,18 years,18,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,18 years,18,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,18 years,18,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,18 years,18,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,18 years,18,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,18 years,18,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,19 years,19,Female,F,High school graduate or GED completed,3,10,Not Applicable,Not Applicable
+,19 years,19,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,19 years,19,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,19 years,19,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,19 years,19,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,19 years,19,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,19 years,19,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,19 years,19,Male,M,8th grade or less,1,0,Not Applicable,Not Applicable
+,19 years,19,Male,M,High school graduate or GED completed,3,14,Not Applicable,Not Applicable
+,19 years,19,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,19 years,19,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,19 years,19,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,19 years,19,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,19 years,19,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,19 years,19,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,20 years,20,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,20 years,20,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,20 years,20,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,20 years,20,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,20 years,20,Male,M,High school graduate or GED completed,3,15,Not Applicable,Not Applicable
+,20 years,20,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,20 years,20,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,20 years,20,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,20 years,20,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,20 years,20,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,21 years,21,Female,F,High school graduate or GED completed,3,10,Not Applicable,Not Applicable
+,21 years,21,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,21 years,21,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,21 years,21,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,21 years,21,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,21 years,21,Male,M,High school graduate or GED completed,3,19,Not Applicable,Not Applicable
+,21 years,21,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,21 years,21,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,21 years,21,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,21 years,21,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,22 years,22,Female,F,8th grade or less,1,0,Not Applicable,Not Applicable
+,22 years,22,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,22 years,22,Female,F,High school graduate or GED completed,3,13,Not Applicable,Not Applicable
+,22 years,22,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,22 years,22,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,22 years,22,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,22 years,22,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,22 years,22,Male,M,High school graduate or GED completed,3,25,Not Applicable,Not Applicable
+,22 years,22,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,22 years,22,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,22 years,22,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,22 years,22,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,23 years,23,Female,F,High school graduate or GED completed,3,14,Not Applicable,Not Applicable
+,23 years,23,Female,F,"Some college credit, but not a degree.",4,10,Not Applicable,Not Applicable
+,23 years,23,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,23 years,23,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,23 years,23,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,23 years,23,Male,M,High school graduate or GED completed,3,22,Not Applicable,Not Applicable
+,23 years,23,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,23 years,23,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,23 years,23,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,23 years,23,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,23 years,23,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,24 years,24,Female,F,High school graduate or GED completed,3,17,Not Applicable,Not Applicable
+,24 years,24,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,24 years,24,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,24 years,24,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,24 years,24,Male,M,High school graduate or GED completed,3,21,Not Applicable,Not Applicable
+,24 years,24,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,24 years,24,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,24 years,24,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,25 years,25,Female,F,8th grade or less,1,0,Not Applicable,Not Applicable
+,25 years,25,Female,F,High school graduate or GED completed,3,15,Not Applicable,Not Applicable
+,25 years,25,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,25 years,25,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,25 years,25,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,25 years,25,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,25 years,25,Male,M,High school graduate or GED completed,3,20,Not Applicable,Not Applicable
+,25 years,25,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,25 years,25,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,26 years,26,Female,F,High school graduate or GED completed,3,13,Not Applicable,Not Applicable
+,26 years,26,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,26 years,26,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,26 years,26,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,26 years,26,Male,M,9th through 12th grade with no diploma,2,11,Not Applicable,Not Applicable
+,26 years,26,Male,M,High school graduate or GED completed,3,24,Not Applicable,Not Applicable
+,26 years,26,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,26 years,26,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,27 years,27,Female,F,High school graduate or GED completed,3,21,Not Applicable,Not Applicable
+,27 years,27,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,27 years,27,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,27 years,27,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,27 years,27,Male,M,9th through 12th grade with no diploma,2,11,Not Applicable,Not Applicable
+,27 years,27,Male,M,High school graduate or GED completed,3,29,Not Applicable,Not Applicable
+,27 years,27,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,27 years,27,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,27 years,27,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,28 years,28,Female,F,9th through 12th grade with no diploma,2,10,Not Applicable,Not Applicable
+,28 years,28,Female,F,High school graduate or GED completed,3,24,Not Applicable,Not Applicable
+,28 years,28,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,28 years,28,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,28 years,28,Male,M,High school graduate or GED completed,3,40,Not Applicable,Not Applicable
+,28 years,28,Male,M,"Some college credit, but not a degree.",4,11,Not Applicable,Not Applicable
+,28 years,28,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,28 years,28,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,29 years,29,Female,F,8th grade or less,1,0,Not Applicable,Not Applicable
+,29 years,29,Female,F,High school graduate or GED completed,3,35,Not Applicable,Not Applicable
+,29 years,29,Female,F,"Some college credit, but not a degree.",4,14,Not Applicable,Not Applicable
+,29 years,29,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,29 years,29,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,29 years,29,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,29 years,29,Male,M,9th through 12th grade with no diploma,2,14,Not Applicable,Not Applicable
+,29 years,29,Male,M,High school graduate or GED completed,3,32,Not Applicable,Not Applicable
+,29 years,29,Male,M,"Some college credit, but not a degree.",4,15,Not Applicable,Not Applicable
+,29 years,29,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,29 years,29,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,30 years,30,Female,F,High school graduate or GED completed,3,45,Not Applicable,Not Applicable
+,30 years,30,Female,F,"Some college credit, but not a degree.",4,12,Not Applicable,Not Applicable
+,30 years,30,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,30 years,30,Male,M,9th through 12th grade with no diploma,2,19,Not Applicable,Not Applicable
+,30 years,30,Male,M,High school graduate or GED completed,3,48,Not Applicable,Not Applicable
+,30 years,30,Male,M,"Some college credit, but not a degree.",4,16,Not Applicable,Not Applicable
+,30 years,30,Male,M,"Bachelor?s degree (BA, AB, BS)",6,11,Not Applicable,Not Applicable
+,30 years,30,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,30 years,30,Male,M,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,30 years,30,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,31 years,31,Female,F,9th through 12th grade with no diploma,2,17,Not Applicable,Not Applicable
+,31 years,31,Female,F,High school graduate or GED completed,3,38,Not Applicable,Not Applicable
+,31 years,31,Female,F,"Some college credit, but not a degree.",4,15,Not Applicable,Not Applicable
+,31 years,31,Female,F,"Bachelor?s degree (BA, AB, BS)",6,10,Not Applicable,Not Applicable
+,31 years,31,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,31 years,31,Male,M,9th through 12th grade with no diploma,2,13,Not Applicable,Not Applicable
+,31 years,31,Male,M,High school graduate or GED completed,3,56,Not Applicable,Not Applicable
+,31 years,31,Male,M,"Some college credit, but not a degree.",4,15,Not Applicable,Not Applicable
+,31 years,31,Male,M,"Bachelor?s degree (BA, AB, BS)",6,11,Not Applicable,Not Applicable
+,31 years,31,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,32 years,32,Female,F,9th through 12th grade with no diploma,2,21,Not Applicable,Not Applicable
+,32 years,32,Female,F,High school graduate or GED completed,3,49,Not Applicable,Not Applicable
+,32 years,32,Female,F,"Some college credit, but not a degree.",4,18,Not Applicable,Not Applicable
+,32 years,32,Female,F,"Associate degree (AA,AS)",5,10,Not Applicable,Not Applicable
+,32 years,32,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,32 years,32,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,32 years,32,Male,M,9th through 12th grade with no diploma,2,27,Not Applicable,Not Applicable
+,32 years,32,Male,M,High school graduate or GED completed,3,73,Not Applicable,Not Applicable
+,32 years,32,Male,M,"Some college credit, but not a degree.",4,16,Not Applicable,Not Applicable
+,32 years,32,Male,M,"Bachelor?s degree (BA, AB, BS)",6,17,Not Applicable,Not Applicable
+,32 years,32,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,32 years,32,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,33 years,33,Female,F,9th through 12th grade with no diploma,2,14,Not Applicable,Not Applicable
+,33 years,33,Female,F,High school graduate or GED completed,3,54,Not Applicable,Not Applicable
+,33 years,33,Female,F,"Some college credit, but not a degree.",4,22,Not Applicable,Not Applicable
+,33 years,33,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,33 years,33,Female,F,Unknown or Not Stated,9,0,Not Applicable,Not Applicable
+,33 years,33,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,33 years,33,Male,M,8th grade or less,1,10,Not Applicable,Not Applicable
+,33 years,33,Male,M,9th through 12th grade with no diploma,2,21,Not Applicable,Not Applicable
+,33 years,33,Male,M,High school graduate or GED completed,3,93,Not Applicable,Not Applicable
+,33 years,33,Male,M,"Some college credit, but not a degree.",4,28,Not Applicable,Not Applicable
+,33 years,33,Male,M,"Bachelor?s degree (BA, AB, BS)",6,15,Not Applicable,Not Applicable
+,33 years,33,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,34 years,34,Female,F,9th through 12th grade with no diploma,2,17,Not Applicable,Not Applicable
+,34 years,34,Female,F,High school graduate or GED completed,3,57,Not Applicable,Not Applicable
+,34 years,34,Female,F,"Some college credit, but not a degree.",4,24,Not Applicable,Not Applicable
+,34 years,34,Female,F,"Associate degree (AA,AS)",5,16,Not Applicable,Not Applicable
+,34 years,34,Female,F,"Bachelor?s degree (BA, AB, BS)",6,15,Not Applicable,Not Applicable
+,34 years,34,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,34 years,34,Male,M,8th grade or less,1,11,Not Applicable,Not Applicable
+,34 years,34,Male,M,9th through 12th grade with no diploma,2,20,Not Applicable,Not Applicable
+,34 years,34,Male,M,High school graduate or GED completed,3,81,Not Applicable,Not Applicable
+,34 years,34,Male,M,"Some college credit, but not a degree.",4,18,Not Applicable,Not Applicable
+,34 years,34,Male,M,"Associate degree (AA,AS)",5,11,Not Applicable,Not Applicable
+,34 years,34,Male,M,"Bachelor?s degree (BA, AB, BS)",6,10,Not Applicable,Not Applicable
+,34 years,34,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,34 years,34,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,35 years,35,Female,F,9th through 12th grade with no diploma,2,27,Not Applicable,Not Applicable
+,35 years,35,Female,F,High school graduate or GED completed,3,65,Not Applicable,Not Applicable
+,35 years,35,Female,F,"Some college credit, but not a degree.",4,30,Not Applicable,Not Applicable
+,35 years,35,Female,F,"Associate degree (AA,AS)",5,11,Not Applicable,Not Applicable
+,35 years,35,Female,F,"Bachelor?s degree (BA, AB, BS)",6,24,Not Applicable,Not Applicable
+,35 years,35,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,35 years,35,Male,M,9th through 12th grade with no diploma,2,29,Not Applicable,Not Applicable
+,35 years,35,Male,M,High school graduate or GED completed,3,95,Not Applicable,Not Applicable
+,35 years,35,Male,M,"Some college credit, but not a degree.",4,35,Not Applicable,Not Applicable
+,35 years,35,Male,M,"Associate degree (AA,AS)",5,13,Not Applicable,Not Applicable
+,35 years,35,Male,M,"Bachelor?s degree (BA, AB, BS)",6,10,Not Applicable,Not Applicable
+,35 years,35,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,36 years,36,Female,F,9th through 12th grade with no diploma,2,17,Not Applicable,Not Applicable
+,36 years,36,Female,F,High school graduate or GED completed,3,72,Not Applicable,Not Applicable
+,36 years,36,Female,F,"Some college credit, but not a degree.",4,22,Not Applicable,Not Applicable
+,36 years,36,Female,F,"Associate degree (AA,AS)",5,26,Not Applicable,Not Applicable
+,36 years,36,Female,F,"Bachelor?s degree (BA, AB, BS)",6,15,Not Applicable,Not Applicable
+,36 years,36,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,36 years,36,Male,M,8th grade or less,1,20,Not Applicable,Not Applicable
+,36 years,36,Male,M,9th through 12th grade with no diploma,2,31,Not Applicable,Not Applicable
+,36 years,36,Male,M,High school graduate or GED completed,3,107,Not Applicable,Not Applicable
+,36 years,36,Male,M,"Some college credit, but not a degree.",4,37,Not Applicable,Not Applicable
+,36 years,36,Male,M,"Associate degree (AA,AS)",5,14,Not Applicable,Not Applicable
+,36 years,36,Male,M,"Bachelor?s degree (BA, AB, BS)",6,25,Not Applicable,Not Applicable
+,36 years,36,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,37 years,37,Female,F,9th through 12th grade with no diploma,2,18,Not Applicable,Not Applicable
+,37 years,37,Female,F,High school graduate or GED completed,3,82,Not Applicable,Not Applicable
+,37 years,37,Female,F,"Some college credit, but not a degree.",4,25,Not Applicable,Not Applicable
+,37 years,37,Female,F,"Associate degree (AA,AS)",5,13,Not Applicable,Not Applicable
+,37 years,37,Female,F,"Bachelor?s degree (BA, AB, BS)",6,17,Not Applicable,Not Applicable
+,37 years,37,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,37 years,37,Male,M,8th grade or less,1,21,Not Applicable,Not Applicable
+,37 years,37,Male,M,9th through 12th grade with no diploma,2,46,Not Applicable,Not Applicable
+,37 years,37,Male,M,High school graduate or GED completed,3,124,Not Applicable,Not Applicable
+,37 years,37,Male,M,"Some college credit, but not a degree.",4,43,Not Applicable,Not Applicable
+,37 years,37,Male,M,"Associate degree (AA,AS)",5,18,Not Applicable,Not Applicable
+,37 years,37,Male,M,"Bachelor?s degree (BA, AB, BS)",6,18,Not Applicable,Not Applicable
+,37 years,37,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,38 years,38,Female,F,9th through 12th grade with no diploma,2,33,Not Applicable,Not Applicable
+,38 years,38,Female,F,High school graduate or GED completed,3,108,Not Applicable,Not Applicable
+,38 years,38,Female,F,"Some college credit, but not a degree.",4,32,Not Applicable,Not Applicable
+,38 years,38,Female,F,"Associate degree (AA,AS)",5,24,Not Applicable,Not Applicable
+,38 years,38,Female,F,"Bachelor?s degree (BA, AB, BS)",6,18,Not Applicable,Not Applicable
+,38 years,38,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,38 years,38,Male,M,8th grade or less,1,24,Not Applicable,Not Applicable
+,38 years,38,Male,M,9th through 12th grade with no diploma,2,45,Not Applicable,Not Applicable
+,38 years,38,Male,M,High school graduate or GED completed,3,140,Not Applicable,Not Applicable
+,38 years,38,Male,M,"Some college credit, but not a degree.",4,43,Not Applicable,Not Applicable
+,38 years,38,Male,M,"Associate degree (AA,AS)",5,15,Not Applicable,Not Applicable
+,38 years,38,Male,M,"Bachelor?s degree (BA, AB, BS)",6,23,Not Applicable,Not Applicable
+,38 years,38,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,39 years,39,Female,F,8th grade or less,1,13,Not Applicable,Not Applicable
+,39 years,39,Female,F,9th through 12th grade with no diploma,2,25,Not Applicable,Not Applicable
+,39 years,39,Female,F,High school graduate or GED completed,3,120,Not Applicable,Not Applicable
+,39 years,39,Female,F,"Some college credit, but not a degree.",4,43,Not Applicable,Not Applicable
+,39 years,39,Female,F,"Associate degree (AA,AS)",5,26,Not Applicable,Not Applicable
+,39 years,39,Female,F,"Bachelor?s degree (BA, AB, BS)",6,17,Not Applicable,Not Applicable
+,39 years,39,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,10,Not Applicable,Not Applicable
+,39 years,39,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,39 years,39,Male,M,8th grade or less,1,24,Not Applicable,Not Applicable
+,39 years,39,Male,M,9th through 12th grade with no diploma,2,45,Not Applicable,Not Applicable
+,39 years,39,Male,M,High school graduate or GED completed,3,150,Not Applicable,Not Applicable
+,39 years,39,Male,M,"Some college credit, but not a degree.",4,49,Not Applicable,Not Applicable
+,39 years,39,Male,M,"Associate degree (AA,AS)",5,34,Not Applicable,Not Applicable
+,39 years,39,Male,M,"Bachelor?s degree (BA, AB, BS)",6,23,Not Applicable,Not Applicable
+,39 years,39,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,40 years,40,Female,F,8th grade or less,1,19,Not Applicable,Not Applicable
+,40 years,40,Female,F,9th through 12th grade with no diploma,2,37,Not Applicable,Not Applicable
+,40 years,40,Female,F,High school graduate or GED completed,3,116,Not Applicable,Not Applicable
+,40 years,40,Female,F,"Some college credit, but not a degree.",4,48,Not Applicable,Not Applicable
+,40 years,40,Female,F,"Associate degree (AA,AS)",5,22,Not Applicable,Not Applicable
+,40 years,40,Female,F,"Bachelor?s degree (BA, AB, BS)",6,27,Not Applicable,Not Applicable
+,40 years,40,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,12,Not Applicable,Not Applicable
+,40 years,40,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,40 years,40,Male,M,8th grade or less,1,21,Not Applicable,Not Applicable
+,40 years,40,Male,M,9th through 12th grade with no diploma,2,50,Not Applicable,Not Applicable
+,40 years,40,Male,M,High school graduate or GED completed,3,172,Not Applicable,Not Applicable
+,40 years,40,Male,M,"Some college credit, but not a degree.",4,43,Not Applicable,Not Applicable
+,40 years,40,Male,M,"Associate degree (AA,AS)",5,29,Not Applicable,Not Applicable
+,40 years,40,Male,M,"Bachelor?s degree (BA, AB, BS)",6,30,Not Applicable,Not Applicable
+,40 years,40,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,10,Not Applicable,Not Applicable
+,40 years,40,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,41 years,41,Female,F,8th grade or less,1,11,Not Applicable,Not Applicable
+,41 years,41,Female,F,9th through 12th grade with no diploma,2,39,Not Applicable,Not Applicable
+,41 years,41,Female,F,High school graduate or GED completed,3,120,Not Applicable,Not Applicable
+,41 years,41,Female,F,"Some college credit, but not a degree.",4,55,Not Applicable,Not Applicable
+,41 years,41,Female,F,"Associate degree (AA,AS)",5,24,Not Applicable,Not Applicable
+,41 years,41,Female,F,"Bachelor?s degree (BA, AB, BS)",6,29,Not Applicable,Not Applicable
+,41 years,41,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,14,Not Applicable,Not Applicable
+,41 years,41,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,41 years,41,Male,M,8th grade or less,1,33,Not Applicable,Not Applicable
+,41 years,41,Male,M,9th through 12th grade with no diploma,2,65,Not Applicable,Not Applicable
+,41 years,41,Male,M,High school graduate or GED completed,3,192,Not Applicable,Not Applicable
+,41 years,41,Male,M,"Some college credit, but not a degree.",4,46,Not Applicable,Not Applicable
+,41 years,41,Male,M,"Associate degree (AA,AS)",5,31,Not Applicable,Not Applicable
+,41 years,41,Male,M,"Bachelor?s degree (BA, AB, BS)",6,29,Not Applicable,Not Applicable
+,41 years,41,Male,M,Unknown or Not Stated,9,10,Not Applicable,Not Applicable
+,41 years,41,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,42 years,42,Female,F,8th grade or less,1,11,Not Applicable,Not Applicable
+,42 years,42,Female,F,9th through 12th grade with no diploma,2,46,Not Applicable,Not Applicable
+,42 years,42,Female,F,High school graduate or GED completed,3,146,Not Applicable,Not Applicable
+,42 years,42,Female,F,"Some college credit, but not a degree.",4,53,Not Applicable,Not Applicable
+,42 years,42,Female,F,"Associate degree (AA,AS)",5,41,Not Applicable,Not Applicable
+,42 years,42,Female,F,"Bachelor?s degree (BA, AB, BS)",6,28,Not Applicable,Not Applicable
+,42 years,42,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,20,Not Applicable,Not Applicable
+,42 years,42,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,42 years,42,Male,M,8th grade or less,1,42,Not Applicable,Not Applicable
+,42 years,42,Male,M,9th through 12th grade with no diploma,2,75,Not Applicable,Not Applicable
+,42 years,42,Male,M,High school graduate or GED completed,3,217,Not Applicable,Not Applicable
+,42 years,42,Male,M,"Some college credit, but not a degree.",4,75,Not Applicable,Not Applicable
+,42 years,42,Male,M,"Associate degree (AA,AS)",5,25,Not Applicable,Not Applicable
+,42 years,42,Male,M,"Bachelor?s degree (BA, AB, BS)",6,36,Not Applicable,Not Applicable
+,42 years,42,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,11,Not Applicable,Not Applicable
+,42 years,42,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,43 years,43,Female,F,8th grade or less,1,14,Not Applicable,Not Applicable
+,43 years,43,Female,F,9th through 12th grade with no diploma,2,69,Not Applicable,Not Applicable
+,43 years,43,Female,F,High school graduate or GED completed,3,149,Not Applicable,Not Applicable
+,43 years,43,Female,F,"Some college credit, but not a degree.",4,66,Not Applicable,Not Applicable
+,43 years,43,Female,F,"Associate degree (AA,AS)",5,29,Not Applicable,Not Applicable
+,43 years,43,Female,F,"Bachelor?s degree (BA, AB, BS)",6,38,Not Applicable,Not Applicable
+,43 years,43,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,14,Not Applicable,Not Applicable
+,43 years,43,Female,F,Unknown or Not Stated,9,10,Not Applicable,Not Applicable
+,43 years,43,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,43 years,43,Male,M,8th grade or less,1,48,Not Applicable,Not Applicable
+,43 years,43,Male,M,9th through 12th grade with no diploma,2,78,Not Applicable,Not Applicable
+,43 years,43,Male,M,High school graduate or GED completed,3,229,Not Applicable,Not Applicable
+,43 years,43,Male,M,"Some college credit, but not a degree.",4,60,Not Applicable,Not Applicable
+,43 years,43,Male,M,"Associate degree (AA,AS)",5,30,Not Applicable,Not Applicable
+,43 years,43,Male,M,"Bachelor?s degree (BA, AB, BS)",6,44,Not Applicable,Not Applicable
+,43 years,43,Male,M,Unknown or Not Stated,9,13,Not Applicable,Not Applicable
+,43 years,43,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,44 years,44,Female,F,8th grade or less,1,16,Not Applicable,Not Applicable
+,44 years,44,Female,F,9th through 12th grade with no diploma,2,49,Not Applicable,Not Applicable
+,44 years,44,Female,F,High school graduate or GED completed,3,177,Not Applicable,Not Applicable
+,44 years,44,Female,F,"Some college credit, but not a degree.",4,63,Not Applicable,Not Applicable
+,44 years,44,Female,F,"Associate degree (AA,AS)",5,27,Not Applicable,Not Applicable
+,44 years,44,Female,F,"Bachelor?s degree (BA, AB, BS)",6,53,Not Applicable,Not Applicable
+,44 years,44,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,18,Not Applicable,Not Applicable
+,44 years,44,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,44 years,44,Male,M,8th grade or less,1,39,Not Applicable,Not Applicable
+,44 years,44,Male,M,9th through 12th grade with no diploma,2,73,Not Applicable,Not Applicable
+,44 years,44,Male,M,High school graduate or GED completed,3,234,Not Applicable,Not Applicable
+,44 years,44,Male,M,"Some college credit, but not a degree.",4,76,Not Applicable,Not Applicable
+,44 years,44,Male,M,"Associate degree (AA,AS)",5,34,Not Applicable,Not Applicable
+,44 years,44,Male,M,"Bachelor?s degree (BA, AB, BS)",6,37,Not Applicable,Not Applicable
+,44 years,44,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,45 years,45,Female,F,8th grade or less,1,17,Not Applicable,Not Applicable
+,45 years,45,Female,F,9th through 12th grade with no diploma,2,56,Not Applicable,Not Applicable
+,45 years,45,Female,F,High school graduate or GED completed,3,192,Not Applicable,Not Applicable
+,45 years,45,Female,F,"Some college credit, but not a degree.",4,65,Not Applicable,Not Applicable
+,45 years,45,Female,F,"Associate degree (AA,AS)",5,33,Not Applicable,Not Applicable
+,45 years,45,Female,F,"Bachelor?s degree (BA, AB, BS)",6,35,Not Applicable,Not Applicable
+,45 years,45,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,23,Not Applicable,Not Applicable
+,45 years,45,Female,F,Unknown or Not Stated,9,10,Not Applicable,Not Applicable
+,45 years,45,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,45 years,45,Male,M,8th grade or less,1,40,Not Applicable,Not Applicable
+,45 years,45,Male,M,9th through 12th grade with no diploma,2,90,Not Applicable,Not Applicable
+,45 years,45,Male,M,High school graduate or GED completed,3,274,Not Applicable,Not Applicable
+,45 years,45,Male,M,"Some college credit, but not a degree.",4,83,Not Applicable,Not Applicable
+,45 years,45,Male,M,"Associate degree (AA,AS)",5,37,Not Applicable,Not Applicable
+,45 years,45,Male,M,"Bachelor?s degree (BA, AB, BS)",6,44,Not Applicable,Not Applicable
+,45 years,45,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,11,Not Applicable,Not Applicable
+,45 years,45,Male,M,Unknown or Not Stated,9,14,Not Applicable,Not Applicable
+,45 years,45,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,46 years,46,Female,F,8th grade or less,1,23,Not Applicable,Not Applicable
+,46 years,46,Female,F,9th through 12th grade with no diploma,2,67,Not Applicable,Not Applicable
+,46 years,46,Female,F,High school graduate or GED completed,3,210,Not Applicable,Not Applicable
+,46 years,46,Female,F,"Some college credit, but not a degree.",4,96,Not Applicable,Not Applicable
+,46 years,46,Female,F,"Associate degree (AA,AS)",5,56,Not Applicable,Not Applicable
+,46 years,46,Female,F,"Bachelor?s degree (BA, AB, BS)",6,32,Not Applicable,Not Applicable
+,46 years,46,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,14,Not Applicable,Not Applicable
+,46 years,46,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,46 years,46,Male,M,8th grade or less,1,44,Not Applicable,Not Applicable
+,46 years,46,Male,M,9th through 12th grade with no diploma,2,87,Not Applicable,Not Applicable
+,46 years,46,Male,M,High school graduate or GED completed,3,285,Not Applicable,Not Applicable
+,46 years,46,Male,M,"Some college credit, but not a degree.",4,92,Not Applicable,Not Applicable
+,46 years,46,Male,M,"Associate degree (AA,AS)",5,48,Not Applicable,Not Applicable
+,46 years,46,Male,M,"Bachelor?s degree (BA, AB, BS)",6,44,Not Applicable,Not Applicable
+,46 years,46,Male,M,Unknown or Not Stated,9,16,Not Applicable,Not Applicable
+,46 years,46,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,47 years,47,Female,F,8th grade or less,1,26,Not Applicable,Not Applicable
+,47 years,47,Female,F,9th through 12th grade with no diploma,2,61,Not Applicable,Not Applicable
+,47 years,47,Female,F,High school graduate or GED completed,3,242,Not Applicable,Not Applicable
+,47 years,47,Female,F,"Some college credit, but not a degree.",4,92,Not Applicable,Not Applicable
+,47 years,47,Female,F,"Associate degree (AA,AS)",5,50,Not Applicable,Not Applicable
+,47 years,47,Female,F,"Bachelor?s degree (BA, AB, BS)",6,62,Not Applicable,Not Applicable
+,47 years,47,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,35,Not Applicable,Not Applicable
+,47 years,47,Female,F,Unknown or Not Stated,9,10,Not Applicable,Not Applicable
+,47 years,47,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,47 years,47,Male,M,8th grade or less,1,60,Not Applicable,Not Applicable
+,47 years,47,Male,M,9th through 12th grade with no diploma,2,111,Not Applicable,Not Applicable
+,47 years,47,Male,M,High school graduate or GED completed,3,335,Not Applicable,Not Applicable
+,47 years,47,Male,M,"Some college credit, but not a degree.",4,99,Not Applicable,Not Applicable
+,47 years,47,Male,M,"Associate degree (AA,AS)",5,33,Not Applicable,Not Applicable
+,47 years,47,Male,M,"Bachelor?s degree (BA, AB, BS)",6,60,Not Applicable,Not Applicable
+,47 years,47,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,16,Not Applicable,Not Applicable
+,47 years,47,Male,M,Unknown or Not Stated,9,11,Not Applicable,Not Applicable
+,47 years,47,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,48 years,48,Female,F,8th grade or less,1,34,Not Applicable,Not Applicable
+,48 years,48,Female,F,9th through 12th grade with no diploma,2,77,Not Applicable,Not Applicable
+,48 years,48,Female,F,High school graduate or GED completed,3,235,Not Applicable,Not Applicable
+,48 years,48,Female,F,"Some college credit, but not a degree.",4,85,Not Applicable,Not Applicable
+,48 years,48,Female,F,"Associate degree (AA,AS)",5,53,Not Applicable,Not Applicable
+,48 years,48,Female,F,"Bachelor?s degree (BA, AB, BS)",6,54,Not Applicable,Not Applicable
+,48 years,48,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,16,Not Applicable,Not Applicable
+,48 years,48,Female,F,Unknown or Not Stated,9,10,Not Applicable,Not Applicable
+,48 years,48,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,48 years,48,Male,M,8th grade or less,1,73,Not Applicable,Not Applicable
+,48 years,48,Male,M,9th through 12th grade with no diploma,2,117,Not Applicable,Not Applicable
+,48 years,48,Male,M,High school graduate or GED completed,3,339,Not Applicable,Not Applicable
+,48 years,48,Male,M,"Some college credit, but not a degree.",4,127,Not Applicable,Not Applicable
+,48 years,48,Male,M,"Associate degree (AA,AS)",5,52,Not Applicable,Not Applicable
+,48 years,48,Male,M,"Bachelor?s degree (BA, AB, BS)",6,64,Not Applicable,Not Applicable
+,48 years,48,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,24,Not Applicable,Not Applicable
+,48 years,48,Male,M,Unknown or Not Stated,9,15,Not Applicable,Not Applicable
+,48 years,48,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,49 years,49,Female,F,8th grade or less,1,35,Not Applicable,Not Applicable
+,49 years,49,Female,F,9th through 12th grade with no diploma,2,81,Not Applicable,Not Applicable
+,49 years,49,Female,F,High school graduate or GED completed,3,268,Not Applicable,Not Applicable
+,49 years,49,Female,F,"Some college credit, but not a degree.",4,93,Not Applicable,Not Applicable
+,49 years,49,Female,F,"Associate degree (AA,AS)",5,52,Not Applicable,Not Applicable
+,49 years,49,Female,F,"Bachelor?s degree (BA, AB, BS)",6,54,Not Applicable,Not Applicable
+,49 years,49,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,27,Not Applicable,Not Applicable
+,49 years,49,Female,F,Unknown or Not Stated,9,10,Not Applicable,Not Applicable
+,49 years,49,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,49 years,49,Male,M,8th grade or less,1,80,Not Applicable,Not Applicable
+,49 years,49,Male,M,9th through 12th grade with no diploma,2,131,Not Applicable,Not Applicable
+,49 years,49,Male,M,High school graduate or GED completed,3,381,Not Applicable,Not Applicable
+,49 years,49,Male,M,"Some college credit, but not a degree.",4,114,Not Applicable,Not Applicable
+,49 years,49,Male,M,"Associate degree (AA,AS)",5,44,Not Applicable,Not Applicable
+,49 years,49,Male,M,"Bachelor?s degree (BA, AB, BS)",6,74,Not Applicable,Not Applicable
+,49 years,49,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,23,Not Applicable,Not Applicable
+,49 years,49,Male,M,Unknown or Not Stated,9,19,Not Applicable,Not Applicable
+,49 years,49,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,50 years,50,Female,F,8th grade or less,1,42,Not Applicable,Not Applicable
+,50 years,50,Female,F,9th through 12th grade with no diploma,2,90,Not Applicable,Not Applicable
+,50 years,50,Female,F,High school graduate or GED completed,3,321,Not Applicable,Not Applicable
+,50 years,50,Female,F,"Some college credit, but not a degree.",4,113,Not Applicable,Not Applicable
+,50 years,50,Female,F,"Associate degree (AA,AS)",5,49,Not Applicable,Not Applicable
+,50 years,50,Female,F,"Bachelor?s degree (BA, AB, BS)",6,62,Not Applicable,Not Applicable
+,50 years,50,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,31,Not Applicable,Not Applicable
+,50 years,50,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,50 years,50,Male,M,8th grade or less,1,66,Not Applicable,Not Applicable
+,50 years,50,Male,M,9th through 12th grade with no diploma,2,143,Not Applicable,Not Applicable
+,50 years,50,Male,M,High school graduate or GED completed,3,476,Not Applicable,Not Applicable
+,50 years,50,Male,M,"Some college credit, but not a degree.",4,119,Not Applicable,Not Applicable
+,50 years,50,Male,M,"Associate degree (AA,AS)",5,50,Not Applicable,Not Applicable
+,50 years,50,Male,M,"Bachelor?s degree (BA, AB, BS)",6,93,Not Applicable,Not Applicable
+,50 years,50,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,21,Not Applicable,Not Applicable
+,50 years,50,Male,M,Unknown or Not Stated,9,11,Not Applicable,Not Applicable
+,50 years,50,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,51 years,51,Female,F,8th grade or less,1,42,Not Applicable,Not Applicable
+,51 years,51,Female,F,9th through 12th grade with no diploma,2,94,Not Applicable,Not Applicable
+,51 years,51,Female,F,High school graduate or GED completed,3,321,Not Applicable,Not Applicable
+,51 years,51,Female,F,"Some college credit, but not a degree.",4,109,Not Applicable,Not Applicable
+,51 years,51,Female,F,"Associate degree (AA,AS)",5,80,Not Applicable,Not Applicable
+,51 years,51,Female,F,"Bachelor?s degree (BA, AB, BS)",6,88,Not Applicable,Not Applicable
+,51 years,51,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,40,Not Applicable,Not Applicable
+,51 years,51,Female,F,Unknown or Not Stated,9,12,Not Applicable,Not Applicable
+,51 years,51,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,51 years,51,Male,M,8th grade or less,1,85,Not Applicable,Not Applicable
+,51 years,51,Male,M,9th through 12th grade with no diploma,2,152,Not Applicable,Not Applicable
+,51 years,51,Male,M,High school graduate or GED completed,3,490,Not Applicable,Not Applicable
+,51 years,51,Male,M,"Some college credit, but not a degree.",4,152,Not Applicable,Not Applicable
+,51 years,51,Male,M,"Associate degree (AA,AS)",5,68,Not Applicable,Not Applicable
+,51 years,51,Male,M,"Bachelor?s degree (BA, AB, BS)",6,110,Not Applicable,Not Applicable
+,51 years,51,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,36,Not Applicable,Not Applicable
+,51 years,51,Male,M,Unknown or Not Stated,9,18,Not Applicable,Not Applicable
+,51 years,51,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,52 years,52,Female,F,8th grade or less,1,43,Not Applicable,Not Applicable
+,52 years,52,Female,F,9th through 12th grade with no diploma,2,93,Not Applicable,Not Applicable
+,52 years,52,Female,F,High school graduate or GED completed,3,382,Not Applicable,Not Applicable
+,52 years,52,Female,F,"Some college credit, but not a degree.",4,129,Not Applicable,Not Applicable
+,52 years,52,Female,F,"Associate degree (AA,AS)",5,77,Not Applicable,Not Applicable
+,52 years,52,Female,F,"Bachelor?s degree (BA, AB, BS)",6,73,Not Applicable,Not Applicable
+,52 years,52,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,23,Not Applicable,Not Applicable
+,52 years,52,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,10,Not Applicable,Not Applicable
+,52 years,52,Female,F,Unknown or Not Stated,9,15,Not Applicable,Not Applicable
+,52 years,52,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,52 years,52,Male,M,8th grade or less,1,83,Not Applicable,Not Applicable
+,52 years,52,Male,M,9th through 12th grade with no diploma,2,163,Not Applicable,Not Applicable
+,52 years,52,Male,M,High school graduate or GED completed,3,519,Not Applicable,Not Applicable
+,52 years,52,Male,M,"Some college credit, but not a degree.",4,162,Not Applicable,Not Applicable
+,52 years,52,Male,M,"Associate degree (AA,AS)",5,77,Not Applicable,Not Applicable
+,52 years,52,Male,M,"Bachelor?s degree (BA, AB, BS)",6,111,Not Applicable,Not Applicable
+,52 years,52,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,30,Not Applicable,Not Applicable
+,52 years,52,Male,M,Unknown or Not Stated,9,33,Not Applicable,Not Applicable
+,52 years,52,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,53 years,53,Female,F,8th grade or less,1,64,Not Applicable,Not Applicable
+,53 years,53,Female,F,9th through 12th grade with no diploma,2,105,Not Applicable,Not Applicable
+,53 years,53,Female,F,High school graduate or GED completed,3,386,Not Applicable,Not Applicable
+,53 years,53,Female,F,"Some college credit, but not a degree.",4,135,Not Applicable,Not Applicable
+,53 years,53,Female,F,"Associate degree (AA,AS)",5,83,Not Applicable,Not Applicable
+,53 years,53,Female,F,"Bachelor?s degree (BA, AB, BS)",6,102,Not Applicable,Not Applicable
+,53 years,53,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,35,Not Applicable,Not Applicable
+,53 years,53,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,11,Not Applicable,Not Applicable
+,53 years,53,Female,F,Unknown or Not Stated,9,15,Not Applicable,Not Applicable
+,53 years,53,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,53 years,53,Male,M,8th grade or less,1,90,Not Applicable,Not Applicable
+,53 years,53,Male,M,9th through 12th grade with no diploma,2,195,Not Applicable,Not Applicable
+,53 years,53,Male,M,High school graduate or GED completed,3,647,Not Applicable,Not Applicable
+,53 years,53,Male,M,"Some college credit, but not a degree.",4,140,Not Applicable,Not Applicable
+,53 years,53,Male,M,"Associate degree (AA,AS)",5,81,Not Applicable,Not Applicable
+,53 years,53,Male,M,"Bachelor?s degree (BA, AB, BS)",6,111,Not Applicable,Not Applicable
+,53 years,53,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,38,Not Applicable,Not Applicable
+,53 years,53,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,14,Not Applicable,Not Applicable
+,53 years,53,Male,M,Unknown or Not Stated,9,26,Not Applicable,Not Applicable
+,53 years,53,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,54 years,54,Female,F,8th grade or less,1,61,Not Applicable,Not Applicable
+,54 years,54,Female,F,9th through 12th grade with no diploma,2,107,Not Applicable,Not Applicable
+,54 years,54,Female,F,High school graduate or GED completed,3,424,Not Applicable,Not Applicable
+,54 years,54,Female,F,"Some college credit, but not a degree.",4,158,Not Applicable,Not Applicable
+,54 years,54,Female,F,"Associate degree (AA,AS)",5,88,Not Applicable,Not Applicable
+,54 years,54,Female,F,"Bachelor?s degree (BA, AB, BS)",6,92,Not Applicable,Not Applicable
+,54 years,54,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,43,Not Applicable,Not Applicable
+,54 years,54,Female,F,Unknown or Not Stated,9,16,Not Applicable,Not Applicable
+,54 years,54,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,54 years,54,Male,M,8th grade or less,1,94,Not Applicable,Not Applicable
+,54 years,54,Male,M,9th through 12th grade with no diploma,2,174,Not Applicable,Not Applicable
+,54 years,54,Male,M,High school graduate or GED completed,3,657,Not Applicable,Not Applicable
+,54 years,54,Male,M,"Some college credit, but not a degree.",4,176,Not Applicable,Not Applicable
+,54 years,54,Male,M,"Associate degree (AA,AS)",5,80,Not Applicable,Not Applicable
+,54 years,54,Male,M,"Bachelor?s degree (BA, AB, BS)",6,116,Not Applicable,Not Applicable
+,54 years,54,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,27,Not Applicable,Not Applicable
+,54 years,54,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,14,Not Applicable,Not Applicable
+,54 years,54,Male,M,Unknown or Not Stated,9,50,Not Applicable,Not Applicable
+,54 years,54,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,55 years,55,Female,F,8th grade or less,1,63,Not Applicable,Not Applicable
+,55 years,55,Female,F,9th through 12th grade with no diploma,2,98,Not Applicable,Not Applicable
+,55 years,55,Female,F,High school graduate or GED completed,3,451,Not Applicable,Not Applicable
+,55 years,55,Female,F,"Some college credit, but not a degree.",4,177,Not Applicable,Not Applicable
+,55 years,55,Female,F,"Associate degree (AA,AS)",5,98,Not Applicable,Not Applicable
+,55 years,55,Female,F,"Bachelor?s degree (BA, AB, BS)",6,104,Not Applicable,Not Applicable
+,55 years,55,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,35,Not Applicable,Not Applicable
+,55 years,55,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,12,Not Applicable,Not Applicable
+,55 years,55,Female,F,Unknown or Not Stated,9,32,Not Applicable,Not Applicable
+,55 years,55,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,55 years,55,Male,M,8th grade or less,1,106,Not Applicable,Not Applicable
+,55 years,55,Male,M,9th through 12th grade with no diploma,2,227,Not Applicable,Not Applicable
+,55 years,55,Male,M,High school graduate or GED completed,3,719,Not Applicable,Not Applicable
+,55 years,55,Male,M,"Some college credit, but not a degree.",4,178,Not Applicable,Not Applicable
+,55 years,55,Male,M,"Associate degree (AA,AS)",5,91,Not Applicable,Not Applicable
+,55 years,55,Male,M,"Bachelor?s degree (BA, AB, BS)",6,100,Not Applicable,Not Applicable
+,55 years,55,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,37,Not Applicable,Not Applicable
+,55 years,55,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,14,Not Applicable,Not Applicable
+,55 years,55,Male,M,Unknown or Not Stated,9,38,Not Applicable,Not Applicable
+,55 years,55,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,56 years,56,Female,F,8th grade or less,1,65,Not Applicable,Not Applicable
+,56 years,56,Female,F,9th through 12th grade with no diploma,2,131,Not Applicable,Not Applicable
+,56 years,56,Female,F,High school graduate or GED completed,3,490,Not Applicable,Not Applicable
+,56 years,56,Female,F,"Some college credit, but not a degree.",4,167,Not Applicable,Not Applicable
+,56 years,56,Female,F,"Associate degree (AA,AS)",5,119,Not Applicable,Not Applicable
+,56 years,56,Female,F,"Bachelor?s degree (BA, AB, BS)",6,109,Not Applicable,Not Applicable
+,56 years,56,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,44,Not Applicable,Not Applicable
+,56 years,56,Female,F,Unknown or Not Stated,9,23,Not Applicable,Not Applicable
+,56 years,56,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,56 years,56,Male,M,8th grade or less,1,107,Not Applicable,Not Applicable
+,56 years,56,Male,M,9th through 12th grade with no diploma,2,249,Not Applicable,Not Applicable
+,56 years,56,Male,M,High school graduate or GED completed,3,799,Not Applicable,Not Applicable
+,56 years,56,Male,M,"Some college credit, but not a degree.",4,206,Not Applicable,Not Applicable
+,56 years,56,Male,M,"Associate degree (AA,AS)",5,84,Not Applicable,Not Applicable
+,56 years,56,Male,M,"Bachelor?s degree (BA, AB, BS)",6,134,Not Applicable,Not Applicable
+,56 years,56,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,40,Not Applicable,Not Applicable
+,56 years,56,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,10,Not Applicable,Not Applicable
+,56 years,56,Male,M,Unknown or Not Stated,9,56,Not Applicable,Not Applicable
+,56 years,56,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,57 years,57,Female,F,8th grade or less,1,69,Not Applicable,Not Applicable
+,57 years,57,Female,F,9th through 12th grade with no diploma,2,134,Not Applicable,Not Applicable
+,57 years,57,Female,F,High school graduate or GED completed,3,601,Not Applicable,Not Applicable
+,57 years,57,Female,F,"Some college credit, but not a degree.",4,186,Not Applicable,Not Applicable
+,57 years,57,Female,F,"Associate degree (AA,AS)",5,110,Not Applicable,Not Applicable
+,57 years,57,Female,F,"Bachelor?s degree (BA, AB, BS)",6,102,Not Applicable,Not Applicable
+,57 years,57,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,50,Not Applicable,Not Applicable
+,57 years,57,Female,F,Unknown or Not Stated,9,22,Not Applicable,Not Applicable
+,57 years,57,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,57 years,57,Male,M,8th grade or less,1,118,Not Applicable,Not Applicable
+,57 years,57,Male,M,9th through 12th grade with no diploma,2,263,Not Applicable,Not Applicable
+,57 years,57,Male,M,High school graduate or GED completed,3,986,Not Applicable,Not Applicable
+,57 years,57,Male,M,"Some college credit, but not a degree.",4,248,Not Applicable,Not Applicable
+,57 years,57,Male,M,"Associate degree (AA,AS)",5,119,Not Applicable,Not Applicable
+,57 years,57,Male,M,"Bachelor?s degree (BA, AB, BS)",6,142,Not Applicable,Not Applicable
+,57 years,57,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,46,Not Applicable,Not Applicable
+,57 years,57,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,19,Not Applicable,Not Applicable
+,57 years,57,Male,M,Unknown or Not Stated,9,69,Not Applicable,Not Applicable
+,57 years,57,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,58 years,58,Female,F,8th grade or less,1,66,Not Applicable,Not Applicable
+,58 years,58,Female,F,9th through 12th grade with no diploma,2,154,Not Applicable,Not Applicable
+,58 years,58,Female,F,High school graduate or GED completed,3,665,Not Applicable,Not Applicable
+,58 years,58,Female,F,"Some college credit, but not a degree.",4,227,Not Applicable,Not Applicable
+,58 years,58,Female,F,"Associate degree (AA,AS)",5,125,Not Applicable,Not Applicable
+,58 years,58,Female,F,"Bachelor?s degree (BA, AB, BS)",6,127,Not Applicable,Not Applicable
+,58 years,58,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,48,Not Applicable,Not Applicable
+,58 years,58,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,16,Not Applicable,Not Applicable
+,58 years,58,Female,F,Unknown or Not Stated,9,31,Not Applicable,Not Applicable
+,58 years,58,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,58 years,58,Male,M,8th grade or less,1,147,Not Applicable,Not Applicable
+,58 years,58,Male,M,9th through 12th grade with no diploma,2,258,Not Applicable,Not Applicable
+,58 years,58,Male,M,High school graduate or GED completed,3,1022,Not Applicable,Not Applicable
+,58 years,58,Male,M,"Some college credit, but not a degree.",4,290,Not Applicable,Not Applicable
+,58 years,58,Male,M,"Associate degree (AA,AS)",5,145,Not Applicable,Not Applicable
+,58 years,58,Male,M,"Bachelor?s degree (BA, AB, BS)",6,153,Not Applicable,Not Applicable
+,58 years,58,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,44,Not Applicable,Not Applicable
+,58 years,58,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,17,Not Applicable,Not Applicable
+,58 years,58,Male,M,Unknown or Not Stated,9,60,Not Applicable,Not Applicable
+,58 years,58,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,59 years,59,Female,F,8th grade or less,1,87,Not Applicable,Not Applicable
+,59 years,59,Female,F,9th through 12th grade with no diploma,2,185,Not Applicable,Not Applicable
+,59 years,59,Female,F,High school graduate or GED completed,3,723,Not Applicable,Not Applicable
+,59 years,59,Female,F,"Some college credit, but not a degree.",4,233,Not Applicable,Not Applicable
+,59 years,59,Female,F,"Associate degree (AA,AS)",5,164,Not Applicable,Not Applicable
+,59 years,59,Female,F,"Bachelor?s degree (BA, AB, BS)",6,168,Not Applicable,Not Applicable
+,59 years,59,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,40,Not Applicable,Not Applicable
+,59 years,59,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,11,Not Applicable,Not Applicable
+,59 years,59,Female,F,Unknown or Not Stated,9,30,Not Applicable,Not Applicable
+,59 years,59,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,59 years,59,Male,M,8th grade or less,1,198,Not Applicable,Not Applicable
+,59 years,59,Male,M,9th through 12th grade with no diploma,2,337,Not Applicable,Not Applicable
+,59 years,59,Male,M,High school graduate or GED completed,3,1050,Not Applicable,Not Applicable
+,59 years,59,Male,M,"Some college credit, but not a degree.",4,284,Not Applicable,Not Applicable
+,59 years,59,Male,M,"Associate degree (AA,AS)",5,148,Not Applicable,Not Applicable
+,59 years,59,Male,M,"Bachelor?s degree (BA, AB, BS)",6,176,Not Applicable,Not Applicable
+,59 years,59,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,42,Not Applicable,Not Applicable
+,59 years,59,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,22,Not Applicable,Not Applicable
+,59 years,59,Male,M,Unknown or Not Stated,9,76,Not Applicable,Not Applicable
+,59 years,59,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,60 years,60,Female,F,8th grade or less,1,100,Not Applicable,Not Applicable
+,60 years,60,Female,F,9th through 12th grade with no diploma,2,187,Not Applicable,Not Applicable
+,60 years,60,Female,F,High school graduate or GED completed,3,791,Not Applicable,Not Applicable
+,60 years,60,Female,F,"Some college credit, but not a degree.",4,243,Not Applicable,Not Applicable
+,60 years,60,Female,F,"Associate degree (AA,AS)",5,174,Not Applicable,Not Applicable
+,60 years,60,Female,F,"Bachelor?s degree (BA, AB, BS)",6,167,Not Applicable,Not Applicable
+,60 years,60,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,71,Not Applicable,Not Applicable
+,60 years,60,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,13,Not Applicable,Not Applicable
+,60 years,60,Female,F,Unknown or Not Stated,9,44,Not Applicable,Not Applicable
+,60 years,60,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,60 years,60,Male,M,8th grade or less,1,185,Not Applicable,Not Applicable
+,60 years,60,Male,M,9th through 12th grade with no diploma,2,343,Not Applicable,Not Applicable
+,60 years,60,Male,M,High school graduate or GED completed,3,1250,Not Applicable,Not Applicable
+,60 years,60,Male,M,"Some college credit, but not a degree.",4,316,Not Applicable,Not Applicable
+,60 years,60,Male,M,"Associate degree (AA,AS)",5,169,Not Applicable,Not Applicable
+,60 years,60,Male,M,"Bachelor?s degree (BA, AB, BS)",6,220,Not Applicable,Not Applicable
+,60 years,60,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,52,Not Applicable,Not Applicable
+,60 years,60,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,26,Not Applicable,Not Applicable
+,60 years,60,Male,M,Unknown or Not Stated,9,112,Not Applicable,Not Applicable
+,60 years,60,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,61 years,61,Female,F,8th grade or less,1,121,Not Applicable,Not Applicable
+,61 years,61,Female,F,9th through 12th grade with no diploma,2,211,Not Applicable,Not Applicable
+,61 years,61,Female,F,High school graduate or GED completed,3,866,Not Applicable,Not Applicable
+,61 years,61,Female,F,"Some college credit, but not a degree.",4,309,Not Applicable,Not Applicable
+,61 years,61,Female,F,"Associate degree (AA,AS)",5,191,Not Applicable,Not Applicable
+,61 years,61,Female,F,"Bachelor?s degree (BA, AB, BS)",6,164,Not Applicable,Not Applicable
+,61 years,61,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,49,Not Applicable,Not Applicable
+,61 years,61,Female,F,Unknown or Not Stated,9,42,Not Applicable,Not Applicable
+,61 years,61,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,61 years,61,Male,M,8th grade or less,1,200,Not Applicable,Not Applicable
+,61 years,61,Male,M,9th through 12th grade with no diploma,2,399,Not Applicable,Not Applicable
+,61 years,61,Male,M,High school graduate or GED completed,3,1368,Not Applicable,Not Applicable
+,61 years,61,Male,M,"Some college credit, but not a degree.",4,351,Not Applicable,Not Applicable
+,61 years,61,Male,M,"Associate degree (AA,AS)",5,141,Not Applicable,Not Applicable
+,61 years,61,Male,M,"Bachelor?s degree (BA, AB, BS)",6,195,Not Applicable,Not Applicable
+,61 years,61,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,62,Not Applicable,Not Applicable
+,61 years,61,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,34,Not Applicable,Not Applicable
+,61 years,61,Male,M,Unknown or Not Stated,9,105,Not Applicable,Not Applicable
+,61 years,61,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,62 years,62,Female,F,8th grade or less,1,130,Not Applicable,Not Applicable
+,62 years,62,Female,F,9th through 12th grade with no diploma,2,223,Not Applicable,Not Applicable
+,62 years,62,Female,F,High school graduate or GED completed,3,956,Not Applicable,Not Applicable
+,62 years,62,Female,F,"Some college credit, but not a degree.",4,304,Not Applicable,Not Applicable
+,62 years,62,Female,F,"Associate degree (AA,AS)",5,204,Not Applicable,Not Applicable
+,62 years,62,Female,F,"Bachelor?s degree (BA, AB, BS)",6,206,Not Applicable,Not Applicable
+,62 years,62,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,73,Not Applicable,Not Applicable
+,62 years,62,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,21,Not Applicable,Not Applicable
+,62 years,62,Female,F,Unknown or Not Stated,9,40,Not Applicable,Not Applicable
+,62 years,62,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,62 years,62,Male,M,8th grade or less,1,207,Not Applicable,Not Applicable
+,62 years,62,Male,M,9th through 12th grade with no diploma,2,404,Not Applicable,Not Applicable
+,62 years,62,Male,M,High school graduate or GED completed,3,1382,Not Applicable,Not Applicable
+,62 years,62,Male,M,"Some college credit, but not a degree.",4,351,Not Applicable,Not Applicable
+,62 years,62,Male,M,"Associate degree (AA,AS)",5,169,Not Applicable,Not Applicable
+,62 years,62,Male,M,"Bachelor?s degree (BA, AB, BS)",6,241,Not Applicable,Not Applicable
+,62 years,62,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,66,Not Applicable,Not Applicable
+,62 years,62,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,31,Not Applicable,Not Applicable
+,62 years,62,Male,M,Unknown or Not Stated,9,85,Not Applicable,Not Applicable
+,62 years,62,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,63 years,63,Female,F,8th grade or less,1,142,Not Applicable,Not Applicable
+,63 years,63,Female,F,9th through 12th grade with no diploma,2,260,Not Applicable,Not Applicable
+,63 years,63,Female,F,High school graduate or GED completed,3,1063,Not Applicable,Not Applicable
+,63 years,63,Female,F,"Some college credit, but not a degree.",4,367,Not Applicable,Not Applicable
+,63 years,63,Female,F,"Associate degree (AA,AS)",5,232,Not Applicable,Not Applicable
+,63 years,63,Female,F,"Bachelor?s degree (BA, AB, BS)",6,230,Not Applicable,Not Applicable
+,63 years,63,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,61,Not Applicable,Not Applicable
+,63 years,63,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,19,Not Applicable,Not Applicable
+,63 years,63,Female,F,Unknown or Not Stated,9,45,Not Applicable,Not Applicable
+,63 years,63,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,63 years,63,Male,M,8th grade or less,1,201,Not Applicable,Not Applicable
+,63 years,63,Male,M,9th through 12th grade with no diploma,2,387,Not Applicable,Not Applicable
+,63 years,63,Male,M,High school graduate or GED completed,3,1446,Not Applicable,Not Applicable
+,63 years,63,Male,M,"Some college credit, but not a degree.",4,393,Not Applicable,Not Applicable
+,63 years,63,Male,M,"Associate degree (AA,AS)",5,171,Not Applicable,Not Applicable
+,63 years,63,Male,M,"Bachelor?s degree (BA, AB, BS)",6,255,Not Applicable,Not Applicable
+,63 years,63,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,94,Not Applicable,Not Applicable
+,63 years,63,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,39,Not Applicable,Not Applicable
+,63 years,63,Male,M,Unknown or Not Stated,9,112,Not Applicable,Not Applicable
+,63 years,63,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,64 years,64,Female,F,8th grade or less,1,146,Not Applicable,Not Applicable
+,64 years,64,Female,F,9th through 12th grade with no diploma,2,253,Not Applicable,Not Applicable
+,64 years,64,Female,F,High school graduate or GED completed,3,1107,Not Applicable,Not Applicable
+,64 years,64,Female,F,"Some college credit, but not a degree.",4,364,Not Applicable,Not Applicable
+,64 years,64,Female,F,"Associate degree (AA,AS)",5,226,Not Applicable,Not Applicable
+,64 years,64,Female,F,"Bachelor?s degree (BA, AB, BS)",6,246,Not Applicable,Not Applicable
+,64 years,64,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,83,Not Applicable,Not Applicable
+,64 years,64,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,21,Not Applicable,Not Applicable
+,64 years,64,Female,F,Unknown or Not Stated,9,45,Not Applicable,Not Applicable
+,64 years,64,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,64 years,64,Male,M,8th grade or less,1,217,Not Applicable,Not Applicable
+,64 years,64,Male,M,9th through 12th grade with no diploma,2,429,Not Applicable,Not Applicable
+,64 years,64,Male,M,High school graduate or GED completed,3,1710,Not Applicable,Not Applicable
+,64 years,64,Male,M,"Some college credit, but not a degree.",4,468,Not Applicable,Not Applicable
+,64 years,64,Male,M,"Associate degree (AA,AS)",5,221,Not Applicable,Not Applicable
+,64 years,64,Male,M,"Bachelor?s degree (BA, AB, BS)",6,292,Not Applicable,Not Applicable
+,64 years,64,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,91,Not Applicable,Not Applicable
+,64 years,64,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,39,Not Applicable,Not Applicable
+,64 years,64,Male,M,Unknown or Not Stated,9,102,Not Applicable,Not Applicable
+,64 years,64,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,65 years,65,Female,F,8th grade or less,1,171,Not Applicable,Not Applicable
+,65 years,65,Female,F,9th through 12th grade with no diploma,2,272,Not Applicable,Not Applicable
+,65 years,65,Female,F,High school graduate or GED completed,3,1214,Not Applicable,Not Applicable
+,65 years,65,Female,F,"Some college credit, but not a degree.",4,375,Not Applicable,Not Applicable
+,65 years,65,Female,F,"Associate degree (AA,AS)",5,270,Not Applicable,Not Applicable
+,65 years,65,Female,F,"Bachelor?s degree (BA, AB, BS)",6,296,Not Applicable,Not Applicable
+,65 years,65,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,88,Not Applicable,Not Applicable
+,65 years,65,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,24,Not Applicable,Not Applicable
+,65 years,65,Female,F,Unknown or Not Stated,9,66,Not Applicable,Not Applicable
+,65 years,65,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,65 years,65,Male,M,8th grade or less,1,259,Not Applicable,Not Applicable
+,65 years,65,Male,M,9th through 12th grade with no diploma,2,423,Not Applicable,Not Applicable
+,65 years,65,Male,M,High school graduate or GED completed,3,1612,Not Applicable,Not Applicable
+,65 years,65,Male,M,"Some college credit, but not a degree.",4,510,Not Applicable,Not Applicable
+,65 years,65,Male,M,"Associate degree (AA,AS)",5,223,Not Applicable,Not Applicable
+,65 years,65,Male,M,"Bachelor?s degree (BA, AB, BS)",6,315,Not Applicable,Not Applicable
+,65 years,65,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,87,Not Applicable,Not Applicable
+,65 years,65,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,49,Not Applicable,Not Applicable
+,65 years,65,Male,M,Unknown or Not Stated,9,111,Not Applicable,Not Applicable
+,65 years,65,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,66 years,66,Female,F,8th grade or less,1,186,Not Applicable,Not Applicable
+,66 years,66,Female,F,9th through 12th grade with no diploma,2,245,Not Applicable,Not Applicable
+,66 years,66,Female,F,High school graduate or GED completed,3,1299,Not Applicable,Not Applicable
+,66 years,66,Female,F,"Some college credit, but not a degree.",4,399,Not Applicable,Not Applicable
+,66 years,66,Female,F,"Associate degree (AA,AS)",5,280,Not Applicable,Not Applicable
+,66 years,66,Female,F,"Bachelor?s degree (BA, AB, BS)",6,310,Not Applicable,Not Applicable
+,66 years,66,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,107,Not Applicable,Not Applicable
+,66 years,66,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,18,Not Applicable,Not Applicable
+,66 years,66,Female,F,Unknown or Not Stated,9,74,Not Applicable,Not Applicable
+,66 years,66,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,66 years,66,Male,M,8th grade or less,1,251,Not Applicable,Not Applicable
+,66 years,66,Male,M,9th through 12th grade with no diploma,2,427,Not Applicable,Not Applicable
+,66 years,66,Male,M,High school graduate or GED completed,3,1768,Not Applicable,Not Applicable
+,66 years,66,Male,M,"Some college credit, but not a degree.",4,513,Not Applicable,Not Applicable
+,66 years,66,Male,M,"Associate degree (AA,AS)",5,233,Not Applicable,Not Applicable
+,66 years,66,Male,M,"Bachelor?s degree (BA, AB, BS)",6,337,Not Applicable,Not Applicable
+,66 years,66,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,112,Not Applicable,Not Applicable
+,66 years,66,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,42,Not Applicable,Not Applicable
+,66 years,66,Male,M,Unknown or Not Stated,9,153,Not Applicable,Not Applicable
+,66 years,66,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,67 years,67,Female,F,8th grade or less,1,156,Not Applicable,Not Applicable
+,67 years,67,Female,F,9th through 12th grade with no diploma,2,266,Not Applicable,Not Applicable
+,67 years,67,Female,F,High school graduate or GED completed,3,1382,Not Applicable,Not Applicable
+,67 years,67,Female,F,"Some college credit, but not a degree.",4,432,Not Applicable,Not Applicable
+,67 years,67,Female,F,"Associate degree (AA,AS)",5,328,Not Applicable,Not Applicable
+,67 years,67,Female,F,"Bachelor?s degree (BA, AB, BS)",6,336,Not Applicable,Not Applicable
+,67 years,67,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,134,Not Applicable,Not Applicable
+,67 years,67,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,40,Not Applicable,Not Applicable
+,67 years,67,Female,F,Unknown or Not Stated,9,58,Not Applicable,Not Applicable
+,67 years,67,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,67 years,67,Male,M,8th grade or less,1,273,Not Applicable,Not Applicable
+,67 years,67,Male,M,9th through 12th grade with no diploma,2,395,Not Applicable,Not Applicable
+,67 years,67,Male,M,High school graduate or GED completed,3,1770,Not Applicable,Not Applicable
+,67 years,67,Male,M,"Some college credit, but not a degree.",4,543,Not Applicable,Not Applicable
+,67 years,67,Male,M,"Associate degree (AA,AS)",5,258,Not Applicable,Not Applicable
+,67 years,67,Male,M,"Bachelor?s degree (BA, AB, BS)",6,407,Not Applicable,Not Applicable
+,67 years,67,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,126,Not Applicable,Not Applicable
+,67 years,67,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,77,Not Applicable,Not Applicable
+,67 years,67,Male,M,Unknown or Not Stated,9,143,Not Applicable,Not Applicable
+,67 years,67,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,68 years,68,Female,F,8th grade or less,1,209,Not Applicable,Not Applicable
+,68 years,68,Female,F,9th through 12th grade with no diploma,2,280,Not Applicable,Not Applicable
+,68 years,68,Female,F,High school graduate or GED completed,3,1392,Not Applicable,Not Applicable
+,68 years,68,Female,F,"Some college credit, but not a degree.",4,454,Not Applicable,Not Applicable
+,68 years,68,Female,F,"Associate degree (AA,AS)",5,319,Not Applicable,Not Applicable
+,68 years,68,Female,F,"Bachelor?s degree (BA, AB, BS)",6,336,Not Applicable,Not Applicable
+,68 years,68,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,120,Not Applicable,Not Applicable
+,68 years,68,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,31,Not Applicable,Not Applicable
+,68 years,68,Female,F,Unknown or Not Stated,9,74,Not Applicable,Not Applicable
+,68 years,68,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,68 years,68,Male,M,8th grade or less,1,290,Not Applicable,Not Applicable
+,68 years,68,Male,M,9th through 12th grade with no diploma,2,400,Not Applicable,Not Applicable
+,68 years,68,Male,M,High school graduate or GED completed,3,1925,Not Applicable,Not Applicable
+,68 years,68,Male,M,"Some college credit, but not a degree.",4,623,Not Applicable,Not Applicable
+,68 years,68,Male,M,"Associate degree (AA,AS)",5,263,Not Applicable,Not Applicable
+,68 years,68,Male,M,"Bachelor?s degree (BA, AB, BS)",6,459,Not Applicable,Not Applicable
+,68 years,68,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,141,Not Applicable,Not Applicable
+,68 years,68,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,87,Not Applicable,Not Applicable
+,68 years,68,Male,M,Unknown or Not Stated,9,156,Not Applicable,Not Applicable
+,68 years,68,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,69 years,69,Female,F,8th grade or less,1,211,Not Applicable,Not Applicable
+,69 years,69,Female,F,9th through 12th grade with no diploma,2,283,Not Applicable,Not Applicable
+,69 years,69,Female,F,High school graduate or GED completed,3,1516,Not Applicable,Not Applicable
+,69 years,69,Female,F,"Some college credit, but not a degree.",4,532,Not Applicable,Not Applicable
+,69 years,69,Female,F,"Associate degree (AA,AS)",5,372,Not Applicable,Not Applicable
+,69 years,69,Female,F,"Bachelor?s degree (BA, AB, BS)",6,403,Not Applicable,Not Applicable
+,69 years,69,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,174,Not Applicable,Not Applicable
+,69 years,69,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,39,Not Applicable,Not Applicable
+,69 years,69,Female,F,Unknown or Not Stated,9,69,Not Applicable,Not Applicable
+,69 years,69,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,69 years,69,Male,M,8th grade or less,1,294,Not Applicable,Not Applicable
+,69 years,69,Male,M,9th through 12th grade with no diploma,2,380,Not Applicable,Not Applicable
+,69 years,69,Male,M,High school graduate or GED completed,3,1864,Not Applicable,Not Applicable
+,69 years,69,Male,M,"Some college credit, but not a degree.",4,645,Not Applicable,Not Applicable
+,69 years,69,Male,M,"Associate degree (AA,AS)",5,315,Not Applicable,Not Applicable
+,69 years,69,Male,M,"Bachelor?s degree (BA, AB, BS)",6,491,Not Applicable,Not Applicable
+,69 years,69,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,179,Not Applicable,Not Applicable
+,69 years,69,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,98,Not Applicable,Not Applicable
+,69 years,69,Male,M,Unknown or Not Stated,9,141,Not Applicable,Not Applicable
+,69 years,69,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,70 years,70,Female,F,8th grade or less,1,221,Not Applicable,Not Applicable
+,70 years,70,Female,F,9th through 12th grade with no diploma,2,305,Not Applicable,Not Applicable
+,70 years,70,Female,F,High school graduate or GED completed,3,1677,Not Applicable,Not Applicable
+,70 years,70,Female,F,"Some college credit, but not a degree.",4,565,Not Applicable,Not Applicable
+,70 years,70,Female,F,"Associate degree (AA,AS)",5,343,Not Applicable,Not Applicable
+,70 years,70,Female,F,"Bachelor?s degree (BA, AB, BS)",6,448,Not Applicable,Not Applicable
+,70 years,70,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,185,Not Applicable,Not Applicable
+,70 years,70,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,54,Not Applicable,Not Applicable
+,70 years,70,Female,F,Unknown or Not Stated,9,72,Not Applicable,Not Applicable
+,70 years,70,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,70 years,70,Male,M,8th grade or less,1,302,Not Applicable,Not Applicable
+,70 years,70,Male,M,9th through 12th grade with no diploma,2,413,Not Applicable,Not Applicable
+,70 years,70,Male,M,High school graduate or GED completed,3,1873,Not Applicable,Not Applicable
+,70 years,70,Male,M,"Some college credit, but not a degree.",4,705,Not Applicable,Not Applicable
+,70 years,70,Male,M,"Associate degree (AA,AS)",5,341,Not Applicable,Not Applicable
+,70 years,70,Male,M,"Bachelor?s degree (BA, AB, BS)",6,537,Not Applicable,Not Applicable
+,70 years,70,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,178,Not Applicable,Not Applicable
+,70 years,70,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,110,Not Applicable,Not Applicable
+,70 years,70,Male,M,Unknown or Not Stated,9,142,Not Applicable,Not Applicable
+,70 years,70,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,71 years,71,Female,F,8th grade or less,1,293,Not Applicable,Not Applicable
+,71 years,71,Female,F,9th through 12th grade with no diploma,2,326,Not Applicable,Not Applicable
+,71 years,71,Female,F,High school graduate or GED completed,3,1788,Not Applicable,Not Applicable
+,71 years,71,Female,F,"Some college credit, but not a degree.",4,577,Not Applicable,Not Applicable
+,71 years,71,Female,F,"Associate degree (AA,AS)",5,401,Not Applicable,Not Applicable
+,71 years,71,Female,F,"Bachelor?s degree (BA, AB, BS)",6,480,Not Applicable,Not Applicable
+,71 years,71,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,223,Not Applicable,Not Applicable
+,71 years,71,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,32,Not Applicable,Not Applicable
+,71 years,71,Female,F,Unknown or Not Stated,9,80,Not Applicable,Not Applicable
+,71 years,71,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,71 years,71,Male,M,8th grade or less,1,306,Not Applicable,Not Applicable
+,71 years,71,Male,M,9th through 12th grade with no diploma,2,414,Not Applicable,Not Applicable
+,71 years,71,Male,M,High school graduate or GED completed,3,1920,Not Applicable,Not Applicable
+,71 years,71,Male,M,"Some college credit, but not a degree.",4,686,Not Applicable,Not Applicable
+,71 years,71,Male,M,"Associate degree (AA,AS)",5,328,Not Applicable,Not Applicable
+,71 years,71,Male,M,"Bachelor?s degree (BA, AB, BS)",6,618,Not Applicable,Not Applicable
+,71 years,71,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,201,Not Applicable,Not Applicable
+,71 years,71,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,124,Not Applicable,Not Applicable
+,71 years,71,Male,M,Unknown or Not Stated,9,161,Not Applicable,Not Applicable
+,71 years,71,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,72 years,72,Female,F,8th grade or less,1,249,Not Applicable,Not Applicable
+,72 years,72,Female,F,9th through 12th grade with no diploma,2,337,Not Applicable,Not Applicable
+,72 years,72,Female,F,High school graduate or GED completed,3,1964,Not Applicable,Not Applicable
+,72 years,72,Female,F,"Some college credit, but not a degree.",4,654,Not Applicable,Not Applicable
+,72 years,72,Female,F,"Associate degree (AA,AS)",5,406,Not Applicable,Not Applicable
+,72 years,72,Female,F,"Bachelor?s degree (BA, AB, BS)",6,534,Not Applicable,Not Applicable
+,72 years,72,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,267,Not Applicable,Not Applicable
+,72 years,72,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,61,Not Applicable,Not Applicable
+,72 years,72,Female,F,Unknown or Not Stated,9,87,Not Applicable,Not Applicable
+,72 years,72,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,72 years,72,Male,M,8th grade or less,1,353,Not Applicable,Not Applicable
+,72 years,72,Male,M,9th through 12th grade with no diploma,2,415,Not Applicable,Not Applicable
+,72 years,72,Male,M,High school graduate or GED completed,3,1853,Not Applicable,Not Applicable
+,72 years,72,Male,M,"Some college credit, but not a degree.",4,780,Not Applicable,Not Applicable
+,72 years,72,Male,M,"Associate degree (AA,AS)",5,381,Not Applicable,Not Applicable
+,72 years,72,Male,M,"Bachelor?s degree (BA, AB, BS)",6,650,Not Applicable,Not Applicable
+,72 years,72,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,265,Not Applicable,Not Applicable
+,72 years,72,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,136,Not Applicable,Not Applicable
+,72 years,72,Male,M,Unknown or Not Stated,9,131,Not Applicable,Not Applicable
+,72 years,72,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,73 years,73,Female,F,8th grade or less,1,311,Not Applicable,Not Applicable
+,73 years,73,Female,F,9th through 12th grade with no diploma,2,376,Not Applicable,Not Applicable
+,73 years,73,Female,F,High school graduate or GED completed,3,2108,Not Applicable,Not Applicable
+,73 years,73,Female,F,"Some college credit, but not a degree.",4,748,Not Applicable,Not Applicable
+,73 years,73,Female,F,"Associate degree (AA,AS)",5,433,Not Applicable,Not Applicable
+,73 years,73,Female,F,"Bachelor?s degree (BA, AB, BS)",6,581,Not Applicable,Not Applicable
+,73 years,73,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,299,Not Applicable,Not Applicable
+,73 years,73,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,53,Not Applicable,Not Applicable
+,73 years,73,Female,F,Unknown or Not Stated,9,101,Not Applicable,Not Applicable
+,73 years,73,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,73 years,73,Male,M,8th grade or less,1,365,Not Applicable,Not Applicable
+,73 years,73,Male,M,9th through 12th grade with no diploma,2,409,Not Applicable,Not Applicable
+,73 years,73,Male,M,High school graduate or GED completed,3,2021,Not Applicable,Not Applicable
+,73 years,73,Male,M,"Some college credit, but not a degree.",4,815,Not Applicable,Not Applicable
+,73 years,73,Male,M,"Associate degree (AA,AS)",5,395,Not Applicable,Not Applicable
+,73 years,73,Male,M,"Bachelor?s degree (BA, AB, BS)",6,711,Not Applicable,Not Applicable
+,73 years,73,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,315,Not Applicable,Not Applicable
+,73 years,73,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,140,Not Applicable,Not Applicable
+,73 years,73,Male,M,Unknown or Not Stated,9,138,Not Applicable,Not Applicable
+,73 years,73,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,74 years,74,Female,F,8th grade or less,1,350,Not Applicable,Not Applicable
+,74 years,74,Female,F,9th through 12th grade with no diploma,2,423,Not Applicable,Not Applicable
+,74 years,74,Female,F,High school graduate or GED completed,3,2438,Not Applicable,Not Applicable
+,74 years,74,Female,F,"Some college credit, but not a degree.",4,795,Not Applicable,Not Applicable
+,74 years,74,Female,F,"Associate degree (AA,AS)",5,548,Not Applicable,Not Applicable
+,74 years,74,Female,F,"Bachelor?s degree (BA, AB, BS)",6,633,Not Applicable,Not Applicable
+,74 years,74,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,345,Not Applicable,Not Applicable
+,74 years,74,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,61,Not Applicable,Not Applicable
+,74 years,74,Female,F,Unknown or Not Stated,9,79,Not Applicable,Not Applicable
+,74 years,74,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,74 years,74,Male,M,8th grade or less,1,381,Not Applicable,Not Applicable
+,74 years,74,Male,M,9th through 12th grade with no diploma,2,430,Not Applicable,Not Applicable
+,74 years,74,Male,M,High school graduate or GED completed,3,2111,Not Applicable,Not Applicable
+,74 years,74,Male,M,"Some college credit, but not a degree.",4,797,Not Applicable,Not Applicable
+,74 years,74,Male,M,"Associate degree (AA,AS)",5,440,Not Applicable,Not Applicable
+,74 years,74,Male,M,"Bachelor?s degree (BA, AB, BS)",6,832,Not Applicable,Not Applicable
+,74 years,74,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,331,Not Applicable,Not Applicable
+,74 years,74,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,157,Not Applicable,Not Applicable
+,74 years,74,Male,M,Unknown or Not Stated,9,149,Not Applicable,Not Applicable
+,74 years,74,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,75 years,75,Female,F,8th grade or less,1,402,Not Applicable,Not Applicable
+,75 years,75,Female,F,9th through 12th grade with no diploma,2,458,Not Applicable,Not Applicable
+,75 years,75,Female,F,High school graduate or GED completed,3,2506,Not Applicable,Not Applicable
+,75 years,75,Female,F,"Some college credit, but not a degree.",4,806,Not Applicable,Not Applicable
+,75 years,75,Female,F,"Associate degree (AA,AS)",5,539,Not Applicable,Not Applicable
+,75 years,75,Female,F,"Bachelor?s degree (BA, AB, BS)",6,707,Not Applicable,Not Applicable
+,75 years,75,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,362,Not Applicable,Not Applicable
+,75 years,75,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,62,Not Applicable,Not Applicable
+,75 years,75,Female,F,Unknown or Not Stated,9,93,Not Applicable,Not Applicable
+,75 years,75,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,75 years,75,Male,M,8th grade or less,1,426,Not Applicable,Not Applicable
+,75 years,75,Male,M,9th through 12th grade with no diploma,2,439,Not Applicable,Not Applicable
+,75 years,75,Male,M,High school graduate or GED completed,3,2149,Not Applicable,Not Applicable
+,75 years,75,Male,M,"Some college credit, but not a degree.",4,826,Not Applicable,Not Applicable
+,75 years,75,Male,M,"Associate degree (AA,AS)",5,384,Not Applicable,Not Applicable
+,75 years,75,Male,M,"Bachelor?s degree (BA, AB, BS)",6,891,Not Applicable,Not Applicable
+,75 years,75,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,367,Not Applicable,Not Applicable
+,75 years,75,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,175,Not Applicable,Not Applicable
+,75 years,75,Male,M,Unknown or Not Stated,9,152,Not Applicable,Not Applicable
+,75 years,75,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,76 years,76,Female,F,8th grade or less,1,442,Not Applicable,Not Applicable
+,76 years,76,Female,F,9th through 12th grade with no diploma,2,445,Not Applicable,Not Applicable
+,76 years,76,Female,F,High school graduate or GED completed,3,2684,Not Applicable,Not Applicable
+,76 years,76,Female,F,"Some college credit, but not a degree.",4,791,Not Applicable,Not Applicable
+,76 years,76,Female,F,"Associate degree (AA,AS)",5,547,Not Applicable,Not Applicable
+,76 years,76,Female,F,"Bachelor?s degree (BA, AB, BS)",6,687,Not Applicable,Not Applicable
+,76 years,76,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,342,Not Applicable,Not Applicable
+,76 years,76,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,51,Not Applicable,Not Applicable
+,76 years,76,Female,F,Unknown or Not Stated,9,83,Not Applicable,Not Applicable
+,76 years,76,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,76 years,76,Male,M,8th grade or less,1,440,Not Applicable,Not Applicable
+,76 years,76,Male,M,9th through 12th grade with no diploma,2,460,Not Applicable,Not Applicable
+,76 years,76,Male,M,High school graduate or GED completed,3,2167,Not Applicable,Not Applicable
+,76 years,76,Male,M,"Some college credit, but not a degree.",4,834,Not Applicable,Not Applicable
+,76 years,76,Male,M,"Associate degree (AA,AS)",5,394,Not Applicable,Not Applicable
+,76 years,76,Male,M,"Bachelor?s degree (BA, AB, BS)",6,871,Not Applicable,Not Applicable
+,76 years,76,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,391,Not Applicable,Not Applicable
+,76 years,76,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,206,Not Applicable,Not Applicable
+,76 years,76,Male,M,Unknown or Not Stated,9,135,Not Applicable,Not Applicable
+,76 years,76,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,77 years,77,Female,F,8th grade or less,1,496,Not Applicable,Not Applicable
+,77 years,77,Female,F,9th through 12th grade with no diploma,2,497,Not Applicable,Not Applicable
+,77 years,77,Female,F,High school graduate or GED completed,3,2615,Not Applicable,Not Applicable
+,77 years,77,Female,F,"Some college credit, but not a degree.",4,814,Not Applicable,Not Applicable
+,77 years,77,Female,F,"Associate degree (AA,AS)",5,488,Not Applicable,Not Applicable
+,77 years,77,Female,F,"Bachelor?s degree (BA, AB, BS)",6,682,Not Applicable,Not Applicable
+,77 years,77,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,353,Not Applicable,Not Applicable
+,77 years,77,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,55,Not Applicable,Not Applicable
+,77 years,77,Female,F,Unknown or Not Stated,9,108,Not Applicable,Not Applicable
+,77 years,77,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,77 years,77,Male,M,8th grade or less,1,479,Not Applicable,Not Applicable
+,77 years,77,Male,M,9th through 12th grade with no diploma,2,458,Not Applicable,Not Applicable
+,77 years,77,Male,M,High school graduate or GED completed,3,2047,Not Applicable,Not Applicable
+,77 years,77,Male,M,"Some college credit, but not a degree.",4,743,Not Applicable,Not Applicable
+,77 years,77,Male,M,"Associate degree (AA,AS)",5,357,Not Applicable,Not Applicable
+,77 years,77,Male,M,"Bachelor?s degree (BA, AB, BS)",6,819,Not Applicable,Not Applicable
+,77 years,77,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,383,Not Applicable,Not Applicable
+,77 years,77,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,236,Not Applicable,Not Applicable
+,77 years,77,Male,M,Unknown or Not Stated,9,118,Not Applicable,Not Applicable
+,77 years,77,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,78 years,78,Female,F,8th grade or less,1,490,Not Applicable,Not Applicable
+,78 years,78,Female,F,9th through 12th grade with no diploma,2,526,Not Applicable,Not Applicable
+,78 years,78,Female,F,High school graduate or GED completed,3,3073,Not Applicable,Not Applicable
+,78 years,78,Female,F,"Some college credit, but not a degree.",4,821,Not Applicable,Not Applicable
+,78 years,78,Female,F,"Associate degree (AA,AS)",5,546,Not Applicable,Not Applicable
+,78 years,78,Female,F,"Bachelor?s degree (BA, AB, BS)",6,806,Not Applicable,Not Applicable
+,78 years,78,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,425,Not Applicable,Not Applicable
+,78 years,78,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,60,Not Applicable,Not Applicable
+,78 years,78,Female,F,Unknown or Not Stated,9,101,Not Applicable,Not Applicable
+,78 years,78,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,78 years,78,Male,M,8th grade or less,1,454,Not Applicable,Not Applicable
+,78 years,78,Male,M,9th through 12th grade with no diploma,2,481,Not Applicable,Not Applicable
+,78 years,78,Male,M,High school graduate or GED completed,3,2195,Not Applicable,Not Applicable
+,78 years,78,Male,M,"Some college credit, but not a degree.",4,842,Not Applicable,Not Applicable
+,78 years,78,Male,M,"Associate degree (AA,AS)",5,402,Not Applicable,Not Applicable
+,78 years,78,Male,M,"Bachelor?s degree (BA, AB, BS)",6,869,Not Applicable,Not Applicable
+,78 years,78,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,427,Not Applicable,Not Applicable
+,78 years,78,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,258,Not Applicable,Not Applicable
+,78 years,78,Male,M,Unknown or Not Stated,9,122,Not Applicable,Not Applicable
+,78 years,78,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,79 years,79,Female,F,8th grade or less,1,593,Not Applicable,Not Applicable
+,79 years,79,Female,F,9th through 12th grade with no diploma,2,614,Not Applicable,Not Applicable
+,79 years,79,Female,F,High school graduate or GED completed,3,3353,Not Applicable,Not Applicable
+,79 years,79,Female,F,"Some college credit, but not a degree.",4,914,Not Applicable,Not Applicable
+,79 years,79,Female,F,"Associate degree (AA,AS)",5,566,Not Applicable,Not Applicable
+,79 years,79,Female,F,"Bachelor?s degree (BA, AB, BS)",6,801,Not Applicable,Not Applicable
+,79 years,79,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,412,Not Applicable,Not Applicable
+,79 years,79,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,96,Not Applicable,Not Applicable
+,79 years,79,Female,F,Unknown or Not Stated,9,101,Not Applicable,Not Applicable
+,79 years,79,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,79 years,79,Male,M,8th grade or less,1,526,Not Applicable,Not Applicable
+,79 years,79,Male,M,9th through 12th grade with no diploma,2,490,Not Applicable,Not Applicable
+,79 years,79,Male,M,High school graduate or GED completed,3,2447,Not Applicable,Not Applicable
+,79 years,79,Male,M,"Some college credit, but not a degree.",4,831,Not Applicable,Not Applicable
+,79 years,79,Male,M,"Associate degree (AA,AS)",5,422,Not Applicable,Not Applicable
+,79 years,79,Male,M,"Bachelor?s degree (BA, AB, BS)",6,946,Not Applicable,Not Applicable
+,79 years,79,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,493,Not Applicable,Not Applicable
+,79 years,79,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,246,Not Applicable,Not Applicable
+,79 years,79,Male,M,Unknown or Not Stated,9,122,Not Applicable,Not Applicable
+,79 years,79,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,80 years,80,Female,F,8th grade or less,1,647,Not Applicable,Not Applicable
+,80 years,80,Female,F,9th through 12th grade with no diploma,2,665,Not Applicable,Not Applicable
+,80 years,80,Female,F,High school graduate or GED completed,3,3499,Not Applicable,Not Applicable
+,80 years,80,Female,F,"Some college credit, but not a degree.",4,952,Not Applicable,Not Applicable
+,80 years,80,Female,F,"Associate degree (AA,AS)",5,621,Not Applicable,Not Applicable
+,80 years,80,Female,F,"Bachelor?s degree (BA, AB, BS)",6,891,Not Applicable,Not Applicable
+,80 years,80,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,414,Not Applicable,Not Applicable
+,80 years,80,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,67,Not Applicable,Not Applicable
+,80 years,80,Female,F,Unknown or Not Stated,9,121,Not Applicable,Not Applicable
+,80 years,80,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,80 years,80,Male,M,8th grade or less,1,567,Not Applicable,Not Applicable
+,80 years,80,Male,M,9th through 12th grade with no diploma,2,553,Not Applicable,Not Applicable
+,80 years,80,Male,M,High school graduate or GED completed,3,2515,Not Applicable,Not Applicable
+,80 years,80,Male,M,"Some college credit, but not a degree.",4,838,Not Applicable,Not Applicable
+,80 years,80,Male,M,"Associate degree (AA,AS)",5,369,Not Applicable,Not Applicable
+,80 years,80,Male,M,"Bachelor?s degree (BA, AB, BS)",6,912,Not Applicable,Not Applicable
+,80 years,80,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,481,Not Applicable,Not Applicable
+,80 years,80,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,290,Not Applicable,Not Applicable
+,80 years,80,Male,M,Unknown or Not Stated,9,118,Not Applicable,Not Applicable
+,80 years,80,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,81 years,81,Female,F,8th grade or less,1,697,Not Applicable,Not Applicable
+,81 years,81,Female,F,9th through 12th grade with no diploma,2,671,Not Applicable,Not Applicable
+,81 years,81,Female,F,High school graduate or GED completed,3,3567,Not Applicable,Not Applicable
+,81 years,81,Female,F,"Some college credit, but not a degree.",4,946,Not Applicable,Not Applicable
+,81 years,81,Female,F,"Associate degree (AA,AS)",5,572,Not Applicable,Not Applicable
+,81 years,81,Female,F,"Bachelor?s degree (BA, AB, BS)",6,881,Not Applicable,Not Applicable
+,81 years,81,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,431,Not Applicable,Not Applicable
+,81 years,81,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,90,Not Applicable,Not Applicable
+,81 years,81,Female,F,Unknown or Not Stated,9,119,Not Applicable,Not Applicable
+,81 years,81,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,81 years,81,Male,M,8th grade or less,1,525,Not Applicable,Not Applicable
+,81 years,81,Male,M,9th through 12th grade with no diploma,2,512,Not Applicable,Not Applicable
+,81 years,81,Male,M,High school graduate or GED completed,3,2435,Not Applicable,Not Applicable
+,81 years,81,Male,M,"Some college credit, but not a degree.",4,866,Not Applicable,Not Applicable
+,81 years,81,Male,M,"Associate degree (AA,AS)",5,347,Not Applicable,Not Applicable
+,81 years,81,Male,M,"Bachelor?s degree (BA, AB, BS)",6,958,Not Applicable,Not Applicable
+,81 years,81,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,460,Not Applicable,Not Applicable
+,81 years,81,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,300,Not Applicable,Not Applicable
+,81 years,81,Male,M,Unknown or Not Stated,9,93,Not Applicable,Not Applicable
+,81 years,81,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,82 years,82,Female,F,8th grade or less,1,714,Not Applicable,Not Applicable
+,82 years,82,Female,F,9th through 12th grade with no diploma,2,687,Not Applicable,Not Applicable
+,82 years,82,Female,F,High school graduate or GED completed,3,3836,Not Applicable,Not Applicable
+,82 years,82,Female,F,"Some college credit, but not a degree.",4,1046,Not Applicable,Not Applicable
+,82 years,82,Female,F,"Associate degree (AA,AS)",5,632,Not Applicable,Not Applicable
+,82 years,82,Female,F,"Bachelor?s degree (BA, AB, BS)",6,859,Not Applicable,Not Applicable
+,82 years,82,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,437,Not Applicable,Not Applicable
+,82 years,82,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,96,Not Applicable,Not Applicable
+,82 years,82,Female,F,Unknown or Not Stated,9,118,Not Applicable,Not Applicable
+,82 years,82,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,82 years,82,Male,M,8th grade or less,1,580,Not Applicable,Not Applicable
+,82 years,82,Male,M,9th through 12th grade with no diploma,2,464,Not Applicable,Not Applicable
+,82 years,82,Male,M,High school graduate or GED completed,3,2489,Not Applicable,Not Applicable
+,82 years,82,Male,M,"Some college credit, but not a degree.",4,799,Not Applicable,Not Applicable
+,82 years,82,Male,M,"Associate degree (AA,AS)",5,351,Not Applicable,Not Applicable
+,82 years,82,Male,M,"Bachelor?s degree (BA, AB, BS)",6,913,Not Applicable,Not Applicable
+,82 years,82,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,441,Not Applicable,Not Applicable
+,82 years,82,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,320,Not Applicable,Not Applicable
+,82 years,82,Male,M,Unknown or Not Stated,9,108,Not Applicable,Not Applicable
+,82 years,82,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,83 years,83,Female,F,8th grade or less,1,776,Not Applicable,Not Applicable
+,83 years,83,Female,F,9th through 12th grade with no diploma,2,740,Not Applicable,Not Applicable
+,83 years,83,Female,F,High school graduate or GED completed,3,4228,Not Applicable,Not Applicable
+,83 years,83,Female,F,"Some college credit, but not a degree.",4,1004,Not Applicable,Not Applicable
+,83 years,83,Female,F,"Associate degree (AA,AS)",5,596,Not Applicable,Not Applicable
+,83 years,83,Female,F,"Bachelor?s degree (BA, AB, BS)",6,882,Not Applicable,Not Applicable
+,83 years,83,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,507,Not Applicable,Not Applicable
+,83 years,83,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,110,Not Applicable,Not Applicable
+,83 years,83,Female,F,Unknown or Not Stated,9,106,Not Applicable,Not Applicable
+,83 years,83,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,83 years,83,Male,M,8th grade or less,1,617,Not Applicable,Not Applicable
+,83 years,83,Male,M,9th through 12th grade with no diploma,2,496,Not Applicable,Not Applicable
+,83 years,83,Male,M,High school graduate or GED completed,3,2515,Not Applicable,Not Applicable
+,83 years,83,Male,M,"Some college credit, but not a degree.",4,791,Not Applicable,Not Applicable
+,83 years,83,Male,M,"Associate degree (AA,AS)",5,345,Not Applicable,Not Applicable
+,83 years,83,Male,M,"Bachelor?s degree (BA, AB, BS)",6,964,Not Applicable,Not Applicable
+,83 years,83,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,466,Not Applicable,Not Applicable
+,83 years,83,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,310,Not Applicable,Not Applicable
+,83 years,83,Male,M,Unknown or Not Stated,9,100,Not Applicable,Not Applicable
+,83 years,83,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,84 years,84,Female,F,8th grade or less,1,838,Not Applicable,Not Applicable
+,84 years,84,Female,F,9th through 12th grade with no diploma,2,788,Not Applicable,Not Applicable
+,84 years,84,Female,F,High school graduate or GED completed,3,4380,Not Applicable,Not Applicable
+,84 years,84,Female,F,"Some college credit, but not a degree.",4,1037,Not Applicable,Not Applicable
+,84 years,84,Female,F,"Associate degree (AA,AS)",5,612,Not Applicable,Not Applicable
+,84 years,84,Female,F,"Bachelor?s degree (BA, AB, BS)",6,973,Not Applicable,Not Applicable
+,84 years,84,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,439,Not Applicable,Not Applicable
+,84 years,84,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,100,Not Applicable,Not Applicable
+,84 years,84,Female,F,Unknown or Not Stated,9,134,Not Applicable,Not Applicable
+,84 years,84,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,84 years,84,Male,M,8th grade or less,1,618,Not Applicable,Not Applicable
+,84 years,84,Male,M,9th through 12th grade with no diploma,2,465,Not Applicable,Not Applicable
+,84 years,84,Male,M,High school graduate or GED completed,3,2570,Not Applicable,Not Applicable
+,84 years,84,Male,M,"Some college credit, but not a degree.",4,789,Not Applicable,Not Applicable
+,84 years,84,Male,M,"Associate degree (AA,AS)",5,363,Not Applicable,Not Applicable
+,84 years,84,Male,M,"Bachelor?s degree (BA, AB, BS)",6,969,Not Applicable,Not Applicable
+,84 years,84,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,522,Not Applicable,Not Applicable
+,84 years,84,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,329,Not Applicable,Not Applicable
+,84 years,84,Male,M,Unknown or Not Stated,9,87,Not Applicable,Not Applicable
+,84 years,84,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,85 years,85,Female,F,8th grade or less,1,931,Not Applicable,Not Applicable
+,85 years,85,Female,F,9th through 12th grade with no diploma,2,785,Not Applicable,Not Applicable
+,85 years,85,Female,F,High school graduate or GED completed,3,4497,Not Applicable,Not Applicable
+,85 years,85,Female,F,"Some college credit, but not a degree.",4,1087,Not Applicable,Not Applicable
+,85 years,85,Female,F,"Associate degree (AA,AS)",5,676,Not Applicable,Not Applicable
+,85 years,85,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1095,Not Applicable,Not Applicable
+,85 years,85,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,516,Not Applicable,Not Applicable
+,85 years,85,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,85,Not Applicable,Not Applicable
+,85 years,85,Female,F,Unknown or Not Stated,9,132,Not Applicable,Not Applicable
+,85 years,85,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,85 years,85,Male,M,8th grade or less,1,607,Not Applicable,Not Applicable
+,85 years,85,Male,M,9th through 12th grade with no diploma,2,446,Not Applicable,Not Applicable
+,85 years,85,Male,M,High school graduate or GED completed,3,2456,Not Applicable,Not Applicable
+,85 years,85,Male,M,"Some college credit, but not a degree.",4,796,Not Applicable,Not Applicable
+,85 years,85,Male,M,"Associate degree (AA,AS)",5,380,Not Applicable,Not Applicable
+,85 years,85,Male,M,"Bachelor?s degree (BA, AB, BS)",6,955,Not Applicable,Not Applicable
+,85 years,85,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,525,Not Applicable,Not Applicable
+,85 years,85,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,355,Not Applicable,Not Applicable
+,85 years,85,Male,M,Unknown or Not Stated,9,80,Not Applicable,Not Applicable
+,85 years,85,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,86 years,86,Female,F,8th grade or less,1,971,Not Applicable,Not Applicable
+,86 years,86,Female,F,9th through 12th grade with no diploma,2,849,Not Applicable,Not Applicable
+,86 years,86,Female,F,High school graduate or GED completed,3,4655,Not Applicable,Not Applicable
+,86 years,86,Female,F,"Some college credit, but not a degree.",4,1078,Not Applicable,Not Applicable
+,86 years,86,Female,F,"Associate degree (AA,AS)",5,673,Not Applicable,Not Applicable
+,86 years,86,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1058,Not Applicable,Not Applicable
+,86 years,86,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,470,Not Applicable,Not Applicable
+,86 years,86,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,93,Not Applicable,Not Applicable
+,86 years,86,Female,F,Unknown or Not Stated,9,124,Not Applicable,Not Applicable
+,86 years,86,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,86 years,86,Male,M,8th grade or less,1,636,Not Applicable,Not Applicable
+,86 years,86,Male,M,9th through 12th grade with no diploma,2,498,Not Applicable,Not Applicable
+,86 years,86,Male,M,High school graduate or GED completed,3,2267,Not Applicable,Not Applicable
+,86 years,86,Male,M,"Some college credit, but not a degree.",4,736,Not Applicable,Not Applicable
+,86 years,86,Male,M,"Associate degree (AA,AS)",5,375,Not Applicable,Not Applicable
+,86 years,86,Male,M,"Bachelor?s degree (BA, AB, BS)",6,1007,Not Applicable,Not Applicable
+,86 years,86,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,538,Not Applicable,Not Applicable
+,86 years,86,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,349,Not Applicable,Not Applicable
+,86 years,86,Male,M,Unknown or Not Stated,9,99,Not Applicable,Not Applicable
+,86 years,86,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,87 years,87,Female,F,8th grade or less,1,1034,Not Applicable,Not Applicable
+,87 years,87,Female,F,9th through 12th grade with no diploma,2,815,Not Applicable,Not Applicable
+,87 years,87,Female,F,High school graduate or GED completed,3,4844,Not Applicable,Not Applicable
+,87 years,87,Female,F,"Some college credit, but not a degree.",4,1101,Not Applicable,Not Applicable
+,87 years,87,Female,F,"Associate degree (AA,AS)",5,681,Not Applicable,Not Applicable
+,87 years,87,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1127,Not Applicable,Not Applicable
+,87 years,87,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,511,Not Applicable,Not Applicable
+,87 years,87,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,87,Not Applicable,Not Applicable
+,87 years,87,Female,F,Unknown or Not Stated,9,135,Not Applicable,Not Applicable
+,87 years,87,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,87 years,87,Male,M,8th grade or less,1,629,Not Applicable,Not Applicable
+,87 years,87,Male,M,9th through 12th grade with no diploma,2,451,Not Applicable,Not Applicable
+,87 years,87,Male,M,High school graduate or GED completed,3,2328,Not Applicable,Not Applicable
+,87 years,87,Male,M,"Some college credit, but not a degree.",4,718,Not Applicable,Not Applicable
+,87 years,87,Male,M,"Associate degree (AA,AS)",5,322,Not Applicable,Not Applicable
+,87 years,87,Male,M,"Bachelor?s degree (BA, AB, BS)",6,1063,Not Applicable,Not Applicable
+,87 years,87,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,511,Not Applicable,Not Applicable
+,87 years,87,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,330,Not Applicable,Not Applicable
+,87 years,87,Male,M,Unknown or Not Stated,9,82,Not Applicable,Not Applicable
+,87 years,87,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,88 years,88,Female,F,8th grade or less,1,1044,Not Applicable,Not Applicable
+,88 years,88,Female,F,9th through 12th grade with no diploma,2,831,Not Applicable,Not Applicable
+,88 years,88,Female,F,High school graduate or GED completed,3,4988,Not Applicable,Not Applicable
+,88 years,88,Female,F,"Some college credit, but not a degree.",4,1099,Not Applicable,Not Applicable
+,88 years,88,Female,F,"Associate degree (AA,AS)",5,667,Not Applicable,Not Applicable
+,88 years,88,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1140,Not Applicable,Not Applicable
+,88 years,88,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,506,Not Applicable,Not Applicable
+,88 years,88,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,104,Not Applicable,Not Applicable
+,88 years,88,Female,F,Unknown or Not Stated,9,124,Not Applicable,Not Applicable
+,88 years,88,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,88 years,88,Male,M,8th grade or less,1,680,Not Applicable,Not Applicable
+,88 years,88,Male,M,9th through 12th grade with no diploma,2,407,Not Applicable,Not Applicable
+,88 years,88,Male,M,High school graduate or GED completed,3,2235,Not Applicable,Not Applicable
+,88 years,88,Male,M,"Some college credit, but not a degree.",4,685,Not Applicable,Not Applicable
+,88 years,88,Male,M,"Associate degree (AA,AS)",5,337,Not Applicable,Not Applicable
+,88 years,88,Male,M,"Bachelor?s degree (BA, AB, BS)",6,1037,Not Applicable,Not Applicable
+,88 years,88,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,526,Not Applicable,Not Applicable
+,88 years,88,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,341,Not Applicable,Not Applicable
+,88 years,88,Male,M,Unknown or Not Stated,9,71,Not Applicable,Not Applicable
+,88 years,88,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,89 years,89,Female,F,8th grade or less,1,1142,Not Applicable,Not Applicable
+,89 years,89,Female,F,9th through 12th grade with no diploma,2,839,Not Applicable,Not Applicable
+,89 years,89,Female,F,High school graduate or GED completed,3,4893,Not Applicable,Not Applicable
+,89 years,89,Female,F,"Some college credit, but not a degree.",4,1078,Not Applicable,Not Applicable
+,89 years,89,Female,F,"Associate degree (AA,AS)",5,736,Not Applicable,Not Applicable
+,89 years,89,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1152,Not Applicable,Not Applicable
+,89 years,89,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,519,Not Applicable,Not Applicable
+,89 years,89,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,92,Not Applicable,Not Applicable
+,89 years,89,Female,F,Unknown or Not Stated,9,117,Not Applicable,Not Applicable
+,89 years,89,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,89 years,89,Male,M,8th grade or less,1,625,Not Applicable,Not Applicable
+,89 years,89,Male,M,9th through 12th grade with no diploma,2,400,Not Applicable,Not Applicable
+,89 years,89,Male,M,High school graduate or GED completed,3,2071,Not Applicable,Not Applicable
+,89 years,89,Male,M,"Some college credit, but not a degree.",4,686,Not Applicable,Not Applicable
+,89 years,89,Male,M,"Associate degree (AA,AS)",5,287,Not Applicable,Not Applicable
+,89 years,89,Male,M,"Bachelor?s degree (BA, AB, BS)",6,981,Not Applicable,Not Applicable
+,89 years,89,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,487,Not Applicable,Not Applicable
+,89 years,89,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,339,Not Applicable,Not Applicable
+,89 years,89,Male,M,Unknown or Not Stated,9,68,Not Applicable,Not Applicable
+,89 years,89,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,90 years,90,Female,F,8th grade or less,1,1102,Not Applicable,Not Applicable
+,90 years,90,Female,F,9th through 12th grade with no diploma,2,858,Not Applicable,Not Applicable
+,90 years,90,Female,F,High school graduate or GED completed,3,5085,Not Applicable,Not Applicable
+,90 years,90,Female,F,"Some college credit, but not a degree.",4,1150,Not Applicable,Not Applicable
+,90 years,90,Female,F,"Associate degree (AA,AS)",5,658,Not Applicable,Not Applicable
+,90 years,90,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1195,Not Applicable,Not Applicable
+,90 years,90,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,483,Not Applicable,Not Applicable
+,90 years,90,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,92,Not Applicable,Not Applicable
+,90 years,90,Female,F,Unknown or Not Stated,9,107,Not Applicable,Not Applicable
+,90 years,90,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,90 years,90,Male,M,8th grade or less,1,598,Not Applicable,Not Applicable
+,90 years,90,Male,M,9th through 12th grade with no diploma,2,364,Not Applicable,Not Applicable
+,90 years,90,Male,M,High school graduate or GED completed,3,1987,Not Applicable,Not Applicable
+,90 years,90,Male,M,"Some college credit, but not a degree.",4,615,Not Applicable,Not Applicable
+,90 years,90,Male,M,"Associate degree (AA,AS)",5,251,Not Applicable,Not Applicable
+,90 years,90,Male,M,"Bachelor?s degree (BA, AB, BS)",6,974,Not Applicable,Not Applicable
+,90 years,90,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,476,Not Applicable,Not Applicable
+,90 years,90,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,358,Not Applicable,Not Applicable
+,90 years,90,Male,M,Unknown or Not Stated,9,72,Not Applicable,Not Applicable
+,90 years,90,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,91 years,91,Female,F,8th grade or less,1,1089,Not Applicable,Not Applicable
+,91 years,91,Female,F,9th through 12th grade with no diploma,2,814,Not Applicable,Not Applicable
+,91 years,91,Female,F,High school graduate or GED completed,3,4962,Not Applicable,Not Applicable
+,91 years,91,Female,F,"Some college credit, but not a degree.",4,1087,Not Applicable,Not Applicable
+,91 years,91,Female,F,"Associate degree (AA,AS)",5,593,Not Applicable,Not Applicable
+,91 years,91,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1161,Not Applicable,Not Applicable
+,91 years,91,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,552,Not Applicable,Not Applicable
+,91 years,91,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,103,Not Applicable,Not Applicable
+,91 years,91,Female,F,Unknown or Not Stated,9,107,Not Applicable,Not Applicable
+,91 years,91,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,91 years,91,Male,M,8th grade or less,1,625,Not Applicable,Not Applicable
+,91 years,91,Male,M,9th through 12th grade with no diploma,2,372,Not Applicable,Not Applicable
+,91 years,91,Male,M,High school graduate or GED completed,3,1726,Not Applicable,Not Applicable
+,91 years,91,Male,M,"Some college credit, but not a degree.",4,581,Not Applicable,Not Applicable
+,91 years,91,Male,M,"Associate degree (AA,AS)",5,239,Not Applicable,Not Applicable
+,91 years,91,Male,M,"Bachelor?s degree (BA, AB, BS)",6,883,Not Applicable,Not Applicable
+,91 years,91,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,489,Not Applicable,Not Applicable
+,91 years,91,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,357,Not Applicable,Not Applicable
+,91 years,91,Male,M,Unknown or Not Stated,9,53,Not Applicable,Not Applicable
+,91 years,91,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,92 years,92,Female,F,8th grade or less,1,1148,Not Applicable,Not Applicable
+,92 years,92,Female,F,9th through 12th grade with no diploma,2,760,Not Applicable,Not Applicable
+,92 years,92,Female,F,High school graduate or GED completed,3,4833,Not Applicable,Not Applicable
+,92 years,92,Female,F,"Some college credit, but not a degree.",4,1115,Not Applicable,Not Applicable
+,92 years,92,Female,F,"Associate degree (AA,AS)",5,649,Not Applicable,Not Applicable
+,92 years,92,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1150,Not Applicable,Not Applicable
+,92 years,92,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,521,Not Applicable,Not Applicable
+,92 years,92,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,94,Not Applicable,Not Applicable
+,92 years,92,Female,F,Unknown or Not Stated,9,120,Not Applicable,Not Applicable
+,92 years,92,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,92 years,92,Male,M,8th grade or less,1,569,Not Applicable,Not Applicable
+,92 years,92,Male,M,9th through 12th grade with no diploma,2,311,Not Applicable,Not Applicable
+,92 years,92,Male,M,High school graduate or GED completed,3,1664,Not Applicable,Not Applicable
+,92 years,92,Male,M,"Some college credit, but not a degree.",4,511,Not Applicable,Not Applicable
+,92 years,92,Male,M,"Associate degree (AA,AS)",5,230,Not Applicable,Not Applicable
+,92 years,92,Male,M,"Bachelor?s degree (BA, AB, BS)",6,776,Not Applicable,Not Applicable
+,92 years,92,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,433,Not Applicable,Not Applicable
+,92 years,92,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,329,Not Applicable,Not Applicable
+,92 years,92,Male,M,Unknown or Not Stated,9,44,Not Applicable,Not Applicable
+,92 years,92,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,93 years,93,Female,F,8th grade or less,1,1070,Not Applicable,Not Applicable
+,93 years,93,Female,F,9th through 12th grade with no diploma,2,686,Not Applicable,Not Applicable
+,93 years,93,Female,F,High school graduate or GED completed,3,4344,Not Applicable,Not Applicable
+,93 years,93,Female,F,"Some college credit, but not a degree.",4,1018,Not Applicable,Not Applicable
+,93 years,93,Female,F,"Associate degree (AA,AS)",5,584,Not Applicable,Not Applicable
+,93 years,93,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1040,Not Applicable,Not Applicable
+,93 years,93,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,435,Not Applicable,Not Applicable
+,93 years,93,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,91,Not Applicable,Not Applicable
+,93 years,93,Female,F,Unknown or Not Stated,9,89,Not Applicable,Not Applicable
+,93 years,93,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,93 years,93,Male,M,8th grade or less,1,462,Not Applicable,Not Applicable
+,93 years,93,Male,M,9th through 12th grade with no diploma,2,264,Not Applicable,Not Applicable
+,93 years,93,Male,M,High school graduate or GED completed,3,1424,Not Applicable,Not Applicable
+,93 years,93,Male,M,"Some college credit, but not a degree.",4,440,Not Applicable,Not Applicable
+,93 years,93,Male,M,"Associate degree (AA,AS)",5,196,Not Applicable,Not Applicable
+,93 years,93,Male,M,"Bachelor?s degree (BA, AB, BS)",6,749,Not Applicable,Not Applicable
+,93 years,93,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,346,Not Applicable,Not Applicable
+,93 years,93,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,273,Not Applicable,Not Applicable
+,93 years,93,Male,M,Unknown or Not Stated,9,45,Not Applicable,Not Applicable
+,93 years,93,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,94 years,94,Female,F,8th grade or less,1,983,Not Applicable,Not Applicable
+,94 years,94,Female,F,9th through 12th grade with no diploma,2,645,Not Applicable,Not Applicable
+,94 years,94,Female,F,High school graduate or GED completed,3,3977,Not Applicable,Not Applicable
+,94 years,94,Female,F,"Some college credit, but not a degree.",4,870,Not Applicable,Not Applicable
+,94 years,94,Female,F,"Associate degree (AA,AS)",5,502,Not Applicable,Not Applicable
+,94 years,94,Female,F,"Bachelor?s degree (BA, AB, BS)",6,1026,Not Applicable,Not Applicable
+,94 years,94,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,402,Not Applicable,Not Applicable
+,94 years,94,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,75,Not Applicable,Not Applicable
+,94 years,94,Female,F,Unknown or Not Stated,9,77,Not Applicable,Not Applicable
+,94 years,94,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,94 years,94,Male,M,8th grade or less,1,400,Not Applicable,Not Applicable
+,94 years,94,Male,M,9th through 12th grade with no diploma,2,238,Not Applicable,Not Applicable
+,94 years,94,Male,M,High school graduate or GED completed,3,1166,Not Applicable,Not Applicable
+,94 years,94,Male,M,"Some college credit, but not a degree.",4,351,Not Applicable,Not Applicable
+,94 years,94,Male,M,"Associate degree (AA,AS)",5,154,Not Applicable,Not Applicable
+,94 years,94,Male,M,"Bachelor?s degree (BA, AB, BS)",6,573,Not Applicable,Not Applicable
+,94 years,94,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,243,Not Applicable,Not Applicable
+,94 years,94,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,254,Not Applicable,Not Applicable
+,94 years,94,Male,M,Unknown or Not Stated,9,26,Not Applicable,Not Applicable
+,94 years,94,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,95 years,95,Female,F,8th grade or less,1,876,Not Applicable,Not Applicable
+,95 years,95,Female,F,9th through 12th grade with no diploma,2,596,Not Applicable,Not Applicable
+,95 years,95,Female,F,High school graduate or GED completed,3,3643,Not Applicable,Not Applicable
+,95 years,95,Female,F,"Some college credit, but not a degree.",4,797,Not Applicable,Not Applicable
+,95 years,95,Female,F,"Associate degree (AA,AS)",5,429,Not Applicable,Not Applicable
+,95 years,95,Female,F,"Bachelor?s degree (BA, AB, BS)",6,839,Not Applicable,Not Applicable
+,95 years,95,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,357,Not Applicable,Not Applicable
+,95 years,95,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,71,Not Applicable,Not Applicable
+,95 years,95,Female,F,Unknown or Not Stated,9,87,Not Applicable,Not Applicable
+,95 years,95,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,95 years,95,Male,M,8th grade or less,1,346,Not Applicable,Not Applicable
+,95 years,95,Male,M,9th through 12th grade with no diploma,2,212,Not Applicable,Not Applicable
+,95 years,95,Male,M,High school graduate or GED completed,3,899,Not Applicable,Not Applicable
+,95 years,95,Male,M,"Some college credit, but not a degree.",4,270,Not Applicable,Not Applicable
+,95 years,95,Male,M,"Associate degree (AA,AS)",5,109,Not Applicable,Not Applicable
+,95 years,95,Male,M,"Bachelor?s degree (BA, AB, BS)",6,532,Not Applicable,Not Applicable
+,95 years,95,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,200,Not Applicable,Not Applicable
+,95 years,95,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,180,Not Applicable,Not Applicable
+,95 years,95,Male,M,Unknown or Not Stated,9,28,Not Applicable,Not Applicable
+,95 years,95,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,96 years,96,Female,F,8th grade or less,1,744,Not Applicable,Not Applicable
+,96 years,96,Female,F,9th through 12th grade with no diploma,2,531,Not Applicable,Not Applicable
+,96 years,96,Female,F,High school graduate or GED completed,3,3185,Not Applicable,Not Applicable
+,96 years,96,Female,F,"Some college credit, but not a degree.",4,688,Not Applicable,Not Applicable
+,96 years,96,Female,F,"Associate degree (AA,AS)",5,397,Not Applicable,Not Applicable
+,96 years,96,Female,F,"Bachelor?s degree (BA, AB, BS)",6,731,Not Applicable,Not Applicable
+,96 years,96,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,284,Not Applicable,Not Applicable
+,96 years,96,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,62,Not Applicable,Not Applicable
+,96 years,96,Female,F,Unknown or Not Stated,9,74,Not Applicable,Not Applicable
+,96 years,96,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,96 years,96,Male,M,8th grade or less,1,262,Not Applicable,Not Applicable
+,96 years,96,Male,M,9th through 12th grade with no diploma,2,150,Not Applicable,Not Applicable
+,96 years,96,Male,M,High school graduate or GED completed,3,719,Not Applicable,Not Applicable
+,96 years,96,Male,M,"Some college credit, but not a degree.",4,221,Not Applicable,Not Applicable
+,96 years,96,Male,M,"Associate degree (AA,AS)",5,85,Not Applicable,Not Applicable
+,96 years,96,Male,M,"Bachelor?s degree (BA, AB, BS)",6,392,Not Applicable,Not Applicable
+,96 years,96,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,182,Not Applicable,Not Applicable
+,96 years,96,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,169,Not Applicable,Not Applicable
+,96 years,96,Male,M,Unknown or Not Stated,9,27,Not Applicable,Not Applicable
+,96 years,96,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,97 years,97,Female,F,8th grade or less,1,584,Not Applicable,Not Applicable
+,97 years,97,Female,F,9th through 12th grade with no diploma,2,389,Not Applicable,Not Applicable
+,97 years,97,Female,F,High school graduate or GED completed,3,2553,Not Applicable,Not Applicable
+,97 years,97,Female,F,"Some college credit, but not a degree.",4,576,Not Applicable,Not Applicable
+,97 years,97,Female,F,"Associate degree (AA,AS)",5,286,Not Applicable,Not Applicable
+,97 years,97,Female,F,"Bachelor?s degree (BA, AB, BS)",6,607,Not Applicable,Not Applicable
+,97 years,97,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,233,Not Applicable,Not Applicable
+,97 years,97,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,45,Not Applicable,Not Applicable
+,97 years,97,Female,F,Unknown or Not Stated,9,55,Not Applicable,Not Applicable
+,97 years,97,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,97 years,97,Male,M,8th grade or less,1,222,Not Applicable,Not Applicable
+,97 years,97,Male,M,9th through 12th grade with no diploma,2,125,Not Applicable,Not Applicable
+,97 years,97,Male,M,High school graduate or GED completed,3,547,Not Applicable,Not Applicable
+,97 years,97,Male,M,"Some college credit, but not a degree.",4,159,Not Applicable,Not Applicable
+,97 years,97,Male,M,"Associate degree (AA,AS)",5,79,Not Applicable,Not Applicable
+,97 years,97,Male,M,"Bachelor?s degree (BA, AB, BS)",6,294,Not Applicable,Not Applicable
+,97 years,97,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,135,Not Applicable,Not Applicable
+,97 years,97,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,125,Not Applicable,Not Applicable
+,97 years,97,Male,M,Unknown or Not Stated,9,15,Not Applicable,Not Applicable
+,97 years,97,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,98 years,98,Female,F,8th grade or less,1,497,Not Applicable,Not Applicable
+,98 years,98,Female,F,9th through 12th grade with no diploma,2,316,Not Applicable,Not Applicable
+,98 years,98,Female,F,High school graduate or GED completed,3,2007,Not Applicable,Not Applicable
+,98 years,98,Female,F,"Some college credit, but not a degree.",4,452,Not Applicable,Not Applicable
+,98 years,98,Female,F,"Associate degree (AA,AS)",5,220,Not Applicable,Not Applicable
+,98 years,98,Female,F,"Bachelor?s degree (BA, AB, BS)",6,484,Not Applicable,Not Applicable
+,98 years,98,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,167,Not Applicable,Not Applicable
+,98 years,98,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,43,Not Applicable,Not Applicable
+,98 years,98,Female,F,Unknown or Not Stated,9,46,Not Applicable,Not Applicable
+,98 years,98,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,98 years,98,Male,M,8th grade or less,1,166,Not Applicable,Not Applicable
+,98 years,98,Male,M,9th through 12th grade with no diploma,2,69,Not Applicable,Not Applicable
+,98 years,98,Male,M,High school graduate or GED completed,3,409,Not Applicable,Not Applicable
+,98 years,98,Male,M,"Some college credit, but not a degree.",4,128,Not Applicable,Not Applicable
+,98 years,98,Male,M,"Associate degree (AA,AS)",5,55,Not Applicable,Not Applicable
+,98 years,98,Male,M,"Bachelor?s degree (BA, AB, BS)",6,228,Not Applicable,Not Applicable
+,98 years,98,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,89,Not Applicable,Not Applicable
+,98 years,98,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,82,Not Applicable,Not Applicable
+,98 years,98,Male,M,Unknown or Not Stated,9,16,Not Applicable,Not Applicable
+,98 years,98,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,99 years,99,Female,F,8th grade or less,1,405,Not Applicable,Not Applicable
+,99 years,99,Female,F,9th through 12th grade with no diploma,2,264,Not Applicable,Not Applicable
+,99 years,99,Female,F,High school graduate or GED completed,3,1593,Not Applicable,Not Applicable
+,99 years,99,Female,F,"Some college credit, but not a degree.",4,385,Not Applicable,Not Applicable
+,99 years,99,Female,F,"Associate degree (AA,AS)",5,201,Not Applicable,Not Applicable
+,99 years,99,Female,F,"Bachelor?s degree (BA, AB, BS)",6,378,Not Applicable,Not Applicable
+,99 years,99,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,150,Not Applicable,Not Applicable
+,99 years,99,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,37,Not Applicable,Not Applicable
+,99 years,99,Female,F,Unknown or Not Stated,9,40,Not Applicable,Not Applicable
+,99 years,99,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,99 years,99,Male,M,8th grade or less,1,110,Not Applicable,Not Applicable
+,99 years,99,Male,M,9th through 12th grade with no diploma,2,50,Not Applicable,Not Applicable
+,99 years,99,Male,M,High school graduate or GED completed,3,264,Not Applicable,Not Applicable
+,99 years,99,Male,M,"Some college credit, but not a degree.",4,89,Not Applicable,Not Applicable
+,99 years,99,Male,M,"Associate degree (AA,AS)",5,36,Not Applicable,Not Applicable
+,99 years,99,Male,M,"Bachelor?s degree (BA, AB, BS)",6,168,Not Applicable,Not Applicable
+,99 years,99,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,68,Not Applicable,Not Applicable
+,99 years,99,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,55,Not Applicable,Not Applicable
+,99 years,99,Male,M,Unknown or Not Stated,9,14,Not Applicable,Not Applicable
+,99 years,99,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,100+ years,100,Female,F,8th grade or less,1,973,Not Applicable,Not Applicable
+,100+ years,100,Female,F,9th through 12th grade with no diploma,2,500,Not Applicable,Not Applicable
+,100+ years,100,Female,F,High school graduate or GED completed,3,3077,Not Applicable,Not Applicable
+,100+ years,100,Female,F,"Some college credit, but not a degree.",4,766,Not Applicable,Not Applicable
+,100+ years,100,Female,F,"Associate degree (AA,AS)",5,360,Not Applicable,Not Applicable
+,100+ years,100,Female,F,"Bachelor?s degree (BA, AB, BS)",6,765,Not Applicable,Not Applicable
+,100+ years,100,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,263,Not Applicable,Not Applicable
+,100+ years,100,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,67,Not Applicable,Not Applicable
+,100+ years,100,Female,F,Unknown or Not Stated,9,75,Not Applicable,Not Applicable
+,100+ years,100,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,100+ years,100,Male,M,8th grade or less,1,185,Not Applicable,Not Applicable
+,100+ years,100,Male,M,9th through 12th grade with no diploma,2,86,Not Applicable,Not Applicable
+,100+ years,100,Male,M,High school graduate or GED completed,3,465,Not Applicable,Not Applicable
+,100+ years,100,Male,M,"Some college credit, but not a degree.",4,153,Not Applicable,Not Applicable
+,100+ years,100,Male,M,"Associate degree (AA,AS)",5,56,Not Applicable,Not Applicable
+,100+ years,100,Male,M,"Bachelor?s degree (BA, AB, BS)",6,245,Not Applicable,Not Applicable
+,100+ years,100,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,110,Not Applicable,Not Applicable
+,100+ years,100,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,109,Not Applicable,Not Applicable
+,100+ years,100,Male,M,Unknown or Not Stated,9,10,Not Applicable,Not Applicable
+,100+ years,100,Male,M,Not Available,10,0,Not Applicable,Not Applicable
+,Not Stated,NS,Female,F,8th grade or less,1,0,Not Applicable,Not Applicable
+,Not Stated,NS,Female,F,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,Not Stated,NS,Female,F,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,Not Stated,NS,Female,F,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,Not Stated,NS,Female,F,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,Not Stated,NS,Female,F,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,Not Stated,NS,Female,F,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,Not Stated,NS,Female,F,Not Available,10,0,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,9th through 12th grade with no diploma,2,0,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,High school graduate or GED completed,3,0,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,"Some college credit, but not a degree.",4,0,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,"Associate degree (AA,AS)",5,0,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,"Bachelor?s degree (BA, AB, BS)",6,0,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,"Master?s degree (MA, MS, MEng, MEd, MSW, MBA)",7,0,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",8,0,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,Not Available,10,0,Not Applicable,Not Applicable

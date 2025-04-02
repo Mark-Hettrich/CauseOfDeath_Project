@@ -1,0 +1,584 @@
+---
+title: "CRM_Fine_Gray_XinyuMeng"
+author: "Xinyu Meng"
+date: "2025-03-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+
+
+```{r library} 
+library(readxl)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(cmprsk)
+library(MASS)
+library(splines)
+library(broom)
+library(tibble)
+library(purrr)
+
+```
+
+```{r read top5}
+Death_Data_ICD_Age_Sex_Urban_ <- read_excel("Death Data(ICD_Age_Sex_Urban).xlsx",na = c("NS", "Not Applicable"))
+
+df <- Death_Data_ICD_Age_Sex_Urban_
+
+df_Diseases_of_heart <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("I05-I09", "I11", "I13", "I20-I25", "I26-I28", "I30-I51")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Diseases of heart")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_Malignant_neoplasms <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("C00-C97")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Malignant neoplasms")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_Accidents <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("V01-V99", "W00-X59")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Accidents (unintentional injuries)")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_COVID <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("U00-U49")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "COVID-19")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_Cerebrovascular <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("I60-I69")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Cerebrovascular diseases")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+Top_5_Death <- rbind(df_Diseases_of_heart, df_Malignant_neoplasms, df_Accidents, df_COVID, df_Cerebrovascular)
+
+
+# Entferne Zeilen mit "NS" oder fehlenden Werten in Alters- oder Geschlechtsfeldern
+
+Top_5_Death <- Top_5_Death %>%
+  filter(!(`Single-Year Ages Code` %in% c("NS") | is.na(`Single-Year Ages Code`))) %>%
+  filter(!(`Sex` %in% c("Not Stated") | is.na(Sex)))
+
+
+# Optional: Alter als numerischen Wert behandeln (falls nötig)
+Top_5_Death <- Top_5_Death %>%
+  mutate(`Single-Year Ages Code` = as.numeric(`Single-Year Ages Code`))
+
+head(Top_5_Death)
+
+```
+
+```{r read population}
+
+# CSV-Datei mit Sterbedaten einlesen
+df <- read_csv("Underlying Cause of Death, 2018-2023, Single Race-9.csv")
+
+# Daten für die erste Todesursache (ICD-Kapitel) herausfiltern
+first_cause <- df$`ICD Chapter`[1]
+df_filtered <- df %>%
+  filter(`ICD Chapter` == first_cause)
+
+# Populationsspalte bereinigen, nur numerische Einträge behalten
+df_filtered <- df_filtered %>%
+  filter(!is.na(Population), grepl("^[0-9]+$", Population)) %>%
+  mutate(Population = as.numeric(Population))
+
+# Neue numerische Altersvariable erstellen: "<1 Jahr" → 0, "100 Jahre und älter" → 100, sonst Zahlen extrahieren
+df_filtered <- df_filtered %>%
+  mutate(
+    age_numeric = case_when(
+      `Single-Year Ages` == "< 1 year" ~ 0,
+      `Single-Year Ages` == "100 years and over" ~ 100,
+      TRUE ~ as.numeric(gsub("[^0-9]", "", `Single-Year Ages`))
+    )
+  )
+
+# Alter und Geschlecht auswählen und sortieren, zur Anzeige vorbereiten
+population_data <- df_filtered %>%
+  dplyr::select(age_numeric, `Single-Year Ages`, Sex, Population) %>%
+  arrange(age_numeric, Sex)
+
+# Zeige die ersten Zeilen des Ergebnisses
+head(population_data)
+
+```
+
+```{r urbanization_pct}
+# Datensatz mit Urbanisierungsstufen und Bevölkerungsanteilen
+urbanization_pct <- data.frame(
+  Urbanization_Level = c(
+    "Large Central Metro",  #Große zentrale Metropolregion
+    "Large Fringe Metro",   #Große Randmetropolregion
+    "Medium Metro",         #Mittelgroße Metropolregion
+    "Small Metro",          #Kleine Metropolregion
+    "Micropolitan (Nonmetro)",         #Mikropolitane Region
+    "NonCore (Nonmetro)"               #Nichtkern-Region
+  ),
+  Percent = c(
+    29.6,  #Prozent
+    20.9,
+    26.2,
+    8.5,
+    8.7,
+    6.1
+  )
+)
+
+# Prozentwerte in Anteile (0-1) umwandeln, um Bevölkerung zu berechnen
+library(dplyr)
+urbanization_pct <- urbanization_pct %>%
+  mutate(Proportion = Percent / 100)
+
+# Ergebnis anzeigen
+print(urbanization_pct)
+```
+
+```{r full_population}
+
+# Kombiniere Urbanisierungsstufen mit Alters-Geschlecht-Population
+full_population <- population_data %>%
+  # Für jede Zeile alle Urbanisierungsstufen anhängen (kartesisches Produkt)
+  tidyr::crossing(urbanization_pct) %>%
+  
+  # Bevölkerung für jede Kombination berechnen
+  mutate(
+    Est_Population = Population * Proportion  # 估算人口 / Geschätzte Bevölkerung
+  ) %>%
+  
+  # Nach Alter, Geschlecht und Urbanisierung sortieren
+  arrange(age_numeric, Sex, Urbanization_Level)
+
+# Zeige die ersten Zeilen
+head(full_population)
+
+```
+
+```{r merged_data}
+
+
+Top_5_Death <- Top_5_Death %>%
+  mutate(`Single-Year Ages Code` = as.numeric(`Single-Year Ages Code`))
+
+full_population <- full_population %>%
+  mutate(age_numeric = as.numeric(age_numeric))
+
+# Führe die Datensätze Top_5_Death und full_population zusammen  
+merged_data <- Top_5_Death %>%
+  left_join(full_population, by = c("Single-Year Ages Code" = "age_numeric", 
+                                    "Sex" = "Sex", 
+                                    "Urbanization" = "Urbanization_Level"))
+# Überprüfe die Struktur der zusammengeführten Daten  
+head(merged_data)
+# Berechne die Sterberate (Anzahl der Todesfälle / Gesamtbevölkerung)  
+merged_data <- merged_data %>%
+  mutate(death_rate = Deaths / Est_Population)
+# Überprüfe, ob die Berechnung der Sterberate korrekt ist  
+head(merged_data)
+
+
+```
+
+```{r}
+model_data <- merged_data %>%
+  filter(
+    !is.na(Deaths),
+    !is.na(Est_Population),
+    !is.na(Sex),
+    !is.na(Urbanization),
+    !is.na(`Single-Year Ages Code`)
+  )
+```
+
+```{r regrassion_model}
+
+# Mortalitätsmodellierung (Poisson/NB)
+
+# Zur Modellwahl wird zunächst das Poisson-Modell geschätzt und mit NB verglichen
+poisson_model <- glm(
+  Deaths ~ Urbanization + Sex + ns(`Single-Year Ages Code`, df = 5),
+  offset = log(Est_Population),
+  family = poisson(),
+  data = model_data
+)
+
+
+# Danach: Negative-Binomial-Modell
+nb_model_spline <- glm.nb(
+  formula = Deaths ~ Urbanization + Sex + ns(`Single-Year Ages Code`, df = 5) + offset(log(Est_Population)),
+  data = model_data
+)
+
+# Residualdiagnose zur Modellwahl:
+model_data <- model_data %>%
+  mutate(
+    pois_fitted = predict(poisson_model, type = "response"),
+    nb_fitted   = predict(nb_model_spline, type = "response"),
+    pois_dev    = residuals(poisson_model, type = "deviance"),
+    nb_dev      = residuals(nb_model_spline, type = "deviance")
+  )
+
+ggplot(model_data, aes(x = pois_fitted, y = pois_dev)) +
+  geom_point(alpha = 0.5, color = "steelblue") +
+  labs(title = "Deviance Residuals – Poisson-Modell", x = "Fitted", y = "Deviance Residual") +
+  theme_minimal()
+
+ggplot(model_data, aes(x = nb_fitted, y = nb_dev)) +
+  geom_point(alpha = 0.5, color = "darkgreen") +
+  labs(title = "Deviance Residuals – Negative-Binomial-Modell", x = "Fitted", y = "Deviance Residual") +
+  theme_minimal()
+
+```
+
+
+
+```{r}
+
+# Mortalitätsvorhersage und Hazard-Berechnung basierend auf dem NB-Modell
+model_data <- model_data %>%
+  mutate(
+    pred_deaths = predict(nb_model_spline, type = "response"),  # Vorhergesagte Todesfälle
+    hazard = pred_deaths / Est_Population                       # Sterberate pro Einheitspopulation
+  )
+
+
+# Initialisierung der CIF-Spalte
+model_data$cif_spline <- NA
+
+
+# CIF-Berechnung für jedes Geschlecht × Urbanisierung × Todesursache
+combos <- list(
+  unique(model_data$Sex),
+  unique(model_data$Urbanization),
+  unique(model_data$`Cause of Death`)
+)
+
+for (sex in combos[[1]]) {
+  for (urb in combos[[2]]) {
+    for (cause in combos[[3]]) {
+
+      
+      group_df <- model_data %>%
+        filter(Sex == sex, Urbanization == urb, `Cause of Death` == cause) %>%
+        arrange(`Single-Year Ages Code`)
+
+      # Gesamthazard aller Todesursachen in der Gruppe
+      hazard_total <- model_data %>%
+        filter(Sex == sex, Urbanization == urb) %>%
+        group_by(`Single-Year Ages Code`) %>%
+        summarise(h_total = sum(hazard, na.rm = TRUE), .groups = "drop")
+
+      cif <- numeric(nrow(group_df))
+      surv <- 1  #Anfangsüberlebenswahrscheinlichkeit
+
+      for (i in seq_along(cif)) {
+        age_i <- group_df$`Single-Year Ages Code`[i]
+        h_this <- group_df$hazard[i]
+        h_total <- hazard_total$h_total[hazard_total$`Single-Year Ages Code` == age_i]
+
+        cif[i] <- ifelse(i == 1, 0, cif[i - 1]) + surv * h_this
+        surv <- surv * (1 - h_total)
+      }
+
+      #Ergebnisse zurückschreiben
+      model_data$cif_spline[
+        model_data$Sex == sex &
+        model_data$Urbanization == urb &
+        model_data$`Cause of Death` == cause
+      ] <- cif
+    }
+  }
+}
+
+
+# Visualisierung der standardisierten CIF-Kurven
+model_data$Age <- as.integer(model_data$`Single-Year Ages Code`)
+
+#Abkürzungen der Todesursachen und Urbanisierung
+model_data <- model_data %>%
+  mutate(`Cause Label` = recode(`Cause of Death`,
+    "Diseases of heart" = "Heart",
+    "Malignant neoplasms" = "Cancer",
+    "Accidents (unintentional injuries)" = "Accidents",
+    "COVID-19" = "CV19",
+    "Cerebrovascular diseases" = "Stroke"
+  )) %>%
+  mutate(`Urban Label` = recode(Urbanization,
+    "Large Central Metro" = "LCMetro",
+    "Large Fringe Metro" = "LFMetro",
+    "Medium Metro" = "MMetro",
+    "Small Metro" = "SMetro",
+    "Micropolitan (Nonmetro)" = "Micro",
+    "NonCore (Nonmetro)" = "NonCore"
+  ))
+
+for (cause in unique(model_data$`Cause Label`)) {
+  plot_data <- model_data %>% filter(`Cause Label` == cause)
+
+  p <- ggplot(plot_data, aes(x = Age, y = cif_spline, color = Sex)) +
+    geom_line(size = 1.4, alpha = 0.9, na.rm = TRUE) +
+    facet_wrap(~ `Urban Label`, nrow = 2) +
+    labs(
+      title = paste("Cumulative Incidence Function (CIF) –", cause),
+      x = "Alter / Age",
+      y = "Kumulative Inzidenz (CIF)",
+      color = "Geschlecht / Sex"
+    ) +
+    theme_minimal(base_size = 16) +
+    theme(
+      plot.title = element_text(face = "bold", hjust = 0.5, size = 18),
+      strip.text = element_text(face = "bold", size = 14),
+      axis.text.x = element_text(angle = 45, hjust = 1),
+      legend.position = "top"
+    )
+
+  print(p)
+}
+ggplot(model_data, aes(x = Age, y = cif_spline, color = Sex)) +
+  geom_line(size = 0.9, alpha = 0.8, na.rm = TRUE) +
+  facet_grid(`Cause Label` ~ `Urban Label`) +
+  labs(
+    title = "Gesamtübersicht der standardisierten CIF-Kurven",
+    x = "Alter / Age",
+    y = "Kumulative Inzidenz (CIF)",
+    color = "Geschlecht / Sex"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 16),
+    strip.text = element_text(face = "bold", size = 11),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "top"
+  )
+```
+
+
+```{r}
+# ========== Fine-Gray Modellierung für konkurrierende Risiken ==========
+
+
+# Erstelle die EventStatus-Spalte (basierend auf der Todesursache)
+
+model_data <- model_data %>%
+  mutate(
+    EventStatus = case_when(
+      `Cause Label` == "Heart"     ~ 1,
+      `Cause Label` == "Cancer"    ~ 2,
+      `Cause Label` == "Accidents" ~ 3,
+      `Cause Label` == "CV19"      ~ 4,
+      `Cause Label` == "Stroke"    ~ 5,
+      TRUE ~ 0
+    )
+  )
+
+# Schritt 2: Erstelle Kovariatenmatrix mit Splines für Alter
+
+covariates <- model.matrix(
+  ~ Sex + Urbanization + ns(`Single-Year Ages Code`, df = 5),
+  data = model_data
+)[, -1]  # Entferne Interzept
+
+#Fine-Gray Modell für jede Todesursache separat
+
+library(cmprsk)
+
+causes <- c("Heart" = 1, "Cancer" = 2, "Accidents" = 3, "CV19" = 4, "Stroke" = 5)
+
+fg_models <- lapply(causes, function(failcode) {
+  crr(
+    ftime = model_data$Age,
+    fstatus = model_data$EventStatus,
+    cov1 = covariates,
+    failcode = failcode,
+    cencode = 0
+  )
+})
+
+
+names(fg_models) <- names(causes)
+
+
+#Extrahiere Schätzwerte aus allen Modellen (HR und Konfidenzintervalle)
+
+fg_results <- lapply(names(fg_models), function(cause) {
+  tidy(fg_models[[cause]]) %>%
+    mutate(Cause = cause)
+}) %>%
+  bind_rows()
+
+fg_results <- fg_results %>%
+  mutate(
+    HR = exp(estimate),
+    CI_low = exp(estimate - 1.96 * std.error),
+    CI_up  = exp(estimate + 1.96 * std.error)
+  )
+
+fg_results$term <- gsub("Sex", "Sex: ", fg_results$term)
+fg_results$term <- gsub("Urbanization", "Urban: ", fg_results$term)
+fg_results$term <- gsub("ns\\(`Single-Year Ages Code`, df = 5\\).*", "Age (spline)", fg_results$term)
+
+#Visualisierung als Forest-Plot (HR + 95% CI)
+
+
+
+ggplot(fg_results, aes(x = term, y = HR, ymin = CI_low, ymax = CI_up, color = Cause)) +
+  geom_pointrange(position = position_dodge(width = 0.6)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray40") +
+  coord_flip() +
+  scale_y_continuous(limits = c(0, 5)) +  # 🚨限制显示范围
+  labs(
+    title = "Subdistribution Hazard Ratio (Fine-Gray competing risk models)",
+    x = "Kovariate / Covariate",
+    y = "Hazard Ratio (HR) mit 95%-KI",
+    color = "Todesursache / Cause"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    legend.position = "top",
+    strip.text = element_text(face = "bold")
+  )
+```
+
+
+```{r predicted_vs_observed_all_causes}
+pred_obs_all <- model_data %>%
+  group_by(Age, `Cause Label`, Sex, Urbanization) %>%
+  summarise(
+    obs_rate = sum(Deaths, na.rm = TRUE) / sum(Est_Population, na.rm = TRUE),
+    pred_rate = sum(pred_deaths, na.rm = TRUE) / sum(Est_Population, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(pred_obs_all, aes(x = obs_rate, y = pred_rate, color = `Cause Label`)) +
+  geom_point(alpha = 0.7, size = 1.5) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "gray40") +
+  geom_smooth(method = "lm", se = FALSE, linetype = "solid", color = "black") +
+  facet_wrap(~ `Cause Label`, scales = "free") +
+  scale_x_continuous(labels = scales::percent_format(accuracy = 0.1)) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 0.1)) +
+  labs(
+    title = "Vergleich: Vorhergesagte vs. Beobachtete Sterberaten",
+    x = "Beobachtete Sterberate / Observed",
+    y = "Vorhergesagte Sterberate / Predicted",
+    color = "Todesursache / Cause"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    legend.position = "bottom"
+  )
+```
+
+```{r fg_true_predict_init_global, message=FALSE, warning=FALSE}
+model_data <- model_data %>%
+  mutate(
+    Sex = factor(Sex),
+    Urbanization = factor(Urbanization)
+  )
+
+pseudo_source <- model_data %>%
+  filter(EventStatus > 0) %>%
+  mutate(Deaths = round(Deaths)) %>%
+  filter(!is.na(Deaths) & Deaths > 0)
+
+pseudo_all <- pseudo_source[rep(1:nrow(pseudo_source), pseudo_source$Deaths), ] %>%
+  mutate(
+    fstatus = EventStatus,
+    ftime = Age
+  )
+
+set.seed(42)
+pseudo_expanded <- pseudo_all %>%
+  group_split(fstatus) %>%
+  map_dfr(~ {
+    n_sample <- min(1200, nrow(.x))
+    .x %>% slice_sample(n = n_sample)
+  }) %>%
+  ungroup()
+
+
+print(paste("Total number of pseudo-individuals (balanced sampling):", nrow(pseudo_expanded)))
+```
+
+
+
+```{r fg_true_model_fit_fixed}
+# Fine-Gray competing risks  Heart
+fg_model_true <- crr(
+  ftime = pseudo_expanded$ftime,
+  fstatus = pseudo_expanded$fstatus,
+  cov1 = model.matrix(~ Sex + Urbanization, data = pseudo_expanded)[, -1],
+  failcode = 1,
+  cencode = 0
+)
+```
+
+```{r fg_true_predict_curve_fixed}
+
+new_data <- data.frame(
+  Sex = factor("Male", levels = levels(model_data$Sex)),
+  Urbanization = factor("NonCore (Nonmetro)", levels = levels(model_data$Urbanization))
+)
+
+cov_matrix <- model.matrix(~ Sex + Urbanization, new_data)[, -1]
+
+predict_age <- sort(unique(pseudo_expanded$ftime))
+fg_pred <- predict(fg_model_true, cov1 = cov_matrix, times = predict_age)
+
+# CIF value
+print(fg_pred)
+
+# fg_pred
+plot_df <- data.frame(
+  Age = fg_pred[, 1],  
+  CIF = fg_pred[, 2]   
+)
+
+# CIF smooth
+plot_df <- plot_df %>%
+  mutate(log_CIF = log(CIF + 1))  
+
+# log(CIF)
+ggplot(plot_df, aes(x = Age, y = log_CIF)) +
+  geom_line(color = "steelblue", size = 1.2) +
+  labs(
+    title = "Fine-Gray Modell: Log(CIF) Vorhersage für Heart (Male, NonCore Metro)",
+    x = "Alter / Age",
+    y = "Log(Cumulative Incidence) (log(CIF))"
+  ) +
+  scale_x_continuous(limits = c(30, 85)) +  
+  scale_y_continuous(labels = scales::percent_format(accuracy = 0.1)) +  
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold")
+  )
+```
+
+

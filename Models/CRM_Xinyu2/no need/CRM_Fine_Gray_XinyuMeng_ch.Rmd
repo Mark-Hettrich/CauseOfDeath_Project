@@ -1,0 +1,620 @@
+---
+title: "CRM_Fine_Gray_XinyuMeng"
+author: "Xinyu Meng"
+date: "2025-03-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+
+
+```{r library}
+library(readxl)
+library(dplyr)
+library(readr)
+library(cmprsk)
+library(tidyr)
+library(readr)
+library(stringr)
+```
+
+```{r read top5}
+Death_Data_ICD_Age_Sex_Urban_ <- read_excel("Death Data(ICD_Age_Sex_Urban).xlsx",na = c("NS", "Not Applicable"))
+
+df <- Death_Data_ICD_Age_Sex_Urban_
+
+df_Diseases_of_heart <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("I05-I09", "I11", "I13", "I20-I25", "I26-I28", "I30-I51")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Diseases of heart")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_Malignant_neoplasms <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("C00-C97")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Malignant neoplasms")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_Accidents <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("V01-V99", "W00-X59")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Accidents (unintentional injuries)")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_COVID <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("U00-U49")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "COVID-19")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+df_Cerebrovascular <- df %>%
+  filter(`ICD Sub-Chapter Code` %in% c("I60-I69")) %>%
+  group_by(`Single-Year Ages Code`, `Sex`, `Sex Code`,`Urbanization` ,`Urbanization Code`) %>%
+  summarise(Deaths = sum(Deaths), .groups = "drop") %>%
+  mutate(`Cause of Death` = "Cerebrovascular diseases")%>%
+  relocate(`Cause of Death`, .before = 1) 
+
+Top_5_Death <- rbind(df_Diseases_of_heart, df_Malignant_neoplasms, df_Accidents, df_COVID, df_Cerebrovascular)
+
+# 删除 Age Code 或 Sex 中为 "NS" 或缺失的行
+# Entferne Zeilen mit "NS" oder fehlenden Werten in Alters- oder Geschlechtsfeldern
+
+Top_5_Death <- Top_5_Death %>%
+  filter(!(`Single-Year Ages Code` %in% c("NS") | is.na(`Single-Year Ages Code`))) %>%
+  filter(!(`Sex` %in% c("Not Stated") | is.na(Sex)))
+
+# 可选：将年龄字段转换为数字（如未转换）
+# Optional: Alter als numerischen Wert behandeln (falls nötig)
+Top_5_Death <- Top_5_Death %>%
+  mutate(`Single-Year Ages Code` = as.numeric(`Single-Year Ages Code`))
+
+head(Top_5_Death)
+
+```
+
+```{r read population}
+library(dplyr)
+library(readr)
+
+# 读入死亡数据文件（CSV 格式）
+# CSV-Datei mit Sterbedaten einlesen
+df <- read_csv("Underlying Cause of Death, 2018-2023, Single Race-9.csv")
+
+# 提取第一个死因（ICD Chapter）对应的数据
+# Daten für die erste Todesursache (ICD-Kapitel) herausfiltern
+first_cause <- df$`ICD Chapter`[1]
+df_filtered <- df %>%
+  filter(`ICD Chapter` == first_cause)
+
+# 清理人口列，保留可转为数字的项
+# Populationsspalte bereinigen, nur numerische Einträge behalten
+df_filtered <- df_filtered %>%
+  filter(!is.na(Population), grepl("^[0-9]+$", Population)) %>%
+  mutate(Population = as.numeric(Population))
+
+# 建立年龄数字变量："<1 year" → 0，"100 years and over" → 100，其他提取数字
+# Neue numerische Altersvariable erstellen: "<1 Jahr" → 0, "100 Jahre und älter" → 100, sonst Zahlen extrahieren
+df_filtered <- df_filtered %>%
+  mutate(
+    age_numeric = case_when(
+      `Single-Year Ages` == "< 1 year" ~ 0,
+      `Single-Year Ages` == "100 years and over" ~ 100,
+      TRUE ~ as.numeric(gsub("[^0-9]", "", `Single-Year Ages`))
+    )
+  )
+
+# 选择并按年龄和性别排序，准备输出
+# Alter und Geschlecht auswählen und sortieren, zur Anzeige vorbereiten
+population_data <- df_filtered %>%
+  select(age_numeric, `Single-Year Ages`, Sex, Population) %>%
+  arrange(age_numeric, Sex)
+
+# 显示前几行结果
+# Zeige die ersten Zeilen des Ergebnisses
+head(population_data)
+
+```
+
+```{r urbanization_pct}
+# 城市化等级与人口百分比数据框
+# Datensatz mit Urbanisierungsstufen und Bevölkerungsanteilen
+urbanization_pct <- data.frame(
+  Urbanization_Level = c(
+    "Large Central Metro",  # 大型中心城市 / Große zentrale Metropolregion
+    "Large Fringe Metro",   # 大型边缘城市 / Große Randmetropolregion
+    "Medium Metro",         # 中型城市 / Mittelgroße Metropolregion
+    "Small Metro",          # 小型城市 / Kleine Metropolregion
+    "Micropolitan (Nonmetro)",         # 微城市区 / Mikropolitane Region
+    "NonCore (Nonmetro)"               # 非核心地区 / Nichtkern-Region
+  ),
+  Percent = c(
+    29.6,  # 百分比 / Prozent
+    20.9,
+    26.2,
+    8.5,
+    8.7,
+    6.1
+  )
+)
+
+# 将百分比转换为小数形式（0-1），便于后续人口分配计算
+# Prozentwerte in Anteile (0-1) umwandeln, um Bevölkerung zu berechnen
+library(dplyr)
+urbanization_pct <- urbanization_pct %>%
+  mutate(Proportion = Percent / 100)
+
+# 打印查看结果
+# Ergebnis anzeigen
+print(urbanization_pct)
+```
+
+```{r full_population}
+# 创建城市化等级与原始人口的组合
+# Kombiniere Urbanisierungsstufen mit Alters-Geschlecht-Population
+full_population <- population_data %>%
+  # 为每一行添加所有城市化等级（笛卡尔积）
+  # Für jede Zeile alle Urbanisierungsstufen anhängen (kartesisches Produkt)
+  tidyr::crossing(urbanization_pct) %>%
+  
+  # 计算每个年龄 × 性别 × 城市化等级的人口估计值
+  # Bevölkerung für jede Kombination berechnen
+  mutate(
+    Est_Population = Population * Proportion  # 估算人口 / Geschätzte Bevölkerung
+  ) %>%
+  
+  # 排列顺序，便于查看
+  # Nach Alter, Geschlecht und Urbanisierung sortieren
+  arrange(age_numeric, Sex, Urbanization_Level)
+
+# 查看前几行
+# Zeige die ersten Zeilen
+head(full_population)
+
+```
+
+```{r merged_data}
+
+
+Top_5_Death <- Top_5_Death %>%
+  mutate(`Single-Year Ages Code` = as.numeric(`Single-Year Ages Code`))
+
+full_population <- full_population %>%
+  mutate(age_numeric = as.numeric(age_numeric))
+
+
+# 合并 Top_5_Death 和 full_population 数据  
+# Führe die Datensätze Top_5_Death und full_population zusammen  
+merged_data <- Top_5_Death %>%
+  left_join(full_population, by = c("Single-Year Ages Code" = "age_numeric", 
+                                    "Sex" = "Sex", 
+                                    "Urbanization" = "Urbanization_Level"))
+
+# 检查合并后的数据结构  
+# Überprüfe die Struktur der zusammengeführten Daten  
+head(merged_data)
+
+# 计算死亡率 (死亡人数 / 总体人口)  
+# Berechne die Sterberate (Anzahl der Todesfälle / Gesamtbevölkerung)  
+merged_data <- merged_data %>%
+  mutate(death_rate = Deaths / Est_Population)
+
+# 查看死亡率的计算是否正确  
+# Überprüfe, ob die Berechnung der Sterberate korrekt ist  
+head(merged_data)
+
+```
+
+
+
+```{r poisson_model}
+
+
+# 执行泊松回归  
+# Führe eine Poisson-Regression durch  
+# 使用城市化水平、性别和年龄作为解释变量  
+# Verwende Urbanisierungsgrad, Geschlecht und Alter als Prädiktoren  
+poisson_model <- glm(Deaths ~ Urbanization + Sex + `Single-Year Ages Code`, 
+                     family = poisson(), data = merged_data)
+
+# 查看模型摘要  
+# Zeige die Zusammenfassung des Modells an  
+summary(poisson_model)
+```
+```{r}
+library(ggplot2)
+
+ggplot(merged_data, aes(x = `Single-Year Ages Code`, y = death_rate, color = Sex)) +
+  geom_line(size = 0.8) +
+  facet_wrap(~ `Cause of Death`, scales = "free_y") +
+  labs(
+    title = "Death Rate by Age and Sex (per Cause)",
+    x = "Age",
+    y = "Death Rate",
+    color = "Sex"
+  ) +
+  theme_minimal()
+```
+```{r}
+avg_death_by_urban <- merged_data %>%
+  group_by(Urbanization, `Cause of Death`) %>%
+  summarise(mean_death_rate = mean(death_rate, na.rm = TRUE), .groups = "drop")
+
+ggplot(avg_death_by_urban, aes(x = Urbanization, y = mean_death_rate, fill = `Cause of Death`)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Average Death Rate by Urbanization Level and Cause",
+    x = "Urbanization Level",
+    y = "Average Death Rate",
+    fill = "Cause of Death"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# 加入估算人口（用于标准化）
+predict_grid <- predict_grid %>%
+  left_join(full_population, 
+            by = c("Single-Year Ages Code" = "age_numeric", 
+                   "Sex" = "Sex", 
+                   "Urbanization" = "Urbanization_Level")) %>%
+  mutate(predicted_rate = predicted_deaths / Est_Population)
+
+# 画死亡率热力图
+ggplot(predict_grid, aes(x = `Single-Year Ages Code`, y = Urbanization, fill = predicted_rate)) +
+  geom_tile() +
+  scale_fill_viridis_c() +
+  labs(
+    title = "Predicted Death Rate Heatmap (Age 60–80, Female)",
+    x = "Age", y = "Urbanization Level",
+    fill = "Death Rate"
+  ) +
+  theme_minimal()
+```
+
+```{r CIF_Poisson}
+# 加载所需的库
+# Lade die notwendigen Bibliotheken
+library(cmprsk)     # 用于竞争风险模型 / Für konkurrierende Risiko Modelle
+library(ggplot2)    # 用于绘图 / Für die Visualisierung
+library(dplyr)      # 用于数据处理 / Zur Datenverarbeitung
+
+# 假设 merged_data 是已经合并并处理过的数据集
+# Angenommen, merged_data ist der bereits zusammengeführte und bearbeitete Datensatz
+
+# Step 1: 创建 Time 和 EventStatus 列
+# Schritt 1: Erstelle die Spalten Time und EventStatus
+merged_data <- merged_data %>%
+  mutate(
+    Time = `Single-Year Ages Code`,  # 设置时间为年龄（Single-Year Ages Code） / Setze das Alter als Zeit (Single-Year Ages Code)
+    EventStatus = case_when(
+      `Cause of Death` == "Diseases of heart" ~ 1,  # 心脏病 / Herzkrankheiten
+      `Cause of Death` == "Malignant neoplasms" ~ 2,  # 恶性肿瘤 / Bösartige Neubildungen
+      `Cause of Death` == "Accidents (unintentional injuries)" ~ 3,  # 意外事故 / Unfälle (unbeabsichtigte Verletzungen)
+      `Cause of Death` == "COVID-19" ~ 4,  # 新冠 / COVID-19
+      `Cause of Death` == "Cerebrovascular diseases" ~ 5,  # 脑血管疾病 / Zerebrovaskuläre Erkrankungen
+      TRUE ~ 0  # 其他情况，未发生事件 / Andere Fälle, kein Ereignis
+    )
+  )
+
+# 检查合并后的数据，确保 Time 和 EventStatus 列已经正确创建
+# Überprüfe die zusammengeführten Daten, um sicherzustellen, dass Time und EventStatus korrekt erstellt wurden
+head(merged_data)
+
+# Step 2: 计算竞争风险模型的CIF（累积发生率函数）
+# Schritt 2: Berechne die konkurrierende Risiko Funktion (CIF)
+cr_fit <- cuminc(ftime = merged_data$Time, fstatus = merged_data$EventStatus)
+
+# Step 3: 绘制CIF曲线
+# Schritt 3: Zeichne die CIF-Kurve
+plot(cr_fit, 
+     main = "Cumulative Incidence Function (CIF) for Different Causes of Death", 
+     # 标题 / Titel
+     xlab = "Age (Single-Year Ages Code)", 
+     # x轴标签 / x-Achsen Beschriftung
+     ylab = "Cumulative Incidence Function (CIF)", 
+     # y轴标签 / y-Achsen Beschriftung
+     col = 1:5,  # 每个死亡原因使用不同的颜色 / Jede Todesursache hat eine andere Farbe
+     lty = 1:5,  # 每个死亡原因使用不同的线型 / Jede Todesursache hat einen anderen Linientyp
+     lwd = 2)  # 线条宽度 / Linienbreite
+
+# 添加图例
+# Füge eine Legende hinzu
+legend("topright", 
+       legend = c("Diseases of heart", "Malignant neoplasms", "Accidents", "COVID-19", "Cerebrovascular diseases"),
+       col = 1:5, 
+       lty = 1:5, 
+       lwd = 2, 
+       title = "Cause of Death") 
+# 死因图例标题 / Legende mit Todesursachen
+```
+
+```{r}
+library(cmprsk)  # 加载竞争风险分析库
+library(ggplot2) # 加载绘图库
+
+# 根据性别进行分组，计算CIF
+# Gruppiere nach Geschlecht und berechne die CIF
+
+cr_fit_male <- cuminc(ftime = merged_data$Time[merged_data$Sex == "Male"], 
+                      fstatus = merged_data$EventStatus[merged_data$Sex == "Male"])
+
+cr_fit_female <- cuminc(ftime = merged_data$Time[merged_data$Sex == "Female"], 
+                        fstatus = merged_data$EventStatus[merged_data$Sex == "Female"])
+
+# 获取CIF的时间和累积发生率
+# Hole die Zeit und die kumulierte Inzidenz aus den CIF-Ergebnissen
+
+time_male <- cr_fit_male[[1]]$time
+cif_male <- cr_fit_male[[1]]$est
+
+time_female <- cr_fit_female[[1]]$time
+cif_female <- cr_fit_female[[1]]$est
+
+# 绘制按性别分组的CIF曲线
+# Zeichne CIF-Kurven für jedes Geschlecht
+plot(time_male, cif_male, 
+     type = "l", # 使用线条绘制
+     main = "Cumulative Incidence Function (CIF) for Males and Females", 
+     xlab = "Age (Single-Year Ages Code)", 
+     ylab = "Cumulative Incidence Function (CIF)", 
+     col = "blue", 
+     lty = 1, 
+     lwd = 2)
+
+lines(time_female, cif_female, 
+      col = "red", 
+      lty = 2, 
+      lwd = 2)
+
+# 添加图例
+# Füge eine Legende hinzu
+legend("topright", 
+       legend = c("Male", "Female"), 
+       col = c("blue", "red"), 
+       lty = c(1, 2), 
+       lwd = 2, 
+       title = "Gender")
+```
+```{r}
+# 计算残差：Pearson残差和Deviance残差  
+# Berechne Residuen: Pearson- und Deviance-Residuen
+merged_data <- merged_data %>%
+  mutate(
+    fitted = predict(poisson_model, type = "response"),  # 预测值 / Vorhergesagte Werte
+    pearson_resid = residuals(poisson_model, type = "pearson"),  # Pearson 残差
+    deviance_resid = residuals(poisson_model, type = "deviance") # Deviance 残差
+  )
+
+# 画出 Pearson 残差 vs 拟合值的图  
+# Zeichne Pearson-Residuen gegen die vorhergesagten Werte
+ggplot(merged_data, aes(x = fitted, y = pearson_resid)) +
+  geom_point(alpha = 0.4) +
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  labs(
+    title = "Pearson Residuals vs Fitted Values\nPearson残差与拟合值\nPearson-Residuen vs. Vorhergesagte Werte",
+    x = "Fitted Values\n拟合值\nVorhergesagte Werte",
+    y = "Pearson Residuals\nPearson残差"
+  ) +
+  theme_minimal()
+
+# 画出 Deviance 残差 vs 拟合值的图  
+# Zeichne Deviance-Residuen gegen die vorhergesagten Werte
+ggplot(merged_data, aes(x = fitted, y = deviance_resid)) +
+  geom_point(alpha = 0.4, color = "steelblue") +
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  labs(
+    title = "Deviance Residuals vs Fitted Values\nDeviance残差与拟合值\nDeviance-Residuen vs. Vorhergesagte Werte",
+    x = "Fitted Values\n拟合值\nVorhergesagte Werte",
+    y = "Deviance Residuals\nDeviance残差"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+library(MASS)  # 加载负二项回归所需库 / Für Negative Binomial Regression
+# 构建负二项回归模型
+# Negative Binomial Regression Modell aufbauen
+nb_model <- glm.nb(Deaths ~ Urbanization + Sex + `Single-Year Ages Code`, data = merged_data)
+
+# 查看模型摘要
+# Modellzusammenfassung anzeigen
+summary(nb_model)
+
+```
+
+```{r}
+# 添加拟合值和残差
+# Füge Vorhersagen und Residuen hinzu
+merged_data <- merged_data %>%
+  mutate(
+    nb_fitted = predict(nb_model, type = "response"),
+    nb_pearson_resid = residuals(nb_model, type = "pearson"),
+    nb_deviance_resid = residuals(nb_model, type = "deviance")
+  )
+
+# Pearson残差图
+ggplot(merged_data, aes(x = nb_fitted, y = nb_pearson_resid)) +
+  geom_point(alpha = 0.4) +
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  labs(
+    title = "NB Pearson Residuals vs Fitted Values\n负二项Pearson残差 vs 拟合值",
+    x = "Fitted Values", y = "Pearson Residuals"
+  ) +
+  theme_minimal()
+
+# Deviance残差图
+ggplot(merged_data, aes(x = nb_fitted, y = nb_deviance_resid)) +
+  geom_point(alpha = 0.4, color = "steelblue") +
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  labs(
+    title = "NB Deviance Residuals vs Fitted Values",
+    x = "Fitted Values", y = "Deviance Residuals"
+  ) +
+  theme_minimal()
+```
+
+
+```{r}
+library(splines)
+
+# 构建非线性年龄的负二项回归模型  
+# Negative Binomial Modell mit nichtlinearer Altersfunktion
+nb_model_spline <- glm.nb(Deaths ~ Urbanization + Sex + ns(`Single-Year Ages Code`, df = 5), 
+                          data = merged_data)
+
+# 查看模型摘要  
+# Modellzusammenfassung anzeigen
+summary(nb_model_spline)
+```
+
+```{r}
+# 加入拟合值与残差
+merged_data <- merged_data %>%
+  mutate(
+    nb_spline_fitted = predict(nb_model_spline, type = "response"),
+    nb_spline_pearson = residuals(nb_model_spline, type = "pearson"),
+    nb_spline_deviance = residuals(nb_model_spline, type = "deviance")
+  )
+
+# Deviance 残差图
+ggplot(merged_data, aes(x = nb_spline_fitted, y = nb_spline_deviance)) +
+  geom_point(alpha = 0.4, color = "mediumorchid") +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  labs(
+    title = "NB Model with Non-linear Age (Natural Splines)",
+    x = "Fitted Values",
+    y = "Deviance Residuals\nDeviance"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+AIC(poisson_model, nb_model, nb_model_spline)
+```
+
+```{r}
+# 构造新数据框：我们要预测的人群组合  
+# Erstelle neuen Datensatz für die Vorhersage
+
+# 构建要预测的新数据（变量名要和模型完全一致，保持空格）
+# Erstelle neuen Datensatz für Vorhersage (Spaltennamen müssen mit Modell übereinstimmen)
+new_data <- data.frame(
+  check.names = FALSE,  # 保留原始列名，防止被自动转换 / Behalte Originalnamen bei
+  "Single-Year Ages Code" = c(65, 80),  # 年龄 / Alter
+  Sex = c("Female", "Male"),            # 性别 / Geschlecht
+  Urbanization = c("Large Central Metro", "NonCore (Nonmetro)")  # 城市化等级
+)
+
+# 使用样条模型进行预测（输出期望死亡人数）
+# Vorhersage mit dem Spline-Modell (Erwartete Todesfälle)
+new_data$predicted_deaths <- predict(nb_model_spline, newdata = new_data, type = "response")
+
+# 打印结果
+# Zeige das Ergebnis
+print(new_data)
+```
+
+```{r}
+# 年龄范围
+ages <- 60:80
+
+# 城市化等级
+urban_levels <- unique(merged_data$Urbanization)
+
+# 性别（我们先选一个，比如 Female）
+sex <- "Female"
+
+# 创建预测组合（年龄 × 城市化）
+predict_grid <- expand.grid(
+  check.names = FALSE,
+  "Single-Year Ages Code" = ages,
+  Sex = sex,
+  Urbanization = urban_levels
+)
+
+# 添加预测值
+predict_grid$predicted_deaths <- predict(nb_model_spline, newdata = predict_grid, type = "response")
+```
+
+```{r}
+ggplot(predict_grid, aes(x = `Single-Year Ages Code`, y = Urbanization, fill = predicted_deaths)) +
+  geom_tile() +
+  scale_fill_viridis_c() +
+  labs(
+    title = "Predicted Deaths Heatmap (Age 60–80, Female)",
+    x = "Age\n年龄",
+    y = "Urbanization Level",
+    fill = "Predicted Deaths"
+  ) +
+  theme_minimal()
+```
+```{r}
+library(cmprsk)
+
+# 构建协变量矩阵：年龄非线性 + 性别 + 城市化等级
+covariates <- model.matrix(
+  ~ Sex + Urbanization + ns(`Single-Year Ages Code`, df = 5),
+  data = merged_data
+)[, -1]  # 去掉截距列
+
+# 建立 Fine-Gray 模型（以心脏病为目标事件）
+fg_model_heart <- crr(
+  ftime = merged_data$Time,
+  fstatus = merged_data$EventStatus,
+  cov1 = covariates,
+  failcode = 1,   # 心脏病死亡
+  cencode = 0     # 0 表示未发生任何事件
+)
+
+# 查看结果
+summary(fg_model_heart)
+```
+```{r}
+# 创建协变量矩阵（非线性年龄 + 性别 + 城市化）
+covariates <- model.matrix(
+  ~ Sex + Urbanization + ns(`Single-Year Ages Code`, df = 5),
+  data = merged_data
+)[, -1]
+
+# 用 lapply 针对每一个死因建模
+causes <- c(
+  "Diseases of heart" = 1,
+  "Malignant neoplasms" = 2,
+  "Accidents (unintentional injuries)" = 3,
+  "COVID-19" = 4,
+  "Cerebrovascular diseases" = 5
+)
+
+# 存储结果
+fg_models <- lapply(causes, function(fail_code) {
+  crr(
+    ftime = merged_data$Time,
+    fstatus = merged_data$EventStatus,
+    cov1 = covariates,
+    failcode = fail_code,
+    cencode = 0
+  )
+})
+
+# 打印每个模型的摘要
+names(fg_models) <- names(causes)
+lapply(fg_models, summary)
+```
