@@ -16,7 +16,7 @@ ipums_asec <- df %>%
 ipums_asec <- ipums_asec %>%
   mutate(Sex = ifelse(SEX == 1, "Male", "Female"))
 
-
+View(df)
 edu_grouped <- c(
   # 8th grade or less
   `1` = "8th grade or less",
@@ -60,7 +60,7 @@ pop_by_group <- ipums_asec %>%
   summarise(population = sum(ASECWT, na.rm = TRUE)) %>%
   ungroup()
 
-
+View(pop_by_group)
 #####
 ###Compariosn with CDC Data to validate
 #####
@@ -112,6 +112,8 @@ heart_df <- read_csv(file_path)
 heart_df <- heart_df[-1]
 heart_df <- heart_df %>%
   mutate(AGE = as.numeric(`Single-Year Ages Code`)) %>%
+# mutate(Deaths = ifelse(Deaths == "Suppressed", 5, Deaths),
+#       Death = as.numeric(Death)) %>%
   mutate(Sex = as.factor(Sex)) %>%
   filter(AGE < 80)
 heart_df <- heart_df %>% filter(!(Education %in% c("Unknown or Not Stated", "Not Available")))
