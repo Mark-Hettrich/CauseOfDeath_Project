@@ -96,9 +96,21 @@ cdc_age_sex <- cdc_age_sex %>%
 cdc_age_sex <- cdc_age_sex %>% filter(`Single-Year Ages Code` <= 80)
 pop_by_age_sex <- pop_by_age_sex %>% filter(AGE <= 80)
 
-
+###Comparison of Populations:
 round(cdc_age_sex$population - pop_by_age_sex$population)
+
+max(round(cdc_age_sex$population - pop_by_age_sex$population))
+diffs <- round(cdc_age_sex$population - pop_by_age_sex$population)
+max_idx <- which.max(diffs)
+data.frame(
+  cdc_age_sex[max_idx, ],
+  pop_by_age_sex[max_idx, ],
+  diff = diffs[max_idx]
+)
+
 mean(cdc_age_sex$population - pop_by_age_sex$population) #mean difference is 71k, cdc seems to overestimate Population number
+mean(cdc_age_sex$population)
+mean(pop_by_age_sex$population)
 
 
 #####

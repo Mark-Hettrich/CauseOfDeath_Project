@@ -1,0 +1,186 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r Packages, include=FALSE}
+library(survival)
+library(survminer)
+library(dplyr)
+library(readr)
+library(here)
+library(nnet)
+library(ggplot2)
+library(MASS)
+library(flexsurv)
+library(timereg)
+library(mgcv)
+library(cmprsk)
+library(broom)
+library(splines)
+library(purrr)
+library(pscl)
+library(png)
+library(grid)
+library(patchwork)
+options(scipen = 999)
+```
+
+
+What did we do?
+Limitations we found
+Overcoming Limitations
+
+Want to talk about what we did, limitations we found, and if we did, how we overcame them & if the methodology used is ok, or rather change
+
+
+What did we do?
+- early explorative analysis, univariate, bivariate, hypothesis tests with multiple variables, experimented with different models, mainly focusing on education
+```{r Top 5 Causes of Death + Others incl. Count}
+death_causes
+```
+Variables we focused on:
+- Early: 
+  - Years, Months, Ages, Sex, Race, Education, Urbanization, States
+- Later:
+  - Mainly Age, Sex, Education, but also played around Urbanization & Race
+
+Limitations
+```{r Plot Edcuation unfiltered}
+educ_unfiltered
+```
+```{r Plot Education filtered for 2021-2023}
+educ_filtered
+```
+```{r Screenshot suppressed Values}
+knitr::include_graphics(here::here("Presentation", "Screenshots", "Suppressed.png"))
+```
+```{r Screenshot missing Population 85+}
+knitr::include_graphics(here::here("Presentation", "Screenshots", "85+.png"))
+```
+```{r Screenshot Missing Population Education}
+knitr::include_graphics(here::here("Presentation", "Screenshots", "Education_pop_missing.png"))
+```
+```{r Example Plot Deaths by Race vs Deaths by Race normalized with the Population}
+total_d + normalized_d
+```
+
+Overcoming Problem of Missing Population:
+
+- Missing Population in general:
+  - Merge the Data with IPUMS CPS (Integrated Public Use Microdata Series, Current Population Survey)
+  - Missing Population for Education and for 85+ --> Why is this an issue? We often need the Population to interpret Data without having to worry about the increased        Death Counts being due to higher base Population, so that we know that the effects we see are actually effects caused by variables we are analyzing
+
+- Missing Population for 85+:
+  - not really any solid solution yet
+  - Problem with how IPUMS CPS handles Ages over 79
+  - Could model a declining population
+  - Maybe use it as Censored Data
+
+
+- Merging Data with IPUMS Population
+  - Show IPUMS Website
+  - Show step by step how we merge Data
+  - Limitations & Problems: 
+    - Not 100% Overlapping Population with CDC Data, do we adjust?
+    - Problem with the Population for Ages 80 onwards, codation. Do we try to model the decreasing Population? lots of assumptions if we do.
+    - Excluding 24 & younger: educational attainment not interpretable as status
+
+This gives us new & improved Data:
+```{r Deaths by Education seperated by Cause}
+causes <- unique(df$Cause)
+for (cause in causes) {
+  p <- ggplot(subset(df, Cause == cause), aes(x = AGE, y = Deaths, color = Education)) +
+    geom_point(alpha = 0.7) +
+    labs(title = paste("Deaths by Age and Sex –", cause),
+         x = "Age",
+         y = "Number of Deaths") +
+    theme_minimal()
+  
+  print(p)
+}
+```
+```{r Normalized Deaths by Education seperated by Cause}
+
+for (cause in causes) {
+  df_cause <- subset(df, Cause == cause & population > 0)
+  
+  p <- ggplot(df_cause, aes(x = AGE, y = Deaths / population, color = Education)) +
+    geom_point(alpha = 0.7) +
+    labs(
+      title = paste("Normalized Death Rate by Age and Education –", cause),
+      x = "Age",
+      y = "Deaths per Capita"
+    ) +
+    theme_minimal()
+  
+  print(p)
+}
+```
+
+
+Models:
+
+
+Negative Binomial Regression:
+- Great for modelling Count Data --> How many people will die, given their attributes
+- Used for over-dispersed Data (Variance > Mean), so data doesn't cluster around an average life expectancy, rather: people are expected to die at all ages.
+```{r Negative Binomial Model}
+
+nb_final <- glm.nb(Deaths ~ ns(AGE, 3) * Sex + Education * Sex + Cause * Sex + Education * Cause + ns(AGE, 3) * Cause + offset(log(population)), 
+               data = model_df)
+summary(nb_final)
+exp(coefficients(nb_final))
+```
+
+```{r Negative Binomial Models split up by Death Cause}
+cause_list <- unique(model_df$Cause)
+
+# Create an empty list to store models
+cause_models <- list()
+
+# Loop over each cause and fit the model
+for (cause in cause_list) {
+  
+  # Subset data for this cause
+  df_subset <- model_df[model_df$Cause == cause, ]
+  
+  # Fit the model (excluding Cause terms since we’re conditioning on one cause)
+  model <- glm.nb(
+    Deaths ~ ns(AGE, 3) * Sex + Education * Sex + offset(log(population)),
+    data = df_subset
+  )
+  
+  # Store the model in the list
+  cause_models[[cause]] <- model
+}
+
+summary(cause_models[["Diseases of Heart"]])
+exp(coefficients(cause_models[["Diseases of Heart"]]))
+```
+
+Accelerated Failure Time (AFT)
+- doesnt really work out due to Data Limitations (Only Ages 0-79)
+- Estimates Time until Death, given an individuals attributes
+```{r}
+aft_model <- survreg(
+  Surv(AGE, event) ~ Sex + Education + Cause,
+  data = aft_data,
+  weights = count,
+  dist = "weibull",
+  model = TRUE)
+
+summary(aft_model)
+exp(coef(aft_model)) #good model start, but shit in shit out. Model estimates Women with 8th Grade or lower Education dying from other Causes to die at 69. Maybe we can solve it by estimating a death and population count for people above
+```
+
+
+
+
+
+
+  - CRM:
+  - Multinomial: 
+    - nice, because we don't necessarily need population to interpret it, we are just a little bit more limited in interpretation
+    - predicts, given a person died, what did they probably die from, in respect to their attributes
+
+- Unsolved Problems:
+  - Including Ages above 79 in models which include information on population numbers
