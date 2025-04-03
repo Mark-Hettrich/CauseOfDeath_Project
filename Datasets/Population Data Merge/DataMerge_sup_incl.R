@@ -95,8 +95,8 @@ cdc_age_sex <- cdc_age_sex %>%
 #Remove incomparable Datapoints
 cdc_age_sex <- cdc_age_sex %>% filter(`Single-Year Ages Code` <= 80)
 pop_by_age_sex <- pop_by_age_sex %>% filter(AGE <= 80)
-  
-  
+
+
 round(cdc_age_sex$population - pop_by_age_sex$population)
 mean(cdc_age_sex$population - pop_by_age_sex$population) #mean difference is 71k, cdc seems to overestimate Population number
 
@@ -108,13 +108,12 @@ mean(cdc_age_sex$population - pop_by_age_sex$population) #mean difference is 71k
 # We will only include age >= 79, due to IPUMS Ages being coded as: 80 for ages 80-84 & 85 for ages 85+
 pop_by_group <- pop_by_group %>% filter(AGE < 80)
 
-file_path <- here("Datasets", "Population Data Merge", "Diseases_of_Heart.csv")
+file_path <- here("Data_Yicheng", "Death data 21_23", "Ages_Sex_Edu_2021_2023", "Diseases of heart.csv")
 heart_df <- read_csv(file_path)
 heart_df <- heart_df[-1]
 heart_df <- heart_df %>%
   mutate(AGE = as.numeric(`Single-Year Ages Code`)) %>%
-# mutate(Deaths = ifelse(Deaths == "Suppressed", 5, Deaths),
-#       Death = as.numeric(Death)) %>%
+  mutate(Deaths = ifelse(Deaths == "Suppressed", 5, Deaths), Deaths = as.numeric(Deaths)) %>%
   mutate(Sex = as.factor(Sex)) %>%
   filter(AGE < 80)
 heart_df <- heart_df %>% filter(!(Education %in% c("Unknown or Not Stated", "Not Available")))
@@ -134,24 +133,25 @@ sum(heart_df$population, na.rm = TRUE)
 sum(pop_by_group$population)
 
 missing_df <- full_join(
-    pop_by_group,
-    heart_df,
-    by = c("AGE", "Sex", "Education"),
-    suffix = c("_pop", "_heart")
-  ) %>%
-    filter(is.na(Deaths)) %>%
-    arrange(desc(population_pop))
+  pop_by_group,
+  heart_df,
+  by = c("AGE", "Sex", "Education"),
+  suffix = c("_pop", "_heart")
+) %>%
+  filter(is.na(Deaths)) %>%
+  arrange(desc(population_pop))
 
 sum(missing_df$population_pop)
 sum(heart_df$population, na.rm = TRUE) - sum(pop_by_group$population)
-#mismatch because cdc  suppresses specific rows, there is no way to get the Death Count from them. Death Counts < 10 are suppressed.
-#This will lead to underestimation. We could fill them with Deaths = 5 to maybe get a better prediction
+#mismatch fixed when if suppressed rows are included
 
 # Neoplasms
-neoplasms_df <- read_csv(here("Datasets", "Population Data Merge", "Neoplasms.csv"))
+neoplasms_df <- read_csv(here("Data_Yicheng", "Death data 21_23", "Ages_Sex_Edu_2021_2023", "Malignant neoplasms.csv"))
 neoplasms_df <- neoplasms_df[-1]
 neoplasms_df <- neoplasms_df %>%
   mutate(AGE = as.numeric(`Single-Year Ages Code`)) %>%
+  mutate(`Single-Year Ages Code` = as.numeric(`Single-Year Ages Code`)) %>%
+  mutate(Deaths = ifelse(Deaths == "Suppressed", 5, Deaths), Deaths = as.numeric(Deaths)) %>%
   mutate(Sex = as.factor(Sex)) %>%
   filter(AGE < 80) %>%
   filter(!(Education %in% c("Unknown or Not Stated", "Not Available"))) %>%
@@ -163,10 +163,11 @@ neoplasms_df <- neoplasms_df %>%
   left_join(pop_by_group, by = c("AGE", "Sex", "Education"))
 
 # Accidents
-accidents_df <- read_csv(here("Datasets", "Population Data Merge", "Accidents.csv"))
+accidents_df <- read_csv(here("Data_Yicheng", "Death data 21_23", "Ages_Sex_Edu_2021_2023", "Accidents.csv"))
 accidents_df <- accidents_df[-1]
 accidents_df <- accidents_df %>%
   mutate(AGE = as.numeric(`Single-Year Ages Code`)) %>%
+  mutate(Deaths = ifelse(Deaths == "Suppressed", 5, Deaths), Deaths = as.numeric(Deaths)) %>%
   mutate(Sex = as.factor(Sex)) %>%
   filter(AGE < 80) %>%
   filter(!(Education %in% c("Unknown or Not Stated", "Not Available"))) %>%
@@ -178,10 +179,11 @@ accidents_df <- accidents_df %>%
   left_join(pop_by_group, by = c("AGE", "Sex", "Education"))
 
 # COVID
-covid_df <- read_csv(here("Datasets", "Population Data Merge", "COVID.csv"))
+covid_df <- read_csv(here("Data_Yicheng", "Death data 21_23", "Ages_Sex_Edu_2021_2023", "Covid-19.csv"))
 covid_df <- covid_df[-1]
 covid_df <- covid_df %>%
   mutate(AGE = as.numeric(`Single-Year Ages Code`)) %>%
+  mutate(Deaths = ifelse(Deaths == "Suppressed", 5, Deaths), Deaths = as.numeric(Deaths)) %>%
   mutate(Sex = as.factor(Sex)) %>%
   filter(AGE < 80) %>%
   filter(!(Education %in% c("Unknown or Not Stated", "Not Available"))) %>%
@@ -193,10 +195,11 @@ covid_df <- covid_df %>%
   left_join(pop_by_group, by = c("AGE", "Sex", "Education"))
 
 # Cerebro
-cerebro_df <- read_csv(here("Datasets", "Population Data Merge", "Cerebro.csv"))
+cerebro_df <- read_csv(here("Data_Yicheng", "Death data 21_23", "Ages_Sex_Edu_2021_2023", "Cerebrovascular diseases.csv"))
 cerebro_df <- cerebro_df[-1]
 cerebro_df <- cerebro_df %>%
   mutate(AGE = as.numeric(`Single-Year Ages Code`)) %>%
+  mutate(Deaths = ifelse(Deaths == "Suppressed", 5, Deaths), Deaths = as.numeric(Deaths)) %>%
   mutate(Sex = as.factor(Sex)) %>%
   filter(AGE < 80) %>%
   filter(!(Education %in% c("Unknown or Not Stated", "Not Available"))) %>%
@@ -208,10 +211,11 @@ cerebro_df <- cerebro_df %>%
   left_join(pop_by_group, by = c("AGE", "Sex", "Education"))
 
 # Others
-others_df <- read_csv(here("Datasets", "Population Data Merge", "Others.csv"))
+others_df <- read_csv(here("Data_Yicheng", "Death data 21_23", "Ages_Sex_Edu_2021_2023", "Other DeathCauses.csv"))
 others_df <- others_df[-1]
 others_df <- others_df %>%
   mutate(AGE = as.numeric(`Single-Year Ages Code`)) %>%
+  mutate(Deaths = ifelse(Deaths == "Suppressed", 5, Deaths), Deaths = as.numeric(Deaths)) %>%
   mutate(Sex = as.factor(Sex)) %>%
   filter(AGE < 80) %>%
   filter(!(Education %in% c("Unknown or Not Stated", "Not Available"))) %>%
@@ -259,6 +263,7 @@ cat("Accidents :", accidents_diff, "\n")
 cat("COVID     :", covid_diff, "\n")
 cat("Cerebro   :", cerebro_diff, "\n")
 cat("Others    :", others_diff, "\n")
+# All avaliable Populations used
 
 heart_df <- heart_df %>% mutate(Cause = "Diseases of Heart")
 neoplasms_df <- neoplasms_df %>% mutate(Cause = "Neoplasms")
@@ -278,4 +283,4 @@ all_causes_df <- bind_rows(
   cerebro_df,
   others_df
 )
-write.csv(all_causes_df, file = here("Datasets", "Population Data Merge", "All_Causes_Combined.csv"), row.names = FALSE)
+write.csv(all_causes_df, file = here("Datasets", "Population Data Merge", "All_Causes_Combined_sup_incl.csv"), row.names = FALSE)
