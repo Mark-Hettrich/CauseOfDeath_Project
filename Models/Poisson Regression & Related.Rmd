@@ -1,4 +1,4 @@
-```{r Packages, echo = FALSE}
+```{r Packages}
 library(survival)
 library(survminer)
 library(dplyr)
@@ -28,7 +28,6 @@ df <- df %>%
   mutate(Education = as.factor(Education)) %>%
   mutate(Deaths = as.numeric(Deaths)) %>%
   mutate(population = round(population))
-df %>% filter(is.na(population))
 df$Education <- factor(df$Education, levels = c(
   "8th grade or less",
   "9th through 12th grade with no diploma",
@@ -40,6 +39,36 @@ df$Education <- factor(df$Education, levels = c(
   "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"
 ), ordered = FALSE)
 df$Cause <- relevel(df$Cause, ref = "Others")
+```
+#Problem: There are Deaths for Groups without a Population. This happens primarily in groups which we can expect to be quite rare. (Young People with above average Education level)
+# However, due to our research Goal: analysing Mortality by Educational Goal we can remove People under 25 anyways, becasue they would just bias our results due to the fact, that we cannot assume future highest educational attainment for people presumably in the midst of their education
+Keep in Mind, we are also not analysing People over 79 due to coding issues from the IPUMS Dataset
+```{r}
+df <- df %>% filter(AGE > 24)
+```
+
+```{r Loading Data & Adjusting, suppressed Values included}
+file_path <- here("Datasets", "Population Data Merge", "All_Causes_Combined_sup_incl.csv")
+df2 <- read.csv(file_path)
+df2 <- df2[, c("Cause", "AGE", "Sex", "Education", "Deaths", "population")]
+df2 <- df2 %>%
+  mutate(Cause = as.factor(Cause)) %>%
+  mutate(Sex = as.factor(Sex)) %>%
+  mutate(Education = as.factor(Education)) %>%
+  mutate(Deaths = as.numeric(Deaths)) %>%
+  mutate(population = round(population))
+df2$Education <- factor(df2$Education, levels = c(
+  "8th grade or less",
+  "9th through 12th grade with no diploma",
+  "High school graduate or GED completed",
+  "Some college credit, but not a degree",
+  "Associate degree (AA,AS)",
+  "Bachelor’s degree (BA, AB, BS)",
+  "Master’s degree (MA, MS, MEng, MEd, MSW, MBA)",
+  "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"
+), ordered = FALSE)
+df2$Cause <- relevel(df2$Cause, ref = "Others")
+df2 <- df2 %>% filter(AGE > 24)
 ```
 #Problem: There are Deaths for Groups without a Population. This happens primarily in groups which we can expect to be quite rare. (Young People with above average Education level)
 # However, due to our research Goal: analysing Mortality by Educational Goal we can remove People under 25 anyways, becasue they would just bias our results due to the fact, that we cannot assume future highest educational attainment for people presumably in the midst of their education
@@ -142,12 +171,19 @@ nrow(df %>% filter(Deaths==0))
 ```
 
 ```{r Improving the Model}
-# Model 10: Spline on AGE + all pairwise interactions
 nb_final <- glm.nb(Deaths ~ ns(AGE, 3) * Sex + Education * Sex + Cause * Sex + Education * Cause + ns(AGE, 3) * Cause + offset(log(population)), 
                data = df)
 summary(nb_final)
 exp(coefficients(nb_final))
 ```
+
+```{r Impriving Model sup incl}
+nb_final <- glm.nb(Deaths ~ ns(AGE, 3) * Sex + Education * Sex + Cause * Sex + Education * Cause + ns(AGE, 3) * Cause + offset(log(population)), 
+               data = df2)
+summary(nb_final)
+exp(coefficients(nb_final)) ###small changes, barely noticeable. When rounding we might be off for 1 Percentage Point
+```
+
 
 ```{r Testing the Model}
 # Remove Age splines
