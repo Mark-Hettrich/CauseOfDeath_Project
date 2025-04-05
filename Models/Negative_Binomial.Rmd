@@ -117,5 +117,108 @@ for (cause in causes) {
 }
 ```
 
+```{r Data All Deaths Model}
+all_deaths <- df %>% filter(Cause == "All Deaths")
+```
 
+```{r Model for all Deaths}
+nb_model <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education + offset(log(adjusted_population)),
+                    data = all_deaths,
+                  )
+summary(nb_model)
+exp(coefficients(nb_model))  
+
+nb_model2 <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex + Ten.Year.Age.Groups * Education + Sex * Education + offset(log(adjusted_population)),
+                    data = all_deaths,
+                  )
+summary(nb_model2) #probably scale coefficients (exp(coef) = Deaths per person, so take them * 100k to get a deaths per 100k)
+```
+
+```{r Predicted vs Observed}
+all_deaths$predicted <- predict(nb_model2, type = "response")
+all_deaths$observed <- all_deaths$Deaths
+
+ggplot(all_deaths, aes(x = predicted, y = observed)) +
+  geom_point(alpha = 0.7) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "blue") +
+  labs(
+    title = "Observed vs Predicted Death Counts",
+    x = "Predicted Deaths",
+    y = "Observed Deaths"
+  ) +
+  theme_minimal()
+
+ggplot(all_deaths, aes(x = predicted, y = observed, color = Sex)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  theme_minimal()
+
+ggplot(all_deaths, aes(x = predicted, y = observed)) +
+  geom_point(alpha = 0.6) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  facet_wrap(~Ten.Year.Age.Groups) +
+  theme_minimal()
+
+ggplot(all_deaths, aes(x = predicted, y = observed)) +
+  geom_point(alpha = 0.6) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "blue") +
+  facet_wrap(~Education) +
+  labs(
+    title = "Observed vs Predicted Deaths by Education Level",
+    x = "Predicted Deaths",
+    y = "Observed Deaths"
+  ) +
+  theme_minimal()
+```
+```{r Predicted vs normalized Observed}
+# Add observed and predicted death rates per 100,000
+all_deaths$observed <- all_deaths$Deaths / all_deaths$adjusted_population * 100000
+all_deaths$predicted <- predict(nb_model2, type = "response") / all_deaths$adjusted_population * 100000
+
+# 1. Observed vs Predicted (basic)
+ggplot(all_deaths, aes(x = predicted, y = observed)) +
+  geom_point(alpha = 0.7) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "blue") +
+  labs(
+    title = "Observed vs Predicted Death Rates (per 100,000)",
+    x = "Predicted Rate",
+    y = "Observed Rate"
+  ) +
+  theme_minimal()
+
+# 2. Colored by Sex
+ggplot(all_deaths, aes(x = predicted, y = observed, color = Sex)) +
+  geom_point(alpha = 0.7) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  labs(
+    title = "Observed vs Predicted Death Rates by Sex",
+    x = "Predicted Rate",
+    y = "Observed Rate"
+  ) +
+  theme_minimal()
+
+# 3. Faceted by Age Group
+ggplot(all_deaths, aes(x = predicted, y = observed)) +
+  geom_point(alpha = 0.6) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
+  facet_wrap(~Ten.Year.Age.Groups) +
+  labs(
+    title = "Observed vs Predicted Death Rates by Age Group",
+    x = "Predicted Rate",
+    y = "Observed Rate"
+  ) +
+  theme_minimal()
+
+# 4. Faceted by Education
+ggplot(all_deaths, aes(x = predicted, y = observed)) +
+  geom_point(alpha = 0.6) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "blue") +
+  facet_wrap(~Education) +
+  labs(
+    title = "Observed vs Predicted Death Rates by Education Level",
+    x = "Predicted Rate",
+    y = "Observed Rate"
+  ) +
+  theme_minimal()
+```
 
