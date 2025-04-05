@@ -317,3 +317,10 @@ all_causes_df <- all_causes_df %>%
   select(`Ten-Year Age Groups`, Sex, Education, Deaths, adjusted_population, Cause)
 
 write.csv(all_causes_df, file = here("Datasets", "Population Data Merge", "Age Group Data", "All_Causes_Age_Groups10.csv"), row.names = FALSE)
+
+file_path <- here("Datasets", "Population Data Merge", "Age Group Data", "All_Causes_Age_Groups10.csv")
+All_Causes_Age_Groups10 <- read_csv(file_path)
+View(All_Causes_Age_Groups10)
+All_Causes_Age_Groups10 %>%
+  filter(Deaths > 0 & is.na(adjusted_population)) %>% pull(Deaths) %>% sum() #not too many deaths, we can ignore them. Deaths Counted double because of All Deaths inclusion.
+
