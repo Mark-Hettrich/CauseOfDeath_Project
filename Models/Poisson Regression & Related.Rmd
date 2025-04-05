@@ -299,6 +299,8 @@ ggplot(df_with_results, aes(x = index_within_CoD, y = resid)) +
 hist(df_with_results$resid, breaks = 50,
      main = "Histogram of Pearson Residuals", xlab = "Residual")
 ```
+
+
 !!!! this does not tell us, how does education affect whether you die? But tells us: How does Education affect what you die of?  Whats the most likely cause of death?
 ```{r Multinomial Model}
 

@@ -208,7 +208,7 @@ race_df <- read_csv(file_path, show_col_types = FALSE)
 race_df
 
 
-race_df %>%
+total_d <- race_df %>%
   filter(!is.na(`Single Race 6`)) %>%
   ggplot(aes(x = `Single Race 6`, y = Deaths)) +
   geom_bar(stat = "identity") +
@@ -219,7 +219,7 @@ race_df %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 # Plot 2: Deaths by Race Normalized with Population (Bar Plot)
-race_df %>%
+normalized_d <- race_df %>%
   filter(!is.na(`Single Race 6`)) %>%
   ggplot(aes(x = `Single Race 6`, y = (Deaths / Population) * 100000)) +
   geom_bar(stat = "identity") +
@@ -265,9 +265,19 @@ education_order <- c(
   "Unknown or Not Stated"
 )
 
-education_df %>%
+educ_filtered <- education_df %>%
   filter(!is.na(Education)) %>%
   filter(Education != "Not Available") %>%
+  mutate(Education = factor(Education, levels = education_order)) %>%
+  ggplot(aes(x = Education, y = Deaths, fill = Education)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Deaths by Education Attainment Level",
+       x = "Education Attainment Level",
+       y = "Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_blank())
+
+educ_unfiltered <- education_df %>%
   mutate(Education = factor(Education, levels = education_order)) %>%
   ggplot(aes(x = Education, y = Deaths, fill = Education)) +
   geom_bar(stat = "identity") +

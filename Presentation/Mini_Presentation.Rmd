@@ -21,6 +21,8 @@ library(pscl)
 library(png)
 library(grid)
 library(patchwork)
+library(ggeffects)
+library(effects)
 options(scipen = 999)
 ```
 
@@ -28,8 +30,6 @@ options(scipen = 999)
 What did we do?
 Limitations we found
 Overcoming Limitations
-
-Want to talk about what we did, limitations we found, and if we did, how we overcame them & if the methodology used is ok, or rather change
 
 
 What did we do?
@@ -67,9 +67,10 @@ Overcoming Problem of Missing Population:
 
 - Missing Population in general:
   - Merge the Data with IPUMS CPS (Integrated Public Use Microdata Series, Current Population Survey)
-  - Missing Population for Education and for 85+ --> Why is this an issue? We often need the Population to interpret Data without having to worry about the increased        Death Counts being due to higher base Population, so that we know that the effects we see are actually effects caused by variables we are analyzing
+  - Missing Population for Education and for 85+ --> Why is this an issue? We often need the Population to interpret Data without having to worry about the increased        
+    Death Counts being due to higher base Population, so that we know that the effects we see are actually effects caused by variables we are analyzing
 
-- Missing Population for 85+:
+- Missing Population for 85+: aggregation okay
   - not really any solid solution yet
   - Problem with how IPUMS CPS handles Ages over 79
   - Could model a declining population
@@ -103,7 +104,7 @@ for (cause in causes) {
 for (cause in causes) {
   df_cause <- subset(df, Cause == cause & population > 0)
   
-  p <- ggplot(df_cause, aes(x = AGE, y = Deaths / population, color = Education)) +
+  p <- ggplot(df_cause, aes(x = AGE, y = log(Deaths / population), color = Education)) +
     geom_point(alpha = 0.7) +
     labs(
       title = paste("Normalized Death Rate by Age and Education –", cause),
@@ -117,8 +118,8 @@ for (cause in causes) {
 ```
 
 
-Models:
 
+Models:
 
 Negative Binomial Regression:
 - Great for modelling Count Data --> How many people will die, given their attributes
@@ -130,6 +131,23 @@ nb_final <- glm.nb(Deaths ~ ns(AGE, 3) * Sex + Education * Sex + Cause * Sex + E
 summary(nb_final)
 exp(coefficients(nb_final))
 ```
+
+```{r}
+plot(ggpredict(nb_final, terms = c("AGE [all]", "Sex"), condition = c(population = 1)))
+plot(ggpredict(nb_final, terms = c("Education", "Sex"), condition = c(population = 1)))
+
+
+preds <- ggpredict(nb_final, terms = c("AGE [all]", "Sex", "Cause"), condition = c(population = 1))
+ggplot(preds, aes(x = x, y = predicted, color = group)) +
+  geom_line() +
+  facet_wrap(~ facet) +
+  labs(
+    x = "Age",
+    y = "Predicted deaths (per person)",
+    color = "Sex"
+  )
+```
+
 
 ```{r Negative Binomial Models split up by Death Cause}
 cause_list <- unique(model_df$Cause)
@@ -160,7 +178,8 @@ exp(coefficients(cause_models[["Diseases of Heart"]]))
 Accelerated Failure Time (AFT)
 - doesnt really work out due to Data Limitations (Only Ages 0-79)
 - Estimates Time until Death, given an individuals attributes
-```{r}
+- Uses information on Indivduals who dies vs who survived
+```{r AFT Model}
 aft_model <- survreg(
   Surv(AGE, event) ~ Sex + Education + Cause,
   data = aft_data,
@@ -173,14 +192,42 @@ exp(coef(aft_model)) #good model start, but shit in shit out. Model estimates Wo
 ```
 
 
+Competitive Risk Model (CRM)
 
 
+Multinomial Model
 
-
-  - CRM:
-  - Multinomial: 
-    - nice, because we don't necessarily need population to interpret it, we are just a little bit more limited in interpretation
-    - predicts, given a person died, what did they probably die from, in respect to their attributes
 
 - Unsolved Problems:
   - Including Ages above 79 in models which include information on population numbers
+
+What we are going to continue with:
+- Optimizing Models, looking at predicted vs observed values
+- Trying to solve issues with the Data
+- 
+
+
+- official invite
+- stick with Multinomial & Negative Binomial
+
+
+
+- Introduction to Research Question
+- Explaining the Data
+
+
+- Model interpretation: use anove functions to fitted values, to get p-values for categorical values, wald tets
+- Suppressed values: sub by 5
+- Split age groups into categorical variable, Young, Middle, Old, 10y Groups
+- Robustness check
+
+Multinomial first for initial data
+N.B. for added data because we want death rates
+
+
+
+
+
+
+
+
