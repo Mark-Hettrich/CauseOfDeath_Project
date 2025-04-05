@@ -1,0 +1,38 @@
+Notes,Ten-Year Age Groups,Ten-Year Age Groups Code,Sex,Sex Code,Deaths,Population,Crude Rate
+,< 1 year,1,Female,F,27231,5327383,511.2
+,< 1 year,1,Male,M,33387,5568877,599.5
+Total,< 1 year,1,,,60618,10896260,556.3
+,1-4 years,04-Jan,Female,F,5244,21990622,23.8
+,1-4 years,04-Jan,Male,M,6787,22989969,29.5
+Total,1-4 years,04-Jan,,,12031,44980591,26.7
+,5-14 years,14-May,Female,F,7620,60354869,12.6
+,5-14 years,14-May,Male,M,10599,63270818,16.8
+Total,5-14 years,14-May,,,18219,123625687,14.7
+,15-24 years,15-24,Female,F,29034,64213195,45.2
+,15-24 years,15-24,Male,M,78216,67103691,116.6
+Total,15-24 years,15-24,,,107250,131316886,81.7
+,25-34 years,25-34,Female,F,65838,67236810,97.9
+,25-34 years,25-34,Male,M,158254,69302111,228.4
+Total,25-34 years,25-34,,,224092,136538921,164.1
+,35-44 years,35-44,Female,F,116991,65149874,179.6
+,35-44 years,35-44,Male,M,224889,66340038,339
+Total,35-44 years,35-44,,,341880,131489912,260
+,45-54 years,45-54,Female,F,210593,60835164,346.2
+,45-54 years,45-54,Male,M,355501,60778698,584.9
+Total,45-54 years,45-54,,,566094,121613862,465.5
+,55-64 years,55-64,Female,F,495363,64603846,766.8
+,55-64 years,55-64,Male,M,776883,62139066,1250.2
+Total,55-64 years,55-64,,,1272246,126742912,1003.8
+,65-74 years,65-74,Female,F,855284,54025007,1583.1
+,65-74 years,65-74,Male,M,1165243,48114838,2421.8
+Total,65-74 years,65-74,,,2020527,102139845,1978.2
+,75-84 years,75-84,Female,F,1181132,29028859,4068.8
+,75-84 years,75-84,Male,M,1271612,23065858,5513
+Total,75-84 years,75-84,,,2452744,52094717,4708.2
+,85+ years,85+,Female,F,1666215,11912873,13986.7
+,85+ years,85+,Male,M,1092860,6743731,16205.6
+Total,85+ years,85+,,,2759075,18656604,14788.7
+,Not Stated,NS,Female,F,64,Not Applicable,Not Applicable
+,Not Stated,NS,Male,M,212,Not Applicable,Not Applicable
+Total,Not Stated,NS,,,276,Not Applicable,Not Applicable
+,,,,,9835052,1000096197,983.4

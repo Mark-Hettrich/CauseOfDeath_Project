@@ -86,7 +86,7 @@ cdc_age_sex <- cdc_age_sex %>%
       `Single-Year Ages Code` >= 85 ~ 85,
       TRUE ~ `Single-Year Ages Code`
     ),
-    Population = as.numeric(Population)  # <-- fix is here
+    Population = as.numeric(Population)
   ) %>%
   group_by(`Single-Year Ages Code`, Sex) %>%
   summarise(population = sum(Population, na.rm = TRUE)) %>%
