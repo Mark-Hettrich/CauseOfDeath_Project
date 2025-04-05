@@ -1,0 +1,121 @@
+```{r Packages}
+library(survival)
+library(survminer)
+library(dplyr)
+library(readr)
+library(here)
+library(nnet)
+library(ggplot2)
+library(MASS)
+library(flexsurv)
+library(timereg)
+library(mgcv)
+library(cmprsk)
+library(broom)
+library(splines)
+library(purrr)
+library(pscl)
+options(scipen = 999)
+```
+
+```{r  Loading Data & Adjusting}
+file_path <- here("Datasets", "Population Data Merge", "Age Group Data", "All_Causes_Age_Groups10.csv")
+df <- read.csv(file_path)
+df <- df %>%
+  filter(!(Ten.Year.Age.Groups %in% c("< 1 year", "1-4 years", "5-14 years", "15-24 years"))) %>%
+  mutate(Cause = as.factor(Cause)) %>%
+  mutate(adjusted_population = round(adjusted_population)) %>%
+  mutate(Sex = as.factor(Sex)) %>%
+  mutate(Education = as.factor(Education)) %>%
+  mutate(Deaths = as.numeric(Deaths))
+
+df$Education <- factor(df$Education, levels = c(
+  "8th grade or less",
+  "9th through 12th grade with no diploma",
+  "High school graduate or GED completed",
+  "Some college credit, but not a degree",
+  "Associate degree (AA,AS)",
+  "Bachelor’s degree (BA, AB, BS)",
+  "Master’s degree (MA, MS, MEng, MEd, MSW, MBA)",
+  "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"
+), ordered = FALSE)
+df$Cause <- relevel(df$Cause, ref = "Others")
+
+df_combined_sex <- df %>%
+  group_by(`Ten.Year.Age.Groups`, Education, Cause) %>%
+  summarise(
+    Deaths = sum(Deaths, na.rm = TRUE),
+    adjusted_population = sum(adjusted_population, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+
+```{r Deaths per Age Group & Education}
+causes <- unique(df_combined_sex$Cause)
+
+for (cause in causes) {
+  p <- ggplot(subset(df_combined_sex, Cause == cause), aes(x = `Ten.Year.Age.Groups`, y = Deaths, color = Education)) +
+    geom_point(alpha = 0.7, position = position_jitter(width = 0.2, height = 0)) +  # optional jitter
+    labs(title = paste("Deaths by Age Group and Education –", cause),
+         x = "Ten-Year Age Group",
+         y = "Number of Deaths") +
+    scale_color_brewer(palette = "Dark2") + 
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))  # rotate x-axis labels for readability
+  
+  print(p)
+}
+```
+```{r log(Deaths) per Age Group & Education}
+causes <- unique(df_combined_sex$Cause)
+
+for (cause in causes) {
+  p <- ggplot(subset(df_combined_sex, Cause == cause), aes(x = `Ten.Year.Age.Groups`, y = log(Deaths), color = Education)) +
+    geom_point(alpha = 0.7, position = position_jitter(width = 0.2, height = 0)) +  # optional jitter
+    labs(title = paste("Deaths by Age Group and Education –", cause),
+         x = "Ten-Year Age Group",
+         y = "log(Number of Deaths)") +
+    scale_color_brewer(palette = "Dark2") + 
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))  # rotate x-axis labels for readability
+  
+  print(p)
+}
+```
+
+```{r normalized}
+causes <- unique(df_combined_sex$Cause)
+
+for (cause in causes) {
+  p <- ggplot(subset(df_combined_sex, Cause == cause), aes(x = `Ten.Year.Age.Groups`, y = Deaths/adjusted_population, color = Education)) +
+    geom_point(alpha = 0.7, position = position_jitter(width = 0.2, height = 0)) +  # optional jitter
+    labs(title = paste("Deaths by Age Group and Education –", cause),
+         x = "Ten-Year Age Group",
+         y = "Number of Deaths") +
+    scale_color_brewer(palette = "Dark2") + 
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))  # rotate x-axis labels for readability
+  
+  print(p)
+}
+```
+
+```{r normalized & log()}
+causes <- unique(df_combined_sex$Cause)
+
+for (cause in causes) {
+  p <- ggplot(subset(df_combined_sex, Cause == cause), aes(x = `Ten.Year.Age.Groups`, y = log(Deaths/adjusted_population), color = Education)) +
+    geom_point(alpha = 0.7, position = position_jitter(width = 0.2, height = 0)) +  # optional jitter
+    labs(title = paste("Deaths by Age Group and Education –", cause),
+         x = "Ten-Year Age Group",
+         y = "Number of Deaths") +
+    scale_color_brewer(palette = "Dark2") + 
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))  # rotate x-axis labels for readability
+  
+  print(p)
+}
+```
+
+
+
