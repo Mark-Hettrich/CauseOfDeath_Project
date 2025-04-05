@@ -5,8 +5,7 @@ library(here)
 
 file_path <- here("Datasets", "Population Data Merge", "cps_00006.csv")
 df <- read_csv(file_path)
-unique(df$YEAR)
-table(df$EDUC)
+
 
 #####
 ###Adjusting IPUMS Dataset
@@ -59,7 +58,6 @@ pop_by_group <- ipums_asec %>%
   summarise(population = sum(ASECWT, na.rm = TRUE)) %>%
   ungroup()
 
-View(pop_by_group)
 #####
 ###Compariosn with CDC Data to validate
 #####
