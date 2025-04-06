@@ -31,9 +31,7 @@ options(scipen=999) #normale Zahlen statt 2e+05 oder so
 
 ```{r}
 #png
-list.files("C:/Users/qq328/Documents/CauseOfDeath_Project/Presentation_Yicheng/screenshots")
-img <- readPNG("C:/Users/qq328/Documents/CauseOfDeath_Project/Presentation_Yicheng/screenshots/cdc.png")  
-grid.raster(img)
+knitr::include_graphics(here::here("Presentation_Yicheng", "Screenshots", "cdc_wonder.png"))
 ```
 
 # Data Focus
