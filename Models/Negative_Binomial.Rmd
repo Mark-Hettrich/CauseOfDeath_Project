@@ -170,6 +170,7 @@ ggplot(all_deaths, aes(x = predicted, y = observed)) +
   ) +
   theme_minimal()
 ```
+
 ```{r Predicted vs normalized Observed}
 # Add observed and predicted death rates per 100,000
 all_deaths$observed <- all_deaths$Deaths / all_deaths$adjusted_population * 100000
@@ -221,4 +222,124 @@ ggplot(all_deaths, aes(x = predicted, y = observed)) +
   ) +
   theme_minimal()
 ```
+
+```{r}
+others_data <- df %>% filter(Cause == "Others")
+
+nb_others <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                    offset(log(adjusted_population)), data = others_data)
+
+nb_others_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                        Ten.Year.Age.Groups * Education +
+                        Sex * Education +
+                        offset(log(adjusted_population)), data = others_data)
+accidents_data <- df %>% filter(Cause == "Accidents")
+
+nb_accidents <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                       offset(log(adjusted_population)), data = accidents_data)
+
+nb_accidents_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                           Ten.Year.Age.Groups * Education +
+                           Sex * Education +
+                           offset(log(adjusted_population)), data = accidents_data)
+stroke_data <- df %>% filter(Cause == "Cerebrovascular Diseases")
+
+nb_stroke <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                    offset(log(adjusted_population)), data = stroke_data)
+
+nb_stroke_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                        Ten.Year.Age.Groups * Education +
+                        Sex * Education +
+                        offset(log(adjusted_population)), data = stroke_data)
+covid_data <- df %>% filter(Cause == "COVID")
+
+nb_covid <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                   offset(log(adjusted_population)), data = covid_data)
+
+nb_covid_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                       Ten.Year.Age.Groups * Education +
+                       Sex * Education +
+                       offset(log(adjusted_population)), data = covid_data)
+heart_data <- df %>% filter(Cause == "Diseases of Heart")
+
+nb_heart <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                   offset(log(adjusted_population)), data = heart_data)
+
+nb_heart_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                       Ten.Year.Age.Groups * Education +
+                       Sex * Education +
+                       offset(log(adjusted_population)), data = heart_data)
+neoplasm_data <- df %>% filter(Cause == "Neoplasms")
+
+nb_neoplasm <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                      offset(log(adjusted_population)), data = neoplasm_data)
+
+nb_neoplasm_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                          Ten.Year.Age.Groups * Education +
+                          Sex * Education +
+                          offset(log(adjusted_population)), data = neoplasm_data)
+```
+
+```{r}
+# OTHERS
+cat("======= OTHERS =======\n")
+cat("AIC (Main effects): ", AIC(nb_others), "\n")
+cat("AIC (Interaction):  ", AIC(nb_others_int), "\n\n")
+
+# ACCIDENTS
+cat("\n======= ACCIDENTS =======\n")
+cat("AIC (Main effects): ", AIC(nb_accidents), "\n")
+cat("AIC (Interaction):  ", AIC(nb_accidents_int), "\n\n")
+
+
+# STROKE
+cat("\n======= CEREBROVASCULAR DISEASES =======\n")
+cat("AIC (Main effects): ", AIC(nb_stroke), "\n")
+cat("AIC (Interaction):  ", AIC(nb_stroke_int), "\n\n")
+summary(nb_stroke)
+summary(nb_stroke_int)
+
+# COVID
+cat("\n======= COVID =======\n")
+cat("AIC (Main effects): ", AIC(nb_covid), "\n")
+cat("AIC (Interaction):  ", AIC(nb_covid_int), "\n\n")
+summary(nb_covid)
+summary(nb_covid_int)
+
+# HEART
+cat("\n======= DISEASES OF HEART =======\n")
+cat("AIC (Main effects): ", AIC(nb_heart), "\n")
+cat("AIC (Interaction):  ", AIC(nb_heart_int), "\n\n")
+summary(nb_heart)
+summary(nb_heart_int)
+
+# NEOPLASMS
+cat("\n======= NEOPLASMS =======\n")
+cat("AIC (Main effects): ", AIC(nb_neoplasm), "\n")
+cat("AIC (Interaction):  ", AIC(nb_neoplasm_int), "\n\n")
+summary(nb_neoplasm)
+summary(nb_neoplasm_int)
+
+```
+
+```{r}
+cat("======= OTHERS =======\n")
+summary(nb_others_int)
+
+cat("\n======= ACCIDENTS =======\n")
+summary(nb_accidents_int)
+
+cat("\n======= CEREBROVASCULAR DISEASES =======\n")
+summary(nb_stroke_int)
+
+cat("\n======= COVID =======\n")
+summary(nb_covid_int)
+
+cat("\n======= DISEASES OF HEART =======\n")
+summary(nb_heart_int)
+
+cat("\n======= NEOPLASMS =======\n")
+summary(nb_neoplasm_int)
+```
+
 
