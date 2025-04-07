@@ -1,0 +1,366 @@
+---
+title: "Addressing Socio-Economic Disparities in Mortality by Cause of Death"
+author:
+- 'Projektpartner: Prof. Dr. Li'
+- 'Betreuer: Helen Alber'
+date: "2025-04-07"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r Packages, include = FALSE}
+library(survival)
+library(survminer)
+library(dplyr)
+library(readr)
+library(here)
+library(nnet)
+library(ggplot2)
+library(MASS)
+library(flexsurv)
+library(timereg)
+library(mgcv)
+library(cmprsk)
+library(broom)
+library(splines)
+library(purrr)
+library(pscl)
+library(png)
+library(grid)
+library(VGAM)
+options(scipen = 999)
+```
+
+```{r, include = FALSE}
+cdc_wonder <- knitr::include_graphics(here("Presentation_Yicheng", "screenshots", "cdc_wonder.jpeg"))
+```
+
+```{r, include = FALSE}
+#Top 5 Death Causes
+file_path <- here("Datasets", "TOP 15 Causes of Death", "top15_causes_of_death.csv")
+top15 <- read_csv(file_path)
+top5 <- top15[1:5, ]
+top5
+
+top5_plot <- top5 %>%
+  ggplot(aes(x = `15 Leading Causes of Death` , y = Deaths )) +
+  geom_bar(stat = "identity") +
+  labs(title = "Top 5 Causes of Death",
+       x = "Causes",
+       y = "Death Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  coord_flip() +
+  theme_minimal()
+
+# Years
+file_path <- here("Datasets", "Univariate Analysis", "Totals", "Year", "Totals_by_Year.csv")
+year_df <- read_csv(file_path, show_col_types = FALSE)
+year_df
+
+# Plot : Deaths Normalized by Population (Crude Rate)
+years_plot <- ggplot(year_df %>% filter(!is.na(Year)), aes(x = Year, y = Deaths)) +
+  geom_line(color = "blue", size = 1) +
+  geom_point(color = "blue", size = 2) +
+  labs(title = "Total Deaths per Year",
+       x = "Year",
+       y = "Deaths") +
+  theme_minimal()
+
+# Year & Month
+file_path <- here("Datasets", "Univariate Analysis", "Totals", "Year & Month", "Totals_by_Year&Month.csv")
+ym_df <- read_csv(file_path, show_col_types = FALSE)
+ym_df
+
+year_month_plot <- ym_df %>%
+  filter(!is.na(Month)) %>%
+  mutate(Month = factor(Month, levels = unique(Month), ordered = TRUE)) %>%
+  ggplot(aes(x = Month, y = Deaths, group = 1)) +
+  geom_line(color = "red", size = 1) +
+  geom_point(color = "red", size = 2) +
+  geom_smooth() +
+  labs(title = "Total Deaths per Month (Jan 2018 - Dec 2023)",
+       x = "Month",
+       y = "Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_x_discrete(breaks = ym_df$Month[seq(1, 80, by = 2)])  # Show every 2th month
+
+# 10 Year Age Groups
+file_path <- here("Datasets", "Univariate Analysis", "Totals", "Ten Year Age Groups", "Totals_by_AgeGroup10.csv")
+age_df <- read_csv(file_path, show_col_types = FALSE)
+age_df$Population <- as.numeric(age_df$Population)
+age_df
+age_groups_order <- c(
+  "< 1 year",
+  "1-4 years",
+  "5-14 years",
+  "15-24 years",
+  "25-34 years",
+  "35-44 years",
+  "45-54 years",
+  "55-64 years",
+  "65-74 years",
+  "75-84 years",
+  "85+ years"
+)
+
+# Plot : Deaths by Sex Normalized with Population (Bar Plot)
+ages_plot <- age_df %>%
+  filter(!is.na(`Ten-Year Age Groups`)) %>%
+  filter(`Ten-Year Age Groups` != "Not Stated") %>%
+    mutate(`Ten-Year Age Groups` = factor(`Ten-Year Age Groups`, levels = age_groups_order)) %>%
+  ggplot(aes(x = `Ten-Year Age Groups`, y = (Deaths / Population) * 100000, fill = `Ten-Year Age Groups`)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Death Rate by Age Group (per 100,000 Population)",
+       x = "Age Group",
+       y = "Death Rate per 100,000") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Sex
+file_path <- here("Datasets", "Univariate Analysis", "Totals", "Sex", "Totals_by_Sex.csv")
+sex_df <- read_csv(file_path, show_col_types = FALSE)
+sex_df
+
+
+# Plot 2: Deaths by Sex Normalized with Population (Bar Plot)
+
+sex_plot <- sex_df %>%
+  filter(!is.na(Sex)) %>%
+  ggplot(aes(x = Sex, y = `Age Adjusted Rate`, fill = Sex)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Death Rate by Sex, Age adjusted (per 100,000 Population)",
+       x = "Sex",
+       y = "Death Rate per 100,000") +
+  theme_minimal()
+```
+
+
+```{r, include = FALSE}
+# Reading each CSV file individually
+data_mult <- read_csv(here("Datasets", "Population Data Merge", "Age Group Data", "All_Causes_Age_Groups10.csv"))
+
+# Filter rows where Cause is NOT "All Deaths"
+data_mult_filtered <- data_mult %>%
+  filter(Cause != "All Deaths")
+
+# Check structure of dataset
+glimpse(data_mult)
+
+
+# Identify categorical (character) columns
+categorical_columns <- sapply(data_mult, is.character)
+
+# Extract unique values from each categorical column
+unique_values <- lapply(data_mult[, categorical_columns], unique)
+
+# Print unique values for each categorical variable
+for (col in names(unique_values)) {
+  cat("Unique values in variable:", col, "\n")
+  print(unique_values[[col]])
+  cat("\n")
+}
+
+data_mult_filtered <- data_mult_filtered %>%
+  filter(
+    !is.na(Cause),
+    !is.na(Sex),
+    !is.na(Education),
+    !is.na(`Ten-Year Age Groups`),
+    !is.na(Deaths),
+    is.finite(Deaths),
+    Deaths > 0
+  ) %>%
+  mutate(
+    Deaths = round(as.numeric(Deaths)),
+    Cause = relevel(factor(Cause), ref = "Others")
+  )
+data_mult_filtered <- data_mult_filtered %>%
+  dplyr::select(-adjusted_population)
+
+
+summary(data_mult_filtered)
+any(is.na(data_mult_filtered))
+
+model <- vglm(Cause ~ Sex + Education ,
+              family = multinomial(refLevel = "Others"),
+              weights = Deaths,
+              data = data_mult_filtered)
+
+model_interaction <- vglm(Cause ~ Sex + Education + Education*Sex ,
+              family = multinomial(refLevel = "Others"),
+              weights = Deaths,
+              data = data_mult_filtered)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+# Outline
+- Research Question
+- Methodology
+- Explaining our Data and Limitations
+  - About the Data
+  - Data Focus
+  - Limitations
+  - Death Count per Top 5 Death Causes
+  - Death Count per Years analysed
+  - Death Count per Months
+  - Death Count per 10-Year Age Groups
+  - Death Count per Sex
+- Multinomial Model & Interpretation
+- Transforming external Micro-Census Data to fit ours
+- Negative Binomial Model & Interpretation
+
+
+# Research Question
+To what extend does socio-economic status, indicated by the highest educational attainment influence mortality patterns across different causes of death?
+
+# Methodology
+- Data source: U.S. national mortality statistics, CDC
+- Two statistical models developed:
+    - Multinomial logistic regression – estimates probability distribution across causes of death
+    - Negative Binomial regression – models mortality counts while adjusting for overdispersion
+
+
+# Explaining our Data and Limitations
+- About the Data
+ > Provided by the CDC (Centers for Disease Control and Prevention): https://wonder.cdc.gov
+ > Dataset spans from 2018 to 2023
+ > Focuses on underlying causes of death
+ > Data is pre-grouped and defined according to ICD-10 classification
+ 
+```{r, echo = FALSE}
+cdc_wonder
+```
+
+# Data Focus
+- We focus on the top 5 causes of death and total death counts
+- Key variables include:
+     - Age
+     - Sex
+     - Education level
+- Other Variables we analysed:
+     - Years & Months
+     - Urbanization
+
+# Limitations
+ - Missing population data 
+ - Presence of zero values and suppressed values in the dataset
+
+#
+```{r, echo = FALSE}
+top5_plot
+```
+
+#
+```{r, echo = FALSE}
+years_plot
+```
+
+#
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+year_month_plot
+```
+
+#
+```{r, echo = FALSE}
+ages_plot
+```
+
+#
+```{r, echo = FALSE}
+sex_plot
+```
+
+# Multinomial Model 
+Build a multinomial logistic regression model to assess the relationship between:
+  - Sex
+  - Education level
+  - Sex × Education interaction
+  - and the Cause of Death (6 categories; “Others” as reference)
+Data & Model Setup
+  - Used aggregated data with weights = Deaths to account for population size
+
+# Normal
+```{r}
+summary(model)
+```
+
+# Normal + interaction
+```{r}
+summary(model_interaction)
+```
+
+
+# Compare
+```{r}
+logLik(model)             
+logLik(model_interaction)  
+AIC(model)
+AIC(model_interaction)
+``` 
+
+- Model 1: Cause ~ Sex + Education
+- Model 2: Cause ~ Sex * Education (includes interaction)
+
+Key Results
+Model 2 (with interaction) had:
+ - Lower AIC → better fit
+- All coefficients statistically significant
+
+
+
+# Transforming external Micro-Census Data to fit ours
+- IPUMS CPS: Why and how we used it:
+  - IPUMS CPS = National survey with & individual level Data
+    - contains Information on Education
+  - Used to estimate education distributions by Age Groups & Sex
+  - Merged proportions into CDC mortality data
+  - Helped us reconstruct population size by education
+  - Helpful for education-focused mortality-rate modeling
+
+# Transforming external Micro-Census Data to fit ours
+- Why:
+  - Lack of population for Education Groups, when grouped by Age & Sex
+- Solution: Merge IPUMS CPS population Data to estimate education structure
+
+# Building the Dataset
+- Step 1: Clean CPS Data
+  - Recode Education level to fit the ones from CDC
+  - Group by Age x Sex x Education
+  - Use weights within Dataset to estimate the population
+
+- Step 2: Match with CDC
+  - Compare CPS population grouped by Age x Sex with CDC population
+  - Adjust each population group to match the CDC Age x Sex population
+
+# Final Data
+- Data containing the population for Age x Sex x Education
+=> We can now analyse death rates
+- 10 Year Age Groups, with 85+ as last Age Group
+- Use Ages > 24 to model, to interpret highest educational attainment as socio-economic status
+
+
+# Negative Binomial Model
+...
+
+
+
+

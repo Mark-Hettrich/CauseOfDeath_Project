@@ -250,7 +250,7 @@ nb_stroke <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
 nb_stroke_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
                         Ten.Year.Age.Groups * Education +
                         Sex * Education +
-                        offset(log(adjusted_population)), data = stroke_data)
+                        offset(log(adjusted_population)), data = stroke_data, control = glm.control(maxit = 100))
 covid_data <- df %>% filter(Cause == "COVID")
 
 nb_covid <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
@@ -296,29 +296,24 @@ cat("AIC (Interaction):  ", AIC(nb_accidents_int), "\n\n")
 cat("\n======= CEREBROVASCULAR DISEASES =======\n")
 cat("AIC (Main effects): ", AIC(nb_stroke), "\n")
 cat("AIC (Interaction):  ", AIC(nb_stroke_int), "\n\n")
-summary(nb_stroke)
-summary(nb_stroke_int)
+
 
 # COVID
 cat("\n======= COVID =======\n")
 cat("AIC (Main effects): ", AIC(nb_covid), "\n")
 cat("AIC (Interaction):  ", AIC(nb_covid_int), "\n\n")
-summary(nb_covid)
-summary(nb_covid_int)
+
 
 # HEART
 cat("\n======= DISEASES OF HEART =======\n")
 cat("AIC (Main effects): ", AIC(nb_heart), "\n")
 cat("AIC (Interaction):  ", AIC(nb_heart_int), "\n\n")
-summary(nb_heart)
-summary(nb_heart_int)
+
 
 # NEOPLASMS
 cat("\n======= NEOPLASMS =======\n")
 cat("AIC (Main effects): ", AIC(nb_neoplasm), "\n")
 cat("AIC (Interaction):  ", AIC(nb_neoplasm_int), "\n\n")
-summary(nb_neoplasm)
-summary(nb_neoplasm_int)
 
 ```
 
