@@ -1,0 +1,296 @@
+---
+title: "Presentation_Yicheng"
+output:
+  html_document: default
+  pdf_document: default
+date: "2025-04-06"
+
+
+
+---
+```{r}
+install.packages("png")     # 如果你还没装过
+install.packages("grid")    # 用来显示图像
+library(png)
+library(grid)
+library(here)
+library(ggplot2)
+library(readr)
+library(dplyr)
+options(scipen=999) #normale Zahlen statt 2e+05 oder so
+```
+# --------------------------------------------------
+# Data Overview and Focus for Mortality Analysis
+# --------------------------------------------------
+
+# About the Data
+# > Provided by the CDC (Centers for Disease Control and Prevention): https://wonder.cdc.gov
+# > Dataset spans from 2018 to 2023
+# > Focuses on underlying causes of death
+# > Data is pre-grouped and defined according to ICD-10 classification
+
+```{r}
+#png
+knitr::include_graphics(here::here("Presentation_Yicheng", "Screenshots", "cdc_wonder.png"))
+```
+
+# Data Focus
+# > We focus on the top 5 causes of death and total death counts
+# > Key variables include:
+#     - Year & Month
+#     - Age
+#     - Sex
+#     - Education level
+#     - Urbanization level
+
+# Limitations
+# > Missing population data 
+# > Presence of zero values and suppressed values in the dataset
+
+#Univariate analysis
+#total Death
+
+Top 5 Deaths
+```{r}
+file_path <- here("Datasets", "TOP 15 Causes of Death", "top15_causes_of_death.csv")
+top15 <- read_csv(file_path)
+top5 <- top15[1:5, ]
+top5
+
+top5 %>%
+  ggplot(aes(x = `15 Leading Causes of Death` , y = Deaths )) +
+  geom_bar(stat = "identity") +
+  labs(title = "Top 5 Causes of Death",
+       x = "Causes",
+       y = "Death Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme_minimal()
+```
+#Visualzing distribution
+Year
+```{r}
+file_path <- here("Datasets", "Univariate Analysis", "Totals", "Year", "Totals_by_Year.csv")
+year_df <- read_csv(file_path, show_col_types = FALSE)
+year_df
+
+# Plot : Deaths Normalized by Population (Crude Rate)
+ggplot(year_df %>% filter(!is.na(Year)), aes(x = Year, y = (Deaths / Population) * 100000)) +
+  geom_line(color = "blue", size = 1) +
+  geom_point(color = "blue", size = 2) +
+  labs(title = "Total Death Rate per 100,000 Population",
+       x = "Year",
+       y = "Death Rate per 100,000") +
+  theme_minimal()
+
+```
+Year & Month
+```{r}
+file_path <- here("Datasets", "Univariate Analysis", "Totals", "Year & Month", "Totals_by_Year&Month.csv")
+ym_df <- read_csv(file_path, show_col_types = FALSE)
+ym_df
+
+ym_df %>%
+  filter(!is.na(Month)) %>%
+  mutate(Month = factor(Month, levels = unique(Month), ordered = TRUE)) %>%
+  ggplot(aes(x = Month, y = Deaths, group = 1)) +
+  geom_line(color = "red", size = 1) +
+  geom_point(color = "red", size = 2) +
+  geom_smooth() +
+  labs(title = "Total Deaths per Month (Jan 2018 - Dec 2023)",
+       x = "Month",
+       y = "Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_x_discrete(breaks = ym_df$Month[seq(1, 80, by = 2)])  # Show every 2th month
+```
+10 Year Age Groups
+```{r}
+file_path <- here("Datasets", "Univariate Analysis", "Totals", "Ten Year Age Groups", "Totals_by_AgeGroup10.csv")
+age_df <- read_csv(file_path, show_col_types = FALSE)
+age_df$Population <- as.numeric(age_df$Population)
+age_df
+age_groups_order <- c(
+  "< 1 year",
+  "1-4 years",
+  "5-14 years",
+  "15-24 years",
+  "25-34 years",
+  "35-44 years",
+  "45-54 years",
+  "55-64 years",
+  "65-74 years",
+  "75-84 years",
+  "85+ years"
+)
+
+# Plot : Deaths by Sex Normalized with Population (Bar Plot)
+age_df %>%
+  filter(!is.na(`Ten-Year Age Groups`)) %>%
+  filter(`Ten-Year Age Groups` != "Not Stated") %>%
+    mutate(`Ten-Year Age Groups` = factor(`Ten-Year Age Groups`, levels = age_groups_order)) %>%
+  ggplot(aes(x = `Ten-Year Age Groups`, y = (Deaths / Population) * 100000, fill = `Ten-Year Age Groups`)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Death Rate by Age Group (per 100,000 Population)",
+       x = "Age Group",
+       y = "Death Rate per 100,000") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+Sex
+```{r}
+file_path <- here("Datasets", "Univariate Analysis", "Totals", "Sex", "Totals_by_Sex.csv")
+sex_df <- read_csv(file_path, show_col_types = FALSE)
+sex_df
+
+
+# Plot 2: Deaths by Sex Normalized with Population (Bar Plot)
+
+sex_df %>%
+  filter(!is.na(Sex)) %>%
+  ggplot(aes(x = Sex, y = `Age Adjusted Rate`, fill = Sex)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Death Rate by Sex, Age adjusted (per 100,000 Population)",
+       x = "Sex",
+       y = "Death Rate per 100,000") +
+  theme_minimal()
+```
+Urbanization
+```{r}
+file_path <- here("Datasets", "Univariate Analysis", "Totals", "Urbanization", "Totals_by_Urbanization.csv")
+urban_df <- read_csv(file_path, show_col_types = FALSE)
+urban_df
+# Percentage of people living in each Urbanization level (https://www.cdc.gov/nchs/data/series/sr_02/sr02_166.pdf)
+urbanization_data <- data.frame(
+  Urbanization_Level = c("Large central metro", "Large fringe metro", "Medium metro", 
+                         "Small metro", "Micropolitan", "Noncore"),
+  Number_of_Counties = c(68, 368, 373, 358, 641, 1335),
+  Population_Percent = c(30.5, 24.7, 20.9, 9.2, 8.7, 6.1)
+)
+urbanization_data$Deaths <- urban_df$Deaths[1:6]
+urbanization_data$Deaths_per_Pop <- urbanization_data$Deaths / urbanization_data$Population_Percent #if all levels had the same amout of people there
+urbanization_data$Urbanization_Level <- factor(urbanization_data$Urbanization_Level, 
+                                               levels = c("Large central metro", "Large fringe metro", 
+                                                          "Medium metro", "Small metro", "Micropolitan", "Noncore"))
+urbanization_data
+
+urbanization_data %>%
+  ggplot(aes(x = Urbanization_Level, y = Deaths_per_Pop, fill = Urbanization_Level)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Deaths by Urbanization Level, normalized",
+       x = "Urbanization levels",
+       y = "Normalized Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+bivariate analysis
+```{r}
+library(haven)
+library(dplyr)
+library(tidyverse)
+library(stats)
+library(cluster)
+library(factoextra)
+library(dynamicTreeCut)
+library(fastDummies)
+library(lubridate)
+library(ggplot2)
+```
+
+correlation
+```{r}
+file_path <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death.csv")
+df.15.causes <- read_csv(file_path, show_col_types = FALSE)
+df.15.causes
+
+# read data
+file_path <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_Male.csv")
+male_data <- read_csv(file_path, show_col_types = FALSE)
+male_data
+file_path <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_Male.csv")
+female_data <- read_csv(file_path, show_col_types = FALSE)
+female_data
+
+
+#Add Gender Column
+male_data$Gender <- "Male"
+female_data$Gender <- "Female"
+
+#rbind
+data_combined <- rbind(male_data, female_data)
+
+#Compare Male vs. Female Death Counts
+p1 <- ggplot(data_combined, aes(x = reorder(Cause.of.Death, -Deaths), y = Deaths, fill = Gender)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Comparison of Death Causes by Gender", x = "Cause of Death", y = "Number of Deaths")
+
+print(p1)
+
+#Correlation of Male vs. Female Mortality Rates
+p3 <- ggplot(data.frame(Male = male_data$Crude.Rate, Female = female_data$Crude.Rate), aes(x = Male, y = Female)) +
+  geom_point(color = "blue") +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = paste("Correlation between Male and Female Crude Rates:\nPearson: ", round(pearson_correlation, 2), ", Spearman: ", round(spearman_correlation, 2)), 
+       x = "Male Crude Rate", y = "Female Crude Rate")
+
+print(p3)
+```
+scatterplot Matrix
+```{r cars}
+file_path <- here("Bivariate Analysis von Xinyu Meng", "data causes of death","data causes of death", "covid","COVID_by_AgeGroup10.csv")
+df_covid <- read_csv(file_path, show_col_types = FALSE)
+df_covid
+file_path <- here("Bivariate Analysis von Xinyu Meng", "data causes of death","data causes of death", "HeartDisease","HeartDisease_by_AgeGroup10.csv")
+df_covid <- read_csv(file_path, show_col_types = FALSE)
+df_covid
+file_path <- here("Bivariate Analysis von Xinyu Meng", "data causes of death","data causes of death", "Cerebro","Cerebro_by_AgeGroup10.csv")
+df_covid <- read_csv(file_path, show_col_types = FALSE)
+df_covid
+
+df_covid <- rename(df_covid, AgeGroup = `Ten.Year.Age.Groups`)
+df_heart <- rename(df_heart, AgeGroup = `Ten.Year.Age.Groups`)
+df_cerebro <- rename(df_cerebro, AgeGroup = `Ten.Year.Age.Groups`)
+
+# Crude rate as numeric
+df_covid$Crude.Rate <- as.numeric(df_covid$Crude.Rate)
+df_heart$Crude.Rate <- as.numeric(df_heart$Crude.Rate)
+df_cerebro$Crude.Rate <- as.numeric(df_cerebro$Crude.Rate)
+
+#rbind
+df_merged <- df_covid %>% 
+  select(AgeGroup, Crude.Rate) %>% 
+  rename(Crude_Rate_COVID = Crude.Rate) %>%
+  inner_join(df_heart %>% select(AgeGroup, Crude.Rate) %>% rename(Crude_Rate_Heart = Crude.Rate), by = "AgeGroup") %>%
+  inner_join(df_cerebro %>% select(AgeGroup, Crude.Rate) %>% rename(Crude_Rate_Cerebro = Crude.Rate), by = "AgeGroup")
+
+#Calculate Correlation Matrix
+cor_matrix <- cor(df_merged[, 2:4], use = "complete.obs")
+print(cor_matrix)
+
+#Visualize Correlation Matrix
+library(corrplot)
+corrplot(cor_matrix, method = "color", type = "upper", tl.col = "black", tl.srt = 45)
+
+#Plot Scatterplot Matrix
+pairs(df_merged[, 2:4], main = "Bivariate Analysis: COVID-19, Heart Disease, and Cerebrovascular Disease by Age Group")
+
+#Convert Data to Long Format for Visualization
+df_long <- df_merged %>% 
+  pivot_longer(cols = starts_with("Crude_Rate"), 
+               names_to = "Disease", 
+               values_to = "Crude_Rate")
+
+df_long$Disease <- gsub("Crude_Rate_", "", df_long$Disease)
+
+#Display Mortality Rates of Three Diseases by Age Group
+ggplot(df_long, aes(x = AgeGroup, y = Crude_Rate, fill = Disease)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_y_log10() +
+  theme_minimal() +
+  labs(title = "Crude Rate of Diseases by Age Group (Log Scale)",
+       x = "Age Group",
+       y = "Log(Crude Rate)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
