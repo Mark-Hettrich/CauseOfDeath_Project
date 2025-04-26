@@ -13,29 +13,23 @@ knitr::opts_chunk$set(echo = TRUE)
 library(readxl)
 library(dplyr)
 library(ggplot2)
+library(here)
 ```
-
 
 ### 1. Race
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Cancer by 6 Race.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cancer", "Cancer by 6 Race.xlsx")
 Cancer_by_6_Race <- read_excel(file_path)
 ```
 
 ```{r}
-
 df <- Cancer_by_6_Race
-
 # Clean column names (remove spaces)
 colnames(df) <- make.names(colnames(df))
 
 # Ensure factor and numeric types
 df$Single.Race.6 <- as.factor(df$Single.Race.6)
 df$Deaths <- as.numeric(df$Deaths)
-
 
 # Perform One-Way ANOVA
 anova_model <- aov(Deaths ~ Single.Race.6, data = df)
@@ -62,7 +56,6 @@ tukey_df <- tukey_df %>%
 print(tukey_df, row.names = FALSE)
 
 plot(tukey_result, las = 1)
-
 
 ```
 
@@ -98,14 +91,12 @@ The Tukey HSD test confirms that race significantly affects mortality. White ind
 ### 2. Urbanization
 From excel ---- Rename "2013 Urbanization" to "Urbanization" for convenience
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/Cancer by Urbanization.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cancer", "Cancer by Urbanization.xlsx")
+file_path
 Cancer_by_Urbanization <- read_excel(file_path)
 ```
 
 ```{r}
-
 df <- Cancer_by_Urbanization
 # Clean column names (remove spaces)
 colnames(df) <- make.names(colnames(df))
@@ -141,7 +132,6 @@ print(tukey_df, row.names = FALSE)
 # Plot Tukey HSD results
 plot(tukey_result, las = 1)
 
-
 ```
 
 ### Test the main ANOVA hypothesis：         
@@ -173,10 +163,8 @@ Large metropolitan areas show significantly higher death rates, while rural and 
 
 ### 3. Education
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Cancer by Education.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cancer", "Cancer by Education.xlsx")
+file_path
 Cancer_by_Education <- read_excel(file_path)
 ```
 
@@ -272,9 +260,8 @@ However, some intermediate education levels, such as having a master’s degree 
 ### 4. Cancer_by_Ten_Year_Age_Group
 ```{r}
 # Set file path
-file_path <- "C:/Users/qq328/Desktop/Cancer by Ten_Year_Age_Group.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cancer", "Cancer by Ten_Year_Age_Group.xlsx")
+file_path
 Cancer_by_Ten_Year_Age_Group <- read_excel(file_path)
 ```
 
@@ -354,10 +341,9 @@ As age increases, mortality rates rise significantly, with the 85+ years group e
 
 ### 5. sex
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/Cancer by Sex.xlsx"
-
-# Load dataset
-Cancer_by_Sex<- read_excel(file_path)
+file_path <- here("data in excel", "Cancer", "Cancer by Sex.xlsx")
+file_path
+Cancer_by_Sex <- read_excel(file_path)
 ```
 
 ```{r}
@@ -433,15 +419,15 @@ Males exhibit a significantly higher number of deaths compared to females.
 
 ### 6. reigon
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/Cancer by Region.xlsx"
-
-# Load dataset
-Cancer_by_Region<- read_excel(file_path)
+file_path <- here("data in excel", "Cancer", "Cancer by Region.xlsx")
+file_path
+Cancer_by_Region <- read_excel(file_path)
 ```
 
 ```{r}
 
 df <- Cancer_by_Region
+
 # Clean column names (remove spaces)
 colnames(df) <- make.names(colnames(df))
 
@@ -519,16 +505,14 @@ The South exhibits the highest number of deaths, followed by the Midwest, while 
 
 ### 7. month\
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Cancer by Month.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cancer", "Cancer by Month.xlsx")
+file_path
 Cancer_by_Month <- read_excel(file_path)
-
 ```
 
 ```{r}
 df <- Cancer_by_Month
+
 # Clean column names (remove spaces)
 colnames(df) <- make.names(colnames(df))
 
