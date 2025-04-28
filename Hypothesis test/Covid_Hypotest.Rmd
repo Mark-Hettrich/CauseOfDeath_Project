@@ -15,11 +15,8 @@ library(ggplot2)
 ```
 ### 1. Race
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Covid by 6 Race.xlsx"
-
-# Load dataset
-Covid_by_6_Race <- read_excel(file_path)
+file_path <- here("data in excel", "Covid", "Covid by 6 Race.xlsx")
+Covid_by_6_Race <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -68,10 +65,8 @@ plot(tukey_result, las = 1)
 ### 2. Urbanization
 From excel ---- Rename "2013 Urbanization" to "Urbanization" for convenience
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/Covid by Urbanization.xlsx"
-
-# Load dataset
-Covid_by_Urbanization<- read_excel(file_path)
+file_path <- here("data in excel", "Covid", "Covid by Urbanization.xlsx")
+Covid_by_Urbanization <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -121,11 +116,8 @@ plot(tukey_result, las = 1)
 
 ### 3. Education
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Covid by Education.xlsx"
-
-# Load dataset
-Covid_by_Education <- read_excel(file_path)
+file_path <- here("data in excel", "Covid", "Covid by Education.xlsx")
+Covid_by_Education <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -189,11 +181,8 @@ plot(tukey_result, las = 1)
 
 ### 4. Ten_Year_Age_Group
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Covid by Ten_Year_Age_Group.xlsx"
-
-# Load dataset
-Covid_by_Ten_Year_Age_Group <- read_excel(file_path)
+file_path <- here("data in excel", "Covid", "Covid by Ten_Year_Age_Group.xlsx")
+Covid_by_Ten_Year_Age_Group <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -240,10 +229,8 @@ plot(tukey_result, las = 1)
 
 ### 5. sex
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/Covid by Sex.xlsx"
-
-# Load dataset
-Covid_by_Sex <- read_excel(file_path)
+file_path <- here("data in excel", "Covid", "Covid by Sex.xlsx")
+Covid_by_Sex <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -291,10 +278,8 @@ plot(tukey_result, las = 1)
 
 ### 6. reigon
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/Covid by Region.xlsx"
-
-# Load dataset
-Covid_by_Region<- read_excel(file_path)
+file_path <- here("data in excel", "Covid", "Covid by Region.xlsx")
+Covid_by_Region <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -344,11 +329,8 @@ plot(tukey_result, las = 1)
 
 ### 7. month
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Covid by Month.xlsx"
-
-# Load dataset
-Covid_by_Month <- read_excel(file_path)
+file_path <- here("data in excel", "Covid", "Covid by Month.xlsx")
+Covid_by_Month <- read_excel(file_path) 
 ```
 
 ```{r}

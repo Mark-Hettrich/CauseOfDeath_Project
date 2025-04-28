@@ -12,13 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 library(readxl)
 library(dplyr)
 library(ggplot2)
+library(here)
 ```
 ### 1. Race
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by 6 Race.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by 6 Race.xlsx")
 Cerebrovascular_by_6_Race <- read_excel(file_path)
 ```
 
@@ -68,10 +66,8 @@ plot(tukey_result, las = 1)
 ### 2. Urbanization
 From excel ---- Rename "2013 Urbanization" to "Urbanization" for convenience
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Urbanization.xlsx"
-
-# Load dataset
-Cerebrovascular_by_Urbanization<- read_excel(file_path)
+file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Urbanization.xlsx")
+Cerebrovascular_by_Urbanization <- read_excel(file_path)
 ```
 
 ```{r}
@@ -121,10 +117,7 @@ plot(tukey_result, las = 1)
 
 ### 3. Education
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Education.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Education.xlsx")
 Cerebrovascular_by_Education <- read_excel(file_path)
 ```
 
@@ -189,10 +182,7 @@ plot(tukey_result, las = 1)
 
 ### 4. Ten_Year_Age_Group
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Ten_Year_Age_Group.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Ten_Year_Age_Group.xlsx")
 Cerebrovascular_by_Ten_Year_Age_Group <- read_excel(file_path)
 ```
 
@@ -240,9 +230,7 @@ plot(tukey_result, las = 1)
 
 ### 5. sex
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Sex.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Sex.xlsx")
 Cerebrovascular_by_Sex <- read_excel(file_path)
 ```
 
@@ -291,10 +279,8 @@ plot(tukey_result, las = 1)
 
 ### 6. reigon
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Region.xlsx"
-
-# Load dataset
-Cerebrovascular_by_Region<- read_excel(file_path)
+file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Region.xlsx")
+Cerebrovascular_by_Region <- read_excel(file_path)
 ```
 
 ```{r}
@@ -344,10 +330,7 @@ plot(tukey_result, las = 1)
 
 ### 7. month
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/Cerebrovascular by Month.xlsx"
-
-# Load dataset
+file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Month.xlsx")
 Cerebrovascular_by_Month <- read_excel(file_path)
 ```
 

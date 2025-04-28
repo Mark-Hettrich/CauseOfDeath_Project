@@ -15,11 +15,8 @@ library(ggplot2)
 ```
 ### 1. Race
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/HeartDiseases by 6 Race.xlsx"
-
-# Load dataset
-HeartDiseases_by_6_Race <- read_excel(file_path)
+file_path <- here("data in excel", "HeartDiseases", "HeartDiseases by 6 Race.xlsx")
+HeartDiseases_by_6_Race <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -68,10 +65,8 @@ plot(tukey_result, las = 1)
 ### 2. Urbanization
 From excel ---- Rename "2013 Urbanization" to "Urbanization" for convenience
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/HeartDiseases by Urbanization.xlsx"
-
-# Load dataset
-HeartDiseases_by_Urbanization<- read_excel(file_path)
+file_path <- here("data in excel", "HeartDiseases", "HeartDiseases by Urbanization.xlsx")
+HeartDiseases_by_Urbanization <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -121,11 +116,8 @@ plot(tukey_result, las = 1)
 
 ### 3. Education
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/HeartDiseases by Education.xlsx"
-
-# Load dataset
-HeartDiseases_by_Education <- read_excel(file_path)
+file_path <- here("data in excel", "HeartDiseases", "HeartDiseases by Education.xlsx")
+HeartDiseases_by_Education <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -189,11 +181,8 @@ plot(tukey_result, las = 1)
 
 ### 4. Ten_Year_Age_Group
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/HeartDiseases by Ten_Year_Age_Group.xlsx"
-
-# Load dataset
-HeartDiseases_by_Ten_Year_Age_Group <- read_excel(file_path)
+file_path <- here("data in excel", "HeartDiseases", "HeartDiseases by Ten_Year_Age_Group.xlsx")
+HeartDiseases_by_Ten_Year_Age_Group <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -240,10 +229,8 @@ plot(tukey_result, las = 1)
 
 ### 5. sex
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/HeartDiseases by Sex.xlsx"
-
-# Load dataset
-HeartDiseases_by_Sex <- read_excel(file_path)
+file_path <- here("data in excel", "HeartDiseases", "HeartDiseases by Sex.xlsx")
+HeartDiseases_by_sex <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -289,12 +276,10 @@ plot(tukey_result, las = 1)
 
 
 
-### 6. reigon
+### 6. Reigon
 ```{r}
-file_path <- "C:/Users/qq328/Desktop/HeartDiseases by Region.xlsx"
-
-# Load dataset
-HeartDiseases_by_Region<- read_excel(file_path)
+file_path <- here("data in excel", "HeartDiseases", "HeartDiseases by Region.xlsx")
+HeartDiseases_by_Region <- read_excel(file_path) 
 ```
 
 ```{r}
@@ -344,11 +329,8 @@ plot(tukey_result, las = 1)
 
 ### 7. month
 ```{r}
-# Set file path
-file_path <- "C:/Users/qq328/Desktop/HeartDiseases by Month.xlsx"
-
-# Load dataset
-HeartDiseases_by_Month <- read_excel(file_path)
+file_path <- here("data in excel", "HeartDiseases", "HeartDiseases by Month.xlsx")
+HeartDiseases_by_Month <- read_excel(file_path) 
 ```
 
 ```{r}
