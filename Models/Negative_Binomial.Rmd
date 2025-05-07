@@ -15,6 +15,8 @@ library(broom)
 library(splines)
 library(purrr)
 library(pscl)
+library(stringr)
+library(emmeans)
 options(scipen = 999)
 ```
 
@@ -24,6 +26,7 @@ df <- read.csv(file_path)
 df <- df %>%
   filter(!(Ten.Year.Age.Groups %in% c("< 1 year", "1-4 years", "5-14 years", "15-24 years"))) %>%
   mutate(Cause = as.factor(Cause)) %>%
+  mutate(Ten.Year.Age.Groups = as.factor(Ten.Year.Age.Groups)) %>%
   mutate(adjusted_population = round(adjusted_population)) %>%
   mutate(Sex = as.factor(Sex)) %>%
   mutate(Education = as.factor(Education)) %>%
@@ -40,6 +43,18 @@ df$Education <- factor(df$Education, levels = c(
   "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)"
 ), ordered = FALSE)
 df$Cause <- relevel(df$Cause, ref = "Others")
+
+df <- df %>%
+  mutate(Education = recode(Education,
+    "8th grade or less" = "<9th",
+    "9th through 12th grade with no diploma" = "Some HS",
+    "High school graduate or GED completed" = "HS Grad",
+    "Some college credit, but not a degree" = "Some College",
+    "Associate degree (AA,AS)" = "Associate",
+    "Bachelor’s degree (BA, AB, BS)" = "Bachelor’s",
+    "Master’s degree (MA, MS, MEng, MEd, MSW, MBA)" = "Master’s",
+    "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)" = "Doctorate/Prof")
+  )
 
 df_combined_sex <- df %>%
   group_by(`Ten.Year.Age.Groups`, Education, Cause) %>%
@@ -65,7 +80,10 @@ for (cause in causes) {
   
   print(p)
 }
+
+
 ```
+
 ```{r log(Deaths) per Age Group & Education}
 causes <- unique(df_combined_sex$Cause)
 
@@ -81,6 +99,19 @@ for (cause in causes) {
   
   print(p)
 }
+
+
+all_deaths_log <- ggplot(subset(df_combined_sex, Cause == "All Deaths"), 
+            aes(x = `Ten.Year.Age.Groups`, y = log(Deaths), color = Education)) +
+geom_point(alpha = 0.7, size = 3, position = position_jitter(width = 0.2, height = 0)) +
+labs(title = "All Deaths by Age Group and Education",
+       x = "Ten-Year Age Group",
+       y = "log(Number of Deaths)") +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggsave("all_deaths_log.png")
 ```
 
 ```{r normalized}
@@ -115,6 +146,18 @@ for (cause in causes) {
   
   print(p)
 }
+
+all_deaths_log_norm <- ggplot(subset(df_combined_sex, Cause == "All Deaths"), 
+            aes(x = `Ten.Year.Age.Groups`, y = log(Deaths/adjusted_population), color = Education)) +
+geom_point(alpha = 0.7, size = 3, position = position_jitter(width = 0.2, height = 0)) +
+labs(title = "All Deaths by Age Group and Education",
+       x = "Ten-Year Age Group",
+       y = "log(Number of Deaths)") +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggsave("all_deaths_log_nrom.png")
 ```
 
 ```{r Data All Deaths Model}
@@ -125,20 +168,19 @@ all_deaths <- df %>% filter(Cause == "All Deaths")
 nb_model <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education + offset(log(adjusted_population)),
                     data = all_deaths,
                   )
-summary(nb_model)
-exp(coefficients(nb_model))  
 
 nb_model2 <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex + Ten.Year.Age.Groups * Education + Sex * Education + offset(log(adjusted_population)),
                     data = all_deaths,
                   )
-summary(nb_model2) #probably scale coefficients (exp(coef) = Deaths per person, so take them * 100k to get a deaths per 100k)
+summary(nb_model2) 
+exp(coefficients(nb_model2))
 ```
 
 ```{r Predicted vs Observed}
 all_deaths$predicted <- predict(nb_model2, type = "response")
 all_deaths$observed <- all_deaths$Deaths
 
-ggplot(all_deaths, aes(x = predicted, y = observed)) +
+pred_vs_observed <- ggplot(all_deaths, aes(x = predicted, y = observed)) +
   geom_point(alpha = 0.7) +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "blue") +
   labs(
@@ -147,7 +189,7 @@ ggplot(all_deaths, aes(x = predicted, y = observed)) +
     y = "Observed Deaths"
   ) +
   theme_minimal()
-
+ggsave("pred_vs_observed.png")
 ggplot(all_deaths, aes(x = predicted, y = observed, color = Sex)) +
   geom_point() +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
@@ -229,49 +271,72 @@ others_data <- df %>% filter(Cause == "Others")
 nb_others <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
                     offset(log(adjusted_population)), data = others_data)
 
+nb_others2 <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex * Education +
+                    offset(log(adjusted_population)), data = others_data)
+
 nb_others_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
                         Ten.Year.Age.Groups * Education +
                         Sex * Education +
                         offset(log(adjusted_population)), data = others_data)
+
 accidents_data <- df %>% filter(Cause == "Accidents")
 
 nb_accidents <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                       offset(log(adjusted_population)), data = accidents_data)
+
+nb_accidents2 <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex * Education +
                        offset(log(adjusted_population)), data = accidents_data)
 
 nb_accidents_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
                            Ten.Year.Age.Groups * Education +
                            Sex * Education +
                            offset(log(adjusted_population)), data = accidents_data)
+
 stroke_data <- df %>% filter(Cause == "Cerebrovascular Diseases")
 
 nb_stroke <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                    offset(log(adjusted_population)), data = stroke_data)
+
+nb_stroke2 <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex * Education +
                     offset(log(adjusted_population)), data = stroke_data)
 
 nb_stroke_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
                         Ten.Year.Age.Groups * Education +
                         Sex * Education +
                         offset(log(adjusted_population)), data = stroke_data, control = glm.control(maxit = 100))
+
 covid_data <- df %>% filter(Cause == "COVID")
 
 nb_covid <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                   offset(log(adjusted_population)), data = covid_data)
+
+nb_covid2 <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex * Education +
                    offset(log(adjusted_population)), data = covid_data)
 
 nb_covid_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
                        Ten.Year.Age.Groups * Education +
                        Sex * Education +
                        offset(log(adjusted_population)), data = covid_data)
+
 heart_data <- df %>% filter(Cause == "Diseases of Heart")
 
 nb_heart <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                   offset(log(adjusted_population)), data = heart_data)
+
+nb_heart2 <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex * Education +
                    offset(log(adjusted_population)), data = heart_data)
 
 nb_heart_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
                        Ten.Year.Age.Groups * Education +
                        Sex * Education +
                        offset(log(adjusted_population)), data = heart_data)
+
 neoplasm_data <- df %>% filter(Cause == "Neoplasms")
 
 nb_neoplasm <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education +
+                      offset(log(adjusted_population)), data = neoplasm_data)
+
+nb_neoplasm2 <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex * Education +
                       offset(log(adjusted_population)), data = neoplasm_data)
 
 nb_neoplasm_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
@@ -284,40 +349,45 @@ nb_neoplasm_int <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
 # OTHERS
 cat("======= OTHERS =======\n")
 cat("AIC (Main effects): ", AIC(nb_others), "\n")
+cat("AIC (Main effects): ", AIC(nb_others2), "\n")
 cat("AIC (Interaction):  ", AIC(nb_others_int), "\n\n")
 
 # ACCIDENTS
 cat("\n======= ACCIDENTS =======\n")
 cat("AIC (Main effects): ", AIC(nb_accidents), "\n")
+cat("AIC (Main effects): ", AIC(nb_accidents2), "\n")
 cat("AIC (Interaction):  ", AIC(nb_accidents_int), "\n\n")
 
 
 # STROKE
 cat("\n======= CEREBROVASCULAR DISEASES =======\n")
 cat("AIC (Main effects): ", AIC(nb_stroke), "\n")
+cat("AIC (Main effects): ", AIC(nb_stroke2), "\n")
 cat("AIC (Interaction):  ", AIC(nb_stroke_int), "\n\n")
 
 
 # COVID
 cat("\n======= COVID =======\n")
 cat("AIC (Main effects): ", AIC(nb_covid), "\n")
+cat("AIC (Main effects): ", AIC(nb_covid2), "\n")
 cat("AIC (Interaction):  ", AIC(nb_covid_int), "\n\n")
 
 
 # HEART
 cat("\n======= DISEASES OF HEART =======\n")
 cat("AIC (Main effects): ", AIC(nb_heart), "\n")
+cat("AIC (Main effects): ", AIC(nb_heart2), "\n")
 cat("AIC (Interaction):  ", AIC(nb_heart_int), "\n\n")
 
 
 # NEOPLASMS
 cat("\n======= NEOPLASMS =======\n")
 cat("AIC (Main effects): ", AIC(nb_neoplasm), "\n")
+cat("AIC (Main effects): ", AIC(nb_neoplasm2), "\n")
 cat("AIC (Interaction):  ", AIC(nb_neoplasm_int), "\n\n")
-
 ```
 
-```{r}
+```{r, echo = FALSE}
 cat("======= OTHERS =======\n")
 summary(nb_others_int)
 
@@ -336,5 +406,835 @@ summary(nb_heart_int)
 cat("\n======= NEOPLASMS =======\n")
 summary(nb_neoplasm_int)
 ```
+
+
+```{r Plot Data Prep}
+coef_alls <- bind_rows(
+  tidy(nb_others_int)   %>% mutate(cause = "Others"),
+  tidy(nb_accidents_int) %>% mutate(cause = "Accidents"),
+  tidy(nb_stroke_int)    %>% mutate(cause = "Cerebrovascular"),
+  tidy(nb_covid_int)     %>% mutate(cause = "COVID"),
+  tidy(nb_heart_int)     %>% mutate(cause = "Heart Disease"),
+  tidy(nb_neoplasm_int)  %>% mutate(cause = "Neoplasms")
+)
+```
+
+```{r Men compared to Women}
+
+coef_1 <- coef_alls %>% filter(term == "SexMale") %>% 
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error)
+  )
+men_vs_women_MainEffect <- ggplot(coef_1,
+       aes(x = cause, y = rr, ymin = lower, ymax = upper)) +
+  geom_point() +
+  geom_errorbar(width = 0.2) +
+  labs(
+    title = "Rate Ratio for Males vs Females by Cause of Death",
+    subtitle = "Exponantiated coefficients",
+    y = "Rate Ratio", x = "Cause of Death"
+  ) +
+  theme_minimal()
+ggsave("men_vs_women_MainEffect.png")
+```
+
+
+```{r Death Rates for Reference Group by educational attainment}
+edu_coef <- coef_alls %>%
+  filter(grepl("^Education", term)) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error)
+  )
+
+edu_coef <- edu_coef %>%
+  mutate(
+    education_level = gsub("Education", "", term),
+    education_level = factor(education_level, levels = unique(education_level))
+  )
+
+ggplot(edu_coef, aes(x = education_level, y = rr)) +
+  geom_point(size = 2) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "fixed") +
+  ylim(0, 3) +
+  labs(
+    title = "Death Rates by Education Level for Each Cause of Death",
+    x = "Education Level",
+    y = "Death Rate vs <9th Grade Education"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r 25-34 vs 85+}
+df_ref85 <- df %>%
+  mutate(Ten.Year.Age.Groups = relevel(factor(Ten.Year.Age.Groups), ref = "85+ years"))
+
+nb_others_ref85 <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                          Ten.Year.Age.Groups * Education +
+                          Sex * Education +
+                          offset(log(adjusted_population)), data = df_ref85 %>% filter(Cause == "Others"))
+
+nb_accidents_ref85 <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                             Ten.Year.Age.Groups * Education +
+                             Sex * Education +
+                             offset(log(adjusted_population)), data = df_ref85 %>% filter(Cause == "Accidents"))
+
+nb_stroke_ref85 <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                          Ten.Year.Age.Groups * Education +
+                          Sex * Education +
+                          offset(log(adjusted_population)), data = df_ref85 %>% filter(Cause == "Cerebrovascular Diseases"), control = glm.control(maxit = 100))
+
+nb_covid_ref85 <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                         Ten.Year.Age.Groups * Education +
+                         Sex * Education +
+                         offset(log(adjusted_population)), data = df_ref85 %>% filter(Cause == "COVID"))
+
+nb_heart_ref85 <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                         Ten.Year.Age.Groups * Education +
+                         Sex * Education +
+                         offset(log(adjusted_population)), data = df_ref85 %>% filter(Cause == "Diseases of Heart"))
+
+nb_neoplasm_ref85 <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                            Ten.Year.Age.Groups * Education +
+                            Sex * Education +
+                            offset(log(adjusted_population)), data = df_ref85 %>% filter(Cause == "Neoplasms"))
+
+
+edu_coef_25 <- coef_alls %>%
+  filter(grepl("^Education", term)) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error),
+    source = "Ref = 25–34"
+  )
+
+# New ref = 85+
+coef_85 <- bind_rows(
+  tidy(nb_others_ref85) %>% mutate(cause = "Others"),
+  tidy(nb_accidents_ref85) %>% mutate(cause = "Accidents"),
+  tidy(nb_stroke_ref85) %>% mutate(cause = "Cerebrovascular"),
+  tidy(nb_covid_ref85) %>% mutate(cause = "COVID"),
+  tidy(nb_heart_ref85) %>% mutate(cause = "Heart Disease"),
+  tidy(nb_neoplasm_ref85) %>% mutate(cause = "Neoplasms")
+)
+
+edu_coef_85 <- coef_85 %>%
+  filter(grepl("^Education", term)) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error),
+    source = "Ref = 85+"
+  )
+
+edu_plot_data <- bind_rows(edu_coef_25, edu_coef_85) %>%
+  mutate(
+    education_level = gsub("Education", "", term),
+    education_level = factor(education_level, levels = unique(education_level))
+  )
+
+
+ggplot(edu_plot_data, aes(x = education_level, y = rr, color = source)) +
+  geom_point(position = position_dodge(width = 0.5), size = 2) +
+  geom_errorbar(aes(ymin = lower, ymax = upper),
+                width = 0.2, position = position_dodge(width = 0.5)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "fixed") +
+  ylim(0, 3) +
+  labs(
+    title = "Rate Ratios by Education Level — Different Age Reference Groups",
+    subtitle = "Comparing models with Age 25–34 vs 85+ as reference",
+    x = "Education Level",
+    y = "Rate Ratio (vs <9th Grade)",
+    color = "Reference Group"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+
+```{r}
+age_edu_combined <- coef_alls %>%
+  filter(grepl("^Education|Ten.Year.Age.Groups85\\+ years:Education", term)) %>%
+  mutate(
+    age_group = case_when(
+      grepl("Ten.Year.Age.Groups85\\+ years:Education", term) ~ "85+",
+      grepl("^Education", term) ~ "25–34",  # main effect applies to reference age
+      TRUE ~ NA_character_
+    ),
+    education_level = gsub(".*Education", "", term),
+    interaction = grepl("Ten.Year.Age.Groups85\\+ years:Education", term)
+  )
+
+# STEP 2: Separate main effects and interactions
+main_effects_age <- age_edu_combined %>% filter(age_group == "25–34")
+interactions_age <- age_edu_combined %>% filter(age_group == "85+")
+
+# STEP 3: Optionally extract age 85+ main effect (not needed if within-age comparison)
+age85_main <- coef_alls %>%
+  filter(term == "Ten.Year.Age.Groups85+ years") %>%
+  dplyr::select(cause, age85_main = estimate, age85_se = std.error) %>%
+  mutate(across(c(age85_main, age85_se), as.numeric))
+
+# STEP 4: Combine interaction + main + age main for 85+
+age85_combined <- interactions_age %>%
+  left_join(main_effects_age, by = c("cause", "education_level"), suffix = c("_int", "_main")) %>%
+  mutate(
+    estimate = estimate_main + estimate_int,
+    std.error = sqrt(std.error_main^2 + std.error_int^2),
+    age_group = "85+"
+  ) %>%
+  dplyr::select(cause, education_level, estimate, std.error, age_group)
+
+# STEP 5: 25–34 is just the main effect
+age_ref_combined <- main_effects_age %>%
+  dplyr::select(cause, education_level, estimate, std.error) %>%
+  mutate(age_group = "25–34")
+
+# STEP 6: Combine and compute RRs
+plot_data_age <- bind_rows(age_ref_combined, age85_combined) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error),
+    education_level = factor(education_level, levels = c(
+      "<8th", "Some HS", "HS Grad", "Some College", "Associate",
+      "Bachelor’s", "Master’s", "Doctorate/Prof"
+    ))
+  )
+
+Age25vs85 <-  ggplot(plot_data_age, aes(x = education_level, y = rr, color = age_group)) +
+  geom_point(position = position_dodge(width = 0.6), size = 2) +
+  geom_errorbar(aes(ymin = lower, ymax = upper),
+                width = 0.2, position = position_dodge(width = 0.6)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "free_y") +
+  labs(
+    title = "Education Rate Ratios compared to <9th Grade",
+    subtitle = "While comparing Age 25–34 vs 85+",
+    x = "Education Level",
+    y = "Rate Ratio (vs. <9th Grade)",
+    color = "Age Group"
+  ) +
+  ylim(0, 3) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggsave("Age25vs85.png")
+```
+
+
+```{r Interactions}
+
+interaction_terms <- coef_alls %>%
+  filter(grepl("Education", term)) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error),
+    cause = as.factor(cause)
+  )
+
+interaction_terms <- interaction_terms %>%
+  mutate(
+    education_level = gsub(".*Education", "", term),  # Extract education name
+    sex = case_when(
+      grepl("SexMale:Education", term) ~ "Male",
+      grepl("^Education", term) ~ "Female",  # main effect is for females if Sex is the reference
+      TRUE ~ NA_character_
+    )
+  )
+
+interaction_terms <- interaction_terms %>%
+  mutate(education_level = factor(education_level, levels = c(
+    "<8th", "Some HS", "HS Grad", "Some College", "Associate", "Bachelor’s", "Master’s", "Doctorate/Prof"
+  )))
+
+ggplot(interaction_terms %>% filter(!is.na(sex)), 
+       aes(x = education_level, y = rr, color = sex)) +
+  geom_point(position = position_dodge(width = 0.5), size = 2) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.2, position = position_dodge(width = 0.5)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "free_y") +
+  labs(
+    title = "Rate Ratios by Education Level and Sex",
+    x = "Education Level",
+    y = "Rate Ratio (vs <9th Grade)"
+  ) +
+  ylim(0, 3) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r Interactions: Education more protective for men}
+sex_edu_combined <- coef_alls %>%
+  filter(grepl("^Education|SexMale:Education", term)) %>%
+  mutate(
+    sex = case_when(
+      grepl("SexMale:Education", term) ~ "Male",
+      grepl("^Education", term) ~ "Female",
+      TRUE ~ NA_character_
+    ),
+    education_level = gsub(".*Education", "", term),
+    interaction = grepl("SexMale:Education", term)
+  )
+
+main_effects <- sex_edu_combined %>% filter(sex == "Female")
+interactions <- sex_edu_combined %>% filter(sex == "Male")
+
+# Combine them
+male_combined <- interactions %>%
+  left_join(main_effects, by = c("cause", "education_level"), suffix = c("_int", "_main")) %>%
+  mutate(
+    estimate = estimate_main + estimate_int,
+    std.error = sqrt(std.error_main^2 + std.error_int^2),
+    sex = "Male"
+  ) %>%
+  dplyr::select(cause, education_level, estimate, std.error, sex)
+female_combined <- main_effects %>%
+  dplyr::select(cause, education_level, estimate, std.error, sex)
+
+plot_data <- bind_rows(female_combined, male_combined) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error)
+  )
+
+plot_data <- plot_data %>%
+  mutate(education_level = factor(education_level, levels = c(
+    "<8th", "Some HS", "HS Grad", "Some College", "Associate", "Bachelor’s", "Master’s", "Doctorate/Prof"
+  )))
+
+men_vs_women_interactions <- ggplot(plot_data, aes(x = education_level, y = rr, color = sex)) +
+  geom_point(position = position_dodge(width = 0.6), size = 2) +
+  geom_errorbar(aes(ymin = lower, ymax = upper),
+                width = 0.2, position = position_dodge(width = 0.6)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "free_y") +
+  labs(
+    title = "Rate Ratios by Education Level and Sex",
+    x = "Education Level",
+    y = "Rate Ratio (vs <9th Grade)"
+  ) +
+  ylim(0, 3) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggsave("men_vs_women_interactions.png")
+```
+
+
+```{r Male vs Female, incl. Male Main Effect}
+sex_edu_combined <- coef_alls %>%
+  filter(grepl("^Education|SexMale:Education", term)) %>%
+  mutate(
+    sex = case_when(
+      grepl("SexMale:Education", term) ~ "Male",
+      grepl("^Education", term) ~ "Female",
+      TRUE ~ NA_character_
+    ),
+    education_level = gsub(".*Education", "", term),
+    interaction = grepl("SexMale:Education", term)
+  )
+
+# STEP 2: Split main effects and interactions
+main_effects <- sex_edu_combined %>% filter(sex == "Female")
+interactions <- sex_edu_combined %>% filter(sex == "Male")
+
+# STEP 3: Extract and ensure SexMale main effect is numeric
+sex_main <- coef_alls %>%
+  filter(term == "SexMale") %>%
+  dplyr::select(cause, sex_main = estimate, se_main = std.error) %>%
+  mutate(across(c(sex_main, se_main), as.numeric))
+
+# STEP 4: Combine Male = main effect + interaction + sex main
+male_combined <- interactions %>%
+  left_join(main_effects, by = c("cause", "education_level"), suffix = c("_int", "_main")) %>%
+  left_join(sex_main, by = "cause") %>%
+  mutate(
+    estimate = unlist(estimate_main) + unlist(estimate_int) + unlist(sex_main.y),
+    std.error = sqrt(
+      unlist(std.error_main)^2 +
+      unlist(std.error_int)^2 +
+      unlist(se_main)^2
+    ),
+    sex = "Male"
+  ) %>%
+  dplyr::select(cause, education_level, estimate, std.error, sex)
+
+# STEP 5: Female = main effect only
+female_combined <- main_effects %>%
+  dplyr::select(cause, education_level, estimate, std.error, sex)
+
+# STEP 6: Combine both and calculate RR + CI
+plot_data <- bind_rows(female_combined, male_combined) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error),
+    education_level = factor(education_level, levels = c(
+      "<8th", "Some HS", "HS Grad", "Some College", "Associate",
+      "Bachelor’s", "Master’s", "Doctorate/Prof"
+    ))
+  )
+
+men_vs_women_incl_main <- ggplot(plot_data, aes(x = education_level, y = rr, color = sex)) +
+  geom_point(position = position_dodge(width = 0.6), size = 2) +
+  geom_errorbar(aes(ymin = lower, ymax = upper),
+                width = 0.2, position = position_dodge(width = 0.6)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "free_y") +
+  labs(
+    title = "Rate Ratios by Education Level and Sex",
+    x = "Education Level",
+    y = "Rate Ratio (vs <9th Grade)"
+  ) +
+  ylim(0, 7) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggsave("men_vs_women_incl_main.png")
+
+```
+
+```{r Ref Female vs Male}
+# STEP 1: Relevel Sex to "Male"
+df_ref_male <- df %>%
+  mutate(Sex = relevel(factor(Sex), ref = "Male"))
+
+# STEP 2: Fit interaction models with Sex = Male as reference
+nb_others_ref_male <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                             Ten.Year.Age.Groups * Education +
+                             Sex * Education +
+                             offset(log(adjusted_population)),
+                             data = df_ref_male %>% filter(Cause == "Others"))
+
+nb_accidents_ref_male <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                                Ten.Year.Age.Groups * Education +
+                                Sex * Education +
+                                offset(log(adjusted_population)),
+                                data = df_ref_male %>% filter(Cause == "Accidents"))
+
+nb_stroke_ref_male <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                             Ten.Year.Age.Groups * Education +
+                             Sex * Education +
+                             offset(log(adjusted_population)),
+                             data = df_ref_male %>% filter(Cause == "Cerebrovascular Diseases"))
+
+nb_covid_ref_male <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                            Ten.Year.Age.Groups * Education +
+                            Sex * Education +
+                            offset(log(adjusted_population)),
+                            data = df_ref_male %>% filter(Cause == "COVID"))
+
+nb_heart_ref_male <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                            Ten.Year.Age.Groups * Education +
+                            Sex * Education +
+                            offset(log(adjusted_population)),
+                            data = df_ref_male %>% filter(Cause == "Diseases of Heart"))
+
+nb_neoplasm_ref_male <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex +
+                               Ten.Year.Age.Groups * Education +
+                               Sex * Education +
+                               offset(log(adjusted_population)),
+                               data = df_ref_male %>% filter(Cause == "Neoplasms"))
+
+# STEP 3: Extract coefficients (Male ref)
+coef_male <- bind_rows(
+  tidy(nb_others_ref_male)   %>% mutate(cause = "Others"),
+  tidy(nb_accidents_ref_male) %>% mutate(cause = "Accidents"),
+  tidy(nb_stroke_ref_male)    %>% mutate(cause = "Cerebrovascular"),
+  tidy(nb_covid_ref_male)     %>% mutate(cause = "COVID"),
+  tidy(nb_heart_ref_male)     %>% mutate(cause = "Heart Disease"),
+  tidy(nb_neoplasm_ref_male)  %>% mutate(cause = "Neoplasms")
+)
+
+edu_coef_male_ref <- coef_male %>%
+  filter(grepl("^Education", term)) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error),
+    source = "Ref = Male"
+  )
+
+# STEP 4: Extract coefficients (Female ref — original coef_alls)
+edu_coef_female_ref <- coef_alls %>%
+  filter(grepl("^Education", term)) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error),
+    source = "Ref = Female"
+  )
+
+# STEP 5: Combine and clean education levels
+edu_plot_data_sex <- bind_rows(edu_coef_female_ref, edu_coef_male_ref) %>%
+  mutate(
+    education_level = gsub("Education", "", term),
+    education_level = factor(education_level, levels = c(
+      "<8th", "Some HS", "HS Grad", "Some College", "Associate",
+      "Bachelor’s", "Master’s", "Doctorate/Prof"
+    ))
+  )
+
+# STEP 6: Plot
+ggplot(edu_plot_data_sex, aes(x = education_level, y = rr, color = source)) +
+  geom_point(position = position_dodge(width = 0.5), size = 2) +
+  geom_errorbar(
+    aes(ymin = lower, ymax = upper),
+    position = position_dodge(width = 0.5),
+    width = 0.2
+  ) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "free_y") +
+  ylim(0, 3) +
+  labs(
+    title = "Rate Ratios by Education Level",
+    subtitle = "Comparison by Sex Reference Group (Male vs Female)",
+    x = "Education Level",
+    y = "Rate Ratio (vs <9th Grade)",
+    color = "Reference Group"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+Redundant, better solutions above
+
+```{r 25-34 vs 85+}
+# STEP 1: Extract Education and Age85+ × Education interaction terms
+age_edu_combined <- coef_alls %>%
+  filter(grepl("^Education|Ten.Year.Age.Groups85\\+ years:Education", term)) %>%
+  mutate(
+    age_group = case_when(
+      grepl("Ten.Year.Age.Groups85\\+ years:Education", term) ~ "85+",
+      grepl("^Education", term) ~ "25–34",  # reference group
+      TRUE ~ NA_character_
+    ),
+    education_level = gsub(".*Education", "", term),
+    interaction = grepl("Ten.Year.Age.Groups85\\+ years:Education", term)
+  )
+
+# STEP 2: Split main effects and interactions
+main_effects_age <- age_edu_combined %>% filter(age_group == "25–34")
+interactions_age <- age_edu_combined %>% filter(age_group == "85+")
+
+# STEP 3: Extract main effect of Age 85+
+age85_main <- coef_alls %>%
+  filter(term == "Ten.Year.Age.Groups85+ years") %>%
+  dplyr::select(cause, age85_main = estimate, age85_se = std.error) %>%
+  mutate(across(c(age85_main, age85_se), as.numeric))
+
+# STEP 4: Combine main + interaction + age85 main effect
+age85_combined <- interactions_age %>%
+  left_join(main_effects_age, by = c("cause", "education_level"), suffix = c("_int", "_main")) %>%
+  left_join(age85_main, by = "cause") %>%
+  mutate(
+    estimate = as.numeric(unlist(estimate_main)) +
+               as.numeric(unlist(estimate_int)) +
+               as.numeric(unlist(age85_main)),
+    
+    std.error = sqrt(
+      as.numeric(unlist(std.error_main))^2 +
+      as.numeric(unlist(std.error_int))^2 +
+      as.numeric(unlist(age85_se))^2
+    ),
+    age_group = "85+"
+  ) %>%
+  dplyr::select(cause, education_level, estimate, std.error, age_group)
+
+# STEP 5: Reference group (age 25–34) = education main effects
+age_ref_combined <- main_effects_age %>%
+  dplyr::select(cause, education_level, estimate, std.error) %>%
+  mutate(age_group = "25–34")
+
+# STEP 6: Combine and calculate RR + CI
+plot_data_age <- bind_rows(age_ref_combined, age85_combined) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error),
+    education_level = factor(education_level, levels = c(
+      "<8th", "Some HS", "HS Grad", "Some College", "Associate",
+      "Bachelor’s", "Master’s", "Doctorate/Prof"
+    ))
+  )
+
+
+ggplot(plot_data_age, aes(x = education_level, y = rr, color = age_group)) +
+  geom_point(position = position_dodge(width = 0.6), size = 2) +
+  geom_errorbar(aes(ymin = lower, ymax = upper),
+                width = 0.2, position = position_dodge(width = 0.6)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "free_y") +
+  labs(
+    title = "Rate Ratios by Education Level — Age 25–34 vs 85+",
+    x = "Education Level",
+    y = "Rate Ratio (vs 25–34, <8th Grade)"
+  ) +
+  ylim(0, 500) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
+#statt beide zu includen, reference group ändern
+```
+
+```{r 65-74 vs 25-34}
+# STEP 1: Extract Education + 65–74 × Education terms
+age_edu_combined_65 <- coef_alls %>%
+  dplyr::filter(
+    str_detect(term, "^Education") |
+    str_detect(term, fixed("Ten.Year.Age.Groups65-74 years:Education"))
+  ) %>%
+  mutate(
+    age_group = case_when(
+      str_detect(term, fixed("Ten.Year.Age.Groups65-74 years:Education")) ~ "65–74",
+      str_detect(term, "^Education") ~ "25–34",
+      TRUE ~ NA_character_
+    ),
+    education_level = gsub(".*Education", "", term),
+    interaction = str_detect(term, fixed("Ten.Year.Age.Groups65-74 years:Education"))
+  )
+
+# STEP 2: Split main and interaction terms
+main_effects_65 <- age_edu_combined_65 %>% filter(age_group == "25–34")
+interactions_65 <- age_edu_combined_65 %>% filter(age_group == "65–74")
+
+# STEP 3: Get main effect for age group 65–74
+age65_main <- coef_alls %>%
+  filter(term == "Ten.Year.Age.Groups65-74 years") %>%
+  dplyr::select(cause, age65_main = estimate, age65_se = std.error) %>%
+  mutate(across(c(age65_main, age65_se), as.numeric))
+
+# STEP 4: Combine education main + interaction + age main
+age65_combined <- interactions_65 %>%
+  left_join(main_effects_65, by = c("cause", "education_level"), suffix = c("_int", "_main")) %>%
+  left_join(age65_main, by = "cause") %>%
+  mutate(
+    estimate = as.numeric(unlist(estimate_main)) +
+               as.numeric(unlist(estimate_int)) +
+               as.numeric(unlist(age65_main)),
+    std.error = sqrt(
+      as.numeric(unlist(std.error_main))^2 +
+      as.numeric(unlist(std.error_int))^2 +
+      as.numeric(unlist(age65_se))^2
+    ),
+    age_group = "65–74"
+  ) %>%
+  dplyr::select(cause, education_level, estimate, std.error, age_group)
+
+# STEP 5: Keep main effects for 25–34
+age_ref_65 <- main_effects_65 %>%
+  dplyr::select(cause, education_level, estimate, std.error) %>%
+  mutate(age_group = "25–34")
+
+# STEP 6: Combine and calculate RR
+plot_data_65 <- bind_rows(age_ref_65, age65_combined) %>%
+  mutate(
+    rr = exp(estimate),
+    lower = exp(estimate - 1.96 * std.error),
+    upper = exp(estimate + 1.96 * std.error),
+    education_level = factor(education_level, levels = c(
+      "<8th", "Some HS", "HS Grad", "Some College", "Associate",
+      "Bachelor’s", "Master’s", "Doctorate/Prof"
+    ))
+  )
+
+ggplot(plot_data_65, aes(x = education_level, y = rr, color = age_group)) +
+  geom_point(position = position_dodge(width = 0.6), size = 2) +
+  geom_errorbar(aes(ymin = lower, ymax = upper),
+                width = 0.2, position = position_dodge(width = 0.6)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "free_y") +
+  labs(
+    title = "Rate Ratios by Education Level — Age 25–34 vs 65–74",
+    x = "Education Level",
+    y = "Rate Ratio (vs 25–34, <8th Grade)"
+  ) +
+  ylim(0, 50) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r Model with just Deaths ~ Education + offset & Model with just Education which uses aggregated Data}
+abcd <- df %>%
+  group_by(Education, Cause) %>%
+  summarise(
+    Deaths = sum(Deaths, na.rm = TRUE),
+    adjusted_population = sum(adjusted_population, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  dplyr::select(Education, Cause, Deaths, adjusted_population)
+
+others_data2 <- abcd %>% filter(Cause == "Others")
+
+nb_others2 <- glm(
+  Deaths ~ Education + offset(log(adjusted_population)),
+  family = poisson,
+  data = others_data2
+)
+
+accidents_data2 <- abcd %>% filter(Cause == "Accidents")
+
+nb_accidents2 <- glm(
+  Deaths ~ Education + offset(log(adjusted_population)),
+  family = poisson, data = accidents_data2)
+
+stroke_data2 <- abcd %>% filter(Cause == "Cerebrovascular Diseases")
+
+nb_stroke2 <- glm(
+  Deaths ~ Education + offset(log(adjusted_population)),
+  family = poisson, data = stroke_data2)
+
+covid_data2 <- abcd %>% filter(Cause == "COVID")
+
+nb_covid2 <- glm(
+  Deaths ~ Education + offset(log(adjusted_population)),
+  family = poisson, data = covid_data2)
+
+heart_data2 <- abcd %>% filter(Cause == "Diseases of Heart")
+
+nb_heart2 <- glm(
+  Deaths ~ Education + offset(log(adjusted_population)),
+  family = poisson, data = heart_data2)
+
+neoplasm_data2 <- abcd %>% filter(Cause == "Neoplasms")
+
+nb_neoplasm2 <- glm(
+  Deaths ~ Education + offset(log(adjusted_population)),
+  family = poisson, data = neoplasm_data2)
+```
+
+```{r Plot Data Prep}
+coef_allss <- bind_rows(
+  tidy(nb_others2)   %>% mutate(cause = "Others"),
+  tidy(nb_accidents2) %>% mutate(cause = "Accidents"),
+  tidy(nb_stroke2)    %>% mutate(cause = "Cerebrovascular"),
+  tidy(nb_covid2)     %>% mutate(cause = "COVID"),
+  tidy(nb_heart2)     %>% mutate(cause = "Heart Disease"),
+  tidy(nb_neoplasm2)  %>% mutate(cause = "Neoplasms")
+)
+
+coef_plot <- coef_allss %>%
+  filter(grepl("^Education", term)) %>%
+  mutate(
+    term = gsub("Education", "", term),  # clean names
+    RR = exp(estimate),
+    CI_low = exp(estimate - 1.96 * std.error),
+    CI_high = exp(estimate + 1.96 * std.error)
+  )
+
+# Add reference manually (assumed "<8th" is baseline)
+ref_row <- tibble(
+  term = "<8th",
+  RR = 1,
+  CI_low = 1,
+  CI_high = 1,
+  cause = unique(coef_plot$cause)
+)
+
+coef_plot <- bind_rows(coef_plot, ref_row) %>%
+      mutate(term = factor(term, levels = c(
+      "<8th", "Some HS", "HS Grad", "Some College", "Associate",
+      "Bachelor’s", "Master’s", "Doctorate/Prof"
+    )))
+
+# Plot
+ggplot(coef_plot, aes(x = term, y = RR)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = CI_low, ymax = CI_high), width = 0.2) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray") +
+  facet_wrap(~ cause, scales = "free_y") +
+  labs(
+    y = "Rate Ratio (RR)",
+    x = "Education Level",
+    title = "Rate Ratios by Education and Cause of Death"
+  ) +
+  ylim(0, 3) +
+  theme_minimal(base_size = 13) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
+
+```{r Whole Model Effect}
+models_int <- list(
+  "Others" = nb_others_int,
+  "Accidents" = nb_accidents_int,
+  "Cerebrovascular" = nb_stroke_int,
+  "COVID" = nb_covid_int,
+  "Heart Disease" = nb_heart_int,
+  "Neoplasms" = nb_neoplasm_int
+)
+
+# STEP 2: Get EMMs for each model, per Education
+emm_edu_all <- lapply(names(models_int), function(cause_name) {
+  model <- models_int[[cause_name]]
+  
+  emm <- emmeans(model, ~ Education, type = "response")
+  df <- as.data.frame(emm) %>%
+    mutate(
+      rr = response / response[Education == "<9th"],
+      lower = rr * exp(-1.96 * SE / response),
+      upper = rr * exp(+1.96 * SE / response),
+      cause = cause_name
+    )
+})
+
+# STEP 3: Combine into one dataframe
+emm_edu_df <- bind_rows(emm_edu_all)
+
+# STEP 4: Optional — reorder education levels for prettier plots
+emm_edu_df$Education <- factor(emm_edu_df$Education, levels = c(
+  "<9th", "Some HS", "HS Grad", "Some College", "Associate",
+  "Bachelor’s", "Master’s", "Doctorate/Prof"
+))
+
+# STEP 5: Plot
+marginal_effects <- ggplot(emm_edu_df, aes(x = Education, y = rr)) +
+  geom_point(size = 2) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  facet_wrap(~cause, scales = "free_y") +
+  labs(
+    title = "Overall Education Rate Ratios by Cause of Death",
+    subtitle = "Adjusted for Age and Sex — Reference: <9th Grade",
+    x = "Education Level",
+    y = "Rate Ratio (vs <9th Grade)"
+  ) +
+  ylim(0,2) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggsave("marginal_effects.png")
+emmeans(nb_model, ~ Education | Sex, type = "response")
+
+```
+
 
 

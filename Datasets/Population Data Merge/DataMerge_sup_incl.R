@@ -84,7 +84,7 @@ cdc_age_sex <- cdc_age_sex %>%
       `Single-Year Ages Code` >= 85 ~ 85,
       TRUE ~ `Single-Year Ages Code`
     ),
-    Population = as.numeric(Population)  # <-- fix is here
+    Population = as.numeric(Population)  
   ) %>%
   group_by(`Single-Year Ages Code`, Sex) %>%
   summarise(population = sum(Population, na.rm = TRUE)) %>%
@@ -110,14 +110,42 @@ mean(cdc_age_sex$population - pop_by_age_sex$population) #mean difference is 71k
 mean(cdc_age_sex$population)
 mean(pop_by_age_sex$population)
 
+####Adjusting Discrepancies
+
+# Step 1: Summarise target population totals (cdc)
+cdc_totals <- cdc_age_sex %>%
+  group_by(`Single-Year Ages Code`, Sex) %>%
+  summarise(target_population = as.numeric(population, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Get current totals from pop_by_age_sex
+pop_by_group_totals <- pop_by_age_sex %>%
+  group_by(AGE, Sex) %>%
+  summarise(current_population = as.numeric(population, na.rm = TRUE), .groups = "drop")
+
+# Step 3: Join and compute adjustment factors
+adjustment_factors <- left_join(
+  cdc_totals,
+  pop_by_group_totals,
+  by = c("Single-Year Ages Code" = "AGE", "Sex")
+) %>%
+  mutate(adjustment_factor = target_population / current_population)
+
+# Step 4: Apply adjustment to each row in pop_by_group
+pop_by_group_adjusted <- pop_by_group %>%
+  left_join(
+    adjustment_factors %>% dplyr::select(`Single-Year Ages Code`, Sex, adjustment_factor),
+    by = c("AGE" = "Single-Year Ages Code", "Sex")
+  ) %>%
+  mutate(adjusted_population = population * adjustment_factor) %>%
+  dplyr::select(AGE, Sex, Education, adjusted_population)
+
 
 #####
 ###Adding Population to cdc Data:
 #####
 
 # We will only include age >= 79, due to IPUMS Ages being coded as: 80 for ages 80-84 & 85 for ages 85+
-pop_by_group <- pop_by_group %>% filter(AGE < 80)
-
+pop_by_group <- pop_by_group_adjusted %>% filter(AGE < 80)
 file_path <- here("Data_Yicheng", "Death data 21_23", "Ages_Sex_Edu_2021_2023", "Diseases of heart.csv")
 heart_df <- read_csv(file_path)
 heart_df <- heart_df[-1]
@@ -137,23 +165,6 @@ heart_df <- heart_df %>%
 
 heart_df <- heart_df %>%
   left_join(pop_by_group, by = c("AGE", "Sex", "Education"))
-
-## Controlling process
-sum(heart_df$population, na.rm = TRUE)
-sum(pop_by_group$population)
-
-missing_df <- full_join(
-  pop_by_group,
-  heart_df,
-  by = c("AGE", "Sex", "Education"),
-  suffix = c("_pop", "_heart")
-) %>%
-  filter(is.na(Deaths)) %>%
-  arrange(desc(population_pop))
-
-sum(missing_df$population_pop)
-sum(heart_df$population, na.rm = TRUE) - sum(pop_by_group$population)
-#mismatch fixed when if suppressed rows are included
 
 # Neoplasms
 neoplasms_df <- read_csv(here("Data_Yicheng", "Death data 21_23", "Ages_Sex_Edu_2021_2023", "Malignant neoplasms.csv"))
@@ -236,44 +247,6 @@ others_df <- others_df %>%
   ) %>%
   left_join(pop_by_group, by = c("AGE", "Sex", "Education"))
 
-#####
-## Total population in pop_by_group for reference
-#####
-pop_ref <- sum(pop_by_group$population)
-
-# Heart
-heart_total <- sum(heart_df$population, na.rm = TRUE)
-heart_diff <- heart_total - pop_ref
-
-# Neoplasms
-neoplasms_total <- sum(neoplasms_df$population, na.rm = TRUE)
-neoplasms_diff <- neoplasms_total - pop_ref
-
-# Accidents
-accidents_total <- sum(accidents_df$population, na.rm = TRUE)
-accidents_diff <- accidents_total - pop_ref
-
-# COVID
-covid_total <- sum(covid_df$population, na.rm = TRUE)
-covid_diff <- covid_total - pop_ref
-
-# Cerebro
-cerebro_total <- sum(cerebro_df$population, na.rm = TRUE)
-cerebro_diff <- cerebro_total - pop_ref
-
-# Others
-others_total <- sum(others_df$population, na.rm = TRUE)
-others_diff <- others_total - pop_ref
-
-# Display results
-cat("Population differences by cause (cause total - pop_by_group total):\n")
-cat("Heart     :", heart_diff, "\n")
-cat("Neoplasms :", neoplasms_diff, "\n")
-cat("Accidents :", accidents_diff, "\n")
-cat("COVID     :", covid_diff, "\n")
-cat("Cerebro   :", cerebro_diff, "\n")
-cat("Others    :", others_diff, "\n")
-# All avaliable Populations used
 
 heart_df <- heart_df %>% mutate(Cause = "Diseases of Heart")
 neoplasms_df <- neoplasms_df %>% mutate(Cause = "Neoplasms")

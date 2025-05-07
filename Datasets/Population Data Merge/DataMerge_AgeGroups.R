@@ -15,7 +15,7 @@ ipums_asec <- df %>%
   filter(ASECFLAG == 1)
 ipums_asec <- ipums_asec %>%
   mutate(Sex = ifelse(SEX == 1, "Male", "Female"))
-
+df
 edu_grouped <- c(
   # 8th grade or less
   `1` = "8th grade or less",
@@ -54,7 +54,6 @@ edu_grouped <- c(
 ipums_asec <- ipums_asec %>%
   mutate(Education = recode(as.character(EDUC), !!!edu_grouped))
 
-ipums_asec %>% pull(ASECWT) %>% mean()
 
 pop_by_group <- ipums_asec %>%
   mutate(age_group = case_when(
@@ -90,6 +89,9 @@ sum(pop_by_group$population) # ~987 Mil
 cdc_age_sex %>% # ~1000 Mil
   summarise(total_population = sum(as.numeric(Population), na.rm = TRUE))
 
+as.numeric(cdc_totals$target_population) - as.numeric(pop_by_group_totals$current_population)
+
+
 ####Adjusting Discrepancies
 
 # Step 1: Summarise target population totals (cdc)
@@ -113,11 +115,11 @@ adjustment_factors <- left_join(
 # Step 4: Apply adjustment to each row in pop_by_group
 pop_by_group_adjusted <- pop_by_group %>%
   left_join(
-    adjustment_factors %>% select(`Ten-Year Age Groups`, Sex, adjustment_factor),
+    adjustment_factors %>% dplyr::select(`Ten-Year Age Groups`, Sex, adjustment_factor),
     by = c("age_group" = "Ten-Year Age Groups", "Sex")
   ) %>%
   mutate(adjusted_population = population * adjustment_factor) %>%
-  select(age_group, Sex, Education, adjusted_population)
+  dplyr::select(age_group, Sex, Education, adjusted_population)
 
 ######Control 
 pop_by_group_adjusted %>% filter(age_group == "15-24 years" & Sex == "Female") %>% pull(adjusted_population) %>% sum() 
