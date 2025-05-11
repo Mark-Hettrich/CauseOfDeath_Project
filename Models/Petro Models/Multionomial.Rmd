@@ -1,0 +1,406 @@
+---
+title: "Multinomial"
+---
+
+#labRiaies
+```{r}
+
+# install.packages("readr")     
+# install.packages("dplyr")     
+# install.packages("stringr")   
+# install.packages("VGAM")   
+library(readr)
+library(dplyr)
+library(stringr)
+library(nnet)
+library(knitr)
+library(VGAM)
+library(broom)
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(here)
+```
+
+
+
+
+#Read data 
+```{r}
+# Reading each CSV file 
+data_mult <- read_csv(here("All_Causes_Age_Groups10.csv"))
+```
+
+# Data Preparation and Overview
+```{r}
+
+# Filter rows where Cause is NOT "All Deaths"
+data_mult_filtered <- data_mult %>%
+  filter(Cause != "All Deaths")
+
+# Check structure of dataset
+glimpse(data_mult)
+
+
+# Identify categorical (character) columns
+categorical_columns <- sapply(data_mult, is.character)
+
+# Extract unique values from each categorical column
+unique_values <- lapply(data_mult[, categorical_columns], unique)
+
+# Print unique values for each categorical variable
+for (col in names(unique_values)) {
+  cat("Unique values in variable:", col, "\n")
+  print(unique_values[[col]])
+  cat("\n")
+}
+```
+
+
+
+# Data Preparation
+```{r}
+# Filter the data: keep only rows where key variables are not missing, deaths are valid, and age group is in the desired list
+
+data_mult_filtered <- data_mult_filtered %>%
+  filter(
+    !is.na(Cause),
+    !is.na(Sex),
+    !is.na(Education),
+    !is.na(`Ten-Year Age Groups`),
+    !is.na(Deaths),
+    is.finite(Deaths),
+    Deaths > 0,
+    `Ten-Year Age Groups` %in% c("25-34 years", "35-44 years", "45-54 years",
+                                 "55-64 years", "65-74 years", "75-84 years", "85+ years")
+  ) %>%
+  mutate(
+    Deaths = round(as.numeric(Deaths)), # Convert Deaths to numeric and round the values
+    Cause = relevel(factor(Cause), ref = "Others") # Convert Cause to factor and set "Others" as the reference level
+  )
+
+# Remove the 'adjusted_population' column from the dataset
+data_mult_filtered <- data_mult_filtered %>%
+  select(-adjusted_population)
+
+# Display summary statistics of the filtered dataset
+summary(data_mult_filtered)
+
+
+# Check if there are any missing values remaining in the dataset
+any(is.na(data_mult_filtered))
+
+```
+
+
+
+
+
+
+
+# Model
+Sex + Education + `Ten-Year Age Groups`
+
+#Шансы смерти от причины внутри всех смертей \\ Это модель структуры смертности, а не риска смерти.
+#Chance of death from cause within all deaths \\ This is a mortality structure model, not a risk of death.
+
+```{r}
+# Check levels
+levels(data_mult_filtered$Cause)
+```
+
+
+#Model : Education
+
+```{r}
+
+model_education <- vglm(Cause ~ Education,
+              family = multinomial(refLevel = "Others"),
+              weights = Deaths,
+              data = data_mult_filtered)
+
+summary(model_education)
+```
+
+
+
+
+
+#Model : Sex + Education + Ten-Year Age Groups
+
+```{r}
+model_sex_education_age <- vglm(Cause ~ Sex + Education + `Ten-Year Age Groups`,
+              family = multinomial(refLevel = "Others"),
+              weights = Deaths,
+              data = data_mult_filtered)
+
+summary(model_sex_education_age)
+```
+
+
+
+
+#Model : Sex + Education + Ten-Year Age Groups + Interaction
+```{r}
+model_interaction <- vglm(Cause ~ Sex + Education + `Ten-Year Age Groups`+ Education*Sex + Education*`Ten-Year Age Groups`,
+              family = multinomial(refLevel = "Others"),
+              weights = Deaths,
+              data = data_mult_filtered)
+
+summary(model_interaction)
+```
+
+
+
+
+# Table of cofficients of Model with Intraction 
+```{r}
+library(dplyr)
+library(tidyr)
+library(stringr)
+
+# 1. Extract coefficients
+coef_table <- coef(summary(model_interaction))
+coef_df <- as.data.frame(coef_table)
+coef_df$Combined <- rownames(coef_df)
+
+# 2. Remove Intercept
+coef_df <- coef_df %>% filter(!str_detect(Combined, "\\(Intercept\\)"))
+
+# 3. Extract CauseLevel (the number after the last ":") and Predictor
+coef_df <- coef_df %>%
+  mutate(
+    CauseID = str_extract(Combined, "[^:]+$"),
+    Predictor = str_replace(Combined, ":[^:]+$", "")
+  )
+
+# 4. Add confidence intervals
+colnames(coef_df)[1:2] <- c("Estimate", "StdError")
+coef_df <- coef_df %>%
+  mutate(
+    Lower = Estimate - 1.96 * StdError,
+    Upper = Estimate + 1.96 * StdError
+  )
+
+# 5. Display top 5 coefficients for each CauseID
+top5_df <- coef_df %>%
+  group_by(CauseID) %>%
+  arrange(desc(Estimate)) %>%
+  slice_head(n = 5) %>%
+  ungroup()
+
+# 6. Print the table
+print(top5_df)
+
+```
+
+
+
+# Gafik of coefieccients of Model with Intractions
+
+```{r}
+library(ggplot2)
+
+# 1. Create a mapping vector
+cause_labels <- c(
+  "1" = "Accidents",
+  "2" = "Cerebrovascular Diseases",
+  "3" = "COVID",
+  "4" = "Diseases of Heart",
+  "5" = "Neoplasms"
+)
+
+# 2. Convert CauseID to a factor with labels
+top5_df <- top5_df %>%
+  mutate(Cause = recode(CauseID, !!!cause_labels))
+
+# 1. Plot top-5 predictors (including interactions) for each cause
+unique_causes <- unique(top5_df$CauseID)
+
+# Use Cause in the plot title
+for (cid in unique(top5_df$Cause)) {
+  plot_data <- filter(top5_df, Cause == cid)
+  
+  p <- ggplot(plot_data, aes(x = reorder(Predictor, Estimate), y = Estimate)) +
+    geom_pointrange(aes(ymin = Lower, ymax = Upper), color = "black", size = 0.8) +
+    coord_flip() +
+    theme_bw(base_size = 20) +  # Increase base text size
+    theme(
+      plot.title = element_text(size = 24, face = "bold"),
+      axis.title.x = element_text(size = 20),
+      axis.title.y = element_text(size = 20),
+      axis.text = element_text(size = 18)
+    ) +
+    labs(
+      title = paste("Top 5 Predictors (including interactions) for Cause:", cid),
+      x = "Predictor",
+      y = "Coefficient (log-odds)"
+    )
+  
+  print(p)
+}
+```
+
+
+
+
+
+
+# Model Compaison AIC\BIC
+```{r}
+# Собираем метрики
+model_comparison <- data.frame(
+  Model = c("1: Education",
+            "2: Education + Age + Sex",
+             "3: with Interaction"),
+  # LogLikelihood = c(logLik(model_education),
+  #                   logLik(model_sex_education_age),
+  #                   logLik(model_interaction)),
+  AIC = c(AIC(model_education),
+          AIC(model_sex_education_age),
+          AIC(model_interaction)),
+  BIC = c(BIC(model_education),
+          BIC(model_sex_education_age),
+          BIC(model_interaction))
+)
+
+# Округляем для наглядности
+#model_comparison$LogLikelihood <- round(model_comparison$LogLikelihood, 2)
+model_comparison$AIC <- round(model_comparison$AIC, 2)
+model_comparison$BIC <- round(model_comparison$BIC, 2)
+
+# Вывод таблицы
+model_comparison
+
+```
+
+
+# END --------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Other 
+
+
+```{r}
+# model_interaction_v2 <- vglm(Cause ~  Education + Education*Sex + Education*`Ten-Year Age Groups`,
+#               family = multinomial(refLevel = "Others"),
+#               weights = Deaths,
+#               data = data_mult_filtered)
+# 
+# summary(model_interaction_v2)
+```
+
+
+
+
+
+#Bayes model
+```{r}
+# # Убедись, что установлены нужные пакеты
+# #install.packages("brms")        # Если не установлен
+# library(brms)
+# 
+# 
+# 
+# # Байесовская мультиномиальная логистическая регрессия
+# bayes_model <- brm(
+#   formula = Cause ~ Education,
+#   data = data_mult_filtered,
+#   family = categorical(link = "logit"),
+# #  weights = Deaths,
+#   chains = 4,
+#   cores = 4,
+#   iter = 2000,
+#   seed = 123
+# )
+# 
+# # Сводка модели
+# summary(bayes_model)
+# 
+# # Визуализация коэффициентов
+# plot(bayes_model)
+
+```
+
+
+
+
+
+#fis woking model
+```{r}
+# model <- vglm(Cause ~ Sex + Education ,
+#               family = multinomial(refLevel = "Others"),
+#               weights = Deaths,
+#               data = data_mult_filtered)
+# 
+# summary(model)
+```
+
+
+#penalised v1 
+```{r}
+# model <- vglm(Cause ~  Sex + Education, family = multinomial(refLevel = "Others"), data = data_mult_filtered,
+#               weights = Deaths, maxit = 50, control = vglm.control(trace = TRUE), penalty = TRUE)
+# 
+# 
+# 
+# summary(model)
+
+```
+
+#penalised v2 
+```{r}
+# library(glmnet)
+
+# # Подготовка данных
+# X <- model.matrix(Cause ~ Sex + Education, data = data_mult_filtered)[, -1]
+# y <- factor(data_mult_filtered$Cause)
+# 
+# # Веса: Deaths
+# w <- data_mult_filtered$Deaths
+# 
+# # Обучение с регуляризацией (L2 по умолчанию)
+# cv_fit <- cv.glmnet(X, y, family = "multinomial", weights = w)
+# 
+# # Коэффициенты при оптимальном lambda
+# coef(cv_fit, s = "lambda.min")
+```
+
+
+
+# penalised v3
+```{r}
+# install.packages("pemultinom")
+# 
+# library(pemultinom)
+# 
+# # Подготовка данных: преобразование предикторов в матрицу и отклика в фактор
+# x <- model.matrix(~  Education, data = data_mult_filtered)[, -1]
+# y <- as.factor(data_mult_filtered$Cause)
+# 
+# # Обучение модели с кросс-валидацией для выбора параметра регуляризации
+# fit <- cv.pemultinom(x = x, y = y, nfolds = 5)
+# 
+# # Извлечение коэффициентов модели при оптимальном значении lambda
+# beta <- fit$beta.min
+# 
+# # Получение предсказаний на новых данных (пример)
+# predictions <- predict_pemultinom(fit, newx = x)
+
+```
