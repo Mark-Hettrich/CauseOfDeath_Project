@@ -45,11 +45,8 @@ df$Cause <- relevel(df$Cause, ref = "Others")
 ```
 
 
-```{r}
-data <- df %>% filter(!is.na(population))
-```
-
 ```{r Creating AFT suitable data}
+data <- df %>% filter(!is.na(population))
 # 0. Get all unique causes
 causes <- unique(data$Cause)
 n_causes <- length(causes)
@@ -88,9 +85,17 @@ censored <- expand.grid(
 
 # 4. Combine events and censored into AFT- datast
 aft_data <- bind_rows(events, censored)
+
 aft_data_over24 <- aft_data %>% filter(AGE > 24)
+
 ```
 
+```{r showing proportional hazards assumption does not hold}
+cox_model <- coxph(Surv(AGE, event) ~ Sex + Education + Cause, weights = count, data = aft_data_over24)
+cox_model2 <- coxph(Surv(AGE, event) ~ Education * Cause + Sex * Cause +  Education * Sex, weights = count, data = aft_data_over24)
+cox.zph(cox_model) #ph assumption doesnt hold
+cox.zph(cox_model2) #ph assumption doesnt hold
+```
 
 ```{r Model 1}
 weibull <- survreg( Surv(AGE, event) ~ Sex + Education + Cause, data = aft_data_over24, weights = count, dist = "weibull", control = list(maxiter = 1000)
@@ -151,16 +156,20 @@ aft_exponential2 <- survreg(Surv(AGE, event) ~ Education * Cause + Sex * Cause +
 AIC(aft_weibull2, aft_lognormal2, aft_loglogistic2, aft_exponential2)
 ```
 
-
+Weibull performs best, however is mathematically equivalent to Proportional Hazard Models thus gives biased estimates. We use the 2nd best alternative: loglogistic.
 ```{r Best Model}
 #compare with AIC
 AIC(aft_weibull, weibull, aft_weibull2, aft_model_weibull) #weibull2 is best
+AIC(aft_loglogistic, aft_loglogistic2, loglogistic, aft_model_loglogistic) # loglogistic2 is best
 ```
 
-```{r Model summary}
-emmeans(aft_weibull2, ~ Education * Cause, type = "response")  #only look at coefficients to check acceleration/deceleration!
-emmeans(aft_weibull2, ~ Education * Cause | Sex, type = "response") #only look at coefficients to check acceleration/deceleration!
-summary(aft_weibull2)
+```{r Model interpretation}
+emmeans(aft_loglogistic2, ~ Education * Cause, type = "response")  #only look at coefficients to check acceleration/deceleration!
+emmeans(aft_loglogistic2, ~ Education * Cause) #for logarithmic estimates  
+
+emmeans(aft_loglogistic2, ~ Education * Cause | Sex, type = "response") #only look at coefficients to check acceleration/deceleration!
+emmeans(aft_loglogistic2, ~ Education * Cause | Sex) #for logarithmic estimates
+summary(aft_loglogistic2)
 ```
 
 
@@ -175,7 +184,7 @@ avg_age_by_edu_cause <- data %>%
   ) %>%
   arrange(Cause, desc(avg_age_at_death))
 
-print(avg_age_by_edu_cause)
+avg_age_by_edu_cause
 
 
 data %>%
