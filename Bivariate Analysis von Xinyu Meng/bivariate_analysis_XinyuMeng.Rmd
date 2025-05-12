@@ -5,29 +5,6 @@ date: "2025-03-08"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 ```{r}
 library(haven)
 library(dplyr)
@@ -39,12 +16,16 @@ library(dynamicTreeCut)
 library(fastDummies)
 library(lubridate)
 library(ggplot2)
+library(here)
+library(corrplot)
+
 theme_set(theme_minimal())
 
 ```
 
 ```{r}
-df.15.causes <- read.csv("data causes of death/15 causes of death.csv")
+file_path <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death.csv")
+df.15.causes <- read.csv(file_path)
 #Sort by Crude Rate and Select the Top 10
 top_5 <- df.15.causes %>%
   filter(!is.na(Causes.of.Death)) %>%
@@ -66,8 +47,10 @@ ggplot(top_5, aes(x = reorder(Causes.of.Death, Crude.Rate), y = Crude.Rate)) +
 
 ```{r}
 # read data
-male_data <- read.csv("data causes of death/15 causes of death_Male.csv")
-female_data <- read.csv("data causes of death/15 causes of death_Female.csv")
+file1 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_Male.csv")
+file2 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_Female.csv")
+male_data <- read.csv(file1)
+female_data <- read.csv(file2)
 
 #Add Gender Column
 male_data$Gender <- "Male"
@@ -108,13 +91,17 @@ print(p3)
 
 
 
-```{r cars}
+```{r }
 #Age group and 15 causes of death
 #read data
-children_data <- read.csv("data causes of death/15 causes of death_Children.csv")
-young_adults_data <- read.csv("data causes of death/15 causes of deatha__Young_Adults.csv")
-adults_data <- read.csv("data causes of death/15 causes of death_Adults.csv")
-old_age_data <- read.csv("data causes of death/15 causes of death_Old_Age.csv")
+file3 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_Children.csv")
+file4 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of deatha__Young_Adults.csv")
+file5 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_Adults.csv")
+file6 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_Old_Age.csv")
+children_data <- read.csv(file3)
+young_adults_data <- read.csv(file4)
+adults_data <- read.csv(file5)
+old_age_data <- read.csv(file6)
 
 #Add Age Group Column
 children_data$Age_Group <- "Children"
@@ -192,10 +179,14 @@ distinct_correlation_results <- distinct(correlation_results)
 print(distinct_correlation_results)
 
 ```
-```{r cars}
-df_covid <- read.csv("data causes of death/data causes of death/covid/COVID_by_AgeGroup10.csv", stringsAsFactors = FALSE)
-df_heart <- read.csv("data causes of death/data causes of death/HeartDisease/HeartDisease_by_AgeGroup10.csv", stringsAsFactors = FALSE)
-df_cerebro <- read.csv("data causes of death/data causes of death/Cerebro/Cerebro_by_AgeGroup10.csv", stringsAsFactors = FALSE)
+
+```{r }
+file7 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death","data causes of death", "covid", "COVID_by_AgeGroup10.csv")
+file8 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "data causes of death", "HeartDisease", "HeartDisease_by_AgeGroup10.csv")
+file9 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "data causes of death", "Cerebro", "Cerebro_by_AgeGroup10.csv")
+df_covid <- read.csv(file7, stringsAsFactors = FALSE)
+df_heart <- read.csv(file8, stringsAsFactors = FALSE)
+df_cerebro <- read.csv(file9, stringsAsFactors = FALSE)
 
 
 df_covid <- rename(df_covid, AgeGroup = `Ten.Year.Age.Groups`)
@@ -209,17 +200,16 @@ df_cerebro$Crude.Rate <- as.numeric(df_cerebro$Crude.Rate)
 
 #rbind
 df_merged <- df_covid %>% 
-  select(AgeGroup, Crude.Rate) %>% 
+  dplyr::select(AgeGroup, Crude.Rate) %>% 
   rename(Crude_Rate_COVID = Crude.Rate) %>%
-  inner_join(df_heart %>% select(AgeGroup, Crude.Rate) %>% rename(Crude_Rate_Heart = Crude.Rate), by = "AgeGroup") %>%
-  inner_join(df_cerebro %>% select(AgeGroup, Crude.Rate) %>% rename(Crude_Rate_Cerebro = Crude.Rate), by = "AgeGroup")
+  inner_join(df_heart %>% dplyr::select(AgeGroup, Crude.Rate) %>% rename(Crude_Rate_Heart = Crude.Rate), by = "AgeGroup") %>%
+  inner_join(df_cerebro %>% dplyr::select(AgeGroup, Crude.Rate) %>% rename(Crude_Rate_Cerebro = Crude.Rate), by = "AgeGroup")
 
 #Calculate Correlation Matrix
 cor_matrix <- cor(df_merged[, 2:4], use = "complete.obs")
 print(cor_matrix)
 
 #Visualize Correlation Matrix
-library(corrplot)
 corrplot(cor_matrix, method = "color", type = "upper", tl.col = "black", tl.srt = 45)
 
 #Plot Scatterplot Matrix
@@ -242,19 +232,20 @@ ggplot(df_long, aes(x = AgeGroup, y = Crude_Rate, fill = Disease)) +
        x = "Age Group",
        y = "Log(Crude Rate)") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-
 ```
 
-```{r cars}
+```{r}
 #Compare by different education
-college_higher <- read.csv("data causes of death/15 causes of death_College_Higher.csv", stringsAsFactors = FALSE)
-high_school <- read.csv("data causes of death/15 causes of death_high school.csv", stringsAsFactors = FALSE)
-under_12_grade <- read.csv("data causes of death/15 causes of death_under 12 grade.csv", stringsAsFactors = FALSE)
+file10 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_College_Higher.csv")
+file11 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_high school.csv")
+file12 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_under 12 grade.csv")
+college_higher <- read.csv(file10, stringsAsFactors = FALSE)
+high_school <- read.csv(file11, stringsAsFactors = FALSE)
+under_12_grade <- read.csv(file12, stringsAsFactors = FALSE)
 
-college_higher <- college_higher %>% select(Cause.of.Death, Deaths)
-high_school <- high_school %>% select(Cause.of.Death, Deaths)
-under_12_grade <- under_12_grade %>% select(Cause.of.Death, Deaths)
+college_higher <- college_higher %>% dplyr::select(Cause.of.Death, Deaths)
+high_school <- high_school %>% dplyr::select(Cause.of.Death, Deaths)
+under_12_grade <- under_12_grade %>% dplyr::select(Cause.of.Death, Deaths)
 
 colnames(college_higher)[2] <- "College_Higher"
 colnames(high_school)[2] <- "High_School"
@@ -274,23 +265,26 @@ ggplot(df_long, aes(x = Cause.of.Death, y = Deaths, fill = Education_Level)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-```{r cars}
-college_higher <- read.csv("data causes of death/15 causes of death_College_Higher.csv", stringsAsFactors = FALSE)
-high_school <- read.csv("data causes of death/15 causes of death_high school.csv", stringsAsFactors = FALSE)
-under_12_grade <- read.csv("data causes of death/15 causes of death_under 12 grade.csv", stringsAsFactors = FALSE)
+```{r}
+file13 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_College_Higher.csv")
+file14 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_high school.csv")
+file15 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death_under 12 grade.csv")
+college_higher <- read.csv(file13, stringsAsFactors = FALSE)
+high_school <- read.csv(file14, stringsAsFactors = FALSE)
+under_12_grade <- read.csv(file15, stringsAsFactors = FALSE)
 
 college_higher <- college_higher %>%
-  select(Cause.of.Death, Deaths) %>%
+  dplyr::select(Cause.of.Death, Deaths) %>%
   mutate(Deaths = as.numeric(Deaths), Education_Level = "College_Higher") %>%
   slice_max(order_by = Deaths, n = 5)
 
 high_school <- high_school %>%
-  select(Cause.of.Death, Deaths) %>%
+  dplyr::select(Cause.of.Death, Deaths) %>%
   mutate(Deaths = as.numeric(Deaths), Education_Level = "High_School") %>%
   slice_max(order_by = Deaths, n = 5)
 
 under_12_grade <- under_12_grade %>%
-  select(Cause.of.Death, Deaths) %>%
+  dplyr::select(Cause.of.Death, Deaths) %>%
   mutate(Deaths = as.numeric(Deaths), Education_Level = "Under_12_Grade") %>%
   slice_max(order_by = Deaths, n = 5)
 
@@ -309,21 +303,24 @@ ggplot(df_long, aes(x = Education_Level, y = Deaths, fill = Cause.of.Death)) +
   theme(axis.text.x = element_text(angle = 0, hjust = 0.5))
 ```
 
-```{r cars}
+```{r}
 #compare by different state
-df_covid <- read.csv("data causes of death/data causes of death/covid/COVID_by_State.csv", stringsAsFactors = FALSE)
-df_heart <- read.csv("data causes of death/data causes of death/HeartDisease/HeartDisease_by_State.csv", stringsAsFactors = FALSE)
-df_cerebro <- read.csv("data causes of death/data causes of death/Cerebro/Cerebro_by_State.csv", stringsAsFactors = FALSE)
+file16 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "data causes of death", "covid", "COVID_by_State.csv")
+file17 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "data causes of death", "HeartDisease", "HeartDisease_by_State.csv")
+file18 <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "data causes of death", "Cerebro", "Cerebro_by_State.csv")
+df_covid <- read.csv(file16, stringsAsFactors = FALSE)
+df_heart <- read.csv(file17, stringsAsFactors = FALSE)
+df_cerebro <- read.csv(file18, stringsAsFactors = FALSE)
 
 df_covid$Crude.Rate <- as.numeric(df_covid$Crude.Rate)
 df_heart$Crude.Rate <- as.numeric(df_heart$Crude.Rate)
 df_cerebro$Crude.Rate <- as.numeric(df_cerebro$Crude.Rate)
 
 df_merged <- df_covid %>% 
-  select(State, Crude.Rate) %>% 
+  dplyr::select(State, Crude.Rate) %>% 
   rename(Crude_Rate_COVID = Crude.Rate) %>%
-  inner_join(df_heart %>% select(State, Crude.Rate) %>% rename(Crude_Rate_Heart = Crude.Rate), by = "State") %>%
-  inner_join(df_cerebro %>% select(State, Crude.Rate) %>% rename(Crude_Rate_Cerebro = Crude.Rate), by = "State")
+  inner_join(df_heart %>% dplyr::select(State, Crude.Rate) %>% rename(Crude_Rate_Heart = Crude.Rate), by = "State") %>%
+  inner_join(df_cerebro %>% dplyr::select(State, Crude.Rate) %>% rename(Crude_Rate_Cerebro = Crude.Rate), by = "State")
 
 cor_matrix <- cor(df_merged[, 2:4], use = "complete.obs")
 print(cor_matrix)

@@ -1,5 +1,6 @@
-data <- top15_causes_of_death
-top5_deaths <- data[1:4,]
+file_path <- here("Bivariate Analysis von Xinyu Meng", "data causes of death", "15 causes of death.csv")
+df.15.causes <- read.csv(file_path)
+top5_deaths <- df.15.causes[1:4,]
 
 #`15 Leading Causes of Death`                          `15 Leading Causes of Death Code`  Deaths Population `Crude Rate`
 #<chr>                                                 <chr>                               <dbl>      <dbl>        <dbl>
