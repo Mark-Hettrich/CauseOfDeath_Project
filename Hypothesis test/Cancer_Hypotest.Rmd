@@ -4,11 +4,6 @@ author: "Yicheng"
 date: "2025-03-14"
 
 ---
-```{r setup, include=FALSE}
-library(knitr)
-knitr::opts_knit$set(root.dir = "C:/Users/Windows/Desktop/CauseOfDeath_Project")
-```
-
 
 
 ```{r}
@@ -20,7 +15,7 @@ library(here)
 
 ### 1. Race
 ```{r}
-file_path <- here("data in excel", "Cancer", "Cancer by 6 Race.xlsx")
+file_path <- here(""Hypothesis test", "data in excel", "Cancer", "Cancer by 6 Race.xlsx")
 Cancer_by_6_Race <- read_excel(file_path)
 ```
 
@@ -93,7 +88,7 @@ The Tukey HSD test confirms that race significantly affects mortality. White ind
 ### 2. Urbanization
 From excel ---- Rename "2013 Urbanization" to "Urbanization" for convenience
 ```{r}
-file_path <- here("data in excel", "Cancer", "Cancer by Urbanization.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Cancer", "Cancer by Urbanization.xlsx")
 file_path
 Cancer_by_Urbanization <- read_excel(file_path)
 ```
@@ -165,7 +160,7 @@ Large metropolitan areas show significantly higher death rates, while rural and 
 
 ### 3. Education
 ```{r}
-file_path <- here("data in excel", "Cancer", "Cancer by Education.xlsx")
+file_path <- here(""Hypothesis test", "data in excel", "Cancer", "Cancer by Education.xlsx")
 file_path
 Cancer_by_Education <- read_excel(file_path)
 ```
@@ -262,7 +257,7 @@ However, some intermediate education levels, such as having a master’s degree 
 ### 4. Cancer_by_Ten_Year_Age_Group
 ```{r}
 # Set file path
-file_path <- here("data in excel", "Cancer", "Cancer by Ten_Year_Age_Group.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Cancer", "Cancer by Ten_Year_Age_Group.xlsx")
 file_path
 Cancer_by_Ten_Year_Age_Group <- read_excel(file_path)
 ```
@@ -343,7 +338,7 @@ As age increases, mortality rates rise significantly, with the 85+ years group e
 
 ### 5. sex
 ```{r}
-file_path <- here("data in excel", "Cancer", "Cancer by Sex.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Cancer", "Cancer by Sex.xlsx")
 file_path
 Cancer_by_Sex <- read_excel(file_path)
 ```
@@ -421,7 +416,7 @@ Males exhibit a significantly higher number of deaths compared to females.
 
 ### 6. reigon
 ```{r}
-file_path <- here("data in excel", "Cancer", "Cancer by Region.xlsx")
+file_path <- here("Hypothesis test" ,"data in excel", "Cancer", "Cancer by Region.xlsx")
 file_path
 Cancer_by_Region <- read_excel(file_path)
 ```
@@ -507,7 +502,7 @@ The South exhibits the highest number of deaths, followed by the Midwest, while 
 
 ### 7. month\
 ```{r}
-file_path <- here("data in excel", "Cancer", "Cancer by Month.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Cancer", "Cancer by Month.xlsx")
 file_path
 Cancer_by_Month <- read_excel(file_path)
 ```

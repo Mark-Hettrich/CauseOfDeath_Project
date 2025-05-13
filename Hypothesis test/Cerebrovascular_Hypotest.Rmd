@@ -4,10 +4,6 @@ output: html_document
 date: "2025-03-16"
 ---
 
-```{r setup, include=FALSE}
-library(knitr)
-knitr::opts_knit$set(root.dir = "C:/Users/Windows/Desktop/CauseOfDeath_Project")
-```
 
 ```{r}
 library(readxl)
@@ -17,7 +13,7 @@ library(here)
 ```
 ### 1. Race
 ```{r}
-file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by 6 Race.xlsx")
+file_path <- here("Hypothesis test",  "data in excel", "Cerebrovascular", "Cerebrovascular by 6 Race.xlsx")
 Cerebrovascular_by_6_Race <- read_excel(file_path)
 ```
 
@@ -67,7 +63,7 @@ plot(tukey_result, las = 1)
 ### 2. Urbanization
 From excel ---- Rename "2013 Urbanization" to "Urbanization" for convenience
 ```{r}
-file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Urbanization.xlsx")
+file_path <- here("Hypothesis test",  "data in excel", "Cerebrovascular", "Cerebrovascular by Urbanization.xlsx")
 Cerebrovascular_by_Urbanization <- read_excel(file_path)
 ```
 
@@ -118,7 +114,7 @@ plot(tukey_result, las = 1)
 
 ### 3. Education
 ```{r}
-file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Education.xlsx")
+file_path <- here("Hypothesis test",  "data in excel", "Cerebrovascular", "Cerebrovascular by Education.xlsx")
 Cerebrovascular_by_Education <- read_excel(file_path)
 ```
 
@@ -183,7 +179,7 @@ plot(tukey_result, las = 1)
 
 ### 4. Ten_Year_Age_Group
 ```{r}
-file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Ten_Year_Age_Group.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Cerebrovascular", "Cerebrovascular by Ten_Year_Age_Group.xlsx")
 Cerebrovascular_by_Ten_Year_Age_Group <- read_excel(file_path)
 ```
 
@@ -231,7 +227,7 @@ plot(tukey_result, las = 1)
 
 ### 5. sex
 ```{r}
-file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Sex.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Cerebrovascular", "Cerebrovascular by Sex.xlsx")
 Cerebrovascular_by_Sex <- read_excel(file_path)
 ```
 
@@ -280,7 +276,7 @@ plot(tukey_result, las = 1)
 
 ### 6. reigon
 ```{r}
-file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Region.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Cerebrovascular", "Cerebrovascular by Region.xlsx")
 Cerebrovascular_by_Region <- read_excel(file_path)
 ```
 
@@ -331,7 +327,7 @@ plot(tukey_result, las = 1)
 
 ### 7. month
 ```{r}
-file_path <- here("data in excel", "Cerebrovascular", "Cerebrovascular by Month.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Cerebrovascular", "Cerebrovascular by Month.xlsx")
 Cerebrovascular_by_Month <- read_excel(file_path)
 ```
 
