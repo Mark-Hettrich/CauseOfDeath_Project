@@ -28,7 +28,7 @@ library(here)
 #Read data 
 ```{r}
 # Reading each CSV file 
-data_mult <- read_csv(here("All_Causes_Age_Groups10.csv"))
+data_mult <- read_csv(here("Datasets", "Population Data Merge", "Age Group Data", "All_Causes_Age_Groups10.csv"))
 ```
 
 # Data Preparation and Overview
@@ -101,8 +101,6 @@ any(is.na(data_mult_filtered))
 # Model
 Sex + Education + `Ten-Year Age Groups`
 
-#Шансы смерти от причины внутри всех смертей \\ Это модель структуры смертности, а не риска смерти.
-#Chance of death from cause within all deaths \\ This is a mortality structure model, not a risk of death.
 
 ```{r}
 # Check levels
