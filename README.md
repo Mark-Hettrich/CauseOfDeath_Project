@@ -2,7 +2,7 @@
 
 Here is the GitHub repository where we stored all of our code.
 
-Please make sure to add the cps_00006.csv file to 'Datasets' -> 'Population Data Merge' locally to ensure that the code works. The file is to large to push on GitHub.
+Please make sure to add the cps_00006.csv file to 'Datasets' -> 'Population Data Merge' locally to ensure that the code works. The file is to large to push on GitHub, and should be recieved by mail.
 Additionally please make sure to open the Here.R Script and execute the code, so that the here() function we used across the project works reliably. 
 
 The following listed files are the most essential files for this project. Other files only serve exploratory purposes and are to be ignored.
