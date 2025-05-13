@@ -164,7 +164,18 @@ labs(title = "All Deaths by Age Group and Education - normalized",
 all_deaths <- df %>% filter(Cause == "All Deaths")
 ```
 
-```{r Model for all Deaths}
+```{r Show overdispersion}
+poisson_model <- glm(Deaths ~ Ten.Year.Age.Groups + Sex + Education + offset(log(adjusted_population)),
+                     data = all_deaths,
+                     family = poisson(link = "log"))
+
+summary(poisson_model)
+# Calculate dispersion
+dispersion <- sum(residuals(poisson_model, type = "pearson")^2) / poisson_model$df.residual
+dispersion #should be 1 --> significant overdispersion
+```
+
+```{r NB Model for all Deaths}
 nb_model <- glm.nb(Deaths ~ Ten.Year.Age.Groups + Sex + Education + offset(log(adjusted_population)),
                     data = all_deaths,
                   )
@@ -175,6 +186,7 @@ nb_model2 <- glm.nb(Deaths ~ Ten.Year.Age.Groups * Sex + Ten.Year.Age.Groups * E
 summary(nb_model2) 
 exp(coefficients(nb_model2))
 ```
+
 
 ```{r Predicted vs Observed}
 all_deaths$predicted <- predict(nb_model2, type = "response")
