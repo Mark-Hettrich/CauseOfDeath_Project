@@ -20,7 +20,7 @@ library(here)
 library(ggplot2)
 library(readr)
 library(dplyr)
-options(scipen=999) #normale Zahlen statt 2e+05 oder so
+options(scipen=999) 
 ```
 
 Year
