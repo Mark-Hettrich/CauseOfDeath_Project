@@ -15,7 +15,7 @@ library(here)
 
 ### 1. Race
 ```{r}
-file_path <- here(""Hypothesis test", "data in excel", "Cancer", "Cancer by 6 Race.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Cancer", "Cancer by 6 Race.xlsx")
 Cancer_by_6_Race <- read_excel(file_path)
 ```
 

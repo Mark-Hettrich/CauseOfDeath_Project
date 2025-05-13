@@ -4,11 +4,6 @@ output: html_document
 date: "2025-03-16"
 ---
 
-```{r setup, include=FALSE}
-library(knitr)
-knitr::opts_knit$set(root.dir = "C:/Users/Windows/Desktop/CauseOfDeath_Project")
-```
-
 ```{r}
 library(readxl)
 library(dplyr)
@@ -16,7 +11,7 @@ library(ggplot2)
 ```
 ### 1. Race
 ```{r}
-file_path <- here("data in excel", "Neoplasms", "Neoplasms by 6 Race.xlsx")
+file_path <- here("Hypothesis test", "data in excel", "Neoplasms", "Neoplasms by 6 Race.xlsx")
 Neoplasms_by_6_Race <- read_excel(file_path) 
 ```
 
