@@ -4,10 +4,12 @@ author: "Yicheng"
 date: "2025-03-14"
 
 ---
-
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+knitr::opts_knit$set(root.dir = "C:/Users/Windows/Desktop/CauseOfDeath_Project")
 ```
+
+
 
 ```{r}
 library(readxl)
