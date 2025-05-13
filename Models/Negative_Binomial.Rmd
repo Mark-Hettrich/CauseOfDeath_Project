@@ -110,8 +110,8 @@ labs(title = "All Deaths by Age Group and Education",
   scale_color_brewer(palette = "Dark2") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-ggsave("all_deaths_log.png")
+paths <- here("Plots Protocol")
+#ggsave("all_deaths_log.png", path = paths)
 ```
 
 ```{r normalized}
@@ -150,14 +150,14 @@ for (cause in causes) {
 all_deaths_log_norm <- ggplot(subset(df_combined_sex, Cause == "All Deaths"), 
             aes(x = `Ten.Year.Age.Groups`, y = log(Deaths/adjusted_population), color = Education)) +
 geom_point(alpha = 0.7, size = 3, position = position_jitter(width = 0.2, height = 0)) +
-labs(title = "All Deaths by Age Group and Education",
+labs(title = "All Deaths by Age Group and Education - normalized",
        x = "Ten-Year Age Group",
        y = "log(Number of Deaths)") +
   scale_color_brewer(palette = "Dark2") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("all_deaths_log_nrom.png")
+#ggsave("all_deaths_log_nrom.png", path = paths)
 ```
 
 ```{r Data All Deaths Model}
@@ -189,7 +189,7 @@ pred_vs_observed <- ggplot(all_deaths, aes(x = predicted, y = observed)) +
     y = "Observed Deaths"
   ) +
   theme_minimal()
-ggsave("pred_vs_observed.png")
+#ggsave("pred_vs_observed.png")
 ggplot(all_deaths, aes(x = predicted, y = observed, color = Sex)) +
   geom_point() +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed") +
@@ -437,7 +437,7 @@ men_vs_women_MainEffect <- ggplot(coef_1,
     y = "Rate Ratio", x = "Cause of Death"
   ) +
   theme_minimal()
-ggsave("men_vs_women_MainEffect.png")
+#ggsave("men_vs_women_MainEffect.png")
 ```
 
 
@@ -456,7 +456,7 @@ edu_coef <- edu_coef %>%
     education_level = factor(education_level, levels = unique(education_level))
   )
 
-ggplot(edu_coef, aes(x = education_level, y = rr)) +
+deathrates_ref <- ggplot(edu_coef, aes(x = education_level, y = rr)) +
   geom_point(size = 2) +
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2) +
   geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
@@ -469,7 +469,8 @@ ggplot(edu_coef, aes(x = education_level, y = rr)) +
   ) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
+deathrates_ref
+#ggsave("deathrates_ref.png", path = paths)
 ```
 
 ```{r 25-34 vs 85+}
@@ -628,7 +629,7 @@ Age25vs85 <-  ggplot(plot_data_age, aes(x = education_level, y = rr, color = age
   ylim(0, 3) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-ggsave("Age25vs85.png")
+#ggsave("Age25vs85.png", path = paths)
 ```
 
 
@@ -730,7 +731,7 @@ men_vs_women_interactions <- ggplot(plot_data, aes(x = education_level, y = rr, 
   ylim(0, 3) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-ggsave("men_vs_women_interactions.png")
+#ggsave("men_vs_women_interactions.png")
 ```
 
 
@@ -802,7 +803,7 @@ men_vs_women_incl_main <- ggplot(plot_data, aes(x = education_level, y = rr, col
   ylim(0, 7) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-ggsave("men_vs_women_incl_main.png")
+#ggsave("men_vs_women_incl_main.png") 
 
 ```
 
@@ -916,7 +917,7 @@ ggplot(edu_plot_data_sex, aes(x = education_level, y = rr, color = source)) +
 
 
 
-
+---------------------------- END -------------------------------------------
 
 
 
@@ -1231,9 +1232,26 @@ marginal_effects <- ggplot(emm_edu_df, aes(x = Education, y = rr)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("marginal_effects.png")
-emmeans(nb_model, ~ Education | Sex, type = "response")
+#ggsave("marginal_effects.png", path = paths)
 
+
+
+emmeans(nb_stroke_int, ~ Education | Sex, type = "response")
+emmeans(nb_covid_int, ~ Education | Sex, type = "response")
+emmeans(nb_neoplasm_int, ~ Education | Sex, type = "response")
+emmeans(nb_heart_int, ~ Education | Sex, type = "response")
+emmeans(nb_accidents_int, ~ Education | Sex, type = "response")
+
+emmeans(nb_stroke_int, ~ Education, type = "response")
+emmeans(nb_covid_int, ~ Education, type = "response")
+emmeans(nb_neoplasm_int, ~ Education, type = "response")
+emmeans(nb_heart_int, ~ Education, type = "response")
+emmeans(nb_accidents_int, ~ Education, type = "response")
+
+
+
+stroke_data %>% filter(Cause == "Cerebrovascular Diseases") %>% filter(Sex == "Female") %>% mutate(a = Deaths / adjusted_population) %>% pull(a) %>% sum()
+stroke_data %>% filter(Cause == "Cerebrovascular Diseases") %>% filter(Sex == "Male") %>% mutate(a = Deaths / adjusted_population) %>% pull(a) %>% sum()
 ```
 
 
